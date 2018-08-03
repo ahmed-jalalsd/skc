@@ -1,0 +1,142 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "bulma-extensions@^2.0.0",
+        "scope": null,
+        "escapedName": "bulma-extensions",
+        "name": "bulma-extensions",
+        "rawSpec": "^2.0.0",
+        "spec": ">=2.0.0 <3.0.0",
+        "type": "range"
+      },
+      "/home/aj/Sites/kennel-club"
+    ]
+  ],
+  "_from": "bulma-extensions@>=2.0.0 <3.0.0",
+  "_id": "bulma-extensions@2.2.1",
+  "_inCache": true,
+  "_location": "/bulma-extensions",
+  "_nodeVersion": "10.4.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/bulma-extensions_2.2.1_1529129823515_0.997866719940756"
+  },
+  "_npmUser": {
+    "name": "wikiki",
+    "email": "wikiki@protonmail.com"
+  },
+  "_npmVersion": "6.1.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "bulma-extensions@^2.0.0",
+    "scope": null,
+    "escapedName": "bulma-extensions",
+    "name": "bulma-extensions",
+    "rawSpec": "^2.0.0",
+    "spec": ">=2.0.0 <3.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/bulma-extensions/-/bulma-extensions-2.2.1.tgz",
+  "_shasum": "b77e75eb6eb47f8eb79d45450888d49d22d72f96",
+  "_shrinkwrap": null,
+  "_spec": "bulma-extensions@^2.0.0",
+  "_where": "/home/aj/Sites/kennel-club",
+  "author": {
+    "name": "Wikiki",
+    "email": "wikiki@protonmail.com",
+    "url": "https://wikiki.github.io/bulma-extensions/overview"
+  },
+  "bugs": {
+    "url": "https://github.com/Wikiki/bulma-extensions/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {},
+  "description": "Set of extensions for Bulma.io CSS Framework",
+  "devDependencies": {
+    "ansi-colors": "^2.0.1",
+    "autoprefixer": "^8.6.2",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bulma": "^0.7.1",
+    "camelcase": "^5.0.0",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "del": "^3.0.0",
+    "fancy-log": "^1.3.2",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-nop": "0.0.3",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "jest": "^23.1.0",
+    "regenerator-runtime": "^0.11.1",
+    "semantic-release": "^15.5.2",
+    "travis-deploy-once": "^5.0.0",
+    "webpack": "^4.12.0",
+    "webpack-stream": "^4.0.3"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-Ma1ersWOxRQgaOs/TRw3JaufUCPKDcUpLWIEli7z3OKkQ1YfcTOYIYgTMqlTlM4nipzCjCltivlXHWk3n6wS5w==",
+    "shasum": "b77e75eb6eb47f8eb79d45450888d49d22d72f96",
+    "tarball": "https://registry.npmjs.org/bulma-extensions/-/bulma-extensions-2.2.1.tgz",
+    "fileCount": 159,
+    "unpackedSize": 1310952,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbJKtgCRA9TVsSAnZWagAA7HsQAJWTbJIh/BS0qTaGeqcR\nhFIYKHwwQ4tNGt+U7+TkIjML3FywdBwt7Z6iMJbZTnfR+1LPPTSfp/dDeLM5\noaTk+pA9/hKkK7dJl0MJjgH7IjnHV34W+WVGydl+kipsRS8x3MxDOjRr6MTz\nDWpPDnx3VJpnrd5CtuxfY6CVs19IJAfrms8pOXyc9SNA1dOD1IBr4zAeluX4\nZQEK6Tj68TKureAJngE3XaneQMrK/8eISbEKuyrOmW+36yGpOOWRmVBKbo/Q\nlAQ/6nLVX91eJhi56SkIjT/3PbS+8QTXXEAj0g2qMPELpoktTVoO7Ov5vai4\nSTnma/MAUOJPQjWWqCptrvD8yxlhEqcZBDPuJrTd3QdGZnztwEft4ZeR7IB4\nf54ZgvKhqU48Le2Ok+V0+iV3URmQfN8yjuZQqX2AwNcZeub4Ifbbwj9lbfhQ\nfAvf6QmHe/eBwyLeQDcdURtKIPrOyq+163E5kpGdVzFnMRhtC5JLe8n0ptqR\nHx3reCuGdXBuYfv2B3vjcnnC8nu2YHdYlGMJa+C7x4PZpNGCsjYTmGH4xhQO\nJJZrZqbg97izz8V0aHkjMozVOYfe9IqNcwTvluldL6HjiMujzaDQ6iZBTXEF\nY+dxFTrKE1iKX/I6SNlMY+j4P7ih5/xEL0E3uLMiqdqqCFBMEJZXuHMt6jT7\ndf4R\r\n=LhGl\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "files": [
+    "dist/**",
+    "src/**",
+    "bulma-*/dist/**",
+    "bulma-*/src/**",
+    "LICENSE",
+    "README.md"
+  ],
+  "gitHead": "0fd4dfe3ca88c9480f7aa5166160cfbe1405b388",
+  "homepage": "https://github.com/Wikiki/bulma-extensions#readme",
+  "keywords": [
+    "bulma",
+    "extensions",
+    "bulma.io"
+  ],
+  "license": "MIT",
+  "main": "./dist/js/bulma-extensions.min.js",
+  "maintainers": [
+    {
+      "name": "wikiki",
+      "email": "wikiki@protonmail.com"
+    }
+  ],
+  "name": "bulma-extensions",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wikiki/bulma-extensions.git"
+  },
+  "scripts": {
+    "build": "gulp",
+    "commit": "git-cz",
+    "precommit": "npm test",
+    "semantic-release": "semantic-release",
+    "test": "jest test/index.test.js",
+    "travis-deploy-once": "travis-deploy-once",
+    "watch:test": "jest test/index.test.js -w"
+  },
+  "style": "./dist/css/bulma-extensions.moin.css",
+  "version": "2.2.1"
+}
