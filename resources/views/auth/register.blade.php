@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="hero is-primary">
+    {{-- <section class="hero is-primary">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
@@ -9,7 +9,7 @@
                 </h1>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <div class="columns is-marginless is-centered">
         <div class="column is-5">
@@ -46,7 +46,7 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label">
-                                <label class="label">E-mail Address</label>
+                                <label class="label">E-mail </label>
                             </div>
 
                             <div class="field-body">

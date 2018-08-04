@@ -15,7 +15,7 @@
     </head>
     <body>
         <div id="app">
-            <nav class="nav has-shadow">
+            <nav class="nav navbar has-shadow ">
                 <div class="container">
                     <div class="navbar-menu">
                         <div class="navbar-brand navbar-start">
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="navbar-end" style="overflow: visible;">
-                            @if (!Auth::guest())
+                            @if (Auth::guest())
                                 <a class="navbar-item " href="{{ route('login') }}">Login</a>
                                 <a class="navbar-item " href="{{ route('register') }}">Register</a>
                             @else

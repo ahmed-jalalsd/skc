@@ -28713,11 +28713,15 @@ readers do not read off random characters that represent icons */
   background: rgba(255, 56, 96, 0.05);
 }
 
-.has-dropdown {
+html {
+  background-color: whitesmoke;
+}
+
+html .has-dropdown {
   position: relative;
 }
 
-.has-dropdown .navbar-dropdown {
+html .has-dropdown .navbar-dropdown {
   display: none;
   position: absolute;
   left: 0;
@@ -28730,29 +28734,29 @@ readers do not read off random characters that represent icons */
           box-shadow: 0 0 1px rgba(57, 70, 78, 0.15), 0 20px 55px -8px rgba(57, 70, 78, 0.15);
 }
 
-.has-dropdown .navbar-dropdown li.seperator {
+html .has-dropdown .navbar-dropdown li.seperator {
   border-top: 1px solid #ccc;
   margin: 5px 0;
 }
 
-.has-dropdown .navbar-dropdown li > a {
+html .has-dropdown .navbar-dropdown li > a {
   margin: 5px 0;
   padding: 5px 0 5px 10px;
   display: block;
   color: #4a4a4a;
 }
 
-.has-dropdown .navbar-dropdown li > a:hover {
+html .has-dropdown .navbar-dropdown li > a:hover {
   background-color: whitesmoke;
   cursor: pointer;
 }
 
-.has-dropdown.is-aligned-right .navbar-dropdown {
+html .has-dropdown.is-aligned-right .navbar-dropdown {
   right: 0;
   left: auto;
 }
 
-.has-dropdown.is-open .navbar-dropdown {
+html .has-dropdown.is-open .navbar-dropdown {
   display: block;
 }
 
