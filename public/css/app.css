@@ -29151,3 +29151,14 @@ html .has-dropdown.is-open .navbar-dropdown {
   background-color: white;
 }
 
+.management-area {
+  position: absolute;
+  top: 4rem;
+  left: 200px;
+  right: 0;
+}
+
+.flex-container {
+  margin: 10px 25px;
+}
+

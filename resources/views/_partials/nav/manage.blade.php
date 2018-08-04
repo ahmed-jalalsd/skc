@@ -23,7 +23,7 @@
     </p>
     <ul class="menu-list">
       <li>
-      	<a href="">Manage Users</a></li>
+      	<a href="{{route('users.index')}}">Manage Members</a></li>
       <li>
         <a class="has-submenu">Roles &amp; Permissions</a>
         <ul class="submenu">
