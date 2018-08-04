@@ -997,10 +997,10 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_buefy___default.a);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-// const app = new Vue({
-//     el: '#app'
-// });
-
+var app = new Vue({
+    el: '#app',
+    data: {}
+});
 
 // Bulma NavBar Burger Script
 document.addEventListener('DOMContentLoaded', function () {
@@ -1024,6 +1024,12 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+});
+
+$(document).ready(function () {
+    $('button.has-dropdown').hover(function (e) {
+        $(this).toggleClass('is-open');
+    });
 });
 
 __webpack_require__(38);
