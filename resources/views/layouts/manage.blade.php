@@ -8,13 +8,15 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }} {{ app()->version() }}</title>
+        <title>SKC - Management</title>
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
         @include('_partials.nav.main')
+        @include('_partials.nav.manage')
+
         <div id="app">
             @yield('content')
         </div>
