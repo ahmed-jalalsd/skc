@@ -29162,3 +29162,14 @@ html .has-dropdown.is-open .navbar-dropdown {
   margin: 10px 25px;
 }
 
+.pagination-link.is-current {
+  background-color: #00d1b2;
+  border-color: #00d1b2;
+}
+
+.pagination-previous,
+.pagination-next,
+.pagination-link {
+  color: #00d1b2;
+}
+

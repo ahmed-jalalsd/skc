@@ -16,3 +16,12 @@
 .flex-container {
 	margin: 10px 25px;
 }
+
+.pagination-link.is-current {
+	background-color: $turquoise;
+    border-color: $turquoise;
+}
+
+.pagination-previous, .pagination-next, .pagination-link {
+	color: $turquoise;
+}

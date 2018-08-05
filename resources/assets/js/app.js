@@ -13,6 +13,8 @@ import Buefy from 'buefy';
 
 Vue.use(Buefy);
 
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -21,10 +23,9 @@ Vue.use(Buefy);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-var app = new Vue({
-    el: '#app',
-    data: {}
-});
+// const app = new Vue({
+//     el: '#app',
+// });
 
 
 // Bulma NavBar Burger Script

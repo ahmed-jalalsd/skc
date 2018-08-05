@@ -997,10 +997,10 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_buefy___default.a);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-var app = new Vue({
-    el: '#app',
-    data: {}
-});
+// const app = new Vue({
+//     el: '#app',
+// });
+
 
 // Bulma NavBar Burger Script
 document.addEventListener('DOMContentLoaded', function () {
