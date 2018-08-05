@@ -8,6 +8,8 @@ use DB;
 use session;
 use Hash;
 
+
+
 class UserController extends Controller
 {
     /**
@@ -44,7 +46,7 @@ class UserController extends Controller
             "email" => "required|email|unique:users"
         ]);
 
-        if (Request::has('password') && !empty($request->password)) {
+        if ($request->has('password') && !empty($request->password)) {
             // password was enterd by the user
             $password = trim($request->password);
         }else {
@@ -126,7 +128,7 @@ class UserController extends Controller
             for($i=0; $i < $length; ++$i) {
                 $str .= $keyspace[random_int(0, $max)];
             }
-            $password =  $str;
+            $user->password = Hash::make($str);
         }elseif ($request->password_options == 'manual') {
             $user->password = Hash::make($request->password);
         }
