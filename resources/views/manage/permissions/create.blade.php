@@ -15,6 +15,7 @@
           {{csrf_field()}}
 
           <div class="block">
+          {{-- the rado box to choose which type of permession you want to create --}}
                 <b-radio v-model="permissionType" name="permission_type" native-value="basic">Basic Permission</b-radio>
                 <b-radio v-model="permissionType" name="permission_type" native-value="crud">CRUD Permission</b-radio>
           </div>
@@ -43,6 +44,7 @@
           <div class="field" v-if="permissionType == 'crud'">
             <label for="resource" class="label">Resource</label>
             <p class="control">
+            {{--  v-model="resource"  will update the resorce in the data part in the vue object --}}
               <input type="text" class="input" name="resource" id="resource" v-model="resource" placeholder="The name of the resource">
             </p>
           </div>
@@ -50,6 +52,7 @@
           <div class="columns" v-if="permissionType == 'crud'">
             <div class="column is-one-quarter">
                 <div class="field">
+                {{-- crudSelected bind them to the vue object array, if the value is missing in the vue object the box will be uncheck it --}}
                   <b-checkbox v-model="crudSelected" native-value="create">Create</b-checkbox>
                 </div>
                 <div class="field">
@@ -66,6 +69,7 @@
             <input type="hidden" name="crud_selected" :value="crudSelected">
 
             <div class="column">
+            {{-- the table will be shown if the resource input length is > 3  --}}
               <table class="table" v-if="resource.length >= 3 && crudSelected.length > 0">
                 <thead>
                   <th>Name</th>
@@ -73,6 +77,7 @@
                   <th>Description</th>
                 </thead>
                 <tbody>
+                {{-- item in crudSelected means the vue object is looping thru the crudSelected array  --}}
                   <tr v-for="item in crudSelected">
                     <td v-text="crudName(item)"></td>
                     <td v-text="crudSlug(item)"></td>
