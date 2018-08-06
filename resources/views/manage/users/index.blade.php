@@ -38,7 +38,8 @@
 								<td>{{$user->name}}</td>
 								<td>{{$user->email}}</td>
 								<td>{{$user->created_at->toFormattedDateString()}}</td>
-								<td>
+								<td class="has-text-right">
+									<a href="{{route('users.show', $user->id)}}" class="button is-outlined m-r-5 ">View</a>
 									<a href="{{route('users.edit', $user->id)}}" class="button is-outlined">Edit</a>
 								</td>
 							</tr>
