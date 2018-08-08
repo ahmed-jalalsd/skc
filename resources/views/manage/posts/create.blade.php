@@ -1,0 +1,95 @@
+@extends('layouts.manage')
+
+@section('content')
+
+	<div class="flex-container">
+
+		<div class="columns m-t-10 m-b-0">
+
+			<div class="column">
+				<h1 class="title is-admin is-3">Add New Post</h1>
+			</div>
+
+			<div class="column"></div>
+
+		</div> {{-- end of columns --}}
+
+		<hr style="background-color: #ccc; height: 1px" class="m-t-0">
+
+		<form action="{{route('posts.store')}}" method="post">
+			
+			{{ csrf_field() }}
+			
+			<div class="columns">
+				
+				<div class="column is-three-quarters-desktop">
+					<b-field>
+						<b-input type="text" placeholder="Post Title" size="is-large"></b-input>
+			        </b-field>
+
+			        <p>
+			        	{{url('/blog')}}
+			        </p>
+
+			        <b-field class="m-t-40">
+		            	<b-input type="textarea" rows="20" placeholder="write what you want">
+		            	</b-input>
+		        	</b-field>	
+				</div> {{-- end of column is-three-quarters --}}
+
+				<div class="column is-one-quarter-desktop is-narrow-tablet">
+			         
+			        <div class="card card-widget">
+			            
+			            <div class="author-widget widget-area">
+			              <div class="selected-author">
+			                <img src="https://placehold.it/50x50"/>
+			                <div class="author">
+			                  <h4>Alex Curtis</h4>
+			                  <p class="subtitle">
+			                    (jacurtis)
+			                  </p>
+			                </div>
+			              </div>
+			            </div>
+			            
+			            <div class="post-status-widget widget-area">
+			              <div class="status">
+			                <div class="status-icon">
+			                  <b-icon icon="assignment" size="is-medium"></b-icon>
+			                </div>
+			                <div class="status-details">
+			                  <h4><span class="status-emphasis">Draft</span> Saved</h4>
+			                  <p>A Few Minutes Ago</p>
+			                </div>
+			              </div>
+			            </div>
+			            
+			            <div class="publish-buttons-widget widget-area">
+			              <div class="secondary-action-button">
+			                <button class="button is-info is-outlined is-fullwidth">Save Draft</button>
+			              </div>
+			              <div class="primary-action-button">
+			                <button class="button is-primary is-fullwidth">Publish</button>
+			              </div>
+			            </div>
+
+			        </div> {{-- end of cards --}}
+
+			    </div> <!-- end of .column.is-one-quarter -->
+
+			</div> {{-- end of columns --}}
+
+		</form>
+	</div> {{-- end of flex container --}}
+
+@endsection
+
+@section('scripts')
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {}
+		})
+	</script>
+@endsection
