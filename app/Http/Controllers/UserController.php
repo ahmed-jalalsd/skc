@@ -19,6 +19,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator|administrator');
+    }
+
     public function index()
     {
         $users = User::orderBy('id', 'desc')->paginate(10);

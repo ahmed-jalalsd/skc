@@ -12,40 +12,46 @@
     <p class="menu-label">
       Content
     </p>
-    <ul class="menu-list">
-      <li>
-      	<a href="">Blog</a>
-      </li>
-    </ul>
-
-    <p class="menu-label">
-      Administration
-    </p>
     
-    <ul class="menu-list">
+    {{-- @if(Auth::user()->role == 'superadministrator') --}}
+      <ul class="menu-list">
+        <li>
+          <a href="{{route('posts.index')}}" class="{{Nav::isResource('posts', 2)}}">Manage Blog</a>
+        </li>
+      </ul>
+    {{-- @endif --}}
+    
+
+    {{-- @if(Auth::user()->role == 'superadministrator|administrator') --}}
+      <p class="menu-label">
+        Administration
+      </p>
       
-      <li>
-      	<a href="{{route('users.index')}}" class="{{Nav::isResource('users')}}">Manage Members</a>
-      </li>
-
-      <li>
-        <a class="has-submenu {{Nav::hasSegment(['roles', 'permissions'], 2)}}" >Roles &amp; Permissions</a>
+      <ul class="menu-list">
         
-        <ul class="submenu">
+        <li>
+        	<a href="{{route('users.index')}}" class="{{Nav::isResource('users')}}">Manage Members</a>
+        </li>
+
+        <li>
+          <a class="has-submenu {{Nav::hasSegment(['roles', 'permissions'], 2)}}" >Roles &amp; Permissions</a>
           
-          <li>
-            <a href="{{route('roles.index')}}" class="{{Nav::isResource('roles')}}">Roles</a>
-          </li>
-          
-          <li>
-            <a href="{{route('permissions.index')}}" class="{{Nav::isResource('permissions')}}">Permissions</a>
-          </li>
+          <ul class="submenu">
+            
+            <li>
+              <a href="{{route('roles.index')}}" class="{{Nav::isResource('roles')}}">Roles</a>
+            </li>
+            
+            <li>
+              <a href="{{route('permissions.index')}}" class="{{Nav::isResource('permissions')}}">Permissions</a>
+            </li>
 
-        </ul>
+          </ul>
 
-      </li>
+        </li>
 
-    </ul>
+      </ul>
+    {{-- @endif --}}
   </aside>
 </div>
 </div>
