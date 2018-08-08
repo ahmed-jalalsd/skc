@@ -28713,10 +28713,6 @@ readers do not read off random characters that represent icons */
   background: rgba(255, 56, 96, 0.05);
 }
 
-html {
-  background-color: whitesmoke;
-}
-
 html .has-dropdown {
   position: relative;
 }
@@ -29181,6 +29177,11 @@ html .has-dropdown.is-open .navbar-dropdown {
 }
 
 .menu-list li ul.submenu {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.menu-list a.is-active {
+  background-color: #00d1b2;
 }
 
