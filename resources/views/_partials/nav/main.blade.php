@@ -1,9 +1,18 @@
 <nav class="navbar has-shadow" >
   <div class="container">
     <div class="navbar-brand">
+      
       <a class="navbar-item is-paddingless brand-item" href="{{route('home')}}">
         <img src="{{asset('images/skc-logo.jpeg')}}" alt="Skc logo">
       </a>
+
+      @if(Request::segment(1) == "manage")
+        <a class="navbar-item is-hidden-desktop" id="admin-slideout-button">
+          <span class="icon">
+            <i class="fa fa-arrow-circle-o-right"></i>
+          </span>
+        </a>
+      @endif
 
       <button class="button navbar-burger">
        <span></span>

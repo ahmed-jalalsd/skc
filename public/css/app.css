@@ -28756,6 +28756,10 @@ html .has-dropdown.is-open .navbar-dropdown {
   display: block;
 }
 
+.navbar-burger {
+  border: none;
+}
+
 .m-t-5 {
   margin-top: 5px;
 }
@@ -29140,11 +29144,41 @@ html .has-dropdown.is-open .navbar-dropdown {
   padding-right: 100px;
 }
 
-.side-menu {
+#admin-side-menu {
   position: fixed;
-  height: 100vh;
+  top: 4rem;
+  bottom: 0;
+  left: -200px;
   width: 200px;
   background-color: white;
+  overflow-y: auto;
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+}
+
+#admin-side-menu.is-active {
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+  left: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  #admin-side-menu {
+    left: 0;
+    overflow-y: hidden;
+  }
+}
+
+#admin-slideout-button {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#admin-slideout-button.is-active {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .management-area {
