@@ -74,11 +74,11 @@ document.addEventListener('DOMContentLoaded', function () {
     
 });
 
-$(document).ready(function(){
-     $('button.has-dropdown').hover(function(e){
-        $(this).toggleClass('is-open');
-     })
-})
+// $(document).ready(function(){
+//      $('navbar-dropdown').hover(function(e){
+//         $(this).toggleClass('is-open');
+//      })
+// })
 
 
 
