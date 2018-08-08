@@ -11951,6 +11951,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __webpack_require__(12);
 
+__webpack_require__(52); // Javascript for the admin area
+
+
 window.Vue = __webpack_require__(9);
 
 
@@ -46243,6 +46246,33 @@ var isDate = function isDate(unknown) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */
+/***/ (function(module, exports) {
+
+var accordions = document.getElementsByClassName('has-submenu');
+for (var i = 0; i < accordions.length; i++) {
+	accordions[i].onclick = function () {
+		this.classList.toggle('is-active');
+
+		var submenu = this.nextElementSibling;
+
+		if (submenu.style.maxHeight) {
+			// menu is open, we need to close it 
+			submenu.style.maxHeight = null;
+			submenu.style.margin = null;
+		} else {
+			// menu is close, so we need to open it
+			submenu.style.maxHeight = submenu.scrollHeight + 'px';
+			submenu.style.margin = "0.75em";
+		}
+	};
+}
 
 /***/ })
 /******/ ]);

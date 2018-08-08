@@ -7,12 +7,16 @@
 
 require('./bootstrap');
 
+require('./manage'); // Javascript for the admin area
+
+
 window.Vue = require('vue');
 
 import Vue from 'vue';
 import Buefy from 'buefy';
 
 Vue.use(Buefy);
+
 
 
 // var app = new Vue({
