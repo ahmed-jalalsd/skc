@@ -53,6 +53,3 @@
 
 @endsection
 
-@section('scripts')
-
-@endsection

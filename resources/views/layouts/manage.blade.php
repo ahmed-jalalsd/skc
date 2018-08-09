@@ -23,6 +23,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
-         @yield('scripts')
+        @include('_partials.notifications.toast')
+        @yield('scripts')
     </body>
 </html>

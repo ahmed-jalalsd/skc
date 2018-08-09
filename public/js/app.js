@@ -41104,7 +41104,7 @@ exports = module.exports = __webpack_require__(44)(false);
 
 
 // module
-exports.push([module.i, "\n.slug-widget[data-v-04f472b4] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.wrapper[data-v-04f472b4] {\n    margin-left: 8px;\n}\n.slug[data-v-04f472b4] {\n    background-color: #fdfd96;\n    padding: 3px 5px;\n}\n.url-wrapper[data-v-04f472b4] {\n    height: 30px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n", ""]);
+exports.push([module.i, "\n.slug-widget[data-v-04f472b4] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.wrapper[data-v-04f472b4] {\n  margin-left: 8px;\n}\n.slug[data-v-04f472b4] {\n  background-color: #fdfd96;\n  padding: 3px 5px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.url-wrapper[data-v-04f472b4] {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  height: 28px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n#slug-editor[data-v-04f472b4] {\n  min-width: 142px;\n  max-width: 300px;\n}\n\n", ""]);
 
 // exports
 
@@ -41614,82 +41614,158 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        url: {
-            type: String,
-            required: true
-        },
-        subdirectory: {
-            type: String,
-            required: true
-        },
-        title: {
-            type: String,
-            required: true
-        }
+  props: {
+    url: {
+      type: String,
+      required: true
     },
-    data: function data() {
-        return {
-            slug: this.setSlug(this.title),
-            isEditing: false,
-            customSlug: '',
-            wasEdited: false,
-            api_token: this.$root.api_token
-        };
+    subdirectory: {
+      type: String,
+      required: true
     },
-    methods: {
-        editSlug: function editSlug() {
-            this.customSlug = this.slug;
-            this.isEditing = true;
-        },
-        saveSlug: function saveSlug() {
-            if (this.customSlug !== this.slug) this.wasEdited = true, this.setSlug(this.customSlug);
-            this.isEditing = false;
-        },
-        resetSlug: function resetSlug() {
-            this.setSlug(this.title);
-            this.wasEdited = false;
-            this.isEditing = false;
-        },
-        setSlug: function setSlug(newVal) {
-            var count = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-
-            // Slugify the newVal
-            // let slug only inside this function differnt from this.slug
-            if (newVal === '') return '';
-            var slug = Slug(newVal + (count > 0 ? '-' + count : ''));
-            // test to if the slug is unique throu ajax request
-            var vm = this;
-
-            if (this.api_token && slug) {
-                axios.get('/api/posts/unique', {
-                    params: {
-                        api_token: vm.api_token,
-                        slug: slug
-                    }
-                }).then(function (response) {
-                    // if unique,then set the slug
-                    if (response.data) {
-                        vm.slug = slug;
-                        vm.$emit('slug-changed', slug);
-                    } else {
-                        // if not, customize the slug to make it unique and test again
-                        vm.setSlug(newVal, count + 1);
-                    }
-                }).catch(function (error) {
-                    console.log(error);
-                });
-            }
-        }
+    title: {
+      type: String,
+      required: true
     },
-
-    watch: {
-        title: _.debounce(function () {
-            if (this.wasEdited === false) this.setSlug(this.title);
-        }, 500)
+    icon: {
+      type: String,
+      default: "fa fa-link"
     }
+  },
+  data: function data() {
+    return {
+      slug: this.setSlug(this.title),
+      isEditing: false,
+      customSlug: '',
+      wasEdited: false,
+      api_token: this.$root.api_token
+    };
+  },
+  methods: {
+    adjustWidth: function adjustWidth(event) {
+      var val = event.target.value;
+      var key = event.key;
+      if (key === "Escape") {
+        event.preventDefault();
+        this.cancelEditing();
+      } else if (key === "Enter") {
+        event.preventDefault();
+        this.saveSlug();
+      } else {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.font = "14px sans-serif";
+        document.getElementById('slug-editor').style.width = Math.ceil(ctx.measureText(val).width + 25) + "px";
+      }
+    },
+    editSlug: function editSlug() {
+      this.customSlug = this.slug;
+      this.$emit('edit', this.slug);
+      this.isEditing = true;
+      window.setTimeout(function () {
+        document.getElementById('slug-editor').focus();
+      }, 0); // must set timeout to wait for the thread to become available
+    },
+    saveSlug: function saveSlug() {
+      if (this.customSlug !== this.slug) this.wasEdited = true;
+      this.setSlug(this.customSlug);
+      this.$emit('save', this.slug);
+      this.isEditing = false;
+    },
+    resetEditing: function resetEditing() {
+      this.setSlug(this.title);
+      this.$emit('reset', this.slug);
+      this.wasEdited = false;
+      this.isEditing = false;
+    },
+    cancelEditing: function cancelEditing() {
+      this.$emit('cancel', this.customSlug, this.slug);
+      this.isEditing = false;
+    },
+    setSlug: function setSlug(newVal) {
+      var count = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      if (newVal === '') return '';
+      var slug = Slug(newVal + (count > 0 ? "-" + count : ''));
+      var vm = this;
+
+      if (this.api_token && slug) {
+        axios.get('/api/posts/unique', {
+          params: {
+            api_token: vm.api_token,
+            slug: slug
+          }
+        }).then(function (response) {
+          if (response.data) {
+            vm.slug = slug;
+            vm.$emit('slug-changed', slug);
+          } else {
+            vm.setSlug(newVal, count + 1);
+          }
+        }).catch(function (error) {
+          console.log(error);
+        });
+      }
+    },
+    copyToClipboard: function copyToClipboard(val) {
+      var temp = document.createElement('textarea');
+      temp.value = val;
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        var success = document.execCommand('copy');
+        var type = success ? 'success' : 'warning';
+        var msg = success ? "Copied to Clipboard: " + val : "Copy failed, your browser may not support this feature";
+        this.$emit('copied', type, msg, val);
+        console.log("Copied to Clipboard:", val);
+      } catch (err) {
+        this.$emit('copy-failed', val);
+        console.log("Copy failed, your browser may not support this feature.");
+        console.log("Attempted to copy:", val);
+      }
+      document.body.removeChild(temp);
+    }
+  },
+  computed: {
+    urlSanitized: function urlSanitized() {
+      return this.url.replace(/^\/|\/$/g, '');
+    },
+    subdirectorySanitized: function subdirectorySanitized() {
+      return this.subdirectory.replace(/^\/|\/$/g, '');
+    },
+    fullUrl: function fullUrl() {
+      return this.urlSanitized + "/" + this.subdirectorySanitized + "/" + this.slug;
+    }
+  },
+  watch: {
+    title: _.debounce(function () {
+      if (this.wasEdited == false) this.setSlug(this.title);
+      // run ajax to see if slug is unique
+      // if not unique, customize the slug to make it unique
+    }, 500)
+  }
 });
 
 /***/ }),
@@ -41701,15 +41777,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "slug-widget" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "icon-wrapper wrapper" }, [
+      _c("i", { class: _vm.icon })
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "url-wrapper wrapper" }, [
-      _c("span", { staticClass: "root-url" }, [_vm._v(_vm._s(_vm.url))]),
-      _vm._v(" "),
-      _c("span", { staticClass: "subdirectory-url" }, [
-        _vm._v("/" + _vm._s(_vm.subdirectory) + "/")
+      _c("span", { staticClass: "root-url" }, [
+        _vm._v(_vm._s(_vm.urlSanitized))
       ]),
-      _vm._v(" "),
+      _c("span", { staticClass: "subdirectory-url" }, [
+        _vm._v("/" + _vm._s(_vm.subdirectorySanitized) + "/")
+      ]),
       _c(
         "span",
         {
@@ -41721,11 +41799,11 @@ var render = function() {
               expression: "slug && !isEditing"
             }
           ],
-          staticClass: "slug"
+          staticClass: "slug",
+          attrs: { title: _vm.slug }
         },
         [_vm._v(_vm._s(_vm.slug))]
       ),
-      _vm._v(" "),
       _c("input", {
         directives: [
           {
@@ -41745,6 +41823,27 @@ var render = function() {
         attrs: { type: "text", name: "slug", id: "slug-editor" },
         domProps: { value: _vm.customSlug },
         on: {
+          keyup: _vm.adjustWidth,
+          keydown: [
+            function($event) {
+              if (
+                !("button" in $event) &&
+                _vm._k($event.keyCode, "esc", 27, $event.key, "Escape")
+              ) {
+                return null
+              }
+              $event.preventDefault()
+            },
+            function($event) {
+              if (
+                !("button" in $event) &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              $event.preventDefault()
+            }
+          ],
           input: function($event) {
             if ($event.target.composing) {
               return
@@ -41755,85 +41854,170 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "button-wrapper wrapper" }, [
-      _c(
-        "button",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: !_vm.isEditing,
-              expression: "!isEditing"
+    _c(
+      "div",
+      { staticClass: "button-wrapper wrapper" },
+      [
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.isEditing,
+                expression: "!isEditing"
+              }
+            ],
+            staticClass: "save-slug-button button is-small",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.editSlug($event)
+              }
             }
+          },
+          [_vm._v(_vm._s(_vm.slug.length < 1 ? "Create New Slug" : "Edit"))]
+        ),
+        _vm._v(" "),
+        _c(
+          "b-dropdown",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.isEditing && _vm.slug.length > 1,
+                expression: "!isEditing && slug.length > 1"
+              }
+            ],
+            attrs: { hoverable: "" }
+          },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "save-slug-button button is-small",
+                attrs: { slot: "trigger" },
+                slot: "trigger"
+              },
+              [
+                _c("span", [_vm._v("Actions")]),
+                _vm._v(" "),
+                _c("b-icon", { attrs: { icon: "arrow_drop_down" } })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-dropdown-item",
+              {
+                staticStyle: { "font-size": "0.8em" },
+                on: {
+                  click: function($event) {
+                    _vm.copyToClipboard(_vm.fullUrl)
+                  }
+                }
+              },
+              [
+                _c("b-icon", {
+                  attrs: { icon: "content_copy", size: "is-small" }
+                }),
+                _vm._v(" Copy Full Url")
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-dropdown-item",
+              {
+                staticStyle: { "font-size": "0.8em" },
+                on: {
+                  click: function($event) {
+                    _vm.copyToClipboard(_vm.slug)
+                  }
+                }
+              },
+              [
+                _c("b-icon", {
+                  attrs: { icon: "content_copy", size: "is-small" }
+                }),
+                _vm._v(" Copy Slug")
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-dropdown-item",
+              {
+                staticStyle: { "font-size": "0.8em" },
+                attrs: { "has-link": "" }
+              },
+              [
+                _c(
+                  "a",
+                  { attrs: { href: _vm.fullUrl, target: "_blank" } },
+                  [
+                    _c("b-icon", { attrs: { icon: "link", size: "is-small" } }),
+                    _vm._v("\n          Visit Url\n        ")
+                  ],
+                  1
+                )
+              ]
+            )
           ],
-          staticClass: "button is-small",
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.editSlug($event)
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.isEditing,
+                expression: "isEditing"
+              }
+            ],
+            staticClass: "save-slug-button button is-small",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.saveSlug($event)
+              }
             }
-          }
-        },
-        [_vm._v("Edit")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.isEditing,
-              expression: "isEditing"
+          },
+          [_vm._v(_vm._s(_vm.customSlug == _vm.slug ? "Cancel" : "Save"))]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.isEditing,
+                expression: "isEditing"
+              }
+            ],
+            staticClass: "save-slug-button button is-small",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.resetEditing($event)
+              }
             }
-          ],
-          staticClass: "button is-small",
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.saveSlug($event)
-            }
-          }
-        },
-        [_vm._v("Save")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.isEditing,
-              expression: "isEditing"
-            }
-          ],
-          staticClass: "button is-small",
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.resetSlug($event)
-            }
-          }
-        },
-        [_vm._v("Reset")]
-      )
-    ])
+          },
+          [_vm._v("Reset")]
+        )
+      ],
+      1
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon-wrapper wrapper" }, [
-      _c("i", { staticClass: "fa fa-link" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
