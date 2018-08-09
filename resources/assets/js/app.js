@@ -7,15 +7,18 @@
 
 require('./bootstrap');
 
-require('./manage'); // Javascript for the admin area
+require('./manage'); // Javascript file for the admin area
 
 
 window.Vue = require('vue');
+window.Slug = require('slug');
+Slug.defaults.mode = "rfc3986";
 
 import Vue from 'vue';
 import Buefy from 'buefy';
 
 Vue.use(Buefy);
+Vue.component('slugWidget', require('./components/slugWidget.vue'));
 
 
 

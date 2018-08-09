@@ -24,12 +24,11 @@
 				
 				<div class="column is-three-quarters-desktop">
 					<b-field>
-						<b-input type="text" placeholder="Post Title" size="is-large"></b-input>
+						<b-input type="text" placeholder="Post Title" size="is-large" v-model="title"></b-input>
 			        </b-field>
 
-			        <p>
-			        	{{url('/blog')}}
-			        </p>
+	<slug-widget url="{{url('/')}}" subdirectory="blog" :title="title" @slug-changed="updateSlug">
+			        </slug-widget>
 
 			        <b-field class="m-t-40">
 		            	<b-input type="textarea" rows="20" placeholder="write what you want">
@@ -89,7 +88,15 @@
 	<script>
 		var app = new Vue({
 			el: '#app',
-			data: {}
+			data: {
+				title: '',
+				slug: ''
+			},
+			methods: {
+				updateSlug: function (val) {
+					this.slug = val
+				}
+			}
 		})
 	</script>
 @endsection
