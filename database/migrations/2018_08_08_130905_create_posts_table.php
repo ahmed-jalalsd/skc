@@ -20,6 +20,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('excerpt');
             $table->longText('content');
+            $table->string('ft_image');
+            $table->string('bk_image');
             $table->integer('status')->default(1);
             $table->bigInteger('comment_count')->unsigned();
             $table->dateTime('published_at');

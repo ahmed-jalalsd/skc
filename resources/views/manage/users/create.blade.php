@@ -44,7 +44,7 @@
 				            </p>
 				        </div>
 
-						<button class="button is-success">Create User</button>
+						{{-- <button class="button is-success">Create User</button> --}}
 
 					
 				</div> {{-- end of column --}}
