@@ -6,29 +6,41 @@
       <div class="column">
         <h1 class="title is-admin is-4">Add New Blog Post</h1>
       </div>
-      <div class="column">
-        {{-- <a href="{{route('users.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create New User</a> --}}
-      </div>
     </div>
     <hr class="m-t-0">
 
-    <form action="{{route('posts.store')}}" method="post">
+    <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
       {{ csrf_field() }}
+
       <div class="columns">
         <div class="column is-three-quarters-desktop is-three-quarters-tablet">
-          <b-field>
-            <b-input type="text" placeholder="Post Title" size="is-large" v-model="title">
+
+          <b-field  type="is-primary">
+            <b-input type="text" name="title" placeholder="Post Title" size="is-large" v-model="title">
             </b-input>
           </b-field>
 
           <slug-widget url="{{url('/')}}" subdirectory="blog" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
           <input type="hidden" v-model="slug" name="slug" />
 
-          <b-field class="m-t-40">
+          <div class="block m-t-40">
+            <drag-drop></drag-drop>
+          </div>
+
+
+          <b-field class="m-t-40" type="is-primary">
             <b-input type="textarea"
-                placeholder="Compose your masterpiece..." rows="20">
+                placeholder="Write a short description..."  name="excerpt">
             </b-input>
           </b-field>
+
+          <b-field class="m-t-40"  type="is-primary">
+            <b-input type="textarea"
+                placeholder="Compose your masterpiece..." rows="20" name="content">
+            </b-input>
+          </b-field>
+
+
         </div> <!-- end of .column.is-three-quarters -->
 
         <div class="column is-one-quarter-desktop is-narrow-tablet">
@@ -37,28 +49,29 @@
               <div class="selected-author">
                 <img src="https://placehold.it/50x50"/>
                 <div class="author">
-                  <h4>Alex Curtis</h4>
+                  <h4>{{Auth::user()->name}}</h4>
                   <p class="subtitle">
-                    (jacurtis)
+                    <!-- (jacurtis) -->
                   </p>
                 </div>
               </div>
             </div>
             <div class="post-status-widget widget-area">
+
               <div class="status">
-                <div class="status-icon">
-                  <b-icon icon="assignment" size="is-medium"></b-icon>
-                </div>
-                <div class="status-details">
+
+                <upload></upload>
+
+                <!-- <div class="status-details">
                   <h4><span class="status-emphasis">Draft</span> Saved</h4>
                   <p>A Few Minutes Ago</p>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="publish-buttons-widget widget-area">
-              <div class="secondary-action-button">
+              <!-- <div class="secondary-action-button">
                 <button class="button is-info is-outlined is-fullwidth">Save Draft</button>
-              </div>
+              </div> -->
               <div class="primary-action-button">
                 <button class="button is-primary is-fullwidth">Publish</button>
               </div>
@@ -80,7 +93,7 @@
       data: {
         title: '',
         slug: '',
-        api_token: '{{Auth::user()->api_token}}'
+        api_token: '{{Auth::user()->api_token}}',
       },
       methods: {
         updateSlug: function(val) {
