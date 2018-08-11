@@ -17,4 +17,8 @@ class Post extends Model
   protected $fillable = [
       'title', 'slug', 'excerpt', 'content', 'bk_image', 'ft_image'
   ];
+
+  public function users(){
+    return $this->belongsTo(User::class);
+  }
 }
