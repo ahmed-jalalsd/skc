@@ -46,7 +46,6 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
-            // 'root' => public_path('images/'),
         ],
 
         'public' => [
@@ -54,6 +53,12 @@ return [
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
+        ],
+
+// custom disk
+        'local_dev' => [
+            'driver' => 'local',
+            'root' => public_path('public/images/'),
         ],
 
         's3' => [

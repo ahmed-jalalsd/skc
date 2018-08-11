@@ -12,36 +12,39 @@
     <p class="menu-label">
       Content
     </p>
-    
+
     {{-- @if(Auth::user()->role == 'superadministrator') --}}
       <ul class="menu-list">
         <li>
           <a href="{{route('posts.index')}}" class="{{Nav::isResource('posts', 2)}}">Manage Blog</a>
         </li>
+        <li>
+          <a href="#">Manage Events</a>
+        </li>
       </ul>
     {{-- @endif --}}
-    
+
 
     {{-- @if(Auth::user()->role == 'superadministrator|administrator') --}}
       <p class="menu-label">
         Administration
       </p>
-      
+
       <ul class="menu-list">
-        
+
         <li>
         	<a href="{{route('users.index')}}" class="{{Nav::isResource('users')}}">Manage Members</a>
         </li>
 
         <li>
           <a class="has-submenu {{Nav::hasSegment(['roles', 'permissions'], 2)}}" >Roles &amp; Permissions</a>
-          
+
           <ul class="submenu">
-            
+
             <li>
               <a href="{{route('roles.index')}}" class="{{Nav::isResource('roles')}}">Roles</a>
             </li>
-            
+
             <li>
               <a href="{{route('permissions.index')}}" class="{{Nav::isResource('permissions')}}">Permissions</a>
             </li>
