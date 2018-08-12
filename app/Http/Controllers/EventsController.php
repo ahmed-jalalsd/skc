@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use App\Event;
+use DB;
+use session;
+use File;
+use Image;
+use Storage;
 
 class EventsController extends Controller
 {
@@ -11,9 +18,16 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('role:superadministrator|administrator');
+     }
+
     public function index()
     {
-        //
+      $events = Event::orderBy('id', 'desc')->with('users')->paginate(10);
+      return view('manage.events.index')->withEvents($events);
     }
 
     /**
@@ -23,7 +37,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('manage.events.create');
     }
 
     /**
@@ -34,7 +48,51 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all()) ;
+
+        $this->validate($request, [
+            "title" => "required | max:255 ",
+            "slug" => "required|max:80",
+            'excerpt' => 'sometimes|max:255',
+            'content' => 'required',
+            'cta' => 'required|integer',
+            'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+
+        $event = new Event();
+        $event->title = $request->title;
+        $event->slug = $request->slug;
+        $event->user_id = auth()->id();
+        $event->content = $request->content;
+        $event->excerpt = $request->excerpt;
+        $event->flag_application = $request->cta;
+
+        if($request->hasFile('images')) {
+          $images = Input::file('images');
+          $file_count = count($images);
+          $uploadcount = 0;
+          foreach ($images as $image) {
+            $imageFilename = time(). '-' .$image->getClientOriginalName();
+            $event->images = $imageFilename;
+            $image->move(public_path().'/images/events', $imageFilename);
+            $uploadcount ++;
+            $event->save();
+          }
+        }
+
+        if($request->hasFile('featured_image')) {
+          $featuredImage = $request->file('featured_image');
+          $featuredImageFileName = time() . '-' .$featuredImage->getClientOriginalName();
+          $location = public_path('/images/events/' . $featuredImageFileName);
+          Image::make($featuredImage->getRealPath())->resize(600, 400)->save($location);
+          $event->featured_image = $featuredImageFileName;
+        }
+
+          $event->save();
+
+        return redirect()->route('events.show', $event->id);
+
     }
 
     /**
@@ -45,7 +103,9 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        // dd($event);
+        return view('manage.events.show')->withEvent($event);
     }
 
     /**
@@ -56,7 +116,8 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $event = Event::findOrFail($id);
+      return view('manage.events.edit')->withEvent($event);
     }
 
     /**

@@ -55,11 +55,11 @@ return [
             'visibility' => 'public',
         ],
 
-// custom disk
-        'local_dev' => [
-            'driver' => 'local',
-            'root' => public_path('public/images/'),
-        ],
+// // custom disk
+//         'local_dev' => [
+//             'driver' => 'local',
+//             'root' => storage_path('public/images/'),
+//         ],
 
         's3' => [
             'driver' => 's3',

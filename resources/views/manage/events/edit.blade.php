@@ -4,40 +4,40 @@
   <div class="flex-container">
     <div class="columns m-t-10 m-b-0">
       <div class="column">
-        <h1 class="title is-admin is-4">Add New Blog Post</h1>
+        <h1 class="title is-admin is-4">Edit The Event</h1>
       </div>
     </div>
-
     <hr class="m-t-0">
 
-    <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
-      {{ csrf_field() }}
+    <form action="{{route('events.update', $event->id)}}" method="POST" enctype="multipart/form-data">
+      {{method_field('PUT')}}
+        {{csrf_field()}}
 
       <div class="columns">
         <div class="column is-three-quarters-desktop is-three-quarters-tablet">
 
           <b-field  type="is-primary">
-            <b-input type="text" name="title" placeholder="Post Title" size="is-large" v-model="title">
+            <b-input type="text" name="title" value="{{$event->title}}" size="is-large" v-model="title">
             </b-input>
           </b-field>
 
           <slug-widget url="{{url('/')}}" subdirectory="blog" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
-          <input type="hidden" v-model="slug" name="slug" />
+          <input type="hidden" v-model="slug" name="slug"  value="{{$event->slug}}"/>
 
           <div class="block m-t-40">
-            <drag-drop></drag-drop>
+            <multi-drag-drop></multi-drag-drop>
           </div>
 
 
           <b-field class="m-t-40" type="is-primary">
             <b-input type="textarea"
-                placeholder="Write a short description..."  name="excerpt">
+                placeholder="Write a short description..."  name="excerpt" value="{{$event->excerpt}}">
             </b-input>
           </b-field>
 
           <b-field class="m-t-40"  type="is-primary">
             <b-input type="textarea"
-                placeholder="Compose your masterpiece..." rows="20" name="content">
+                placeholder="Compose your masterpiece..." rows="20" name="content" value="{{$event->content}}">
             </b-input>
           </b-field>
 
@@ -57,26 +57,40 @@
                 </div>
               </div>
             </div>
+
             <div class="post-status-widget widget-area">
 
-              <div class="status">
+              <div>
 
-                <upload></upload>
+                  <upload></upload>
 
-                <!-- <div class="status-details">
-                  <h4><span class="status-emphasis">Draft</span> Saved</h4>
-                  <p>A Few Minutes Ago</p>
-                </div> -->
+
+                <div class="status-details">
+                  <div class="field">
+                    <p><small>Choose if the event with application form</small></p>
+                    <div class="control">
+                      <div class="select is-primary">
+                        <select name="cta" required>
+                          <option value="{{$event->cta}}"></option>
+                          <option value="1">With Applcation Form</option>
+                          <option value="2">Without Applcation Form</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
+
             </div>
+
             <div class="publish-buttons-widget widget-area">
-              <!-- <div class="secondary-action-button">
-                <button class="button is-info is-outlined is-fullwidth">Save Draft</button>
-              </div> -->
+
               <div class="primary-action-button">
-                <button class="button is-primary is-fullwidth">Publish</button>
+                <button class="button is-primary is-fullwidth">Update</button>
               </div>
             </div>
+
           </div>
         </div> <!-- end of .column.is-one-quarter -->
       </div>

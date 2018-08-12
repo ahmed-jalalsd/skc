@@ -19,7 +19,7 @@
           <a href="{{route('posts.index')}}" class="{{Nav::isResource('posts', 2)}}">Manage Blog</a>
         </li>
         <li>
-          <a href="#">Manage Events</a>
+          <a href="{{route('events.index')}}" class="{{Nav::isResource('events', 2)}}">Manage Events</a>
         </li>
       </ul>
     {{-- @endif --}}

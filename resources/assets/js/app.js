@@ -21,6 +21,7 @@ Vue.use(Buefy);
 Vue.component('slugWidget', require('./components/slugWidget.vue'));
 Vue.component('upload', require('./components/upload.vue'));
 Vue.component('drag-drop', require('./components/drag-drop.vue'));
+Vue.component('multi-drag-drop', require('./components/multi-drag-drop.vue'));
 
 
 
