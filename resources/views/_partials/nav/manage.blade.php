@@ -21,6 +21,9 @@
         <li>
           <a href="{{route('events.index')}}" class="{{Nav::isResource('events', 2)}}">Manage Events</a>
         </li>
+        <li>
+          <a href="{{route('galleries.index')}}" class="{{Nav::isResource('galleries', 2)}}">Manage Galleries</a>
+        </li>
       </ul>
     {{-- @endif --}}
 
