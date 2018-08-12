@@ -39,13 +39,13 @@
 
           <footer class="card-footer">
             <p class="card-footer-item">
-              <a href="{{route('posts.edit', $event->id)}}" class="button is-primary is-pulled-right">
+              <a href="{{route('events.edit', $event->id)}}" class="button is-primary is-pulled-right">
       					<i class="fa fa-user-plus m-r-10"></i>
       					Edit Event
       				</a>
             </p>
 
-							<form class="card-footer-item"  action="{{ route('posts.destroy', $event->id) }}" method="POST" enctype="multipart/form-data">
+							<form class="card-footer-item"  action="{{ route('events.destroy', $event->id) }}" method="POST" enctype="multipart/form-data">
                 <input name="_method" type="hidden" value="DELETE">
                 <button type="submit" class="button is-danger is-pulled-right">
 									<i class="fa fa-user-plus delete is-small m-r-10"></i>Delete</button>
