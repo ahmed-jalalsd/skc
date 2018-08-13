@@ -3,33 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use App\Gallery;
-use DB;
-use session;
-use File;
-use Image;
-use Storage;
 
-class GalleriesController extends Controller
+class PhotosController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-     public function __construct()
-     {
-         $this->middleware('role:superadministrator|administrator');
-     }
-
-     public function index()
-     {
-       return view('manage.galleries.index');
-     }
+    public function index()
+    {
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +23,7 @@ class GalleriesController extends Controller
      */
     public function create()
     {
-        return view('manage.galleries.create');
+        //
     }
 
     /**

@@ -4,19 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class Photo extends Model
 {
   /**
    * The attributes that are mass assignable.
    *
    * @var array
    */
-  protected $table = 'galleries';
+  protected $table = 'photos';
   protected $fillable = [
-      'title', 'slug', 'cover_image'
+      'title', 'images'
   ];
 
-  public function photos(){
-    return $this->hasMany(Photo::class);
+  public function galleries(){
+    return $this->belongsTo(Gallery::class, 'gallery_id');
   }
 }
