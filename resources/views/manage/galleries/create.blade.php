@@ -22,10 +22,11 @@
               </b-input>
             </b-field>
 
-            <slug-widget url="{{url('/')}}" subdirectory="blog" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
+            <slug-widget url="{{url('/')}}" subdirectory="gallery" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
             <input type="hidden" v-model="slug" name="slug" />
 
             <div class="block m-t-40">
+							<p class="subtitle"> Add photos to the Gallery:</p>
               <multi-drag-drop></multi-drag-drop>
             </div>
 
@@ -48,11 +49,11 @@
               <div class="post-status-widget widget-area">
 
                 <div>
-
+									<p> <small>Cover image for the album</small></p>
 									<upload></upload>
 
                   <div class="status-details">
-                    
+
                   </div>
 
                 </div>

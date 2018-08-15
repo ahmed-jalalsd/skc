@@ -204,7 +204,7 @@ class EventsController extends Controller
 
     public function apiCheckUnique(Request $request)
     {
-        return json_encode(!Post::where('slug', '=', $request->slug)->exists());
+        return json_encode(!Event::where('slug', '=', $request->slug)->exists());
         // will return true if it doesnt exist and false if it is exist thats why we add the bang (!)to return the opposite
         // json_encode because you can not pass  true and false (boolen) randomly inside a payload it will cause a http error
     }

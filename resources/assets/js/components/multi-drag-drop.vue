@@ -7,7 +7,7 @@
     <section>
         <b-field class="border">
             <b-upload v-model="dropFiles"
-            multiple
+            multiple="true"
                 name="images[]">
                 <section class="section">
                     <div class="content has-text-centered">

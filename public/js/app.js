@@ -42564,7 +42564,7 @@ var render = function() {
           _c(
             "b-upload",
             {
-              attrs: { multiple: "", name: "images[]" },
+              attrs: { multiple: "true", name: "images[]" },
               model: {
                 value: _vm.dropFiles,
                 callback: function($$v) {

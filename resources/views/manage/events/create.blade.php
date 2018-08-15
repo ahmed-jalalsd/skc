@@ -22,7 +22,7 @@
               </b-input>
             </b-field>
 
-            <slug-widget url="{{url('/')}}" subdirectory="blog" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
+            <slug-widget url="{{url('/')}}" subdirectory="events" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
             <input type="hidden" v-model="slug" name="slug" />
 
             <div class="block m-t-40">

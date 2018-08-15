@@ -21,4 +21,5 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->group(function () {
     Route::get('/posts/unique', 'PostController@apiCheckUnique')->name('api.posts.unique');
     Route::get('/events/unique', 'EventsController@apiCheckUnique')->name('api.events.unique');
+    Route::get('/galleries/unique', 'GalleriesController@apiCheckUnique')->name('api.galleries.unique');
 });
