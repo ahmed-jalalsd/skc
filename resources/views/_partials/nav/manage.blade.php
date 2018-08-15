@@ -9,11 +9,12 @@
       </li>
     </ul>
 
+    @role('superadministrator|administrator')
     <p class="menu-label">
       Content
     </p>
 
-    {{-- @if(Auth::user()->role == 'superadministrator') --}}
+
       <ul class="menu-list">
         <li>
           <a href="{{route('posts.index')}}" class="{{Nav::isResource('posts', 2)}}">Manage Blog</a>
@@ -24,11 +25,13 @@
         <li>
           <a href="{{route('galleries.index')}}" class="{{Nav::isResource('galleries', 2)}}">Manage Galleries</a>
         </li>
+
       </ul>
-    {{-- @endif --}}
+      @endrole
 
 
-    {{-- @if(Auth::user()->role == 'superadministrator|administrator') --}}
+
+    @role('superadministrator|administrator')
       <p class="menu-label">
         Administration
       </p>
@@ -57,7 +60,7 @@
         </li>
 
       </ul>
-    {{-- @endif --}}
+    @endrole
   </aside>
 </div>
 </div>

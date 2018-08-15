@@ -18,7 +18,6 @@ class CreateGalleriesTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('cover_image')->nullable();
-            $table->string('images')->nullable();
             $table->timestamps();
         });
     }
