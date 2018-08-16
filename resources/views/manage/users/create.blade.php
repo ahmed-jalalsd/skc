@@ -17,9 +17,9 @@
 			{{ csrf_field() }}
 
 			<div class="columns">
-			
+
 				<div class="column">
-			
+
 						<div class="field">
 							<label for="name" class="label">Name</label>
 							<p class="control">
@@ -40,17 +40,31 @@
 				              <input type="text" class="input" name="password" id="password" v-if="!auto_password" placeholder="Manually give a password to this user">
 
 				              <b-checkbox name="auto_generate" class="m-t-15" v-model="auto_password" native-value="auto_generate" >Auto Generate Password</b-checkbox>
-				              
+
 				            </p>
 				        </div>
 
+								<div class="field">
+									<label for="phone_number" class="label">Phone number</label>
+									<p class="control">
+										<input type="tel" class="input" name="phone_number" id="phone_number">
+									</p>
+								</div>
+
+								<div class="field">
+									<label for="address" class="label">Address</label>
+									<p class="control">
+										<input type="text" class="input" name="address" id="address">
+									</p>
+								</div>
+
 						{{-- <button class="button is-success">Create User</button> --}}
 
-					
+
 				</div> {{-- end of column --}}
 
 				<div class="column">
-			        
+
 			        <label for="roles" class="label">Roles:</label>
 			        <input type="hidden" name="roles" :value="rolesSelected" />
 		            @foreach ($roles as $role)
@@ -61,7 +75,7 @@
 
         		</div> {{-- end of column --}}
 
-			
+
 			</div> {{-- end of columns for forms --}}
 
 			<div class="columns">
@@ -72,7 +86,7 @@
       		</div>
 
 		</form>
-		
+
 	</div> {{-- end of flex container --}}
 
 

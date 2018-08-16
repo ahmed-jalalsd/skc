@@ -52,7 +52,9 @@ class UserController extends Controller
     {
         $this->validate($request, [
             "name" => "required | max:255 ",
-            "email" => "required|email|unique:users"
+            "email" => "required|email|unique:users",
+            "phone_number" => "required | max:100 ",
+            "address" => "sometimes | max:255 ",
         ]);
 
         if (!empty($request->password)) {
@@ -74,13 +76,15 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->address = $request->address;
         $user->password = Hash::make($password);
         $user->save();
 
         if ($request->roles) {
             $user->syncRoles(explode(',', $request->roles));
           }
-      
+
         return redirect()->route('users.show', $user->id);
 
         // if ($user->save()) {
@@ -89,7 +93,7 @@ class UserController extends Controller
         //     Session::flash('danger', 'Sorry a problem occurred while creating this user.');
         //     return redirect()->route('users.create');
         // }
-        
+
     }
 
     /**
@@ -114,7 +118,7 @@ class UserController extends Controller
     {
         $roles = Role::all();
         $user = User::where('id', $id)->with('roles')->first();
-        return view("manage.users.edit")->withUser($user)->withRoles($roles);   
+        return view("manage.users.edit")->withUser($user)->withRoles($roles);
     }
 
     /**
@@ -128,12 +132,16 @@ class UserController extends Controller
     {
          $this->validateWith([
             'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email,'.$id
+            'email' => 'required|email|unique:users,email,'.$id,
+            "phone_number" => "required | max:100 ",
+            "address" => "sometimes | max:255 ",
       ]);
 
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->address = $request->address;
 
         if ($request->password_options == 'auto') {
              // generate a password

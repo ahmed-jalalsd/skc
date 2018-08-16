@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="flex-container">
-    
+
 	    <div class="columns m-t-10">
 	      <div class="column">
 	        <h1 class="title">Edit User</h1>
@@ -34,10 +34,24 @@
 			            </p>
 		         	</div>
 
+							<div class="field">
+								<label for="phone_number" class="label">Phone number</label>
+								<p class="control">
+									<input type="tel" class="input" name="phone_number" id="phone_number" value="{{$user->phone_number}}">
+								</p>
+							</div>
+
+							<div class="field">
+								<label for="address" class="label">Address</label>
+								<p class="control">
+									<input type="text" class="input" name="address" id="address" value="{{$user->address}}">
+								</p>
+							</div>
+
 	          		<div class="field">
-	            		
+
 	            		<label for="password" class="label">Password</label>
-	            
+
 	            		<div class="block">
 
 		            		<div class="field">
@@ -61,12 +75,12 @@
 	            	</div>
 
 	        	</div> <!-- end of first column -->
-	       
+
 
 				<div class="column">
 
 					<label for="roles" class="label">Roles:</label>
-	          
+
 	          		<input type="hidden" name="roles" :value="rolesSelected" />
 
 		            @foreach ($roles as $role)
@@ -80,7 +94,7 @@
 	      	</div> <!-- end of first columns -->
 
 			<div class="columns">
-			
+
 				<div class="column">
 			  		<hr style="background-color: #ccc; height: 1px; ">
 			  		<button class="button is-primary is-pulled-right" style="width: 250px;">Edit User</button>
@@ -89,7 +103,7 @@
 		</form>
 
   </div> <!-- end of .flex-container -->
-  
+
 @endsection
 
 

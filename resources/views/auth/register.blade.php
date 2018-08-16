@@ -51,9 +51,14 @@
 
                             <div class="field-body">
                                 <div class="field">
-                                    <p class="control">
+                                    <p class="control  has-icons-left has-icons-right">
                                         <input class="input" id="email" type="email" name="email"
                                                value="{{ old('email') }}" required autofocus>
+
+                                        <span class="icon is-small is-left">
+                                          <i class="fas fa-envelope"></i>
+                                       </span>
+
                                     </p>
 
                                     @if ($errors->has('email'))
@@ -72,8 +77,11 @@
 
                             <div class="field-body">
                                 <div class="field">
-                                    <p class="control">
+                                    <p class="control  has-icons-left has-icons-right">
                                         <input class="input" id="password" type="password" name="password" required>
+                                        <span class="icon is-small is-left">
+                                          <i class="fas fa-lock"></i>
+                                       </span>
                                     </p>
 
                                     @if ($errors->has('password'))
@@ -92,9 +100,52 @@
 
                             <div class="field-body">
                                 <div class="field">
-                                    <p class="control">
+                                    <p class="control has-icons-left has-icons-right">
                                         <input class="input" id="password-confirm" type="password"
                                                name="password_confirmation" required>
+
+                                               <span class="icon is-small is-left">
+                                                 <i class="fas fa-lock"></i>
+                                              </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                          <div class="field-label">
+                            <label class="label">Phone Number</label>
+                          </div>
+                          <div class="field-body">
+                            <div class="field is-expanded">
+                              <div class="field has-addons">
+                                <p class="control">
+                                  <a class="button is-static">
+                                    +249
+                                  </a>
+                                </p>
+                                <p class="control is-expanded">
+                                  <input class="input" type="tel" placeholder="Your phone number" name="phone_number">
+                                </p>
+                              </div>
+                              <p class="help">Do not enter the first zero</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label">
+                                <label class="label">Address</label>
+                            </div>
+
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control has-icons-left has-icons-right">
+                                        <input class="input" id="address" type="text"
+                                               name="address">
+                                               <span class="icon is-small is-left">
+                                                 <i class="fas fa-lock"></i>
+                                              </span>
                                     </p>
                                 </div>
                             </div>

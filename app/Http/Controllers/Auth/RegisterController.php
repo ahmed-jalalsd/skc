@@ -72,18 +72,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'email_token' => base64_encode($data['email'])
+            'email_token' => base64_encode($data['email']),
+            "phone_number" => $data['phone_number'],
+            "address" => $data['address']
         ]);
 
         // to find the role(member) we make a Query where the id is the id of the role
         $member = Role::find(3);
         // this method is in laratrust docs
         $user->attachRole($member);
+
         return $user;
     }
 
