@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="flex-container">
-		
+
 		<div class="columns m-t-10">
 			<div class="column">
 				<h1 class="title">Manage Members</h1>
@@ -26,6 +26,7 @@
 							<th>Id</th>
 							<th>Name</th>
 							<th>Email</th>
+							<th>Role</th>
 							<th>Date Created</th>
 							<th>Actions</th>
 						</tr>
@@ -37,6 +38,9 @@
 								<th>{{$user->id}}</th>
 								<td>{{$user->name}}</td>
 								<td>{{$user->email}}</td>
+								@foreach ($user->roles as $role)
+								<td>{{$role->display_name}}</td>
+								@endforeach
 								<td>{{$user->created_at->toFormattedDateString()}}</td>
 								<td class="has-text-right">
 									<a href="{{route('users.show', $user->id)}}" class="button is-outlined m-r-5 ">View</a>
@@ -50,7 +54,7 @@
 		</div> {{-- end of card --}}
 
 		{{$users->links()}}
-		
+
 	</div> {{-- end of flex container --}}
 
 

@@ -14,8 +14,8 @@
       Content
     </p>
 
-
       <ul class="menu-list">
+
         <li>
           <a href="{{route('posts.index')}}" class="{{Nav::isResource('posts', 2)}}">Manage Blog</a>
         </li>
@@ -28,6 +28,15 @@
 
       </ul>
       @endrole
+
+      <p class="menu-label">
+        Personal Area
+      </p>
+      <ul class="menu-list">
+        <li>
+          <a href="{{route('dogs.index')}}" class="{{Nav::isResource('dogs', 2)}}">Manage My Dogs</a>
+        </li>
+      </ul>
 
 
 

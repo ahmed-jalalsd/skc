@@ -26,6 +26,7 @@ Route::prefix('manage')->group(function(){
 	Route::resource('/posts', 'PostController');
 	Route::resource('/events', 'EventsController');
 	Route::resource('/galleries', 'GalleriesController');
+	Route::resource('/dogs', 'DogsController');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

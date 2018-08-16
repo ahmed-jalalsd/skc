@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laratrust\Traits\LaratrustUserTrait;
+use App\Dog;
+use App\Post;
+use App\Event;
 
 class User extends Authenticatable
 {
@@ -41,4 +44,6 @@ class User extends Authenticatable
    {
        return $this->hasMany(Event::class, 'user_id');
    }
+
+   
 }
