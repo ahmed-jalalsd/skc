@@ -125,9 +125,13 @@
 
               <div class="field">
                 <label for="sex" class="label">Sex</label>
-                <p class="control is-expanded ">
-                  <input class="input" type="text" placeholder="male" name="sex">
-                </p>
+                  <div class="select  is-fullwidth control is-expanded">
+                    <select name="sex">
+                      <option>Select dropdown</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
               </div>
 
             </div>
@@ -139,7 +143,7 @@
               <div class="field">
                 <label for="sir" class="label">Sir</label>
                 <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="P0ygh4" name="sir">
+                  <input class="input" type="text" placeholder="name of Sir" name="sir">
                 </p>
               </div>
 
@@ -157,7 +161,7 @@
               <div class="field">
                 <label for="dam" class="label">Dam</label>
                 <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="P0ygh4" name="dam">
+                  <input class="input" type="text" placeholder="Name Of Dam" name="dam">
                 </p>
               </div>
 
@@ -223,27 +227,6 @@
             <p class="subtitle"> Add Dog's photos:</p>
             <multi-drag-drop></multi-drag-drop>
           </div>
-
-          <!-- <div class="file has-name is-boxed">
-            <label class="file-label">
-              <input class="file-input" type="file" name="dog_images" multiple="true">
-              <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                  Choose a file…
-                </span>
-              </span>
-              <span class="file-name">
-                Screen Shot 2017-07-29 at 15.54.25.png
-              </span>
-            </label>
-          </div> -->
-
-
-						{{-- <button class="button is-success">Create User</button> --}}
-
 
 				</div> {{-- end of column --}}
 

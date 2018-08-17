@@ -23,7 +23,8 @@ class DogsController extends Controller
      */
     public function index()
     {
-        return view('manage.dogs.index');
+        $dogs = Dog::orderBy('id', 'desc')->with('users')->paginate(10);
+        return view('manage.dogs.index')->withDogs($dogs);
     }
 
     /**
@@ -44,17 +45,17 @@ class DogsController extends Controller
      */
     public function store(Request $request)
     {
-      // $this->validate($request, [
-      //     "breed" => "required|max:255 ",
-      //     "dog_name" => "required|max:255 ",
-      //     "email" => "sometimes|email|unique:users",
-      //     "phone_number" => "sometimes | max:100 ",
-      //     "address" => "sometimes|max:255 ",
-      //     "date_of_birth" => "required|date",
-      //     'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
-      // ]);
+      $this->validate($request, [
+          "breed" => "required|max:255 ",
+          "dog_name" => "required|max:255 ",
+          "email" => "sometimes|email|unique:users",
+          "phone_number" => "sometimes | max:100 ",
+          "address" => "sometimes|max:255 ",
+          "date_of_birth" => "required|date",
+          'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+      ]);
 
-      // // dd($request->dog_images);
+      // dd($request->all());
 
       $dog = new Dog;
 
@@ -66,7 +67,7 @@ class DogsController extends Controller
       $dog->pedigree_no = $request->pedigree_no;
       $dog->hair_type = $request->hair_type;
       $dog->microchip_no = $request->microchip_no;
-      $dog->tatto = $request->tatto;
+      $dog->tatto = $request->tattoo;
       $dog->sex = $request->sex;
       $dog->sir = $request->sir;
       $dog->dam = $request->dam;
@@ -92,6 +93,7 @@ class DogsController extends Controller
 
       $dog->dog_images = json_encode($data);
       $dog->save();
+
       return redirect()->route('dogs.index');
       // dd($user);
       // dd($request->all());

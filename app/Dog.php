@@ -18,5 +18,10 @@ class Dog extends Model
       'date_of_birth'
   ];
 
-  
+  public function users()
+  {
+    return $this->belongsTo(User::class, 'user_id');
+  }
+
+
 }
