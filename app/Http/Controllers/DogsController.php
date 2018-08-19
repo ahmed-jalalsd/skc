@@ -107,7 +107,10 @@ class DogsController extends Controller
      */
     public function show($id)
     {
-        //
+        $dog = Dog::findOrFail($id);
+        $images= json_decode($dog->dog_images);
+        // dd($images);
+        return view('manage.dogs.show')->withDog($dog)->withImages($images);
     }
 
     /**
@@ -118,7 +121,8 @@ class DogsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dog = Dog::findOrFail($id);
+        return view('manage.dogs.edit')->withDog($dog);
     }
 
     /**
@@ -130,7 +134,60 @@ class DogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            "breed" => "required|max:255 ",
+            "dog_name" => "required|max:255 ",
+            "email" => "sometimes|email|unique:users",
+            "phone_number" => "sometimes | max:100 ",
+            "address" => "sometimes|max:255 ",
+            "date_of_birth" => "required|date",
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+
+        // dd($request->all());
+
+        $dog = Dog::findOrFail($id);
+
+        $dog->age = $request->age;
+        $dog->user_id = auth()->user()->id;
+        $dog->breed = $request->breed;
+        $dog->color = $request->color;
+        $dog->dog_name = $request->dog_name;
+        $dog->pedigree_no = $request->pedigree_no;
+        $dog->hair_type = $request->hair_type;
+        $dog->microchip_no = $request->microchip_no;
+        $dog->tatto = $request->tattoo;
+        $dog->sex = $request->sex;
+        $dog->sir = $request->sir;
+        $dog->dam = $request->dam;
+        $dog->sir_pedigree_no = $request->sir_pedigree_no;
+        $dog->dam_pedigree_no = $request->dam_pedigree_no;
+        $dog->breeder = $request->breeder;
+        $dog->owner = $request->owner;
+        $dog->owner_address = $request->owner_address;
+        $dog->phone_number = $request->phone_number;
+        $dog->email = $request->email;
+        $dog->date_of_birth = $request->date_of_birth;
+
+        if($request->hasFile('images')) {
+          $images = Input::file('images');
+          // dd($images);
+          foreach ($images as $image) {
+            $imageFilename = time(). '-' .$image->getClientOriginalName();
+            $image->move(public_path().'/images/dogs', $imageFilename);
+            $oldImages= json_decode($dog->dog_images);
+            foreach ($oldImages as $oldImage) {
+              Storage::delete($oldImage);
+            }
+            $data[] = $imageFilename;
+            // dd($data);
+          }
+        }
+
+        $dog->dog_images = json_encode($data);
+        $dog->save();
+
+        return redirect()->route('dogs.index');
     }
 
     /**
@@ -141,6 +198,10 @@ class DogsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $dog = Dog::findOrFail($id);
+      Storage::delete($dog->dog_images);
+      $dog->delete();
+
+      return redirect()->route('dogs.index');
     }
 }

@@ -14,7 +14,7 @@
 		</div>
 		<div class="columns m-t-10 is-multiline">
 
-@foreach($gallery->photos as $arrOfItem)
+			@foreach($gallery->photos as $arrOfItem)
 					<div class="column is-one-quarter-desktop is-half-tablet">
 
 						<div class="card">
