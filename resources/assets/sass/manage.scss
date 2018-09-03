@@ -24,7 +24,7 @@
 		transition: 0.3s;
 		transform: rotateY(180deg);
 	}
-	
+
 }
 .management-area {
 	position: absolute;
@@ -112,7 +112,7 @@
 		        p {
 		        	font-weight: 300;
           			font-size: 0.8em;
-        		}	
+        		}
 			}
 		}
 	}
@@ -126,3 +126,8 @@
   	}
 }
 
+.custom-box {
+	background-color: whitesmoke;
+	color: #4a4a4a;
+	padding: 1.25rem 1.5rem;
+}

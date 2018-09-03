@@ -28,8 +28,18 @@
 					<div class="field-body">
 
 						<div class="field">
-							<label class="label">Age</label>
-							<p>{{$dog->age}}</p>
+							<label class="label">Group</label>
+							<pre>{{$dog->breeds->groups->group_name}}</pre>
+						</div>
+
+						<div class="field">
+							<label class="label">Breed</label>
+							<pre>{{$dog->breeds->breed}}</pre>
+						</div>
+
+						<div class="field">
+							<label class="label">Dog Name</label>
+							<pre>{{$dog->dog_name}}</pre>
 						</div>
 
 					</div>
@@ -40,52 +50,37 @@
 					<div class="field-body">
 
 						<div class="field">
-							<label class="label">Breed</label>
-							<p>{{$dog->breeds->breed}}</p>
+							<label class="label">Age</label>
+							<pre>{{$dog->age}}</pre>
 						</div>
 
 						<div class="field">
 							<label  class="label">Color</label>
-							<p class="control is-expanded ">
-								{{$dog->color}}
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-body">
-						<div class="field">
-							<label class="label">Dog Name</label>
-							<p class="control is-expanded ">
-								{{$dog->dog_name}}
-							</p>
+							<pre>{{$dog->color}}</pre>
 						</div>
 
 						<div class="field">
 							<label for="pedigree_no" class="label">Pedigree NO.</label>
-							<p class="control is-expanded ">
-								{{$dog->pedigree_no}}
-							</p>
+							<pre>{{$dog->pedigree_no}}</pre>
 						</div>
+
 					</div>
 				</div>
+
 
 				<div class="field is-horizontal">
 
 					<div class="field-body">
 						<div class="field">
 							<label for="hair_type" class="label">Hair type</label>
-								<div class="  is-fullwidth">
-									<p>{{$dog->hair_type}}</p>
+								<div class="">
+									<pre>{{$dog->hair_type}}</pre>
 								</div>
 						</div>
 
 						<div class="field">
 							<label for="date_of_birth" class="label">Birth Date</label>
-							<p class="control is-expanded ">
-								{{$dog->date_of_birth}}
-							</p>
+							<pre>{{$dog->date_of_birth}}</pre>
 						</div>
 					</div>
 
@@ -97,23 +92,17 @@
 
 						<div class="field">
 							<label  class="label">Microchip NO.</label>
-							<p class="control is-expanded ">
-								{{$dog->microchip_no}}
-							</p>
+							<p class="custom-box">{{$dog->microchip_no}}</p>
 						</div>
 
 						<div class="field">
 							<label class="label">Tattoo</label>
-							<p class="control is-expanded ">
-								{{$dog->tatto}}
-							</p>
+							<p class="custom-box">{{$dog->tatto}}</p>
 						</div>
 
 						<div class="field">
 							<label class="label">Sex</label>
-								<div class=" control is-expanded">
-									<p>{{$dog->sex}}</p>
-								</div>
+							<p class="custom-box">{{$dog->sex}}</p>
 						</div>
 
 					</div>
