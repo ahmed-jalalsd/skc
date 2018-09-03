@@ -38,7 +38,7 @@
 
 				    <div class="content">
 
-							<h4 class="subtitle">Breed: {{$dog->breed}}</h4>
+							<h4 class="subtitle">Breed: {{$dog->breeds->breed}}</h4>
 							<h4 class="subtitle">Owner: {{$dog->users->name}}</h4>
 				      <time datetime="2016-1-1">{{$dog->created_at}}</time>
 				    </div>

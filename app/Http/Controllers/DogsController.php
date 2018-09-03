@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\User;
 use App\Dog;
+use App\Breed;
+use App\Group;
 use DB;
 use session;
 use File;
@@ -30,13 +32,13 @@ class DogsController extends Controller
     public function index()
     {
       $user = \Auth::user();
-      // dd($user);
       if($user->hasRole('member')) {
         // $dogs = User::find('user_id')->dogs;
         $dogs = $user->dogs()->where('user_id', $user->id)->paginate(10);
         // dd($dogs);
       }else {
-        $dogs = Dog::orderBy('id', 'desc')->with('users')->paginate(10);
+        $dogs = Dog::orderBy('id', 'desc')->with('users','breeds')->paginate(10);
+        // dd($dogs);
       }
       return view('manage.dogs.index')->withDogs($dogs);
     }
@@ -48,7 +50,8 @@ class DogsController extends Controller
      */
     public function create()
     {
-        return view('manage.dogs.create');
+        $breeds = Breed::all();
+        return view('manage.dogs.create')->withBreeds($breeds);
     }
 
     /**
@@ -60,7 +63,6 @@ class DogsController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-          "breed" => "required|max:255 ",
           "dog_name" => "required|max:255 ",
           "email" => "sometimes|email|unique:users",
           "phone_number" => "sometimes | max:100 ",
@@ -75,7 +77,7 @@ class DogsController extends Controller
 
       $dog->age = $request->age;
       $dog->user_id = auth()->user()->id;
-      $dog->breed = $request->breed;
+      $dog->breed_id = $request->breed; // add the breed id
       $dog->color = $request->color;
       $dog->dog_name = $request->dog_name;
       $dog->pedigree_no = $request->pedigree_no;
@@ -123,7 +125,8 @@ class DogsController extends Controller
     {
         $dog = Dog::findOrFail($id);
         $images= json_decode($dog->dog_images);
-        // dd($images);
+        // $breed = Breed::with('dogs')->where('id', $dog->breed_id)->get();
+        // dd($dog->breeds->breed);
         return view('manage.dogs.show')->withDog($dog)->withImages($images);
     }
 

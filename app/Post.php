@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+use App\User;
+
 class Post extends Model
 {
   use Notifiable;

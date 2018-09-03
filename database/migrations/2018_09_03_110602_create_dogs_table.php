@@ -16,8 +16,8 @@ class CreateDogsTable extends Migration
         Schema::create('dogs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('breed_id')->unsigned();
             $table->string('age')->nullable();
-            $table->string('breed')->nullable();
             $table->string('color')->nullable();
             $table->string('dog_name')->nullable();
             $table->string('pedigree_no')->nullable();
@@ -40,7 +40,9 @@ class CreateDogsTable extends Migration
 
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('breed_id')->references('id')->on('breeds')->onDelete('cascade');
         });
+
     }
 
     /**

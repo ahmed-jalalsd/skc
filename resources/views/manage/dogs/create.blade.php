@@ -40,16 +40,23 @@
                     </select>
                   </div>
               </div>
+
             </div>
 
           </div>
 
           <div class="field is-horizontal">
             <div class="field-body">
+
               <div class="field">
                 <label for="breed" class="label">Breed</label>
-                <p class="control is-expanded ">
-                  <input class="input" type="text" placeholder="German Shepherd" name="breed">
+                <p class="control is-expanded select is-fullwidth">
+									<select name="breed">
+										<option>Select dropdown</option>
+										@foreach ($breeds as $breed)
+										<option value="{{$breed->id}}">{{$breed->breed}}</option>
+										@endforeach
+									</select>
                 </p>
               </div>
 
