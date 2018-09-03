@@ -55,15 +55,15 @@
 	            		<div class="block">
 
 		            		<div class="field">
-		            			<b-radio  v-model="password_options" native-value="keep">Do Not Change Password</b-radio>
+		            			<b-radio name="password_options"  v-model="password_options" native-value="keep">Do Not Change Password</b-radio>
 		    				</div>
 
 			              	<div class="field">
-					  			<b-radio  v-model="password_options" native-value="auto">Auto-Generate New Password</b-radio>
+					  			<b-radio name="password_options" v-model="password_options" native-value="auto">Auto-Generate New Password</b-radio>
 					        </div>
 
 					        <div class="field">
-						        <b-radio  v-model="password_options" native-value="manual">Manually Set New Password </b-radio>
+						        <b-radio name="password_options" v-model="password_options" native-value="manual">Manually Set New Password </b-radio>
 						    </div>
 
 						    <p class="control">

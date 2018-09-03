@@ -27,8 +27,20 @@
         </li>
 
       </ul>
+
+
+      <p class="menu-label">
+        Personal Area
+      </p>
+      <ul class="menu-list">
+        <li>
+          <a href="{{route('dogs.index')}}" class="{{Nav::isResource('dogs', 2)}}">Manage All Dogs</a>
+        </li>
+      </ul>
+
       @endrole
 
+      @role('member')
       <p class="menu-label">
         Personal Area
       </p>
@@ -37,8 +49,7 @@
           <a href="{{route('dogs.index')}}" class="{{Nav::isResource('dogs', 2)}}">Manage My Dogs</a>
         </li>
       </ul>
-
-
+      @endrole
 
     @role('superadministrator|administrator')
       <p class="menu-label">

@@ -8,7 +8,7 @@
         <h1 class="title">Manage Dogs</h1>
       </div>
       <div class="column">
-        <a href="{{route('dogs.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create New Gallery</a>
+        <a href="{{route('dogs.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Add a dog</a>
       </div>
     </div>
 
@@ -31,14 +31,15 @@
 							<div class="media">
 
 							<div class="media-content">
-				        <p class="title is-4">{{$dog->dog_name}}</p>
+				        <p class="title is-4">Dog name: {{$dog->dog_name}}</p>
 				      </div>
 
 				    </div>
 
 				    <div class="content">
 
-							<h4 class="subtitle">{{$dog->breed}}</h4>
+							<h4 class="subtitle">Breed: {{$dog->breed}}</h4>
+							<h4 class="subtitle">Owner: {{$dog->users->name}}</h4>
 				      <time datetime="2016-1-1">{{$dog->created_at}}</time>
 				    </div>
 

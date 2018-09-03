@@ -21,10 +21,24 @@ class DogsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('role:superadministrator|administrator|member');
+     }
+
     public function index()
     {
+      $user = \Auth::user();
+      // dd($user);
+      if($user->hasRole('member')) {
+        // $dogs = User::find('user_id')->dogs;
+        $dogs = $user->dogs()->where('user_id', $user->id)->paginate(10);
+        // dd($dogs);
+      }else {
         $dogs = Dog::orderBy('id', 'desc')->with('users')->paginate(10);
-        return view('manage.dogs.index')->withDogs($dogs);
+      }
+      return view('manage.dogs.index')->withDogs($dogs);
     }
 
     /**
