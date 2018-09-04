@@ -49,8 +49,13 @@
             <div class="field-body">
               <div class="field">
                 <label for="breed" class="label">Breed</label>
-                <p class="control is-expanded ">
-                  <input class="input" type="text" placeholder="German Shepherd" name="breed" value="{{$dog->breed}}">
+                <p class="control is-expanded is-expanded select is-fullwidth">
+									<select name="breed">
+										<option value="{{$dog->breeds->id}}">{{$dog->breeds->breed}}</option>
+										@foreach ($breeds as $breed)
+										<option value="{{$breed->id}}">{{$breed->breed}}</option>
+										@endforeach
+									</select>
                 </p>
               </div>
 

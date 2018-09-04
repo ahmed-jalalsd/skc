@@ -113,14 +113,12 @@
 					<div class="field-body">
 						<div class="field">
 							<label class="label">Sir</label>
-							<p class="control is-expanded">
-								{{$dog->sir}}
-							</p>
+							<p class="custom-box">{{$dog->sir}}</p>
 						</div>
 
 						<div class="field">
 							<label class="label">Sir Pedigree NO.</label>
-							<p class="control is-expanded ">
+							<p class="custom-box">
 								{{$dog->sir_pedigree_no}}
 							</p>
 						</div>
@@ -131,14 +129,14 @@
 					<div class="field-body">
 						<div class="field">
 							<label for="dam" class="label">Dam</label>
-							<p class="control is-expanded">
+							<p class="custom-box">
 								{{$dog->dam}}
 							</p>
 						</div>
 
 						<div class="field">
 							<label for="dam_pedigree_no" class="label">Dam Pedigree NO.</label>
-							<p class="control is-expanded ">
+							<p class="custom-box">
 								{{$dog->dam_pedigree_no}}
 							</p>
 						</div>
@@ -147,21 +145,21 @@
 
 				<div class="field">
 					<label for="breeder" class="label">Breeder</label>
-					<p class="control">
+					<p class="custom-box">
 						{{$dog->breeder}}
 					</p>
 				</div>
 
 				<div class="field">
 					<label for="owner" class="label">Owner</label>
-					<p class="control">
+					<p class="custom-box">
 						{{$dog->owner}}
 					</p>
 				</div>
 
 				<div class="field">
 					<label for="owner_address" class="label">Owner Address</label>
-					<p class="control">
+					<p class="custom-box">
 						{{$dog->owner_address}}
 					</p>
 				</div>
@@ -173,7 +171,7 @@
 
 							<label class="label">Phone NO.</label>
 							<div class="field">
-								<p class="control is-expanded">
+								<p class="custom-box">
 									{{$dog->phone_number}}
 								</p>
 							</div>
@@ -182,14 +180,14 @@
 
 						<div class="field">
 							<label class="label">Email</label>
-							<p class="control">
+							<p class="custom-box">
 								{{$dog->email}}
 							</p>
 						</div>
 
 						<div class="field">
 							<label class="label">The dog was added at</label>
-							<p class="control">
+							<p class="custom-box">
 								{{$dog->created_at->toFormattedDateString()}}
 							</p>
 						</div>

@@ -31,16 +31,15 @@ class DogsController extends Controller
 
     public function index()
     {
-      $user = \Auth::user();
-      if($user->hasRole('member')) {
-        // $dogs = User::find('user_id')->dogs;
-        $dogs = $user->dogs()->where('user_id', $user->id)->paginate(10);
-        // dd($dogs);
-      }else {
-        $dogs = Dog::orderBy('id', 'desc')->with('users','breeds')->paginate(10);
-        // dd($dogs);
-      }
-      return view('manage.dogs.index')->withDogs($dogs);
+
+        $user = \Auth::user();
+        if($user->hasRole('member')) {
+          // $dogs = User::find('user_id')->dogs;
+          $dogs = $user->dogs()->where('user_id', $user->id)->paginate(10);
+        }else {
+          $dogs = Dog::orderBy('id', 'desc')->with('users','breeds')->paginate(10);
+        }
+        return view('manage.dogs.index')->withDogs($dogs);
     }
 
     /**
@@ -140,7 +139,8 @@ class DogsController extends Controller
     public function edit($id)
     {
         $dog = Dog::findOrFail($id);
-        return view('manage.dogs.edit')->withDog($dog);
+        $breeds = Breed::all();
+        return view('manage.dogs.edit')->withDog($dog)->withBreeds($breeds);
     }
 
     /**
