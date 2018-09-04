@@ -140,7 +140,8 @@ class DogsController extends Controller
     {
         $dog = Dog::findOrFail($id);
         $breeds = Breed::all();
-        return view('manage.dogs.edit')->withDog($dog)->withBreeds($breeds);
+        $images= json_decode($dog->dog_images);
+        return view('manage.dogs.edit')->withDog($dog)->withBreeds($breeds)->withImages($images);
     }
 
     /**
@@ -159,7 +160,7 @@ class DogsController extends Controller
             "phone_number" => "sometimes | max:100 ",
             "address" => "sometimes|max:255 ",
             "date_of_birth" => "required|date",
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+            'images.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
         // dd($request->all());

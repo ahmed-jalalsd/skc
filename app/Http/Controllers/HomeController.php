@@ -27,6 +27,6 @@ class HomeController extends Controller
         LaraFlash::add()->content('Hello World')->priority(6)->type('info');
         LaraFlash::success('Yay');
         LaraFlash::danger('Oops');
-        return view('home');
+        return view('manage.dashboard');
     }
 }

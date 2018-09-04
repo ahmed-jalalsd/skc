@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'local_dev'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,11 +55,11 @@ return [
             'visibility' => 'public',
         ],
 
-// // custom disk
-//         'local_dev' => [
-//             'driver' => 'local',
-//             'root' => storage_path('public/images/'),
-//         ],
+// custom disk
+        'local_dev' => [
+            'driver' => 'local',
+            'root' => public_path('public/images/'),
+        ],
 
         's3' => [
             'driver' => 's3',

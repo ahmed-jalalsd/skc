@@ -239,6 +239,22 @@
 
 			</div> {{-- end of columns for forms --}}
 
+			<div class="columns is-multiline">
+
+					@foreach($images as $image)
+					<div class="column is-one-quarter-desktop is-half-tablet">
+						<div class="card">
+							<div class="card-image">
+	              <figure class="image is-3by2">
+	                  <img src="{!! '/images/dogs/'.$image !!}" alt="">
+	              </figure>
+	          	</div>
+	        	</div>
+						</div>
+					@endforeach
+
+			</div>
+
 			<div class="columns">
         <div class="column">
           <hr  class="m-t-0" style="background-color: #ccc; height: 1px; ">
@@ -247,6 +263,11 @@
   		</div>
 
 		</form>
+
+
+		<!-- <hr style="background-color: #ccc; height: 1px" class="m-t-0"> -->
+
+
 
 	</div> {{-- end of flex container --}}
 
