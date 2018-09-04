@@ -72,11 +72,11 @@
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control">
-                                        <b-checkbox name="remember" {{ old('remember') ? 'checked' : '' }} class="m-t-20">Remember Me</b-checkbox> 
-                                        {{-- <label class="checkbox">
+                                        <!-- <b-checkbox name="remember" {{ old('remember') ? 'checked' : '' }} class="m-t-20">Remember Me</b-checkbox>  -->
+                                        <label class="checkbox">
                                             <input type="checkbox"
                                                    name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                        </label> --}}
+                                        </label> 
                                     </p>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="field is-horizontal">
                             <div class="field-label"></div>
 
