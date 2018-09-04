@@ -1,0 +1,19 @@
+.navbar {
+  background-color: $black;
+  .container {
+    .navbar-brand {
+      .logo {
+        &:hover {
+          color: $grey-darker;
+        }
+        &__text {
+          margin-left: 0.5rem;
+          color: $white;
+        }
+        @include mobile {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}

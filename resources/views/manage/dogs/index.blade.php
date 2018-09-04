@@ -45,7 +45,7 @@
 
 						<footer class="card-footer">
 						 <a href="{{ route('dogs.show', $dog->id) }}" class=" card-footer-item button is-primary is-fullwidth m-r-10 m-t-5">View</a>
-						 <a href="{{ route('dogs.edit', $dog->id) }}" class=" card-footer-item button is-light is-fullwidth m-r-10 m-t-5">Edit</a>
+						 <a href="{{ route('dogs.edit', $dog->id) }}" class=" card-footer-item button is-info is-fullwidth m-r-10 m-t-5">Edit</a>
 
              <form  action="{{ route('dogs.destroy', $dog->id) }}" method="POST" enctype="multipart/form-data">
                <input name="_method" type="hidden" value="DELETE">

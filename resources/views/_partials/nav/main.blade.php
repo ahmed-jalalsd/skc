@@ -1,7 +1,7 @@
 <nav class="navbar has-shadow" >
   <div class="container">
     <div class="navbar-brand">
-      
+
       <a class="navbar-item is-paddingless brand-item" href="{{route('home')}}">
         <img src="{{asset('images/skc-logo.jpeg')}}" alt="Skc logo">
       </a>
@@ -21,12 +21,7 @@
      </button>
     </div>
     <div class="navbar-menu">
-      {{-- <div class="navbar-start">
-        <a class="navbar-item is-tab is-active">Learn</a>
-        <a class="navbar-item is-tab">Discuss</a>
-        <a class="navbar-item is-tab">Share</a>
-      </div> <!-- end of .navbar-start -->
- --}}
+    
 
       <div class="navbar-end nav-menu" style="overflow: visible">
         @guest
@@ -60,10 +55,9 @@
                 </span>
                 Logout
               </a>
-               <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+              </form>
             </div>
           </div>
         @endguest

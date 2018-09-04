@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Home Page
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -29,5 +32,5 @@ Route::prefix('manage')->group(function(){
 	Route::resource('/dogs', 'DogsController');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');

@@ -1,21 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="columns is- is-marginless is-centered">
-            <div class="column is-7">
-                <nav class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            Dashboard
-                        </p>
-                    </header>
+    <div class="flex-center position-ref full-height">
 
-                    <div class="card-content">
-                        You are logged in!
-                    </div>
-                </nav>
+        <div class="content">
+            <div class="title m-b-md">
+                Laravel
+                <p class="versioninfo">Version {{ app()->version() }}</p>
             </div>
+
+            <div class="links">
+                <a href="https://laravel.com/docs">Documentation</a>
+                <a href="https://laracasts.com">Laracasts</a>
+                <a href="https://laravel-news.com">News</a>
+                <a href="https://forge.laravel.com">Forge</a>
+                <a href="https://github.com/laravel/laravel">GitHub</a>
+            </div>
+
         </div>
     </div>
 @endsection
