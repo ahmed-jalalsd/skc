@@ -1,9 +1,12 @@
-<nav class="navbar has-shadow" >
+<nav class="navbar has-shadow menu" >
+
   <div class="container">
+
     <div class="navbar-brand">
 
-      <a class="navbar-item is-paddingless brand-item" href="{{route('home')}}">
-        <img src="{{asset('images/skc-logo.jpeg')}}" alt="Skc logo">
+      <a class="navbar-item is-paddingless brand-item logo" href="{{route('home')}}">
+        <img src="{{asset('images/skc-logo.png')}}" alt="Skc logo">
+        <span class="logo__text	is-uppercase"> Sudanese Kennel Club </span>
       </a>
 
       @if(Request::segment(1) == "manage")
@@ -19,15 +22,18 @@
        <span></span>
        <span></span>
      </button>
+
     </div>
+
     <div class="navbar-menu">
-    
+
 
       <div class="navbar-end nav-menu" style="overflow: visible">
         @guest
           <a href="{{route('login')}}" class="navbar-item is-tab">Login</a>
           <a href="{{route('register')}}" class="navbar-item is-tab">Join the Community</a>
         @else
+        @if(Request::segment(1) == "manage")
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Hey {{Auth::user()->name}}</a>
             <div class="navbar-dropdown is-right" >
@@ -60,8 +66,10 @@
               </form>
             </div>
           </div>
+          @endif
         @endguest
       </div>
+
     </div>
 
   </div>

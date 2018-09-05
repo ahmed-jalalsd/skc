@@ -14,7 +14,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        @include('_partials.nav.menu')
+        @include('_partials.nav.main')
 
         <div id="app">
             @yield('content')
