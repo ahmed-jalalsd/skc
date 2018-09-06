@@ -29326,7 +29326,7 @@ html .has-dropdown.is-open .navbar-dropdown {
 }
 
 .navbar {
-  background-color: #0a0a0a;
+  background-color: #1f2427;
 }
 
 .navbar .container .navbar-brand .logo:hover {
@@ -29342,5 +29342,22 @@ html .has-dropdown.is-open .navbar-dropdown {
   .navbar .container .navbar-brand .logo {
     margin-left: 1rem;
   }
+}
+
+.home .welcome__image {
+  background-image: url("/images/pages/adorable-welcome.png");
+  background-position: left 44%;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  height: 500px;
+}
+
+.home .welcome__text {
+  position: absolute;
+  top: 40%;
+  left: 73%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50%;
 }
 

@@ -1,22 +1,55 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex-center position-ref full-height">
+    <section class="home">
 
-        <div class="content">
-            <div class="title m-b-md">
-                Laravel
-                <p class="versioninfo">Version {{ app()->version() }}</p>
-            </div>
+        <div class="container">
 
-            <div class="links">
-                <a href="https://laravel.com/docs">Documentation</a>
-                <a href="https://laracasts.com">Laracasts</a>
-                <a href="https://laravel-news.com">News</a>
-                <a href="https://forge.laravel.com">Forge</a>
-                <a href="https://github.com/laravel/laravel">GitHub</a>
-            </div>
+          <div class="welcome__image"></div>
+
+          <div class="welcome__text">
+            <h2 class="title">Welcome</h2>
+            <p class="subitle">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <!-- <a href="{{route('register')}}" class="button">Register</a> -->
+            <registration-modal></registration-modal>
+
+          </div>
 
         </div>
-    </div>
+
+    </section>
+
+    <section class="about">
+      <div class="continer">
+        <h1 class="title">about us</h1>
+        <div class="about__box">
+          <div class="about__text">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="about__image">
+            
+          </div>
+        </div>
+      </div>
+    </section>
+@endsection
+
+@section('scripts')
+
+  <script>
+  const app = new Vue({
+    el: '#app',
+    });
+  </script>
 @endsection

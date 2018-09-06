@@ -5,7 +5,7 @@
 // Variables
 @import "bulma";
 
-// font-awesome 
+// font-awesome
 @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 
 // Bulma Vue modules
@@ -13,6 +13,7 @@
 
 // custom SASS Pages
 @import "overrides";
-@import "helpers"; 
+@import "helpers";
 @import "manage"; 
-@import "styles"; 
+@import "styles";
+@import "home";
