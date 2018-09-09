@@ -17,3 +17,17 @@
     }
   }
 }
+
+.footer {
+  background-color: $skc-black;
+      margin-top: 12rem;
+  p {
+    color: $white;
+    a {
+        color: $white;
+        &:hover {
+          color: $white;
+        }
+    }
+  }
+}

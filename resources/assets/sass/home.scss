@@ -1,18 +1,85 @@
 .home {
   .welcome {
+    margin-top: 20rem;
     &__image{
-      background-image: url('/images/pages/adorable-welcome.png');
-      background-position: left 44%;
+      background-image: url('/images/pages/dog-home-mobile.png');
       background-repeat: no-repeat;
-      background-size: 60%;
-      height: 500px;
+      background-size: cover;
+      height: 330px;
+      background-position: center;
+      .try-text {
+        position: absolute;
+        top: -22%;
+        text-align: center;
+        p {
+          padding: 0 1rem;
+        }
+      }
     }
     &__text {
-      position: absolute;
-      top: 40%;
-      left: 73%;
-      transform: translate(-50%,-50%);
-      width: 50%;
+      text-align: center;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+    &__bkg {
+      height: 32.4375rem;
+      background-color: #e2ecf6;
+      .about {
+        // position: absolute;
+        // top: 80%;
+        // z-index: 1000;
+        // width: 100%;
+        .title {
+          text-transform: uppercase;
+          text-align: center;
+        }
+        &__box {
+          position: relative;
+        }
+        &__text {
+          // position: absolute;
+          // width: 50%;
+          // left: 8%;
+          // top: 10%;
+          width: 90%;
+          margin: 0 auto;
+          p {
+            // font-size: 0.8rem;
+          }
+        }
+        &__image {
+          background-image: url('/images/pages/samuel-thompson-501755-unsplash.jpg');
+          background-position: right 44%;
+          background-repeat: no-repeat;
+          background-size: 40%;
+          height: 360px;
+          display: none;
+        }
+        &__bottom-box {
+          .bk-image {
+            position: relative;
+            background-image: url('/images/pages/taylor-grote-347608-unsplash.jpg');
+            background-position: left 44%;
+            background-repeat: no-repeat;
+            background-size: 80%;
+            height: 360px;
+            background-size: contain;
+            background-position: center;
+            z-index: 1000;
+          }
+          .text {
+            width: 90%;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    &__bkg-bottom {
+      position: relative;
+      background-image: url('/images/pages/dog-home-bottom.png');
+      background-repeat: no-repeat;
+      height: 10rem;
+      z-index: 10;
     }
   }
 }

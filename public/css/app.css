@@ -25893,6 +25893,60 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
+/*!
+ * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.eot?ea363ed422723673917901680be9b37c);
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.eot?ea363ed422723673917901680be9b37c) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff2?b75b4bfe0d58faeced5006c785eaae23) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff?2d0415fa29ea596b7a02c78eddeede20) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.ttf?132e9759d93e4eefd7cdde0d7a322991) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.svg?de1d242d8acb26ec43c0d071fe78e72d) format("svg");
+}
+
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+/*!
+ * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: normal;
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?e8019d507e8cb51d169ab4f94a0cda12);
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?e8019d507e8cb51d169ab4f94a0cda12) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2?6814d0e8136d34e313623eb7129d538e) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff?da408238128b876cbda6424391f1566f) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.ttf?fdf44bc43e8fa2358bbb7d9165d78455) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.svg?83e6c29fb363b2f0ea6cc18fefff729c) format("svg");
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+}
+
+/*!
+ * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.eot?e6c93cb47e716b579264a5fdfbf7e84d);
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.eot?e6c93cb47e716b579264a5fdfbf7e84d) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2?8d9ab84bfe87a3f77112a6698cf639fb) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff?dad90637f797356bbc70d2664832e0b6) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.ttf?8d220c793e2612bd131ed8522c54669f) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.svg?ba2a91dc95e6cfdc4b2a186a7ba83e29) format("svg");
+}
+
+.far {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+}
+
 .is-noscroll {
   position: fixed;
   overflow-y: hidden;
@@ -29344,20 +29398,101 @@ html .has-dropdown.is-open .navbar-dropdown {
   }
 }
 
+.footer {
+  background-color: #1f2427;
+  margin-top: 12rem;
+}
+
+.footer p {
+  color: white;
+}
+
+.footer p a {
+  color: white;
+}
+
+.footer p a:hover {
+  color: white;
+}
+
+.home .welcome {
+  margin-top: 20rem;
+}
+
 .home .welcome__image {
-  background-image: url("/images/pages/adorable-welcome.png");
-  background-position: left 44%;
+  background-image: url("/images/pages/dog-home-mobile.png");
   background-repeat: no-repeat;
-  background-size: 60%;
-  height: 500px;
+  background-size: cover;
+  height: 330px;
+  background-position: center;
+}
+
+.home .welcome__image .try-text {
+  position: absolute;
+  top: -22%;
+  text-align: center;
+}
+
+.home .welcome__image .try-text p {
+  padding: 0 1rem;
 }
 
 .home .welcome__text {
-  position: absolute;
-  top: 40%;
-  left: 73%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50%;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.home .welcome__bkg {
+  height: 32.4375rem;
+  background-color: #e2ecf6;
+}
+
+.home .welcome__bkg .about .title {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.home .welcome__bkg .about__box {
+  position: relative;
+}
+
+.home .welcome__bkg .about__text {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home .welcome__bkg .about__image {
+  background-image: url("/images/pages/samuel-thompson-501755-unsplash.jpg");
+  background-position: right 44%;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  height: 360px;
+  display: none;
+}
+
+.home .welcome__bkg .about__bottom-box .bk-image {
+  position: relative;
+  background-image: url("/images/pages/taylor-grote-347608-unsplash.jpg");
+  background-position: left 44%;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  height: 360px;
+  background-size: contain;
+  background-position: center;
+  z-index: 1000;
+}
+
+.home .welcome__bkg .about__bottom-box .text {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home .welcome__bkg-bottom {
+  position: relative;
+  background-image: url("/images/pages/dog-home-bottom.png");
+  background-repeat: no-repeat;
+  height: 10rem;
+  z-index: 10;
 }
 
