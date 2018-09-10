@@ -1,4 +1,4 @@
-<nav class="navbar has-shadow menu" >
+<nav class="navbar  menu" >
 
   <div class="container">
 
@@ -9,10 +9,11 @@
         <span class="logo__text	is-uppercase"> Sudanese Kennel Club </span>
       </a>
 
+      <!-- to show an arrow in mobile for the side menu -->
       @if(Request::segment(1) == "manage")
         <a class="navbar-item is-hidden-desktop" id="admin-slideout-button">
           <span class="icon">
-            <i class="fa fa-arrow-circle-o-right"></i>
+            <i class="far fa-arrow-alt-circle-right"></i>
           </span>
         </a>
       @endif
@@ -26,7 +27,6 @@
     </div>
 
     <div class="navbar-menu">
-
 
       <div class="navbar-end nav-menu" style="overflow: visible">
         @guest
@@ -71,6 +71,21 @@
       </div>
 
     </div>
-
   </div>
 </nav>
+
+<div class="nav-bottom is-hidden-mobile">
+  <menu class="nav-bottom__menu">
+    <li>
+      <a href="#">Gallery</a>
+    </li>
+    <span>|</span>
+    <li>
+      <a href="#">Events</a>
+    </li>
+    <span>|</span>
+    <li>
+      <a href="#">Blog</a>
+    </li>
+  </menu>
+</div>

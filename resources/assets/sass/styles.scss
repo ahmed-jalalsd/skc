@@ -1,39 +1,88 @@
-h1,h2,h3,h4,h5,h6 {
-  font-family: $skc-title-font;
-}
-p {
-  font-family: $skc-font-family;
-}
+html {
+  body {
+    h1,h2,h3,h4,h5,h6 {
+      font-family: $skc-title-font;
+    }
+    p {
+      font-family: $skc-font-family;
+    }
 
-.navbar {
-  background-color: $skc-black;
-  .container {
-    .navbar-brand {
-      .logo {
-        &:hover {
-          color: $grey-darker;
-        }
-        &__text {
-          margin-left: 0.5rem;
-          color: $white;
-        }
-        @include mobile {
-          margin-left: 1rem;
+    .navbar {
+      background-color: $skc-black;
+      .container {
+        .navbar-brand {
+          .logo {
+            &:hover {
+              color: $grey-darker;
+            }
+            &__text {
+              margin-left: 0.5rem;
+              color: $white;
+              font-family: $skc-title-font;
+              font-size: 1rem;
+            }
+            @include mobile {
+              margin-left: 1rem;
+            }
+          }
         }
       }
     }
-  }
-}
 
-.footer {
-  background-color: $skc-black;
-  p {
-    color: $white;
-    a {
-        color: $white;
-        &:hover {
-          color: $white;
+    .nav-bottom {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      background-color: $skc-calypso;
+      padding: 0.6vw;
+      width: 100%;
+      height: 100%;
+      &__menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        position: relative;
+        transition: opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
+        transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1);
+        transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
+        transition-delay: .6s;
+        text-align: center;
+        li {
+          display: inline-block;
+          font-size: 20px;
+          font-size: 1.35rem;
+          line-height: 1;
+          margin: 0 18px 0;
+          opacity: 1;
+          font-family: $skc-font-family;
+          font-weight: $weight-medium;
+          a {
+            color: $skc-link_water;
+            &:hover {
+              color: $skc-link_water;
+            }
+          }
         }
+        span {
+          color: $skc-link_water;
+        }
+      }
+    }
+
+    .footer {
+      background-color: $skc-black;
+      p {
+        color: $white;
+        a {
+            color: $white;
+            &:hover {
+              color: $white;
+            }
+        }
+      }
     }
   }
 }
