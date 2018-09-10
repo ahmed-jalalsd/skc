@@ -25,27 +25,17 @@
       height: 32.4375rem;
       background-color: #e2ecf6;
       .about {
-        // position: absolute;
-        // top: 80%;
-        // z-index: 1000;
-        // width: 100%;
         .title {
           text-transform: uppercase;
           text-align: center;
         }
         &__box {
           position: relative;
+          margin-bottom: 1.5rem;
         }
         &__text {
-          // position: absolute;
-          // width: 50%;
-          // left: 8%;
-          // top: 10%;
           width: 90%;
           margin: 0 auto;
-          p {
-            // font-size: 0.8rem;
-          }
         }
         &__image {
           background-image: url('/images/pages/samuel-thompson-501755-unsplash.jpg');
@@ -62,10 +52,11 @@
             background-position: left 44%;
             background-repeat: no-repeat;
             background-size: 80%;
-            height: 360px;
             background-size: contain;
             background-position: center;
+            height: 360px;
             z-index: 1000;
+            margin-bottom: 1.5rem;
           }
           .text {
             width: 90%;
@@ -80,6 +71,104 @@
       background-repeat: no-repeat;
       height: 10rem;
       z-index: 10;
+    }
+  }
+}
+
+.events {
+  h1.title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  margin-top: 15rem;
+  figure {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    background: $white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.35s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      background: $skc-black;
+      transition: all 0.35s ease-in-out;
+    }
+    img {
+      opacity: 0.25;
+      max-width: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    * {
+      transition: all 0.35s ease-in-out;
+    }
+    a {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+    }
+    figcaption {
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      right: 30px;
+      &::before, &::after {
+        -webkit-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+      }
+      &::before {
+        left: 0;
+        top: 0;
+      }
+      &::after{
+        bottom: 0;
+        right: 0;
+      }
+      h3 {
+        top: 50%;
+        letter-spacing: -1px;
+        color: $skc-black;
+        text-transform: uppercase;
+        padding: 10px 0;
+        margin: 0;
+        font-weight: 400;
+      }
+    }
+  }
+
+  figure:hover figcaption:before,
+  figure:hover figcaption:after {
+    width: 200%;
+  }
+  figure:hover figcaption h3 {
+    color: $white;
+  }
+  &__btn .button {
+    background-color: $skc-calypso;
+    border-color: $skc-calypso;
+    color: $skc-link_water;
+    padding-bottom: calc(1.375em - 1px);
+    padding-left: 2.75em;
+    padding-right: 2.75em;
+    padding-top: calc(1.375em - 1px);
+  }
+}
+
+.news {
+  margin-top: 15rem;
+  background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='649.068px' height='54px' viewBox='0 0 649.068 54' enable-background='new 0 0 649.068 54' xml:space='preserve'><polyline fill='%23E2ECF6' points='648.614,-16.923 648.597,7.53 0,45.084 0.046,-16.922'/></svg>");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // height: 360px;
+  .column {
+    padding: 1.75rem;
+    .post{
+      margin-top: -80px;
+      margin-bottom: 100px;
     }
   }
 }

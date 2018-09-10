@@ -1,3 +1,10 @@
+h1,h2,h3,h4,h5,h6 {
+  font-family: $skc-title-font;
+}
+p {
+  font-family: $skc-font-family;
+}
+
 .navbar {
   background-color: $skc-black;
   .container {
@@ -20,7 +27,6 @@
 
 .footer {
   background-color: $skc-black;
-      margin-top: 12rem;
   p {
     color: $white;
     a {

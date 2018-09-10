@@ -12,7 +12,6 @@
       <div>
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-twitter-square"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
       </div>
     </div>
 

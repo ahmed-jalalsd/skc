@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
+@import url(https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500,600,700);@import url(https://fonts.googleapis.com/css?family=Montserrat:700);/*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
 
 /* modified path import of other modules */
 
@@ -29379,6 +29379,19 @@ html .has-dropdown.is-open .navbar-dropdown {
   padding: 1.25rem 1.5rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+p {
+  font-family: "Cormorant Garamond", serif;
+}
+
 .navbar {
   background-color: #1f2427;
 }
@@ -29400,7 +29413,6 @@ html .has-dropdown.is-open .navbar-dropdown {
 
 .footer {
   background-color: #1f2427;
-  margin-top: 12rem;
 }
 
 .footer p {
@@ -29455,6 +29467,7 @@ html .has-dropdown.is-open .navbar-dropdown {
 
 .home .welcome__bkg .about__box {
   position: relative;
+  margin-bottom: 1.5rem;
 }
 
 .home .welcome__bkg .about__text {
@@ -29477,10 +29490,11 @@ html .has-dropdown.is-open .navbar-dropdown {
   background-position: left 44%;
   background-repeat: no-repeat;
   background-size: 80%;
-  height: 360px;
   background-size: contain;
   background-position: center;
+  height: 360px;
   z-index: 1000;
+  margin-bottom: 1.5rem;
 }
 
 .home .welcome__bkg .about__bottom-box .text {
@@ -29494,5 +29508,122 @@ html .has-dropdown.is-open .navbar-dropdown {
   background-repeat: no-repeat;
   height: 10rem;
   z-index: 10;
+}
+
+.events {
+  margin-top: 15rem;
+}
+
+.events h1.title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.events figure {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  background: white;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+  cursor: pointer;
+}
+
+.events figure:hover {
+  background: #1f2427;
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+.events figure img {
+  opacity: 0.25;
+  max-width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.events figure * {
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+.events figure a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.events figure figcaption {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  right: 30px;
+}
+
+.events figure figcaption::before,
+.events figure figcaption::after {
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+.events figure figcaption::before {
+  left: 0;
+  top: 0;
+}
+
+.events figure figcaption::after {
+  bottom: 0;
+  right: 0;
+}
+
+.events figure figcaption h3 {
+  top: 50%;
+  letter-spacing: -1px;
+  color: #1f2427;
+  text-transform: uppercase;
+  padding: 10px 0;
+  margin: 0;
+  font-weight: 400;
+}
+
+.events figure:hover figcaption:before,
+.events figure:hover figcaption:after {
+  width: 200%;
+}
+
+.events figure:hover figcaption h3 {
+  color: white;
+}
+
+.events__btn .button {
+  background-color: #2b7386;
+  border-color: #2b7386;
+  color: #E2ECF6;
+  padding-bottom: calc(1.375em - 1px);
+  padding-left: 2.75em;
+  padding-right: 2.75em;
+  padding-top: calc(1.375em - 1px);
+}
+
+.news {
+  margin-top: 15rem;
+  background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='649.068px' height='54px' viewBox='0 0 649.068 54' enable-background='new 0 0 649.068 54' xml:space='preserve'><polyline fill='%23E2ECF6' points='648.614,-16.923 648.597,7.53 0,45.084 0.046,-16.922'/></svg>");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.news .column {
+  padding: 1.75rem;
+}
+
+.news .column .post {
+  margin-top: -80px;
+  margin-bottom: 100px;
 }
 
