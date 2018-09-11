@@ -195,4 +195,23 @@
     el: '#app',
     });
   </script>
+
+  <script>
+  const menu = new Vue({
+    el: '.menu',
+    data:{
+      isActive: false,
+      open: false,
+      current: false
+    },
+    computed:{
+      compClass: function () {
+        return {
+          open: this.open,
+          isActive: this.isActive
+        }
+      }
+    }
+  });
+  </script>
 @endsection

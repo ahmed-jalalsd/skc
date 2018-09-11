@@ -1,4 +1,7 @@
-<nav class="navbar  menu" >
+<div class="menu">
+
+
+<nav class="navbar " >
 
   <div class="container">
 
@@ -16,13 +19,18 @@
             <i class="far fa-arrow-alt-circle-right"></i>
           </span>
         </a>
+        <button class="button navbar-burger burger">
+         <span></span>
+         <span></span>
+         <span></span>
+       </button>
       @endif
 
-      <button class="button navbar-burger">
-       <span></span>
-       <span></span>
-       <span></span>
-     </button>
+      <div  v-on:click="open=!open, isActive=!isActive" v-bind:class="[isActive ? 'active' : '']" class="button_container" id="toggle">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </div>
 
     </div>
 
@@ -74,18 +82,29 @@
   </div>
 </nav>
 
-<div class="nav-bottom is-hidden-mobile">
-  <menu class="nav-bottom__menu">
-    <li>
-      <a href="#">Gallery</a>
-    </li>
-    <span>|</span>
-    <li>
-      <a href="#">Events</a>
-    </li>
-    <span>|</span>
-    <li>
-      <a href="#">Blog</a>
-    </li>
+<div v-bind:class="compClass" class="nav-bottom overlay" id="overlay">
+  <menu class="nav-bottom__menu" id="nav-bottom">
+    <ul>
+      <li>
+        <a href="/" class="{{Nav::isRoute('home')}}">Home</a>
+      </li>
+      <span class="is-hidden-mobile">|</span>
+      <li>
+        <a href="" class=""  >Gallery</a>
+      </li>
+      <span class="is-hidden-mobile">|</span>
+      <li>
+        <a href="#" class="">Events</a>
+      </li>
+      <span class="is-hidden-mobile">|</span>
+      <li>
+        <a href="#" class="">Blog</a>
+      </li>
+      <span class="is-hidden-mobile">|</span>
+      <li>
+        <a href="#" class="">Log in</a>
+      </li>
+    </ul>
   </menu>
+</div>
 </div>

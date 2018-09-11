@@ -12393,27 +12393,28 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('multi-drag-drop', __webpa
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('registration-modal', __WEBPACK_IMPORTED_MODULE_2__components_registrationModal___default.a);
 
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  el: '#app',
-  data: {
-    permissionType: 'basic',
-    resource: '',
-    crudSelected: ['create', 'read', 'update', 'delete'],
-    auto_password: true,
-    password_options: "keep"
-  },
-  methods: {
-    crudName: function crudName(item) {
-      return item.substr(0, 1).toUpperCase() + item.substr(1) + " " + app.resource.substr(0, 1).toUpperCase() + app.resource.substr(1);
-    },
-    crudSlug: function crudSlug(item) {
-      return item.toLowerCase() + "-" + app.resource.toLowerCase();
-    },
-    crudDescription: function crudDescription(item) {
-      return "Allow a User to " + item.toUpperCase() + " a " + app.resource.substr(0, 1).toUpperCase() + app.resource.substr(1);
-    }
-  }
-});
+// var app = new Vue({
+//       el: '#app',
+//       data: {
+//         permissionType: 'basic',
+//         resource: '',
+//         crudSelected: ['create', 'read', 'update', 'delete'],
+//         auto_password: true,
+//         password_options: "keep",
+//       },
+//       methods: {
+//         crudName: function(item) {
+//           return item.substr(0,1).toUpperCase() + item.substr(1) + " " + app.resource.substr(0,1).toUpperCase() + app.resource.substr(1);
+//         },
+//         crudSlug: function(item) {
+//           return item.toLowerCase() + "-" + app.resource.toLowerCase();
+//         },
+//         crudDescription: function(item) {
+//           return "Allow a User to " + item.toUpperCase() + " a " + app.resource.substr(0,1).toUpperCase() + app.resource.substr(1);
+//         }
+//       }
+//     });
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -12423,26 +12424,26 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 // Bulma NavBar Burger Script
 document.addEventListener('DOMContentLoaded', function () {
-  // Get all "navbar-burger" elements
-  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Get all "navbar-burger" elements
+    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
 
-    // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function ($el) {
+            $el.addEventListener('click', function () {
 
-        // Get the target from the "data-target" attribute
-        var target = $el.dataset.target;
-        var $target = document.getElementById(target);
+                // Get the target from the "data-target" attribute
+                var target = $el.dataset.target;
+                var $target = document.getElementById(target);
 
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        $el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-      });
-    });
-  }
+                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                $el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
 });
 
 // $(document).ready(function(){

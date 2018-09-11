@@ -8,7 +8,11 @@ html {
     }
 
     .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
       background-color: $skc-black;
+      z-index: 1001;
       .container {
         .navbar-brand {
           .logo {
@@ -25,49 +29,177 @@ html {
               margin-left: 1rem;
             }
           }
+
+          .button_container {
+            position: absolute;
+            top: 23%;
+            right: 2%;
+            height: 27px;
+            width: 30px;
+            cursor: pointer;
+            z-index: 100;
+            transition: opacity .25s ease;
+
+            &:hover {
+              opacity: .7;
+            }
+
+            &.active {
+              .top {
+                transform: translateY(11px) translateX(0) rotate(45deg);
+                background: $white;
+              }
+              .middle {
+                opacity: 0;
+                background: $white;
+              }
+
+              .bottom {
+                transform: translateY(-11px) translateX(0) rotate(-45deg);
+                background: $white;
+              }
+            }
+
+            span {
+            background: $white;
+            border: none;
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition:  all .35s ease;
+            cursor: pointer;
+
+              &:nth-of-type(2) {
+                top: 11px;
+              }
+
+              &:nth-of-type(3) {
+                top: 22px;
+              }
+            }
+          }
         }
       }
     }
 
     .nav-bottom {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      box-sizing: border-box;
-      background-color: $skc-calypso;
-      padding: 0.6vw;
+      position: fixed;
+      background: $skc-calypso;
+      // top: 0;
+      top: 50px;
+      // left: 0;
+      left: -100vw;
       width: 100%;
+      // height: 0;
       height: 100%;
-      &__menu {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      // transition: opacity .35s, visibility .35s, height .35s;
+      transition: opacity .35s, visibility .35s, left .35s;
+      overflow: hidden;
+      &.open {
         opacity: 1;
+        visibility: visible;
+        height: 100%;
+        left: 0;
+        z-index: 1001;
+        background-image: url('/images/pages/paws.png');
+      }
+      &__menu {
         position: relative;
+        height: 100%;
+        font-size: 20px;
+        font-family: $skc-font-family;
+        font-weight: $weight-medium;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+
         transition: opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
         transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1);
         transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
         transition-delay: .6s;
-        text-align: center;
-        li {
-          display: inline-block;
-          font-size: 20px;
-          font-size: 1.35rem;
-          line-height: 1;
-          margin: 0 18px 0;
-          opacity: 1;
-          font-family: $skc-font-family;
-          font-weight: $weight-medium;
-          a {
-            color: $skc-link_water;
-            &:hover {
+        ul{
+          list-style: none;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: 50%;
+
+          li {
+            display: block;
+            height: 25%;
+            height: calc(100% / 4);
+            min-height: 50px;
+            position: relative;
+            opacity: 0;
+            a {
               color: $skc-link_water;
+              &:hover {
+                color: $skc-link_water;
+              }
+            }
+            a.is-active {
+              font-weight:bold;
+              text-decoration: line-through solid $skc-black;
             }
           }
         }
-        span {
-          color: $skc-link_water;
+      }
+    }
+
+    .overlay.open li {
+      animation: fadeInRight .5s ease forwards;
+      animation-delay: .35s;
+    }
+
+    @include desktop {
+      .nav-bottom {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        background-color: $skc-calypso;
+        padding: 0.6vw;
+        width: 100%;
+        height: 100%;
+        &__menu {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          opacity: 1;
+          position: relative;
+          transition: opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
+          transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1);
+          transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
+          transition-delay: .6s;
+          text-align: center;
+          li {
+            display: inline-block;
+            font-size: 20px;
+            font-size: 1.35rem;
+            line-height: 1;
+            margin: 0 18px 0;
+            opacity: 1;
+            font-family: $skc-font-family;
+            font-weight: $weight-medium;
+            a {
+              color: $skc-link_water;
+              &:hover {
+                color: $skc-link_water;
+              }
+            }
+          }
+          span {
+            color: $skc-link_water;
+          }
         }
       }
     }
@@ -84,5 +216,16 @@ html {
         }
       }
     }
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
   }
 }
