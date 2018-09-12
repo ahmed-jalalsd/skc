@@ -11,7 +11,23 @@
 
           <p>{{$event->content}}</p>
 
-          <img src="{!! '/images/events/'.$event->images !!}" alt="">
+          <!-- <img src="{!! '/images/events/'.$event->images !!}" alt=""> -->
+					<div class="columns is-multiline m-t-10">
+
+							@foreach($images as $image)
+							<div class="column is-one-quarter-desktop is-half-tablet">
+								<div class="card">
+									<div class="card-image">
+										<figure class="image is-3by2">
+												<img src="{!! '/images/events/'.$image !!}" alt="">
+										</figure>
+									</div>
+								</div>
+								</div>
+							@endforeach
+
+					</div>
+
 			</div>
 
 			<div class="column is-4">

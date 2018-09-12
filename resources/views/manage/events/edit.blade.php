@@ -64,7 +64,6 @@
 
                   <upload></upload>
 
-
                 <div class="status-details">
                   <div class="field">
                     <p><small>Choose if the event with application form</small></p>

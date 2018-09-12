@@ -68,18 +68,18 @@ class EventsController extends Controller
         $event->excerpt = $request->excerpt;
         $event->flag_application = $request->cta;
 
-        if($request->hasFile('images')) {
-          $images = Input::file('images');
-          $file_count = count($images);
-          $uploadcount = 0;
-          foreach ($images as $image) {
-            $imageFilename = time(). '-' .$image->getClientOriginalName();
-            $event->images = $imageFilename;
-            $image->move(public_path().'/images/events', $imageFilename);
-            $uploadcount ++;
-            $event->save();
-          }
-        }
+        // if($request->hasFile('images')) {
+        //   $images = Input::file('images');
+        //   $file_count = count($images);
+        //   $uploadcount = 0;
+        //   foreach ($images as $image) {
+        //     $imageFilename = time(). '-' .$image->getClientOriginalName();
+        //     $event->images = $imageFilename;
+        //     $image->move(public_path().'/images/events', $imageFilename);
+        //     $uploadcount ++;
+        //     $event->save();
+        //   }
+        // }
 
         if($request->hasFile('featured_image')) {
           $featuredImage = $request->file('featured_image');
@@ -89,7 +89,18 @@ class EventsController extends Controller
           $event->featured_image = $featuredImageFileName;
         }
 
-          $event->save();
+        if($request->hasFile('images')) {
+          $images = Input::file('images');
+          // dd($images);
+          foreach ($images as $image) {
+            $imageFilename = time(). '-' .$image->getClientOriginalName();
+            $image->move(public_path().'/images/events', $imageFilename);
+            $data[] = $imageFilename;
+            // dd($data);
+          }
+        }
+        $event->images = json_encode($data);
+        $event->save();
 
         return redirect()->route('events.show', $event->id);
 
@@ -104,8 +115,9 @@ class EventsController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
+        $images= json_decode($event->images);
         // dd($event);
-        return view('manage.events.show')->withEvent($event);
+        return view('manage.events.show')->withEvent($event)->withImages($images);
     }
 
     /**
@@ -117,7 +129,8 @@ class EventsController extends Controller
     public function edit($id)
     {
       $event = Event::findOrFail($id);
-      return view('manage.events.edit')->withEvent($event);
+      $images= json_decode($event->images);
+      return view('manage.events.edit')->withEvent($event)->withImages($images);
     }
 
     /**
@@ -147,23 +160,23 @@ class EventsController extends Controller
       $event->excerpt = $request->excerpt;
       $event->flag_application = $request->cta;
 
-      if($request->hasFile('images')) {
-        $images = Input::file('images');
-        $file_count = count($images);
-        $uploadcount = 0;
-        foreach ($images as $image) {
-          $imageFilename = time(). '-' .$image->getClientOriginalName();
-          // $event->images = $imageFilename;
-          $image->move(public_path().'/images/events', $imageFilename);
-          $uploadcount ++;
-          $oldImageFileName = $event->image;
-          //update the  database
-          $event->images = $imageFilename;
-          //delete the old images
-          Storage::delete($oldImageFileName);
-          $event->save();
-        }
-      }
+      // if($request->hasFile('images')) {
+      //   $images = Input::file('images');
+      //   $file_count = count($images);
+      //   $uploadcount = 0;
+      //   foreach ($images as $image) {
+      //     $imageFilename = time(). '-' .$image->getClientOriginalName();
+      //     // $event->images = $imageFilename;
+      //     $image->move(public_path().'/images/events', $imageFilename);
+      //     $uploadcount ++;
+      //     $oldImageFileName = $event->image;
+      //     //update the  database
+      //     $event->images = $imageFilename;
+      //     //delete the old images
+      //     Storage::delete($oldImageFileName);
+      //     $event->save();
+      //   }
+      // }
 
       if($request->hasFile('featured_image')) {
         $featuredImage = $request->file('featured_image');
@@ -177,6 +190,20 @@ class EventsController extends Controller
         //delete the old images
         Storage::delete($oldFeaturedImageFileName);
       }
+
+      if($request->hasFile('images')) {
+        $images = Input::file('images');
+        // dd($images);
+        foreach ($images as $image) {
+          $imageFilename = time(). '-' .$image->getClientOriginalName();
+          $image->move(public_path().'/images/events', $imageFilename);
+          $oldImages= json_decode($event->images);
+          $data[] = $imageFilename;
+          // dd($data);
+        }
+      }
+
+      $event->images = json_encode($data);
 
         $event->save();
 
