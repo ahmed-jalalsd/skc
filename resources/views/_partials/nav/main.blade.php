@@ -85,29 +85,32 @@
   </div>
 </nav>
 
-<div v-bind:class="compClass" class="nav-bottom overlay" id="overlay">
-  <menu class="nav-bottom__menu" id="nav-bottom">
-    <ul>
-      <li>
-        <a href="/" class="{{Nav::isRoute('home')}}">Home</a>
-      </li>
-      <span class="is-hidden-mobile">|</span>
-      <li>
-        <a href="" class=""  >Gallery</a>
-      </li>
-      <span class="is-hidden-mobile">|</span>
-      <li>
-        <a href="#" class="">Events</a>
-      </li>
-      <span class="is-hidden-mobile">|</span>
-      <li>
-        <a href="#" class="">Blog</a>
-      </li>
-      <span class="is-hidden-mobile">|</span>
-      <li>
-        <a href="#" class="">Log in</a>
-      </li>
-    </ul>
-  </menu>
-</div>
+
+@if(!Request::segment(1) == "manage")
+  <div v-bind:class="compClass" class="nav-bottom overlay" id="overlay">
+    <menu class="nav-bottom__menu" id="nav-bottom">
+      <ul>
+        <li>
+          <a href="/" class="{{Nav::isRoute('home')}}">Home</a>
+        </li>
+        <span class="is-hidden-mobile">|</span>
+        <li>
+          <a href="" class=""  >Gallery</a>
+        </li>
+        <span class="is-hidden-mobile">|</span>
+        <li>
+          <a href="#" class="">Events</a>
+        </li>
+        <span class="is-hidden-mobile">|</span>
+        <li>
+          <a href="#" class="">Blog</a>
+        </li>
+        <span class="is-hidden-mobile">|</span>
+        <li>
+          <a href="#" class="">Log in</a>
+        </li>
+      </ul>
+    </menu>
+  </div>
+  @endif
 </div>

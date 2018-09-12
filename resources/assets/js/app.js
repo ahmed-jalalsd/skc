@@ -25,8 +25,8 @@ Vue.component('drag-drop', require('./components/drag-drop.vue'));
 Vue.component('multi-drag-drop', require('./components/multi-drag-drop.vue'));
 // Vue.component('registration-modal', require('./components/registrationModal.vue'));
 
-import registrationModal from './components/registrationModal';
-Vue.component( 'registration-modal', registrationModal );
+// import registrationModal from './components/registrationModal';
+// Vue.component( 'registration-modal', registrationModal );
 
 
 // var app = new Vue({

@@ -12361,8 +12361,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_buefy__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_buefy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_buefy__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_registrationModal__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_registrationModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_registrationModal__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -12390,8 +12388,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('drag-drop', __webpack_req
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('multi-drag-drop', __webpack_require__(58));
 // Vue.component('registration-modal', require('./components/registrationModal.vue'));
 
+// import registrationModal from './components/registrationModal';
+// Vue.component( 'registration-modal', registrationModal );
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('registration-modal', __WEBPACK_IMPORTED_MODULE_2__components_registrationModal___default.a);
 
 // var app = new Vue({
 //       el: '#app',
@@ -42637,144 +42636,9 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(64)
-/* template */
-var __vue_template__ = __webpack_require__(65)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/registrationModal.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4c6e726d", Component.options)
-  } else {
-    hotAPI.reload("data-v-4c6e726d", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var ModalForm = {
-    props: ['email', 'password'],
-    template: '\n        <form method="POST" action="{{ route(\'register\') }}">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Login</p>\n                </header>\n                <section class="modal-card-body">\n\n                    <b-field label="Name">\n                        <b-input\n                            type="text"\n                            name="name"\n                            :value="{{ old(\'name\') }}"\n                            autofocus\n                            class="input"\n                            id="name"\n                            autofocus\n                            required>\n                        </b-input>\n\n                        @if ($errors->has(\'name\'))\n                            <p class="help is-danger">\n                                {{ $errors->first(\'name\') }}\n                            </p>\n                        @endif\n\n                    </b-field>\n\n                    <b-field label="Email">\n                        <b-input\n                            type="email"\n                            name="email"\n                            value="{{ old(\'email\') }}"\n                            autofocus\n                            placeholder="Your email"\n                            required>\n                        </b-input>\n\n                        @if ($errors->has(\'email\'))\n                            <p class="help is-danger">\n                                {{ $errors->first(\'email\') }}\n                            </p>\n                        @endif\n\n                    </b-field>\n\n                    <b-field label="Password">\n                        <b-input\n                            type="password"\n                            :value="password"\n                            class="input"\n                            id="password"\n                            name="password"\n                            password-reveal\n                            placeholder="Your password"\n                            required>\n                        </b-input>\n\n                        @if ($errors->has(\'password\'))\n                            <p class="help is-danger">\n                                {{ $errors->first(\'password\') }}\n                            </p>\n                        @endif\n\n                    </b-field>\n\n                    <b-field label="Confirm Password">\n                        <b-input\n                            type="password"\n                            :value="password"\n                            class="input"\n                            id="password-confirm"\n                            name="password_confirmation"\n                            required>\n                        </b-input>\n                    </b-field>\n\n                    <b-checkbox>Remember me</b-checkbox>\n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Login</button>\n                </footer>\n            </div>\n        </form>\n    '
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        ModalForm: ModalForm
-    },
-    data: function data() {
-        return {
-            isComponentModalActive: false,
-            formProps: {
-                email: 'evan@you.com',
-                password: 'testing'
-            }
-        };
-    }
-});
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c(
-        "button",
-        {
-          staticClass: "button is-primary is-medium",
-          on: {
-            click: function($event) {
-              _vm.isComponentModalActive = true
-            }
-          }
-        },
-        [_vm._v("\n        Register\n    ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
-          on: {
-            "update:active": function($event) {
-              _vm.isComponentModalActive = $event
-            }
-          }
-        },
-        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4c6e726d", module.exports)
-  }
-}
-
-/***/ }),
+/* 63 */,
+/* 64 */,
+/* 65 */,
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 

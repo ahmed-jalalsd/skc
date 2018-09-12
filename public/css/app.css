@@ -29747,6 +29747,35 @@ html body .footer p a:hover {
   z-index: 10;
 }
 
+.home .welcome .modal {
+  z-index: 1001;
+}
+
+.home .welcome .modal .modal-background {
+  background-color: #2b7386;
+}
+
+.home .welcome .modal .modal-content .register-form .field .field-label .label {
+  text-align: left;
+  color: #E2ECF6;
+}
+
+.home .welcome .modal .modal-content .register-form .field .field-body {
+  width: 100%;
+}
+
+.home .welcome .modal .modal-content .register-form .field .field-body .field p.control {
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.home .welcome .modal .modal-content .register-form .field .field-body .field p.help {
+  padding: 0;
+  font-size: 1rem;
+  text-align: left;
+  color: #E2ECF6;
+}
+
 .events {
   margin-top: 22rem;
 }
