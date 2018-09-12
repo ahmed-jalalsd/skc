@@ -26,11 +26,14 @@
        </button>
       @endif
 
-      <div  v-on:click="open=!open, isActive=!isActive" v-bind:class="[isActive ? 'active' : '']" class="button_container" id="toggle">
+      @if(!Request::segment(1) == "manage")
+
+      <div  v-on:click="open=!open, isActive=!isActive" v-bind:class="[isActive ? 'active' : '']" class="button_container is-hidden-desktop" id="toggle">
         <span class="top"></span>
         <span class="middle"></span>
         <span class="bottom"></span>
       </div>
+      @endif
 
     </div>
 
