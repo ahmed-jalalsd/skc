@@ -29579,60 +29579,6 @@ html body .overlay.open li {
           animation-delay: .35s;
 }
 
-@media screen and (min-width: 1024px) {
-  html body .nav-bottom {
-    display: block;
-    height: 3.2rem;
-    min-height: 3.2rem;
-    opacity: 1;
-    visibility: visible;
-    top: 50px;
-    left: 0;
-    z-index: 1001;
-  }
-
-  html body .nav-bottom__menu {
-    position: relative;
-    list-style: none;
-    opacity: 1;
-    transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -webkit-transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -webkit-transition-delay: .6s;
-            transition-delay: .6s;
-    text-align: center;
-    height: 100%;
-  }
-
-  html body .nav-bottom__menu ul {
-    display: block;
-  }
-
-  html body .nav-bottom__menu ul li {
-    display: inline-block;
-    font-size: 20px;
-    font-size: 1.35rem;
-    line-height: 1;
-    margin: 0 18px 0;
-    opacity: 1;
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 500;
-  }
-
-  html body .nav-bottom__menu ul li a {
-    color: #E2ECF6;
-  }
-
-  html body .nav-bottom__menu ul li a:hover {
-    color: #E2ECF6;
-  }
-
-  html body .nav-bottom__menu ul span {
-    color: #E2ECF6;
-  }
-}
-
 html body .footer {
   background-color: #1f2427;
   padding: 3rem 1.5rem 6rem;
@@ -29649,6 +29595,86 @@ html body .footer p a {
 
 html body .footer p a:hover {
   color: white;
+}
+
+@media screen and (min-width: 769px), print {
+  html body h1 {
+    font-size: 2.5rem;
+  }
+
+  html body h2 {
+    font-size: 2rem;
+  }
+
+  html body h3 {
+    font-size: 1.5rem;
+  }
+
+  html body p {
+    font-size: 1.25rem;
+  }
+
+  html body .navbar .container .navbar-brand .navbar-brand .logo {
+    margin-left: 5rem;
+  }
+
+  html body .navbar .container .navbar-brand .navbar-brand .button_container {
+    right: 5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-bottom {
+    display: block;
+    height: 3.2rem;
+    min-height: 3.2rem;
+    opacity: 1;
+    visibility: visible;
+    top: 50px;
+    left: 0;
+    z-index: 1001;
+  }
+
+  .nav-bottom__menu {
+    position: relative;
+    list-style: none;
+    opacity: 1;
+    transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition-delay: .6s;
+            transition-delay: .6s;
+    text-align: center;
+    height: 100%;
+  }
+
+  .nav-bottom__menu ul {
+    display: block;
+  }
+
+  .nav-bottom__menu ul li {
+    display: inline-block;
+    font-size: 20px;
+    font-size: 1.35rem;
+    line-height: 1;
+    margin: 0 18px 0;
+    opacity: 1;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+  }
+
+  .nav-bottom__menu ul li a {
+    color: #E2ECF6;
+  }
+
+  .nav-bottom__menu ul li a:hover {
+    color: #E2ECF6;
+  }
+
+  .nav-bottom__menu ul span {
+    color: #E2ECF6;
+  }
 }
 
 @-webkit-keyframes fadeInRight {
@@ -29694,8 +29720,7 @@ html body .footer p a:hover {
 }
 
 .home .welcome__image .try-text p {
-  padding: 0 1rem;
-  padding-bottom: 2rem;
+  padding: 0 1rem 2rem 1rem;
 }
 
 .home .welcome__text {
@@ -29725,11 +29750,6 @@ html body .footer p a:hover {
 }
 
 .home .welcome__bkg .about__image {
-  background-image: url("/images/pages/samuel-thompson-501755-unsplash.jpg");
-  background-position: right 44%;
-  background-repeat: no-repeat;
-  background-size: 40%;
-  height: 360px;
   display: none;
 }
 
@@ -29911,5 +29931,131 @@ html body .footer p a:hover {
 
 .news .column .post .card-content .content.article-body p {
   padding: 1rem;
+}
+
+@media screen and (min-width: 769px), print {
+  .home .welcome {
+    margin-top: 10rem;
+  }
+
+  .home .welcome__image {
+    background-image: url("/images/pages/dog-home-mobile.png");
+    background-size: cover;
+    background-position: 70%;
+    height: 400px;
+  }
+
+  .home .welcome__image .try-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .home .welcome__image .try-text h2 {
+    -ms-flex-item-align: end;
+        align-self: end;
+    margin-bottom: 1rem;
+    font-size: 2.7rem;
+  }
+
+  .home .welcome__image .try-text p {
+    padding: 0 4rem 2rem 0;
+    text-align: left;
+    -ms-flex-item-align: end;
+        align-self: end;
+  }
+
+  .home .welcome__image .try-text .skc-btn {
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+
+  .home .welcome__bkg {
+    height: 48.4375rem;
+  }
+
+  .home .welcome__bkg .about .title {
+    margin-bottom: 4.5rem;
+  }
+
+  .home .welcome__bkg .about__box {
+    margin-bottom: 3.5rem;
+  }
+
+  .home .welcome__bkg .about__text {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .home .welcome__bkg .about__image {
+    background-image: url("/images/pages/samuel-thompson-501755-unsplash.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    height: 360px;
+    display: block;
+  }
+
+  .home .welcome__bkg .about__bottom-box {
+    position: relative;
+    z-index: 11;
+  }
+
+  .home .welcome__bkg .about__bottom-box .bk-image {
+    position: static;
+    background-size: 70%;
+    background-position: center center;
+    height: 360px;
+  }
+
+  .home .welcome__bkg .about__bottom-box .text {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .home .welcome__bkg-bottom {
+    position: relative;
+    background-image: url("/images/pages/dog-home-bottom.png");
+    background-repeat: no-repeat;
+    height: 10rem;
+    z-index: 10;
+  }
+
+  .home .welcome .modal {
+    z-index: 1001;
+  }
+
+  .home .welcome .modal .modal-background {
+    background-color: #2b7386;
+  }
+
+  .home .welcome .modal .modal-content .register-form .field .field-label .label {
+    text-align: left;
+    color: #E2ECF6;
+  }
+
+  .home .welcome .modal .modal-content .register-form .field .field-body {
+    width: 100%;
+  }
+
+  .home .welcome .modal .modal-content .register-form .field .field-body .field p.control {
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .home .welcome .modal .modal-content .register-form .field .field-body .field p.help {
+    padding: 0;
+    font-size: 1rem;
+    text-align: left;
+    color: #E2ECF6;
+  }
 }
 

@@ -190,21 +190,24 @@
 
               <div class="welcome__bkg">
                 <div class="about">
+
                     <h1 class="title">about us</h1>
 
-                    <div class=" columns about__box">
-                      <div class=" about__text column">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                          enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                          reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                          nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                          sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                    <div class="columns about__box">
+                      <div class="column">
+                        <div class="about__text">
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          </p>
+                        </div>
                       </div>
-                      <div class="about__image columns"></div>
+                        <div class="about__image column"></div>
                     </div>
 
                     <div class="columns about__bottom-box">
@@ -238,18 +241,18 @@
     <section class="events">
       <h1 class="title">Events</h1>
 
-
-
-      <div class="tile is-ancestor">
+      <div class="masonry-layout">
           @foreach ($events as $event)
-        <div class="tile is-parent">
-          <figure class="image tile is-child">
-      			<img src="{{ 'images/events/'.$event->featured_image }}" alt="Skc logo">
-      			<figcaption>
-      				<h3>{{$event->title}}</h3>
-      			</figcaption>
-            <a href="http://dribbble.com/shots/1115632-Camera"></a>
-      		</figure>
+          <div class="masonry-layout__panel">
+            <div class="masonry-layout__panel-content">
+              <figure class="image">
+        			     <img src="{{ 'images/events/'.$event->featured_image }}" alt="Skc logo">
+        			     <figcaption>
+                     <h3>{{$event->title}}</h3>
+        			     </figcaption>
+                   <a href="http://dribbble.com/shots/1115632-Camera"></a>
+        		  </figure>
+            </div>
         </div>
         @endforeach
       </div>
