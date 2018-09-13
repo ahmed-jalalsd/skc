@@ -114,7 +114,7 @@
     text-align: center;
     text-transform: uppercase;
   }
-  margin-top: 22rem;
+  margin-top: 12rem;
   figure {
     position: relative;
     width: 100%;
@@ -181,15 +181,7 @@
   figure:hover figcaption h3 {
     color: $white;
   }
-  &__btn .button {
-    background-color: $skc-calypso;
-    border-color: $skc-calypso;
-    color: $skc-link_water;
-    padding-bottom: calc(1.375em - 1px);
-    padding-left: 2.75em;
-    padding-right: 2.75em;
-    padding-top: calc(1.375em - 1px);
-  }
+
 }
 
 .news {
@@ -203,6 +195,28 @@
     .post{
       margin-top: -80px;
       margin-bottom: 100px;
+      .card-content {
+        .media {
+          .media-content {
+            .title.article-title {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .card-image {
+          border: 2px solid $skc-link_water;
+          border-bottom: none;
+          // box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.75);
+        }
+        .content.article-body {
+          border: 2px solid $skc-link_water;
+          border-top: none;
+          // box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.75);
+          p {
+            padding: 1rem;
+          }
+        }
+      }
     }
   }
 }

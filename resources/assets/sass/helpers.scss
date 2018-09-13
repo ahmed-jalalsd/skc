@@ -6,9 +6,19 @@ $sides: (top, bottom, left, right); // Leave this variable alone
     .m-#{str-slice($side, 0, 1)}-#{$space} {
       margin-#{$side}: #{$space}px ;
     }
-  
+
     .p-#{str-slice($side, 0, 1)}-#{$space} {
       padding-#{$side}: #{$space}px ;
     }
   }
+}
+
+.skc-btn {
+  background-color: $skc-calypso;
+  border-color: $skc-calypso;
+  color: $skc-link_water;
+  padding-bottom: calc(1.375em - 1px);
+  padding-left: 2.75em;
+  padding-right: 2.75em;
+  padding-top: calc(1.375em - 1px);
 }

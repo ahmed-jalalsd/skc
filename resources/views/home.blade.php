@@ -27,7 +27,7 @@
                   </p>
 
 
-                  <a  class="button js-modal-trigger">Register</a>
+                  <a  class="button js-modal-trigger skc-btn">Register</a>
 
                   <div class="modal">
 
@@ -159,7 +159,7 @@
                                   <div class="field">
                                       <p class="control has-icons-left has-icons-right">
                                           <input class="input" id="address" type="text"
-                                                 name="address">
+                                          name="address">
                                                  <span class="icon is-small is-left">
                                                    <i class="fas fa-lock"></i>
                                                 </span>
@@ -238,56 +238,25 @@
     <section class="events">
       <h1 class="title">Events</h1>
 
-      <div class="tile is-ancestor">
 
-        <div class="tile is-parent">
-          <figure class="image tile is-child">
-      			<img src="{{asset('images/pages/alone-animal-blurred-background-955463.jpg')}}" alt="Skc logo">
-      			<figcaption>
-      				<h3>National Show</h3>
-      			</figcaption>
-            <a href="http://dribbble.com/shots/1115632-Camera"></a>
-      		</figure>
-        </div>
-
-        <div class="tile is-parent">
-          <figure class="image tile is-child">
-      			<img src="{{asset('images/pages/animal-collar-dog-8700.jpg')}}" alt="Skc logo">
-      			<figcaption>
-      				<h3>National Show</h3>
-      			</figcaption>
-            <a href="http://dribbble.com/shots/1115632-Camera"></a>
-      		</figure>
-        </div>
-
-      </div>
 
       <div class="tile is-ancestor">
-
+          @foreach ($events as $event)
         <div class="tile is-parent">
           <figure class="image tile is-child">
-      			<img src="{{asset('images/pages/hyunwon-jang-426093-unsplash.jpg')}}" alt="Skc logo">
+      			<img src="{{ 'images/events/'.$event->featured_image }}" alt="Skc logo">
       			<figcaption>
-      				<h3>National Show</h3>
+      				<h3>{{$event->title}}</h3>
       			</figcaption>
             <a href="http://dribbble.com/shots/1115632-Camera"></a>
       		</figure>
         </div>
-
-        <div class="tile  is-parent">
-          <figure class="image tile is-child">
-      			<img src="{{asset('images/pages/chris-benson-709433-unsplash.jpg')}}" alt="Skc logo">
-      			<figcaption>
-      				<h3>National Show</h3>
-      			</figcaption>
-            <a href="http://dribbble.com/shots/1115632-Camera"></a>
-      		</figure>
-        </div>
-
+        @endforeach
       </div>
+
 
       <div class="events__btn has-text-centered">
-        <a href="" class="button is-meduim">More</a>
+        <a href="" class="button is-meduim skc-btn">More</a>
       </div>
 
     </section>
@@ -296,51 +265,57 @@
 
       <div class="column is-8 is-offset-2">
 
-        <div class="card post">
+        @foreach ($fbPosts as $fbPost)
+        <a href="{{ $fbPost['permalink_url']}}" target="_blank">
+          <div class="card post">
 
-          <div class="card-content">
+            <div class="card-content">
 
-            <div class="media">
-                <div class="media-content has-text-centered">
-                    <p class="title article-title">Introducing a new feature for paid subscribers</p>
-                    <div class="tags has-addons level-item">
-                        <span class="tag is-rounded is-info">@skeetskeet</span>
-                        <span class="tag is-rounded">May 10, 2018</span>
-                    </div>
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="{{asset('images/skc-logo.png')}}" alt="Skc logo">
+                  </figure>
                 </div>
-            </div>
+                <div class="media-content">
+                  <p class="title article-title">{{ $fbPost['name']}}</p>
+                  <div class="tags has-addons">
+                      <!-- <span class="tag is-rounded is-info">@skeetskeet</span> -->
+                      <span class="tag is-rounded">{{date('d-m-Y', strtotime($fbPost['created_time']))}}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="{{ $fbPost['full_picture']}}" alt="Placeholder image">
+                </figure>
+              </div>
 
             <div class="content article-body">
-                <p>Non arcu risus quis varius quam quisque. Dictum varius duis at consectetur lorem. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper. </p>
-                <p>Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Accumsan lacus vel facilisis volutpat. Non sodales neque sodales ut etiam.
-                    Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.</p>
+                <p>
+                  {{ isset($fbPost['description']) ? str_limit($fbPost['description'], 240) : 'Default' }}
+                </p>
             </div>
           </div>
 
-        </div>
+          <!-- <footer class="card-footer">
 
-        <div class="card post">
-
-          <div class="card-content">
-
-            <div class="media">
-                <div class="media-content has-text-centered">
-                    <p class="title article-title">Introducing a new feature for paid subscribers</p>
-                    <div class="tags has-addons level-item">
-                        <span class="tag is-rounded is-info">@skeetskeet</span>
-                        <span class="tag is-rounded">May 10, 2018</span>
-                    </div>
-                </div>
+            <div class="tags has-addons">
+                <span class="tag"><i class="fas fa-share"></i></span>
+                <span class="tag">
+                  @isset($fbPost['shares'])
+                    @foreach ($fbPost['shares'] as $share)
+                      {{ $share }}
+                    @endforeach
+                  @endisset
+                </span>
             </div>
-
-            <div class="content article-body">
-                <p>Non arcu risus quis varius quam quisque. Dictum varius duis at consectetur lorem. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper. </p>
-                <p>Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Accumsan lacus vel facilisis volutpat. Non sodales neque sodales ut etiam.
-                    Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.</p>
-            </div>
-          </div>
+          </footer> -->
 
         </div>
+        </a>
+        @endforeach
 
       </div>
     </section>

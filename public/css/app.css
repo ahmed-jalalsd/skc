@@ -29215,6 +29215,16 @@ html .has-dropdown.is-open .navbar-dropdown {
   padding-right: 100px;
 }
 
+.skc-btn {
+  background-color: #2b7386;
+  border-color: #2b7386;
+  color: #E2ECF6;
+  padding-bottom: calc(1.375em - 1px);
+  padding-left: 2.75em;
+  padding-right: 2.75em;
+  padding-top: calc(1.375em - 1px);
+}
+
 #admin-side-menu {
   position: fixed;
   top: 4rem;
@@ -29625,6 +29635,8 @@ html body .overlay.open li {
 
 html body .footer {
   background-color: #1f2427;
+  padding: 3rem 1.5rem 6rem;
+  padding: 2rem 1.5rem 2rem;
 }
 
 html body .footer p {
@@ -29777,7 +29789,7 @@ html body .footer p a:hover {
 }
 
 .events {
-  margin-top: 22rem;
+  margin-top: 12rem;
 }
 
 .events h1.title {
@@ -29867,16 +29879,6 @@ html body .footer p a:hover {
   color: white;
 }
 
-.events__btn .button {
-  background-color: #2b7386;
-  border-color: #2b7386;
-  color: #E2ECF6;
-  padding-bottom: calc(1.375em - 1px);
-  padding-left: 2.75em;
-  padding-right: 2.75em;
-  padding-top: calc(1.375em - 1px);
-}
-
 .news {
   margin-top: 15rem;
   background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='649.068px' height='54px' viewBox='0 0 649.068 54' enable-background='new 0 0 649.068 54' xml:space='preserve'><polyline fill='%23E2ECF6' points='648.614,-16.923 648.597,7.53 0,45.084 0.046,-16.922'/></svg>");
@@ -29891,5 +29893,23 @@ html body .footer p a:hover {
 .news .column .post {
   margin-top: -80px;
   margin-bottom: 100px;
+}
+
+.news .column .post .card-content .media .media-content .title.article-title {
+  margin-bottom: 0;
+}
+
+.news .column .post .card-content .card-image {
+  border: 2px solid #E2ECF6;
+  border-bottom: none;
+}
+
+.news .column .post .card-content .content.article-body {
+  border: 2px solid #E2ECF6;
+  border-top: none;
+}
+
+.news .column .post .card-content .content.article-body p {
+  padding: 1rem;
 }
 
