@@ -29223,6 +29223,10 @@ html .has-dropdown.is-open .navbar-dropdown {
   padding-left: 2.75em;
   padding-right: 2.75em;
   padding-top: calc(1.375em - 1px);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 #admin-side-menu {
@@ -29395,7 +29399,7 @@ html body h3,
 html body h4,
 html body h5,
 html body h6 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Cormorant Garamond", serif;
 }
 
 html body p {
@@ -29479,6 +29483,13 @@ html body .navbar .container .navbar-brand .button_container span:nth-of-type(2)
 
 html body .navbar .container .navbar-brand .button_container span:nth-of-type(3) {
   top: 22px;
+}
+
+html body .navbar .container .navbar-menu .navbar-end.nav-menu a {
+  color: #E2ECF6;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-size: 1rem;
 }
 
 html body .nav-bottom {
@@ -29656,7 +29667,7 @@ html body .footer p a:hover {
   html body .nav-bottom__menu ul li {
     display: inline-block;
     font-size: 20px;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     line-height: 1;
     margin: 0 18px 0;
     opacity: 1;
@@ -29674,6 +29685,21 @@ html body .footer p a:hover {
 
   html body .nav-bottom__menu ul span {
     color: #E2ECF6;
+  }
+
+  html body .footer {
+    padding: 1.5rem 1.5rem 1.5rem;
+  }
+
+  html body .footer .level {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+
+  html body .footer .level .level-left .text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
@@ -29702,21 +29728,26 @@ html body .footer p a:hover {
 }
 
 .home .welcome {
-  margin-top: 20rem;
+  margin-top: 7rem;
 }
 
 .home .welcome__image {
-  background-image: url("/images/pages/dog-home-mobile.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 330px;
-  background-position: center;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  text-align: center;
 }
 
 .home .welcome__image .try-text {
-  position: absolute;
-  top: -18%;
-  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  text-align: justify;
 }
 
 .home .welcome__image .try-text p {
@@ -29727,14 +29758,20 @@ html body .footer p a:hover {
   text-align: center;
   margin-top: 5rem;
   margin-bottom: 5rem;
+  text-align: justify;
 }
 
 .home .welcome__bkg {
-  height: 32.4375rem;
+  margin-top: -7px;
+  height: 46.4375rem;
   background-color: #e2ecf6;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 22;
 }
 
 .home .welcome__bkg .about .title {
+  padding-top: 3rem;
   text-transform: uppercase;
   text-align: center;
 }
@@ -29742,6 +29779,7 @@ html body .footer p a:hover {
 .home .welcome__bkg .about__box--left .text {
   width: 80%;
   margin: 0 auto;
+  text-align: justify;
 }
 
 .home .welcome__bkg .about__box--left .image {
@@ -29758,16 +29796,29 @@ html body .footer p a:hover {
 .home .welcome__bkg .about__box--right .text {
   width: 90%;
   margin: 0 auto;
+  text-align: justify;
 }
 
 .home .welcome__bkg .about__box--right .image {
   display: none;
 }
 
+.home .welcome__right-paw {
+  position: absolute;
+  right: 0;
+}
+
+.home .welcome__left-paw {
+  position: absolute;
+  left: 0;
+}
+
+.home .welcome__bkg-top {
+  margin-top: -8.3%;
+}
+
 .home .welcome__bkg-bottom {
-  background-image: url("/images/pages/dog-home-bottom.png");
-  background-repeat: no-repeat;
-  height: 10rem;
+  margin-top: -2px;
 }
 
 .home .welcome .modal {
@@ -29889,12 +29940,12 @@ html body .footer p a:hover {
 }
 
 .events .wrapper .masonry__brick figcaption h4 {
-  letter-spacing: -1px;
+  letter-spacing: 1px;
   color: #1f2427;
   text-transform: uppercase;
   padding: 10px 0;
   margin: 0;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .events .wrapper .masonry__img {
@@ -29923,10 +29974,15 @@ html body .footer p a:hover {
 }
 
 .news {
-  margin-top: 15rem;
-  background-image: url("/images/pages/background-news.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin-top: 8rem;
+  margin-bottom: 6rem;
+}
+
+.news__bk {
+  height: 100%;
+  background-color: #e2ecf6;
+  margin-top: -2%;
+  margin-bottom: -1%;
 }
 
 .news__box {
@@ -29955,21 +30011,21 @@ html body .footer p a:hover {
 .news__box .post .card-content .content.article-body {
   border: 2px solid #E2ECF6;
   border-top: none;
+  text-align: justify;
 }
 
 .news__box .post .card-content .content.article-body p {
   padding: 1rem;
+  text-align: justify;
+}
+
+.title {
+  font-weight: 700;
 }
 
 @media screen and (min-width: 769px), print {
   .home .welcome {
     margin-top: 10rem;
-  }
-
-  .home .welcome__image {
-    background-image: url("/images/pages/dog-home-mobile.png");
-    background-position: 70%;
-    height: 400px;
   }
 
   .home .welcome__image .try-text {
@@ -30023,10 +30079,8 @@ html body .footer p a:hover {
     display: block;
   }
 
-  .home .welcome__bkg-bottom {
-    background-image: url("/images/pages/dog-home-bottom.png");
-    background-repeat: no-repeat;
-    height: 10rem;
+  .home .welcome__bkg-top {
+    margin-top: -7.8%;
   }
 
   .home .welcome .modal {
@@ -30110,11 +30164,10 @@ html body .footer p a:hover {
   }
 
   .home .welcome__image {
-    background-image: url("/images/pages/dog-home.png");
-    background-position: 70%;
-    height: 600px;
-    height: 650px;
-    background-size: contain;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 
   .home .welcome__image .try-text {
@@ -30122,6 +30175,7 @@ html body .footer p a:hover {
     right: 110px;
     width: 40%;
     width: 30%;
+    margin: 0;
   }
 
   .home .welcome__image .try-text p {
@@ -30167,10 +30221,8 @@ html body .footer p a:hover {
     margin: 0 auto;
   }
 
-  .home .welcome__bkg-bottom {
-    background-image: url("/images/pages/dog-home-bottom.png");
-    background-repeat: no-repeat;
-    height: 10rem;
+  .home .welcome__bkg-top {
+    margin-top: -6.3%;
   }
 
   .home .welcome .modal {
@@ -30224,7 +30276,16 @@ html body .footer p a:hover {
   }
 
   .news {
-    background-position: bottom;
+    margin-top: 15rem;
+    margin-bottom: 6rem;
+  }
+
+  .news__bk {
+    height: 100%;
+    height: 70rem;
+    background-color: #e2ecf6;
+    margin-top: -1%;
+    margin-bottom: -1%;
   }
 
   .news__box {

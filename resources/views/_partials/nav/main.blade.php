@@ -42,7 +42,7 @@
       <div class="navbar-end nav-menu" style="overflow: visible">
         @guest
           <a href="{{route('login')}}" class="navbar-item is-tab">Login</a>
-          <a href="{{route('register')}}" class="navbar-item is-tab">Join the Community</a>
+          <a href="{{route('register')}}" class="navbar-item is-tab">Register</a>
         @else
         @if(Request::segment(1) == "manage")
           <div class="navbar-item has-dropdown is-hoverable">
@@ -105,10 +105,12 @@
         <li>
           <a href="#" class="">Blog</a>
         </li>
-        <span class="is-hidden-mobile">|</span>
-        <li>
+        <span class="is-hidden-desktop">|</span>
+
+        <li class="is-hidden-desktop">
           <a href="#" class="">Log in</a>
         </li>
+
       </ul>
     </menu>
   </div>

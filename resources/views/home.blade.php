@@ -7,19 +7,15 @@
 
           <div class="welcome"> <!-- Start of welcome div -->
 
-              <!-- <div class="welcome__text">
-                <h2 class="title">Welcome</h2>
-                <p class="subitle">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                <a href="{{route('register')}}" class="button">Register</a>
-                <registration-modal></registration-modal>
-              </div> -->
-
               <div class="welcome__image">
 
+                <div class="try-image">
+                    <img src="{{asset('images/pages/only-dog.png')}}" alt="">
+                </div>
+
+
                 <div class="try-text">
+
                   <h2 class="title">Welcome</h2>
                   <p class="subitle">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -184,11 +180,24 @@
                     </div>
                     <button class="modal-close is-large" aria-label="close"></button>
                   </div>
+
                 </div>
 
               </div>
 
+              <div class="welcome__bkg-top">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                   viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
+                     <polygon class="st0" points="0,110.1 1700,110.1 1700,9.1 0,78.1 "/>
+                </svg>
+              </div>
+
               <div class="welcome__bkg">
+
+                <figure class="welcome__right-paw image">
+                    <img src="{{asset('images/pages/paws.png')}}">
+                </figure>
+
                 <div class="about">
 
                     <h1 class="title">about us</h1>
@@ -228,9 +237,18 @@
 
                     </div>
                 </div>
+
+                <figure class="welcome__left-paw image">
+
+                </figure>
+
               </div>
 
-              <div class="welcome__bkg-bottom"></div>
+              <div class="welcome__bkg-bottom">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                 viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
+                <polygon class="st0" points="1700,1.1 0,1.1 0,102.1 1700,33.1 "/>
+              </div>
 
             </div> <!-- </div>  End of welcome div  -->
 
@@ -264,7 +282,14 @@
     </section>
 
     <section class="news">
-      <div class="news__bkg-up"></div>
+
+      <div class="news__bkg-up">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
+             <polygon class="st0" points="0,110.1 1700,110.1 1700,9.1 0,78.1 "/>
+        </svg>
+      </div>
+
       <div class="news__bk">
         <div class="news__box">
 
@@ -322,7 +347,12 @@
           @endforeach
         </div>
       </div>
-      <div class="welcome__bkg-bottom"></div>
+
+      <div class="news__bkg-bottom">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
+        <polygon class="st0" points="1700,1.1 0,1.1 0,102.1 1700,33.1 "/>
+      </div>
     </section>
 
 @endsection

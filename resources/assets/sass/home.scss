@@ -1,16 +1,17 @@
 .home {
   .welcome {
-    margin-top: 20rem;
+    margin-top: 7rem;
     &__image{
-      background-image: url('/images/pages/dog-home-mobile.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      height: 330px;
-      background-position: center;
+      position: relative;
+      display: flex;
+      flex-direction: column-reverse;
+      text-align: center;
+
       .try-text {
-        position: absolute;
-        top: -18%;
-        text-align: center;
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 3rem;
+        text-align: justify;
         p {
           padding: 0 1rem 2rem 1rem;
         }
@@ -20,12 +21,17 @@
       text-align: center;
       margin-top: 5rem;
       margin-bottom: 5rem;
+      text-align: justify;
     }
     &__bkg {
-      height: 32.4375rem;
+      margin-top: -7px;
+      height: 46.4375rem;
       background-color: #e2ecf6;
+      position: sticky;
+      z-index: 22;
       .about {
         .title {
+          padding-top: 3rem;
           text-transform: uppercase;
           text-align: center;
         }
@@ -34,6 +40,7 @@
             .text {
               width: 80%;
               margin: 0 auto;
+              text-align: justify;
             }
             .image {
               background-image: url('/images/pages/taylor-grote-347608-unsplash.jpg');
@@ -50,6 +57,7 @@
             .text {
               width: 90%;
               margin: 0 auto;
+              text-align: justify;
             }
             .image {
               display: none;
@@ -58,12 +66,23 @@
         }
       }
     }
+
+    &__right-paw {
+      position: absolute;
+      right: 0;
+    }
+
+    &__left-paw {
+      position: absolute;
+      left: 0;
+    }
+
+    &__bkg-top {
+      margin-top: -8.3%;
+    }
+
     &__bkg-bottom {
-      // position: relative;
-      background-image: url('/images/pages/dog-home-bottom.png');
-      background-repeat: no-repeat;
-      height: 10rem;
-      // z-index: 10;
+      margin-top: -2px;
     }
 
     .modal {
@@ -171,12 +190,12 @@
             right: 0;
           }
           h4 {
-            letter-spacing: -1px;
+            letter-spacing: 1px;
             color: $skc-black;
             text-transform: uppercase;
             padding: 10px 0;
             margin: 0;
-            font-weight: 400;
+            font-weight: $weight-bold;
           }
         }
 
@@ -211,11 +230,16 @@
 }
 
 .news {
-  margin-top: 15rem;
-  // background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='649.068px' height='54px' viewBox='0 0 649.068 54' enable-background='new 0 0 649.068 54' xml:space='preserve'><polyline fill='%23E2ECF6' points='648.614,-16.923 648.597,7.53 0,45.084 0.046,-16.922'/></svg>");
-  background-image: url('/images/pages/background-news.png');;
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin-top: 8rem;
+  margin-bottom: 6rem;
+
+  &__bk {
+    height: 100%;
+    // height: 70rem;
+    background-color: #e2ecf6;
+    margin-top: -2%;
+    margin-bottom: -1%;
+  }
   &__box {
     padding: 1.75rem;
     .post{
@@ -241,8 +265,10 @@
         .content.article-body {
           border: 2px solid $skc-link_water;
           border-top: none;
+          text-align: justify;
           p {
             padding: 1rem;
+            text-align: justify;
           }
         }
       }
@@ -250,14 +276,15 @@
   }
 }
 
+.title {
+  font-weight: $weight-bold;
+}
+
 @include tablet {
   .home {
     .welcome {
       margin-top: 10rem;
       &__image{
-        background-image: url('/images/pages/dog-home-mobile.png');
-        background-position: 70%;
-        height: 400px;
         .try-text {
           position: absolute;
           top: 0;
@@ -280,6 +307,7 @@
           }
         }
       }
+
       &__bkg {
         height: 48.4375rem;
 
@@ -302,10 +330,10 @@
           }
         }
       }
+      &__bkg-top {
+        margin-top: -7.8%;
+      }
       &__bkg-bottom {
-        background-image: url('/images/pages/dog-home-bottom.png');
-        background-repeat: no-repeat;
-        height: 10rem;
       }
       .modal {
         z-index: 1001;
@@ -395,16 +423,13 @@
     }
     .welcome {
       &__image{
-        background-image: url('/images/pages/dog-home.png');
-        background-position: 70%;
-        height: 600px;
-        height: 650px;
-        background-size: contain;
+        flex-direction: row;
         .try-text {
           top: 40px;
           right: 110px;
           width: 40%;
           width: 30%;
+          margin: 0;
           h2 {
           }
           p {
@@ -452,10 +477,11 @@
           }
         }
       }
+      &__bkg-top {
+        margin-top: -6.3%;
+      }
+
       &__bkg-bottom {
-        background-image: url('/images/pages/dog-home-bottom.png');
-        background-repeat: no-repeat;
-        height: 10rem;
       }
 
       .modal {
@@ -533,8 +559,15 @@
   }
 
   .news {
-    // margin-bottom: 6rem;
-    background-position: bottom;
+    margin-top: 15rem;
+    margin-bottom: 6rem;
+    &__bk {
+      height: 100%;
+      height: 70rem;
+      background-color: #e2ecf6;
+      margin-top: -1%;
+      margin-bottom: -1%;
+    }
     &__box {
       display: flex;
       max-width: 1024px;

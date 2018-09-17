@@ -21,4 +21,8 @@ $sides: (top, bottom, left, right); // Leave this variable alone
   padding-left: 2.75em;
   padding-right: 2.75em;
   padding-top: calc(1.375em - 1px);
+  font-family: $skc-font-family;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }

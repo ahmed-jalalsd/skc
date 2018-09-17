@@ -2,7 +2,7 @@
   <div class="level is-mobile">
 
     <div class="level-left">
-      <div>
+      <div class="text">
         <p class="sub-title">Road 33/3 Khartoum, Sudan</p>
         <p class="sub-title"><a href="tel:+1-303-499-7111">+1 (303) 499-7111</a> | Naser></p>
       </div>

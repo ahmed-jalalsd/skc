@@ -1,7 +1,7 @@
 html {
   body {
     h1,h2,h3,h4,h5,h6 {
-      font-family: $skc-title-font;
+      font-family: $skc-font-family;
     }
     p {
       font-family: $skc-font-family;
@@ -81,6 +81,18 @@ html {
             }
           }
         }
+
+        .navbar-menu {
+          .navbar-end.nav-menu {
+            a {
+              color: $skc-link_water;
+              font-family: $skc-font-family;
+              font-size: 18px;
+              font-size: 1rem;
+            }
+          }
+        }
+
       }
     }
 
@@ -172,6 +184,7 @@ html {
         }
       }
     }
+
   }
 }
 
@@ -214,6 +227,7 @@ html {
 @include desktop {
   html {
     body {
+
       .nav-bottom {
         display: block;
         height: 3.2rem;
@@ -241,7 +255,7 @@ html {
             li {
               display: inline-block;
               font-size: 20px;
-              font-size: 1.35rem;
+              font-size: 1.2rem;
               line-height: 1;
               margin: 0 18px 0;
               opacity: 1;
@@ -258,9 +272,21 @@ html {
               color: $skc-link_water;
             }
           }
-
         }
       }
+
+      .footer {
+        padding: 1.5rem 1.5rem 1.5rem;
+        .level {
+          justify-content: space-around;
+          .level-left {
+            .text {
+              display: flex;
+            }
+          }
+        }
+      }
+
     }
   }
 }
