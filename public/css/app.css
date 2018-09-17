@@ -29624,7 +29624,7 @@ html body .footer p a:hover {
 }
 
 @media screen and (min-width: 1024px) {
-  .nav-bottom {
+  html body .nav-bottom {
     display: block;
     height: 3.2rem;
     min-height: 3.2rem;
@@ -29635,7 +29635,7 @@ html body .footer p a:hover {
     z-index: 1001;
   }
 
-  .nav-bottom__menu {
+  html body .nav-bottom__menu {
     position: relative;
     list-style: none;
     opacity: 1;
@@ -29649,11 +29649,11 @@ html body .footer p a:hover {
     height: 100%;
   }
 
-  .nav-bottom__menu ul {
+  html body .nav-bottom__menu ul {
     display: block;
   }
 
-  .nav-bottom__menu ul li {
+  html body .nav-bottom__menu ul li {
     display: inline-block;
     font-size: 20px;
     font-size: 1.35rem;
@@ -29664,15 +29664,15 @@ html body .footer p a:hover {
     font-weight: 500;
   }
 
-  .nav-bottom__menu ul li a {
+  html body .nav-bottom__menu ul li a {
     color: #E2ECF6;
   }
 
-  .nav-bottom__menu ul li a:hover {
+  html body .nav-bottom__menu ul li a:hover {
     color: #E2ECF6;
   }
 
-  .nav-bottom__menu ul span {
+  html body .nav-bottom__menu ul span {
     color: #E2ECF6;
   }
 }
@@ -29739,22 +29739,12 @@ html body .footer p a:hover {
   text-align: center;
 }
 
-.home .welcome__bkg .about__box {
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-
-.home .welcome__bkg .about__text {
-  width: 90%;
+.home .welcome__bkg .about__box--left .text {
+  width: 80%;
   margin: 0 auto;
 }
 
-.home .welcome__bkg .about__image {
-  display: none;
-}
-
-.home .welcome__bkg .about__bottom-box .bk-image {
-  position: relative;
+.home .welcome__bkg .about__box--left .image {
   background-image: url("/images/pages/taylor-grote-347608-unsplash.jpg");
   background-position: left 44%;
   background-repeat: no-repeat;
@@ -29762,21 +29752,22 @@ html body .footer p a:hover {
   background-size: contain;
   background-position: center;
   height: 360px;
-  z-index: 1000;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.home .welcome__bkg .about__bottom-box .text {
+.home .welcome__bkg .about__box--right .text {
   width: 90%;
   margin: 0 auto;
 }
 
+.home .welcome__bkg .about__box--right .image {
+  display: none;
+}
+
 .home .welcome__bkg-bottom {
-  position: relative;
   background-image: url("/images/pages/dog-home-bottom.png");
   background-repeat: no-repeat;
   height: 10rem;
-  z-index: 10;
 }
 
 .home .welcome .modal {
@@ -29817,10 +29808,33 @@ html body .footer p a:hover {
   text-transform: uppercase;
 }
 
-.events figure {
-  position: relative;
+.events .wrapper {
+  margin: 2em auto;
+  max-width: 970px;
+}
+
+.events .wrapper .masonry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
+  margin-left: -8px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.events .wrapper .masonry__brick {
+  position: relative;
   overflow: hidden;
+  margin: 0 0 8px 8px;
+  color: white;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  height: 250px;
+  min-width: 150px;
   text-align: center;
   background: white;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
@@ -29830,26 +29844,18 @@ html body .footer p a:hover {
   cursor: pointer;
 }
 
-.events figure:hover {
+.events .wrapper .masonry__brick:hover {
   background: #1f2427;
   -webkit-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
 }
 
-.events figure img {
-  opacity: 0.25;
-  max-width: 100%;
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-.events figure * {
+.events .wrapper .masonry__brick * {
   -webkit-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
 }
 
-.events figure a {
+.events .wrapper .masonry__brick a {
   left: 0;
   right: 0;
   top: 0;
@@ -29857,31 +29863,32 @@ html body .footer p a:hover {
   position: absolute;
 }
 
-.events figure figcaption {
+.events .wrapper .masonry__brick figcaption {
   position: absolute;
   top: 50%;
-  left: 30px;
-  right: 30px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
 }
 
-.events figure figcaption::before,
-.events figure figcaption::after {
+.events .wrapper .masonry__brick figcaption::before,
+.events .wrapper .masonry__brick figcaption::after {
   -webkit-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
 }
 
-.events figure figcaption::before {
+.events .wrapper .masonry__brick figcaption::before {
   left: 0;
   top: 0;
 }
 
-.events figure figcaption::after {
+.events .wrapper .masonry__brick figcaption::after {
   bottom: 0;
   right: 0;
 }
 
-.events figure figcaption h3 {
-  top: 50%;
+.events .wrapper .masonry__brick figcaption h4 {
   letter-spacing: -1px;
   color: #1f2427;
   text-transform: uppercase;
@@ -29890,46 +29897,67 @@ html body .footer p a:hover {
   font-weight: 400;
 }
 
-.events figure:hover figcaption:before,
-.events figure:hover figcaption:after {
+.events .wrapper .masonry__img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.25;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.events .wrapper .masonry img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.events .masonry__brick:hover figcaption:before,
+.events .masonry__brick:hover figcaption:after {
   width: 200%;
 }
 
-.events figure:hover figcaption h3 {
+.events .masonry__brick:hover figcaption h4 {
   color: white;
 }
 
 .news {
   margin-top: 15rem;
-  background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='649.068px' height='54px' viewBox='0 0 649.068 54' enable-background='new 0 0 649.068 54' xml:space='preserve'><polyline fill='%23E2ECF6' points='648.614,-16.923 648.597,7.53 0,45.084 0.046,-16.922'/></svg>");
+  background-image: url("/images/pages/background-news.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.news .column {
+.news__box {
   padding: 1.75rem;
 }
 
-.news .column .post {
+.news__box .post {
   margin-top: -80px;
   margin-bottom: 100px;
 }
 
-.news .column .post .card-content .media .media-content .title.article-title {
+.news__box .post .card-content .media .media-content .title.article-title {
   margin-bottom: 0;
 }
 
-.news .column .post .card-content .card-image {
+.news__box .post .card-content .card-image {
   border: 2px solid #E2ECF6;
   border-bottom: none;
 }
 
-.news .column .post .card-content .content.article-body {
+.news__box .post .card-content .card-image figure img {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.news__box .post .card-content .content.article-body {
   border: 2px solid #E2ECF6;
   border-top: none;
 }
 
-.news .column .post .card-content .content.article-body p {
+.news__box .post .card-content .content.article-body p {
   padding: 1rem;
 }
 
@@ -29940,7 +29968,6 @@ html body .footer p a:hover {
 
   .home .welcome__image {
     background-image: url("/images/pages/dog-home-mobile.png");
-    background-size: cover;
     background-position: 70%;
     height: 400px;
   }
@@ -29986,47 +30013,20 @@ html body .footer p a:hover {
     margin-bottom: 4.5rem;
   }
 
-  .home .welcome__bkg .about__box {
-    margin-bottom: 3.5rem;
-  }
-
-  .home .welcome__bkg .about__text {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .home .welcome__bkg .about__image {
+  .home .welcome__bkg .about__box--right .image {
     background-image: url("/images/pages/samuel-thompson-501755-unsplash.jpg");
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 70%;
+    background-size: contain;
     height: 360px;
+    margin-bottom: 1rem;
     display: block;
   }
 
-  .home .welcome__bkg .about__bottom-box {
-    position: relative;
-    z-index: 11;
-  }
-
-  .home .welcome__bkg .about__bottom-box .bk-image {
-    position: static;
-    background-size: 70%;
-    background-position: center center;
-    height: 360px;
-  }
-
-  .home .welcome__bkg .about__bottom-box .text {
-    width: 80%;
-    margin: 0 auto;
-  }
-
   .home .welcome__bkg-bottom {
-    position: relative;
     background-image: url("/images/pages/dog-home-bottom.png");
     background-repeat: no-repeat;
     height: 10rem;
-    z-index: 10;
   }
 
   .home .welcome .modal {
@@ -30056,6 +30056,199 @@ html body .footer p a:hover {
     font-size: 1rem;
     text-align: left;
     color: #E2ECF6;
+  }
+
+  .events .wrapper {
+    width: 90%;
+  }
+
+  .events .wrapper .masonry__brick:nth-child(4n+1) {
+    width: 280px;
+  }
+
+  .events .wrapper .masonry__brick:nth-child(2n+2) {
+    width: 200px;
+  }
+
+  .events .wrapper .masonry__brick:nth-child(4n+3) {
+    width: 155px;
+  }
+
+  .news {
+    margin-bottom: 6rem;
+  }
+
+  .news__box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1024px;
+    margin: 0 auto;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .news__box a {
+    -ms-flex-preferred-size: 48%;
+        flex-basis: 48%;
+    margin-bottom: 1rem;
+  }
+
+  .news__box a .card {
+    max-height: 630px;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home .container {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .home .welcome__image {
+    background-image: url("/images/pages/dog-home.png");
+    background-position: 70%;
+    height: 600px;
+    height: 650px;
+    background-size: contain;
+  }
+
+  .home .welcome__image .try-text {
+    top: 40px;
+    right: 110px;
+    width: 40%;
+    width: 30%;
+  }
+
+  .home .welcome__image .try-text p {
+    padding: 0 0rem 2rem 0;
+  }
+
+  .home .welcome__image .try-text .skc-btn {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+
+  .home .welcome__bkg {
+    margin-top: -23px;
+  }
+
+  .home .welcome__bkg .about__box--left .image {
+    background-image: url("/images/pages/taylor-grote-347608-unsplash.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    height: 360px;
+    display: block;
+    margin-top: 3rem;
+  }
+
+  .home .welcome__bkg .about__box--left .text {
+    width: 70%;
+    margin: 0 auto 0 10rem;
+  }
+
+  .home .welcome__bkg .about__box--right .image {
+    display: block;
+    background-image: url("/images/pages/samuel-thompson-501755-unsplash.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    height: 360px;
+    margin-bottom: 3rem;
+  }
+
+  .home .welcome__bkg .about__box--right .text {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .home .welcome__bkg-bottom {
+    background-image: url("/images/pages/dog-home-bottom.png");
+    background-repeat: no-repeat;
+    height: 10rem;
+  }
+
+  .home .welcome .modal {
+    z-index: 1001;
+  }
+
+  .home .welcome .modal .modal-background {
+    background-color: #2b7386;
+  }
+
+  .home .welcome .modal .modal-content .register-form .field .field-label .label {
+    text-align: left;
+    color: #E2ECF6;
+  }
+
+  .home .welcome .modal .modal-content .register-form .field .field-body {
+    width: 100%;
+  }
+
+  .home .welcome .modal .modal-content .register-form .field .field-body .field p.control {
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .home .welcome .modal .modal-content .register-form .field .field-body .field p.help {
+    padding: 0;
+    font-size: 1rem;
+    text-align: left;
+    color: #E2ECF6;
+  }
+
+  .events .wrapper {
+    margin: 2em auto;
+    max-width: 1024px;
+  }
+
+  .events .wrapper .masonry__brick {
+    max-width: 420px;
+  }
+
+  .events .wrapper .masonry__brick:nth-child(5n+1) {
+    width: 325px;
+  }
+
+  .events .wrapper .masonry__brick:nth-child(2n+2) {
+    width: 250px;
+  }
+
+  .events .wrapper .masonry__brick:nth-child(4n+3) {
+    width: 180px;
+  }
+
+  .news {
+    background-position: bottom;
+  }
+
+  .news__box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1024px;
+    margin: 0 auto;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .news__box a {
+    -ms-flex-preferred-size: 48%;
+        flex-basis: 48%;
+    margin-bottom: 1rem;
+  }
+
+  .news__box a .card {
+    max-height: 630px;
+    height: 100%;
   }
 }
 

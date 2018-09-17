@@ -18,7 +18,7 @@ class HomeController extends Controller
         LaraFlash::add()->content('Hello World')->priority(6)->type('info');
         LaraFlash::success('Yay');
         LaraFlash::danger('Oops');
-        $events = Event::orderBy('id', 'desc')->with('users')->limit(4)->get();
+        $events = Event::orderBy('id', 'desc')->with('users')->limit(6)->get();
 
         // create fb developer user
         // add a new app
@@ -29,19 +29,11 @@ class HomeController extends Controller
         $userId = '10155864363047358'; // my user id in fb
         // only show 5 post maximum
         $fbData = fb_feed()->setAppId($fbAppId)->setSecretKey($fbSecretKey)->setPage($userId)
-        ->feedLimit(5)
+        ->feedLimit(4)
         ->fields("id, name, message, full_picture, permalink_url, created_time, picture, shares, link, description, object_id")
         ->fetch();
         // dd($fbData['data']);
         $fbPosts = $fbData['data'];
-        foreach ($fbPosts as $fbPost) {
-          // dd($fbPost);
-          // if (isset($fbPost['shares'])) {
-          //   foreach ($fbPost['shares'] as $share) {
-          //     dd($share);
-          //   }
-          // }
-        }
         return view('/home', compact('events', 'fbPosts'));
     }
 }

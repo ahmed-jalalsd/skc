@@ -17,7 +17,7 @@
                 <registration-modal></registration-modal>
               </div> -->
 
-              <div class="welcome__image ">
+              <div class="welcome__image">
 
                 <div class="try-text">
                   <h2 class="title">Welcome</h2>
@@ -27,7 +27,7 @@
                   </p>
 
 
-                  <a  class="button js-modal-trigger skc-btn">Register</a>
+                  <a class="button js-modal-trigger skc-btn">Register</a>
 
                   <div class="modal">
 
@@ -194,25 +194,8 @@
                     <h1 class="title">about us</h1>
 
                     <div class="columns about__box">
-                      <div class="column">
-                        <div class="about__text">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                          </p>
-                        </div>
-                      </div>
-                        <div class="about__image column"></div>
-                    </div>
 
-                    <div class="columns about__bottom-box">
-                      <div class="column bk-image"></div>
-                      <div class="column">
+                      <div class="column about__box--left">
                         <div class="text">
                           <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -224,9 +207,26 @@
                             sunt in culpa qui officia deserunt mollit anim id est laborum.
                           </p>
                         </div>
+                        <div class="image"></div>
                       </div>
-                    </div>
 
+                      <div class="column about__box--right">
+                        <div class="image"></div>
+                        <div class="text">
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          </p>
+                        </div>
+
+                      </div>
+
+                    </div>
                 </div>
               </div>
 
@@ -241,21 +241,20 @@
     <section class="events">
       <h1 class="title">Events</h1>
 
-      <div class="masonry-layout">
-          @foreach ($events as $event)
-          <div class="masonry-layout__panel">
-            <div class="masonry-layout__panel-content">
-              <figure class="image">
-        			     <img src="{{ 'images/events/'.$event->featured_image }}" alt="Skc logo">
-        			     <figcaption>
-                     <h3>{{$event->title}}</h3>
-        			     </figcaption>
-                   <a href="http://dribbble.com/shots/1115632-Camera"></a>
-        		  </figure>
-            </div>
+      <div class="wrapper">
+        <div class="masonry">
+            @foreach ($events as $event)
+              <figure class="masonry__brick">
+                <img src="{{ 'images/events/'.$event->featured_image }}" class="masonry__img" alt="Skc logo">
+                  <figcaption>
+                    <h4>{{$event->title}}</h4>
+          			  </figcaption>
+                  <a href="http://dribbble.com/shots/1115632-Camera"></a>
+          	  </figure>
+          @endforeach
         </div>
-        @endforeach
       </div>
+
 
 
       <div class="events__btn has-text-centered">
@@ -265,62 +264,65 @@
     </section>
 
     <section class="news">
+      <div class="news__bkg-up"></div>
+      <div class="news__bk">
+        <div class="news__box">
 
-      <div class="column is-8 is-offset-2">
+          @foreach ($fbPosts as $fbPost)
+          <a href="{{ $fbPost['permalink_url']}}" target="_blank">
 
-        @foreach ($fbPosts as $fbPost)
-        <a href="{{ $fbPost['permalink_url']}}" target="_blank">
-          <div class="card post">
+            <div class="card post">
 
-            <div class="card-content">
+              <div class="card-content">
 
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="{{asset('images/skc-logo.png')}}" alt="Skc logo">
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title article-title">{{ $fbPost['name']}}</p>
-                  <div class="tags has-addons">
-                      <!-- <span class="tag is-rounded is-info">@skeetskeet</span> -->
-                      <span class="tag is-rounded">{{date('d-m-Y', strtotime($fbPost['created_time']))}}</span>
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img src="{{asset('images/skc-logo.png')}}" alt="Skc logo">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title article-title">{{ $fbPost['name']}}</p>
+                    <div class="tags has-addons">
+                        <!-- <span class="tag is-rounded is-info">@skeetskeet</span> -->
+                        <span class="tag is-rounded">{{date('d-m-Y', strtotime($fbPost['created_time']))}}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="{{ $fbPost['full_picture']}}" alt="Placeholder image">
-                </figure>
-              </div>
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="{{ $fbPost['full_picture']}}" alt="Placeholder image">
+                  </figure>
+                </div>
 
-            <div class="content article-body">
-                <p>
-                  {{ isset($fbPost['description']) ? str_limit($fbPost['description'], 240) : 'Default' }}
-                </p>
+              <div class="content article-body">
+                  <p>
+                    {{ isset($fbPost['description']) ? str_limit($fbPost['description'], 80) : 'Default' }}
+                  </p>
+              </div>
             </div>
+
+            <!-- <footer class="card-footer">
+
+              <div class="tags has-addons">
+                  <span class="tag"><i class="fas fa-share"></i></span>
+                  <span class="tag">
+                    @isset($fbPost['shares'])
+                      @foreach ($fbPost['shares'] as $share)
+                        {{ $share }}
+                      @endforeach
+                    @endisset
+                  </span>
+              </div>
+            </footer> -->
+
           </div>
-
-          <!-- <footer class="card-footer">
-
-            <div class="tags has-addons">
-                <span class="tag"><i class="fas fa-share"></i></span>
-                <span class="tag">
-                  @isset($fbPost['shares'])
-                    @foreach ($fbPost['shares'] as $share)
-                      {{ $share }}
-                    @endforeach
-                  @endisset
-                </span>
-            </div>
-          </footer> -->
-
+          </a>
+          @endforeach
         </div>
-        </a>
-        @endforeach
-
       </div>
+      <div class="welcome__bkg-bottom"></div>
     </section>
 
 @endsection
@@ -353,15 +355,18 @@
   </script>
 
   <script type="text/javascript">
-  $(".js-modal-trigger").click(function() {
-var targetModal = $(this).next('div');
-$(targetModal).addClass("is-active");
-});
-$(".modal-background").click(function() {
-$(".modal").removeClass("is-active");
-});
-$(".modal-close").click(function() {
-$(".modal").removeClass("is-active");
-});
+
+    $(".js-modal-trigger").click(function() {
+      var targetModal = $(this).next('div');
+      $(targetModal).addClass("is-active");
+    });
+
+    $(".modal-background").click(function() {
+      $(".modal").removeClass("is-active");
+    });
+
+    $(".modal-close").click(function() {
+      $(".modal").removeClass("is-active");
+    });
   </script>
 @endsection

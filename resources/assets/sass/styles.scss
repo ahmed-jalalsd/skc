@@ -212,51 +212,55 @@ html {
 
 
 @include desktop {
-  .nav-bottom {
-    display: block;
-    height: 3.2rem;
-    min-height: 3.2rem;
-    opacity: 1;
-    visibility: visible;
-    top: 50px;
-    left: 0;
-    z-index: 1001;
-
-    &__menu {
-      position: relative;
-      list-style: none;
-      // display: inline-block;
-      opacity: 1;
-      transition: opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
-      transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1);
-      transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
-      transition-delay: .6s;
-      text-align: center;
-      height: 100%;
-      ul {
-        // height: 100%;
+  html {
+    body {
+      .nav-bottom {
         display: block;
-        li {
-          display: inline-block;
-          font-size: 20px;
-          font-size: 1.35rem;
-          line-height: 1;
-          margin: 0 18px 0;
+        height: 3.2rem;
+        min-height: 3.2rem;
+        opacity: 1;
+        visibility: visible;
+        top: 50px;
+        left: 0;
+        z-index: 1001;
+
+        &__menu {
+          position: relative;
+          list-style: none;
+          // display: inline-block;
           opacity: 1;
-          font-family: $skc-font-family;
-          font-weight: $weight-medium;
-          a {
-            color: $skc-link_water;
-            &:hover {
+          transition: opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
+          transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1);
+          transition: transform .4s cubic-bezier(.165,.84,.44,1),opacity .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .4s cubic-bezier(.165,.84,.44,1);
+          transition-delay: .6s;
+          text-align: center;
+          height: 100%;
+          ul {
+            // height: 100%;
+            display: block;
+            li {
+              display: inline-block;
+              font-size: 20px;
+              font-size: 1.35rem;
+              line-height: 1;
+              margin: 0 18px 0;
+              opacity: 1;
+              font-family: $skc-font-family;
+              font-weight: $weight-medium;
+              a {
+                color: $skc-link_water;
+                &:hover {
+                  color: $skc-link_water;
+                }
+              }
+            }
+            span {
               color: $skc-link_water;
             }
           }
-        }
-        span {
-          color: $skc-link_water;
+
         }
       }
-
     }
   }
 }

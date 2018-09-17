@@ -9,6 +9,8 @@ require('./bootstrap');
 
 require('./manage'); // Javascript file for the admin area
 
+require('./main'); // Javascript file for the front page
+
 
 window.Vue = require('vue');
 window.Slug = require('slug');

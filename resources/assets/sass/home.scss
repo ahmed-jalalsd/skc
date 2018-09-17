@@ -30,43 +30,42 @@
           text-align: center;
         }
         &__box {
-          position: relative;
-          margin-bottom: 1.5rem;
-        }
-        &__text {
-          width: 90%;
-          margin: 0 auto;
-        }
-        &__image {
-          display: none;
-        }
-        &__bottom-box {
-          .bk-image {
-            position: relative;
-            background-image: url('/images/pages/taylor-grote-347608-unsplash.jpg');
-            background-position: left 44%;
-            background-repeat: no-repeat;
-            background-size: 80%;
-            background-size: contain;
-            background-position: center;
-            height: 360px;
-            z-index: 1000;
-            margin-bottom: 1.5rem;
+          &--left {
+            .text {
+              width: 80%;
+              margin: 0 auto;
+            }
+            .image {
+              background-image: url('/images/pages/taylor-grote-347608-unsplash.jpg');
+              background-position: left 44%;
+              background-repeat: no-repeat;
+              background-size: 80%;
+              background-size: contain;
+              background-position: center;
+              height: 360px;
+              margin-top: 1.5rem;
+            }
           }
-          .text {
-            width: 90%;
-            margin: 0 auto;
+          &--right {
+            .text {
+              width: 90%;
+              margin: 0 auto;
+            }
+            .image {
+              display: none;
+            }
           }
         }
       }
     }
     &__bkg-bottom {
-      position: relative;
+      // position: relative;
       background-image: url('/images/pages/dog-home-bottom.png');
       background-repeat: no-repeat;
       height: 10rem;
-      z-index: 10;
+      // z-index: 10;
     }
+
     .modal {
       z-index: 1001;
       .modal-background {
@@ -104,75 +103,108 @@
 }
 
 .events {
+  margin-top: 12rem;
+
   h1.title {
     text-align: center;
     text-transform: uppercase;
   }
-  margin-top: 12rem;
-  figure {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    text-align: center;
-    background: $white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    transition: all 0.35s ease-in-out;
-    cursor: pointer;
-    &:hover {
-      background: $skc-black;
-      transition: all 0.35s ease-in-out;
-    }
-    img {
-      opacity: 0.25;
-      max-width: 100%;
-      position: relative;
-      top: 0;
-      left: 0;
-    }
-    * {
-      transition: all 0.35s ease-in-out;
-    }
-    a {
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      position: absolute;
-    }
-    figcaption {
-      position: absolute;
-      top: 50%;
-      left: 30px;
-      right: 30px;
-      &::before, &::after {
-        -webkit-transition: all 0.35s ease-in-out;
+
+  .wrapper {
+    margin: 2em auto;
+    max-width: 970px;
+    .masonry {
+      display: flex;
+      width: 100%;
+      margin-left: -8px;
+      flex-flow: row wrap;
+
+      &__brick {
+        position: relative;
+        overflow: hidden;
+        // border-radius: 5px;
+        margin: 0 0 8px 8px;
+        color: white;
+        flex: auto;
+        height: 250px;
+        min-width: 150px;
+
+        text-align: center;
+        background: $white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
         transition: all 0.35s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background: $skc-black;
+          transition: all 0.35s ease-in-out;
+        }
+
+        * {
+          transition: all 0.35s ease-in-out;
+        }
+
+        a {
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          position: absolute;
+        }
+
+        figcaption {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          width: 100%;
+          &::before, &::after {
+            -webkit-transition: all 0.35s ease-in-out;
+            transition: all 0.35s ease-in-out;
+          }
+          &::before {
+            left: 0;
+            top: 0;
+          }
+          &::after{
+            bottom: 0;
+            right: 0;
+          }
+          h4 {
+            letter-spacing: -1px;
+            color: $skc-black;
+            text-transform: uppercase;
+            padding: 10px 0;
+            margin: 0;
+            font-weight: 400;
+          }
+        }
+
       }
-      &::before {
-        left: 0;
+
+      &__img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        // filter: brightness(50%);
+        opacity: 0.25;
+        position: relative;
         top: 0;
+        left: 0;
       }
-      &::after{
-        bottom: 0;
-        right: 0;
-      }
-      h3 {
-        top: 50%;
-        letter-spacing: -1px;
-        color: $skc-black;
-        text-transform: uppercase;
-        padding: 10px 0;
-        margin: 0;
-        font-weight: 400;
+      img {
+        vertical-align: middle;
+        max-width: 100%;
       }
     }
   }
 
-  figure:hover figcaption:before,
-  figure:hover figcaption:after {
+
+  .masonry__brick:hover figcaption:before,
+  .masonry__brick:hover figcaption:after {
     width: 200%;
   }
-  figure:hover figcaption h3 {
+  .masonry__brick:hover figcaption h4 {
     color: $white;
   }
 
@@ -180,11 +212,11 @@
 
 .news {
   margin-top: 15rem;
-  background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='649.068px' height='54px' viewBox='0 0 649.068 54' enable-background='new 0 0 649.068 54' xml:space='preserve'><polyline fill='%23E2ECF6' points='648.614,-16.923 648.597,7.53 0,45.084 0.046,-16.922'/></svg>");
+  // background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='649.068px' height='54px' viewBox='0 0 649.068 54' enable-background='new 0 0 649.068 54' xml:space='preserve'><polyline fill='%23E2ECF6' points='648.614,-16.923 648.597,7.53 0,45.084 0.046,-16.922'/></svg>");
+  background-image: url('/images/pages/background-news.png');;
   background-repeat: no-repeat;
   background-size: cover;
-  // height: 360px;
-  .column {
+  &__box {
     padding: 1.75rem;
     .post{
       margin-top: -80px;
@@ -200,12 +232,15 @@
         .card-image {
           border: 2px solid $skc-link_water;
           border-bottom: none;
-          // box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.75);
+          figure {
+            img {
+              object-fit: fill;
+            }
+          }
         }
         .content.article-body {
           border: 2px solid $skc-link_water;
           border-top: none;
-          // box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.75);
           p {
             padding: 1rem;
           }
@@ -221,7 +256,6 @@
       margin-top: 10rem;
       &__image{
         background-image: url('/images/pages/dog-home-mobile.png');
-        background-size: cover;
         background-position: 70%;
         height: 400px;
         .try-text {
@@ -248,51 +282,30 @@
       }
       &__bkg {
         height: 48.4375rem;
+
         .about {
           .title {
             margin-bottom: 4.5rem;
           }
           &__box {
-            margin-bottom: 3.5rem;
-          }
-          &__text {
-            // position: relative;
-            // left: 60px;
-            width: 80%;
-            margin: 0 auto;
-          }
-          &__image {
-            background-image: url('/images/pages/samuel-thompson-501755-unsplash.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: 70%;
-            height: 360px;
-            display: block;
-          }
-          &__bottom-box {
-            position: relative;
-            z-index: 11;
-            .bk-image {
-              position: static;
-              background-size: 70%;
-              background-position: center center;
-              height: 360px;
-              // z-index: 1000;
-              // margin-bottom: 1.5rem;
-            }
-            .text {
-              width: 80%;
-              margin: 0 auto;
+            &--right {
+              .image {
+                background-image: url('/images/pages/samuel-thompson-501755-unsplash.jpg');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 360px;
+                margin-bottom: 1rem;
+                display: block;
+              }
             }
           }
         }
       }
       &__bkg-bottom {
-        position: relative;
         background-image: url('/images/pages/dog-home-bottom.png');
         background-repeat: no-repeat;
         height: 10rem;
-        z-index: 10;
       }
       .modal {
         z-index: 1001;
@@ -329,4 +342,214 @@
       }
     }
   }
+
+  .events {
+    .wrapper {
+      width: 90%;
+      .masonry {
+        &__brick {
+
+          &:nth-child(4n+1){
+            width: 280px;
+          }
+
+          &:nth-child(2n+2){
+            width: 200px;
+           }
+
+          &:nth-child(4n+3){
+            width: 155px;
+          }
+        }
+      }
+    }
+  }
+
+  .news {
+    margin-bottom: 6rem;
+    &__box {
+      display: flex;
+      max-width: 1024px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      a {
+        flex-basis: 48%;
+        margin-bottom: 1rem;
+        .card {
+          max-height: 630px;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+}
+
+@include desktop {
+
+  .home {
+    .container {
+      max-width: 100%;
+      width: 100%;
+    }
+    .welcome {
+      &__image{
+        background-image: url('/images/pages/dog-home.png');
+        background-position: 70%;
+        height: 600px;
+        height: 650px;
+        background-size: contain;
+        .try-text {
+          top: 40px;
+          right: 110px;
+          width: 40%;
+          width: 30%;
+          h2 {
+          }
+          p {
+            padding: 0 0rem 2rem 0;
+          }
+          .skc-btn {
+            align-self: flex-end;
+          }
+        }
+      }
+      &__bkg {
+        margin-top: -23px;
+        .about {
+          &__box {
+            &--left{
+              .image {
+                background-image: url('/images/pages/taylor-grote-347608-unsplash.jpg');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 50%;
+                height: 360px;
+                display: block;
+                margin-top: 3rem;
+              }
+              .text {
+                width: 70%;
+                margin: 0 auto 0 10rem;
+              }
+            }
+            &--right {
+              .image {
+                display: block;
+                background-image: url('/images/pages/samuel-thompson-501755-unsplash.jpg');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 50%;
+                height: 360px;
+                margin-bottom: 3rem;
+              }
+              .text {
+                width: 50%;
+                margin: 0 auto;
+              }
+            }
+          }
+        }
+      }
+      &__bkg-bottom {
+        background-image: url('/images/pages/dog-home-bottom.png');
+        background-repeat: no-repeat;
+        height: 10rem;
+      }
+
+      .modal {
+        z-index: 1001;
+        .modal-background {
+          background-color: $skc-calypso;
+        }
+        .modal-content {
+          .register-form {
+            .field {
+              .field-label {
+                .label {
+                  text-align: left;
+                  color: $skc-link_water;
+                }
+              }
+              .field-body {
+                width: 100%;
+                .field {
+                  p.control {
+                    padding-left: 0;
+                    padding-bottom: 0;
+                  }
+                  p.help {
+                    padding: 0;
+                    font-size: 1rem;
+                    text-align: left;
+                    color: $skc-link_water;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .events {
+    .wrapper {
+      margin: 2em auto;
+      max-width: 1024px;
+      .masonry {
+        &__brick {
+          max-width: 420px;
+
+          &:nth-child(5n+1){
+            width: 325px;
+          }
+
+          &:nth-child(2n+2){
+            width: 250px;
+           }
+
+          &:nth-child(4n+3){
+            width: 180px;
+          }
+
+          // &:nth-child(4n+1){
+          //   width: 250px;
+          //  }
+          //  &:nth-child(4n+2){
+          //     width: 325px;
+          //  }
+          //  &:nth-child(4n+3){
+          //     width: 180px;
+          //  }
+          //  &:nth-child(4n+4){
+          //     width: 380px;
+          //  }
+        }
+      }
+    }
+
+  }
+
+  .news {
+    // margin-bottom: 6rem;
+    background-position: bottom;
+    &__box {
+      display: flex;
+      max-width: 1024px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      a {
+        flex-basis: 48%;
+        margin-bottom: 1rem;
+        .card {
+          max-height: 630px;
+          height: 100%;
+        }
+      }
+    }
+  }
+
 }
