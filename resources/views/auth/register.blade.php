@@ -72,7 +72,7 @@
 
                             <div class="field-body">
                                 <div class="field">
-                                    <p class="control  has-icons-left has-icons-right">
+                                    <p class="control has-icons-left has-icons-right">
                                         <input class="input" id="password" type="password" name="password" required>
                                         <span class="icon is-small is-left">
                                           <i class="fas fa-lock"></i>
@@ -149,7 +149,7 @@
                             <div class="field-label"></div>
 
                             <div class="field-body">
-                                <div class="field is-grouped">
+                                <div class="field is-grouped custom-align">
                                     <div class="control">
                                         <button type="submit" class="button register-btn">Register</button>
                                     </div>
@@ -167,10 +167,6 @@
 
         </div>
     </section>
-
-    <div class="">
-      
-    </div>
 
     <!-- <div class="bkg-pattern">
       <div class="columns is-centered m-t-100 register">

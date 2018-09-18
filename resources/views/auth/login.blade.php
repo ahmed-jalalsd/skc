@@ -17,9 +17,11 @@
 
                       <div class="field-body">
                           <div class="field">
-                              <p class="control">
-                                  <input class="input {{ $errors->has('email') ? 'is-danger' : ''}}" id="email" type="email" name="email"
-                                         value="{{ old('email') }}" required autofocus>
+                              <p class="control has-icons-left has-icons-right">
+                                  <input class="input {{ $errors->has('email') ? 'is-danger' : ''}}" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+                                  <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                 </span>
                               </p>
 
                               @if ($errors->has('email'))
@@ -38,8 +40,11 @@
 
                       <div class="field-body">
                           <div class="field">
-                              <p class="control">
+                              <p class="control has-icons-left has-icons-right">
                                   <input class="input {{ $errors->has('email') ? 'is-danger' : ''}}" id="password" type="password" name="password" required>
+                                  <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                 </span>
                               </p>
 
                               @if ($errors->has('password'))
@@ -59,19 +64,26 @@
                               <p class="control">
                                   <!-- <b-checkbox name="remember" {{ old('remember') ? 'checked' : '' }} class="m-t-20">Remember Me</b-checkbox>  -->
                                   <label class="checkbox">
-                                      <input type="checkbox"
-                                             name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                                   </label>
                               </p>
                           </div>
+                          <div class="field is-grouped">
+                              <div class="control">
+                                  <a href="{{ route('password.request') }}" class="forget-password">
+                                      Forgot Your Password?
+                                  </a>
+                              </div>
+                          </div>
                       </div>
+
                   </div>
 
                   <div class="field is-horizontal">
                       <div class="field-label"></div>
 
                       <div class="field-body">
-                          <div class="field is-grouped">
+                          <div class="field is-grouped custom-align">
                               <div class="control">
                                   <button type="submit" class="button login-btn">Login</button>
                               </div>
@@ -79,7 +91,7 @@
                       </div>
                   </div>
 
-                  <div class="field is-horizontal">
+                  <!-- <div class="field is-horizontal">
                       <div class="field-label"></div>
 
                       <div class="field-body">
@@ -91,7 +103,7 @@
                               </div>
                           </div>
                       </div>
-                  </div>
+                  </div> -->
 
               </form>
           </div>

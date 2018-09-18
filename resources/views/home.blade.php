@@ -43,9 +43,12 @@
 
                               <div class="field-body">
                                   <div class="field">
-                                      <p class="control">
+                                      <p class="control has-icons-left has-icons-right">
                                           <input class="input" id="name" type="name" name="name" value="{{ old('name') }}"
                                                  required autofocus>
+                                                 <span class="icon is-small is-left">
+                                                   <i class="fal fa-user-alt"></i>
+                                                </span>
                                       </p>
 
                                       @if ($errors->has('name'))
@@ -168,7 +171,7 @@
                               <div class="field-label"></div>
 
                               <div class="field-body">
-                                  <div class="field is-grouped">
+                                  <div class="field is-grouped custom-align">
                                       <div class="control">
                                           <button type="submit" class="button is-primary">Register</button>
                                       </div>
