@@ -40,10 +40,12 @@
     <div class="navbar-menu">
 
       <div class="navbar-end nav-menu" style="overflow: visible">
+
         @guest
           <a href="{{route('login')}}" class="navbar-item is-tab">Login</a>
           <a href="{{route('register')}}" class="navbar-item is-tab">Register</a>
         @else
+        <!-- // for backend the drop down  -->
         @if(Request::segment(1) == "manage")
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Hey {{Auth::user()->name}}</a>
@@ -77,6 +79,18 @@
               </form>
             </div>
           </div>
+          <!-- // in frontend -->
+          @else
+          <a href="{{route('logout')}}" class="navbar-item" onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+            <span class="icon">
+              <i class="fa fa-fw fa-sign-out m-r-5"></i>
+            </span>
+            Logout
+          </a>
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+          </form>
           @endif
         @endguest
       </div>
@@ -101,15 +115,29 @@
         <li>
           <a href="#" class="">Events</a>
         </li>
+
         <span class="is-hidden-mobile">|</span>
         <li>
           <a href="#" class="">Blog</a>
         </li>
-        <span class="is-hidden-desktop">|</span>
 
+        @guest
         <li class="is-hidden-desktop">
-          <a href="#" class="">Log in</a>
+          <a href="{{route('login')}}" class="">Login</a>
         </li>
+        <li class="is-hidden-desktop">
+          <a href="{{route('register')}}" class="">Register</a>
+        </li>
+        @else
+        <li class="is-hidden-desktop">
+          <a href="{{route('logout')}}" class="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Logout
+          </a>
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+          </form>
+        </li>
+      @endguest
 
       </ul>
     </menu>

@@ -238,8 +238,8 @@
                     </div>
                 </div>
 
-                <figure class="welcome__left-paw image">
-
+                <figure class="welcome__left-paw image is-hidden-mobile">
+                  <img src="{{asset('images/pages/paws-left.png')}}">
                 </figure>
 
               </div>
@@ -324,6 +324,9 @@
 
           </div>
           @endforeach
+          <figure class="news__right-paw image">
+              <img src="{{asset('images/pages/paws-left.png')}}">
+          </figure>
         </div>
 
       </div>

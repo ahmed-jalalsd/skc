@@ -74,7 +74,9 @@
 
     &__left-paw {
       position: absolute;
-      left: 0;
+      left: 10%;
+      top: 50%;
+      z-index: -10;
     }
 
     &__bkg-top {
@@ -244,6 +246,7 @@
     background-color: #e2ecf6;
     margin-top: -2%;
     margin-bottom: -1%;
+    position: relative;
   }
 
   &__box {
@@ -253,6 +256,7 @@
       position: relative;
       margin-top: -80px;
       margin-bottom: 100px;
+      z-index: 10;
       &__poster {
         img {
           height: 300px;
@@ -308,6 +312,12 @@
       }
 
     }
+  }
+  &__right-paw {
+    position: absolute;
+    right: 0;
+    bottom: -20%;
+    z-index: 8;
   }
 }
 

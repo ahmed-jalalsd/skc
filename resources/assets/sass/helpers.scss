@@ -15,7 +15,7 @@ $sides: (top, bottom, left, right); // Leave this variable alone
 
 .skc-btn {
   background-color: $skc-calypso;
-  border-color: $skc-calypso;
+  border: none;
   color: $skc-link_water;
   padding-bottom: calc(1.375em - 1px);
   padding-left: 2.75em;
