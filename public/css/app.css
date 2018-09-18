@@ -29829,9 +29829,14 @@ html body .footer p a:hover {
   background-color: #2b7386;
 }
 
+.home .welcome .modal .modal-content {
+  font-family: "Cormorant Garamond", serif;
+}
+
 .home .welcome .modal .modal-content .register-form .field .field-label .label {
   text-align: left;
   color: #E2ECF6;
+  font-size: 1.18rem;
 }
 
 .home .welcome .modal .modal-content .register-form .field .field-body {
@@ -29848,6 +29853,10 @@ html body .footer p a:hover {
   font-size: 1rem;
   text-align: left;
   color: #E2ECF6;
+}
+
+.home .welcome .modal .modal-content .register-form .button.is-primary {
+  background-color: #1f2427;
 }
 
 .events {
@@ -29990,33 +29999,67 @@ html body .footer p a:hover {
 }
 
 .news__box .post {
+  position: relative;
   margin-top: -80px;
   margin-bottom: 100px;
 }
 
-.news__box .post .card-content .media .media-content .title.article-title {
-  margin-bottom: 0;
+.news__box .post__poster img {
+  height: 300px;
+  border-radius: 4px 4px 0 0;
 }
 
-.news__box .post .card-content .card-image {
-  border: 2px solid #E2ECF6;
-  border-bottom: none;
+.news__box .post__content {
+  min-height: 100px;
+  height: 270px;
+  min-width: 50%;
+  max-width: 100%;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 15px 35px rgba(50, 50, 90, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 15px 35px rgba(50, 50, 90, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  -webkit-transition: .6s ease;
+  transition: .6s ease;
+  background: white;
+  text-align: center;
+  padding: 0;
 }
 
-.news__box .post .card-content .card-image figure img {
-  -o-object-fit: fill;
-     object-fit: fill;
+.news__box .post__content .tags {
+  padding: 2% 4%;
+  margin: 0;
 }
 
-.news__box .post .card-content .content.article-body {
-  border: 2px solid #E2ECF6;
-  border-top: none;
+.news__box .post__content .tags .tag {
+  color: #2b7386;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.news__box .post__content h2 {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
   text-align: justify;
+  margin: 2% 4%;
+  font-family: "Cormorant Garamond", serif;
 }
 
-.news__box .post .card-content .content.article-body p {
-  padding: 1rem;
+.news__box .post__content--body {
+  margin-bottom: 3rem;
+}
+
+.news__box .post__content--body p {
+  margin: 2% 4%;
   text-align: justify;
+  padding-bottom: 1%;
+  line-height: 1.25rem;
+  letter-spacing: 1px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.news__box .post__content .skc-btn {
+  padding: 10px;
 }
 
 .title {
@@ -30128,32 +30171,9 @@ html body .footer p a:hover {
     width: 155px;
   }
 
-  .news {
-    margin-bottom: 6rem;
-  }
-
   .news__box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 1024px;
+    max-width: 1104px;
     margin: 0 auto;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-
-  .news__box a {
-    -ms-flex-preferred-size: 48%;
-        flex-basis: 48%;
-    margin-bottom: 1rem;
-  }
-
-  .news__box a .card {
-    max-height: 630px;
-    height: 100%;
   }
 }
 
@@ -30275,41 +30295,16 @@ html body .footer p a:hover {
     width: 180px;
   }
 
-  .news {
-    margin-top: 15rem;
-    margin-bottom: 6rem;
-  }
-
   .news__bk {
     height: 100%;
-    height: 70rem;
     background-color: #e2ecf6;
     margin-top: -1%;
     margin-bottom: -1%;
   }
 
   .news__box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 1024px;
+    max-width: 1104px;
     margin: 0 auto;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-
-  .news__box a {
-    -ms-flex-preferred-size: 48%;
-        flex-basis: 48%;
-    margin-bottom: 1rem;
-  }
-
-  .news__box a .card {
-    max-height: 630px;
-    height: 100%;
   }
 }
 

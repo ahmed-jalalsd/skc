@@ -29,7 +29,7 @@ class HomeController extends Controller
         $userId = '10155864363047358'; // my user id in fb
         // only show 5 post maximum
         $fbData = fb_feed()->setAppId($fbAppId)->setSecretKey($fbSecretKey)->setPage($userId)
-        ->feedLimit(4)
+        ->feedLimit(3)
         ->fields("id, name, message, full_picture, permalink_url, created_time, picture, shares, link, description, object_id")
         ->fetch();
         // dd($fbData['data']);

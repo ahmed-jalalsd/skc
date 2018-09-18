@@ -91,12 +91,14 @@
         background-color: $skc-calypso;
       }
       .modal-content {
+        font-family: $skc-font-family;
         .register-form {
           .field {
             .field-label {
               .label {
                 text-align: left;
                 color: $skc-link_water;
+                font-size: 1.18rem;
               }
             }
             .field-body {
@@ -114,6 +116,9 @@
                 }
               }
             }
+          }
+          .button.is-primary {
+            background-color: $skc-black;
           }
         }
       }
@@ -240,38 +245,68 @@
     margin-top: -2%;
     margin-bottom: -1%;
   }
+
   &__box {
     padding: 1.75rem;
+
     .post{
+      position: relative;
       margin-top: -80px;
       margin-bottom: 100px;
-      .card-content {
-        .media {
-          .media-content {
-            .title.article-title {
-              margin-bottom: 0;
-            }
-          }
-        }
-        .card-image {
-          border: 2px solid $skc-link_water;
-          border-bottom: none;
-          figure {
-            img {
-              object-fit: fill;
-            }
-          }
-        }
-        .content.article-body {
-          border: 2px solid $skc-link_water;
-          border-top: none;
-          text-align: justify;
-          p {
-            padding: 1rem;
-            text-align: justify;
-          }
+      &__poster {
+        img {
+          height: 300px;
+          border-radius: 4px 4px 0 0;
         }
       }
+
+      &__content {
+        min-height: 100px;
+        height: 270px;
+        min-width: 50%;
+        max-width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 15px 35px rgba(50, 50, 90, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+        transition: .6s ease;
+        background: $white;
+        text-align: center;
+        padding: 0;
+
+        .tags {
+          padding: 2% 4%;
+          margin: 0;
+          .tag {
+            color: $skc-calypso;
+            background-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-family: $skc-font-family;
+          }
+        }
+
+        h2 {
+          font-size: 1.5rem;
+          letter-spacing: 1px;
+          text-align: justify;
+          margin: 2% 4%;
+          font-family: $skc-font-family;
+        }
+        &--body {
+          margin-bottom: 3rem;
+          p{
+            margin: 2% 4%;
+            text-align: justify;
+            padding-bottom: 1%;
+            line-height: 1.25rem;
+            letter-spacing: 1px;
+            font-family: $skc-font-family;
+          }
+        }
+        .skc-btn {
+              padding: 10px;
+        }
+      }
+
     }
   }
 }
@@ -394,21 +429,9 @@
   }
 
   .news {
-    margin-bottom: 6rem;
     &__box {
-      display: flex;
-      max-width: 1024px;
+      max-width: 1104px;
       margin: 0 auto;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      a {
-        flex-basis: 48%;
-        margin-bottom: 1rem;
-        .card {
-          max-height: 630px;
-          height: 100%;
-        }
-      }
     }
   }
 
@@ -559,29 +582,16 @@
   }
 
   .news {
-    margin-top: 15rem;
-    margin-bottom: 6rem;
     &__bk {
       height: 100%;
-      height: 70rem;
+      // height: 70rem;
       background-color: #e2ecf6;
       margin-top: -1%;
       margin-bottom: -1%;
     }
     &__box {
-      display: flex;
-      max-width: 1024px;
+      max-width: 1104px;
       margin: 0 auto;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      a {
-        flex-basis: 48%;
-        margin-bottom: 1rem;
-        .card {
-          max-height: 630px;
-          height: 100%;
-        }
-      }
     }
   }
 

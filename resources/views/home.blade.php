@@ -195,7 +195,7 @@
               <div class="welcome__bkg">
 
                 <figure class="welcome__right-paw image">
-                    <img src="{{asset('images/pages/paws.png')}}">
+                    <img src="{{asset('images/pages/paws-left.png')}}">
                 </figure>
 
                 <div class="about">
@@ -267,7 +267,7 @@
                   <figcaption>
                     <h4>{{$event->title}}</h4>
           			  </figcaption>
-                  <a href="http://dribbble.com/shots/1115632-Camera"></a>
+                  <a href=""></a>
           	  </figure>
           @endforeach
         </div>
@@ -291,61 +291,41 @@
       </div>
 
       <div class="news__bk">
-        <div class="news__box">
+
+        <div class="news__box columns is-multiline ">
 
           @foreach ($fbPosts as $fbPost)
-          <a href="{{ $fbPost['permalink_url']}}" target="_blank">
 
-            <div class="card post">
+            <div class="paper post column is-4">
 
-              <div class="card-content">
+              <figure class="image post__poster">
+                <img src="{{ $fbPost['full_picture']}}" alt="Placeholder image">
+              </figure>
 
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="{{asset('images/skc-logo.png')}}" alt="Skc logo">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title article-title">{{ $fbPost['name']}}</p>
-                    <div class="tags has-addons">
-                        <!-- <span class="tag is-rounded is-info">@skeetskeet</span> -->
-                        <span class="tag is-rounded">{{date('d-m-Y', strtotime($fbPost['created_time']))}}</span>
-                    </div>
-                  </div>
+              <div class="post__content">
+
+                <div class="tags has-addons">
+                  <span class="tag is-rounded">{{date('d-m-Y', strtotime($fbPost['created_time']))}}</span>
                 </div>
 
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <img src="{{ $fbPost['full_picture']}}" alt="Placeholder image">
-                  </figure>
-                </div>
+                <h2 class="title post__content--title">{{ $fbPost['name']}}</h2>
 
-              <div class="content article-body">
+                <div class="post__content--body">
                   <p>
                     {{ isset($fbPost['description']) ? str_limit($fbPost['description'], 80) : 'Default' }}
                   </p>
-              </div>
+                </div>
+
+                <a href="{{ $fbPost['permalink_url']}}" class=" skc-btn" target="_blank">Read More</a>
+
             </div>
 
-            <!-- <footer class="card-footer">
 
-              <div class="tags has-addons">
-                  <span class="tag"><i class="fas fa-share"></i></span>
-                  <span class="tag">
-                    @isset($fbPost['shares'])
-                      @foreach ($fbPost['shares'] as $share)
-                        {{ $share }}
-                      @endforeach
-                    @endisset
-                  </span>
-              </div>
-            </footer> -->
 
           </div>
-          </a>
           @endforeach
         </div>
+
       </div>
 
       <div class="news__bkg-bottom">
@@ -353,6 +333,7 @@
            viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
         <polygon class="st0" points="1700,1.1 0,1.1 0,102.1 1700,33.1 "/>
       </div>
+
     </section>
 
 @endsection
