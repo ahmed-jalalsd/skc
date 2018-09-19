@@ -52,7 +52,7 @@
             <div class="navbar-dropdown is-right" >
               <a href="#" class="navbar-item">
                 <span class="icon">
-                  <i class="fa fa-fw fa-user-circle-o m-r-5"></i>
+                  <i class="far fa-user-circle m-r-5"></i>
                 </span>Profile
               </a>
 
@@ -70,7 +70,7 @@
               <a href="{{route('logout')}}" class="navbar-item" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
                 <span class="icon">
-                  <i class="fa fa-fw fa-sign-out m-r-5"></i>
+                  <i class="fas fa-sign-out-alt m-r-5"></i>
                 </span>
                 Logout
               </a>

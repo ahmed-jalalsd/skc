@@ -10,8 +10,10 @@
 			</div>
 
       <div class="column">
-        <a href="{{route('posts.create')}}" class="button is-primary is-pulled-right">
-          <i class="fa fa-user-plus m-r-10"></i> Create New Post
+        <a href="{{route('posts.create')}}" class="button is-primary is-pulled-right backend-btn">
+					<span class="icon m-r-10">
+            <img src="{{ asset('images/backend/plus.svg') }}" alt="add a new post icon" style="filter: invert(1);">
+          </span> New Post
         </a>
       </div>
     </div>
@@ -28,7 +30,7 @@
 							<th>Excerpt</th>
 							<th>Author</th>
 							<th>Date Created</th>
-							<th>Actions</th>
+							<th style="text-align:center;">Actions</th>
 						</tr>
 					</thead>
 
@@ -40,9 +42,17 @@
 								<td>{{substr($post->excerpt,0,30) }} {{ strlen($post->excerpt) > 30 ? "..." : "" }}</td>
                 <td>{{Auth::user()->name}}</td>
 								<td>{{$post->created_at->toFormattedDateString()}}</td>
-								<td class="has-text-right">
-                  <a href="{{ route('posts.show', $post->id) }}" class="button is-outlined m-r-5">Details</a>
-									<a href="{{route('posts.edit', $post->id)}}" class="button is-outlined">Edit</a>
+								<td class="action-content">
+                  <a href="{{ route('posts.show', $post->id) }}" class="m-r-5">
+										<span class="icon m-r-10">
+					            <img src="{{ asset('images/backend/details.png') }}" alt="link to show">
+					          </span>
+									</a>
+									<a href="{{route('posts.edit', $post->id)}}" class="">
+										<span class="icon m-r-10">
+					            <img src="{{ asset('images/backend/edit.png') }}" alt="link to edit">
+					          </span>
+									</a>
 								</td>
 							</tr>
 						@endforeach

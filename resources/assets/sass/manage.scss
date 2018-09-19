@@ -1,3 +1,69 @@
+
+html {
+
+	.has-dropdown {
+		.navbar-dropdown {
+			background-color: $skc-black;
+		}
+	}
+
+	.management-area {
+		position: absolute;
+		top: 4rem;
+		left: 200px;
+		right: 0;
+		.flex-container {
+			margin: 10px 25px;
+		}
+		.card {
+			box-shadow: none;
+		}
+		.button.is-primary.backend-btn {
+			background-color: $skc-black;
+			span.icon {
+				margin-right: 10px;
+			}
+		}
+		.action-content {
+			text-align: center;
+
+			span.icon {
+				width: 50px;
+				margin: 0 auto;
+			}
+		}
+		.gallery-card {
+			.card {
+				box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+				.card-content {
+					.media {
+						.media-content {
+							p.title {
+								margin-bottom: 0.7rem;
+							}
+							time {
+								font-size: 13px;
+								font-family: $skc-font-family;
+							}
+							nav {
+								margin-top: 8px;
+								.column {
+									a {
+										span.icon {
+											width: 100%;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+
 #admin-side-menu {
 	position: fixed;
 	top: 4rem;
@@ -13,11 +79,21 @@
 		left: 0;
 	}
 
+	aside.menu {
+    border-right: 1px solid #dbdbdb;
+		// font-family: $skc-font-family;
+		.menu-list {
+			// font-size: 1rem;
+	    // font-weight: 500;
+		}
+	}
+
 	@include desktop {
 		left: 0;
 		overflow-y: hidden;
 	}
 }
+
 #admin-slideout-button {
 	transition: 0.3s;
 	&.is-active {
@@ -26,20 +102,11 @@
 	}
 
 }
-.management-area {
-	position: absolute;
-	top: 4rem;
-	left: 200px;
-	right: 0;
-}
 
-.flex-container {
-	margin: 10px 25px;
-}
 
 .pagination-link.is-current {
 	background-color: $turquoise;
-    border-color: $turquoise;
+  border-color: $turquoise;
 }
 
 .pagination-previous, .pagination-next, .pagination-link {
@@ -58,7 +125,10 @@
 }
 
 .menu-list a.is-active {
-	background-color: $turquoise;
+	background-color: transparent;
+	font-weight: bolder;
+	text-decoration: line-through solid $skc-black;
+	color: $skc-black;
 }
 
 .title.is-admin {
@@ -130,4 +200,8 @@
 	background-color: whitesmoke;
 	color: #4a4a4a;
 	padding: 1.25rem 1.5rem;
+}
+
+.navbar-item.has-dropdown:hover .navbar-link {
+	background-color: $skc-black;
 }

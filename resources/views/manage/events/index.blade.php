@@ -10,8 +10,10 @@
 			</div>
 
       <div class="column">
-        <a href="{{route('events.create')}}" class="button is-primary is-pulled-right">
-          <i class="fa fa-user-plus m-r-10"></i> Create New Events
+        <a href="{{route('events.create')}}" class="button is-primary is-pulled-right backend-btn">
+					<span class="icon m-r-10">
+            <img src="{{ asset('images/backend/plus.svg') }}" alt="add a new post icon" style="filter: invert(1);">
+          </span>  New Event
         </a>
       </div>
     </div>
@@ -28,7 +30,7 @@
 							<th>Excerpt</th>
 							<th>Author</th>
 							<th>Date Created</th>
-							<th>Actions</th>
+							<th style="text-align:center;">Actions</th>
 						</tr>
 					</thead>
 
@@ -40,9 +42,17 @@
 								<td>{{substr($event->excerpt,0,30) }} {{ strlen($event->excerpt) > 30 ? "..." : "" }}</td>
                 <td>{{Auth::user()->name}}</td>
 								<td>{{$event->created_at->toFormattedDateString()}}</td>
-								<td class="has-text-right">
-                  <a href="{{ route('events.show', $event->id) }}" class="button is-outlined m-r-5">Details</a>
-									<a href="{{route('events.edit', $event->id)}}" class="button is-outlined">Edit</a>
+								<td class="action-content">
+                  <a href="{{ route('events.show', $event->id) }}" class="m-r-5">
+										<span class="icon m-r-10 ">
+					            <img src="{{ asset('images/backend/details.png') }}" alt="link to show">
+					          </span>
+									</a>
+									<a href="{{route('events.edit', $event->id)}}" class="">
+										<span class="icon m-r-10">
+					            <img src="{{ asset('images/backend/edit.png') }}" alt="link to edit">
+					          </span>
+									</a>
 								</td>
 							</tr>
 						@endforeach
