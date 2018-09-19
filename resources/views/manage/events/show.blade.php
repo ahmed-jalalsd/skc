@@ -30,8 +30,8 @@
 
 			</div>
 
-			<div class="column is-4">
-        <div class="card">
+			<div class="column is-4 side-card">
+        <div class="card ">
 
           <div class="card-image">
             <figure class="image is-4by3">
@@ -55,16 +55,20 @@
 
           <footer class="card-footer">
             <p class="card-footer-item">
-              <a href="{{route('events.edit', $event->id)}}" class="button is-primary is-pulled-right">
-      					<i class="fa fa-user-plus m-r-10"></i>
-      					Edit Event
+              <a href="{{route('events.edit', $event->id)}}" class="">
+								<span class="icon m-r-10">
+									<img src="{{ asset('images/backend/edit.png') }}" alt="link to edit">
+								</span>
       				</a>
             </p>
 
 							<form class="card-footer-item"  action="{{ route('events.destroy', $event->id) }}" method="POST" enctype="multipart/form-data">
                 <input name="_method" type="hidden" value="DELETE">
-                <button type="submit" class="button is-danger is-pulled-right">
-									<i class="fa fa-user-plus delete is-small m-r-10"></i>Delete</button>
+                <a type="submit" class="">
+									<span class="icon m-r-10">
+										<img src="{{ asset('images/backend/delete.png') }}" alt="link to delete">
+									</span>
+								</a>
                 <input type="hidden" name="_token" value="{{Session::token()}}">
               </form>
 

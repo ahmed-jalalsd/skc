@@ -5,15 +5,17 @@
 	<div class="flex-container">
 
 		<div class="columns m-t-10">
-			
+
 			<div class="column">
 				<h1 class="title"> {{$role->display_name}} <small class="m-l-25"><em>({{$role->name}})</em></small></h1>
 				<h5>{{ $role->description }}</h5>
 			</div>
 
 			<div class="column">
-				<a href="{{route('roles.edit', $role->id)}}" class="button is-primary is-pulled-right"> 
-					<i class="fa fa-user-plus m-r-10"></i>
+				<a href="{{route('roles.edit', $role->id)}}" class="button is-primary is-pulled-right backend-btn"> 
+					<span class="icon m-r-10">
+						<img src="{{ asset('images/backend/edit.png') }}" alt="link to show">
+					</span>
 					Edit Role
 				</a>
 			</div>
@@ -43,7 +45,7 @@
 
 			</div> {{-- end of column --}}
 		</div>
-		
+
 	</div> {{-- end of flex container --}}
 
 

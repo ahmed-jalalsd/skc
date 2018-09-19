@@ -16,7 +16,7 @@ html {
 			margin: 10px 25px;
 		}
 		.card {
-			box-shadow: none;
+			// box-shadow: none;
 		}
 		.button.is-primary.backend-btn {
 			background-color: $skc-black;
@@ -28,7 +28,7 @@ html {
 			text-align: center;
 
 			span.icon {
-				width: 50px;
+				width: 40px;
 				margin: 0 auto;
 			}
 		}
@@ -38,11 +38,15 @@ html {
 				.card-content {
 					.media {
 						.media-content {
+							h4 {
+								margin-bottom: 0.1rem;
+    						margin-top: 0;
+							}
 							p.title {
-								margin-bottom: 0.7rem;
+								margin-bottom: 0.1rem;
 							}
 							time {
-								font-size: 13px;
+								font-size: 16px;
 								font-family: $skc-font-family;
 							}
 							nav {
@@ -60,8 +64,41 @@ html {
 				}
 			}
 		}
-	}
 
+		.role-box {
+			.box {
+				.media {
+					.media-content {
+						nav {
+							a {
+								span.icon {
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.side-card {
+			.card {
+				.card-footer {
+					.card-footer-item {
+						    text-align: center;
+						a {
+							span.icon {
+								width: 40%;
+						    margin: 0 auto;
+						    vertical-align: middle;
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
 }
 
 #admin-side-menu {

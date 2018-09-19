@@ -29244,11 +29244,6 @@ html .management-area .flex-container {
   margin: 10px 25px;
 }
 
-html .management-area .card {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 html .management-area .button.is-primary.backend-btn {
   background-color: #1f2427;
 }
@@ -29262,7 +29257,7 @@ html .management-area .action-content {
 }
 
 html .management-area .action-content span.icon {
-  width: 50px;
+  width: 40px;
   margin: 0 auto;
 }
 
@@ -29271,12 +29266,17 @@ html .management-area .gallery-card .card {
           box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 }
 
+html .management-area .gallery-card .card .card-content .media .media-content h4 {
+  margin-bottom: 0.1rem;
+  margin-top: 0;
+}
+
 html .management-area .gallery-card .card .card-content .media .media-content p.title {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.1rem;
 }
 
 html .management-area .gallery-card .card .card-content .media .media-content time {
-  font-size: 13px;
+  font-size: 16px;
   font-family: "Cormorant Garamond", serif;
 }
 
@@ -29286,6 +29286,20 @@ html .management-area .gallery-card .card .card-content .media .media-content na
 
 html .management-area .gallery-card .card .card-content .media .media-content nav .column a span.icon {
   width: 100%;
+}
+
+html .management-area .role-box .box .media .media-content nav a span.icon {
+  width: 100%;
+}
+
+html .management-area .side-card .card .card-footer .card-footer-item {
+  text-align: center;
+}
+
+html .management-area .side-card .card .card-footer .card-footer-item a span.icon {
+  width: 40%;
+  margin: 0 auto;
+  vertical-align: middle;
 }
 
 #admin-side-menu {

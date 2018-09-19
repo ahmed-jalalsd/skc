@@ -11,8 +11,10 @@
 			</div>
 
 			<div class="column">
-				<a href="{{route('users.edit', $user->id)}}" class="button is-primary is-pulled-right">
-					Edit Member
+				<a href="{{route('users.edit', $user->id)}}" class="button is-primary is-pulled-right backend-btn">
+					<span class="icon m-r-10">
+						<img src="{{ asset('images/backend/edit.png') }}" alt="link to show">
+					</span> Edit Member
 				</a>
 			</div>
 

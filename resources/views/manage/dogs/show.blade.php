@@ -10,8 +10,10 @@
 			</div>
 
 			<div class="column">
-				<a href="{{route('dogs.edit', $dog->id)}}" class="button is-primary is-pulled-right">
-					Edit {{$dog->dog_name}}
+				<a href="{{route('dogs.edit', $dog->id)}}" class="button is-primary is-pulled-right backend-btn">
+					<span class="icon m-r-10">
+						<img src="{{ asset('images/backend/edit.png') }}" alt="link to show">
+					</span> Edit {{$dog->dog_name}}
 				</a>
 			</div>
 		</div>

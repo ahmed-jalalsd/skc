@@ -8,7 +8,11 @@
       </div> <!-- end of column -->
 
       <div class="column">
-        <a href="{{route('permissions.edit', $permission->id)}}" class="button is-primary is-pulled-right"><i class="fa fa-edit m-r-10"></i> Edit Permission</a>
+        <a href="{{route('permissions.edit', $permission->id)}}" class="button is-primary is-pulled-right backend-btn">
+          <span class="icon m-r-10">
+						<img src="{{ asset('images/backend/edit.png') }}" alt="link to show">
+					</span> Edit Permission
+        </a>
       </div>
     </div>
     <hr class="m-t-0">

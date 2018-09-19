@@ -7,7 +7,10 @@
         <h1 class="title">Manage Permissions</h1>
       </div>
       <div class="column">
-        <a href="{{route('permissions.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create New Permission</a>
+        <a href="{{route('permissions.create')}}" class="button is-primary is-pulled-right backend-btn">
+          <span class="icon m-r-10">
+            <img src="{{ asset('images/backend/plus.svg') }}" alt="add a new post icon" style="filter: invert(1);">
+          </span>New Permission</a>
       </div>
     </div>
     <hr class="m-t-0">
@@ -20,7 +23,7 @@
               <th>Name</th>
               <th>Slug</th>
               <th>Description</th>
-              <th></th>
+              <th style="text-align:center;">Actions</th>
             </tr>
           </thead>
 
@@ -30,7 +33,18 @@
                 <th>{{$permission->display_name}}</th>
                 <td>{{$permission->name}}</td>
                 <td>{{$permission->description}}</td>
-                <td class="has-text-right"><a class="button is-outlined is-small m-r-5" href="{{route('permissions.show', $permission->id)}}">View</a><a class="button is-outlined is-small" href="{{route('permissions.edit', $permission->id)}}">Edit</a></td>
+                <td class="action-content">
+                  <a class="is-small m-r-5" href="{{route('permissions.show', $permission->id)}}">
+                    <span class="icon m-r-10">
+					            <img src="{{ asset('images/backend/details.png') }}" alt="link to show">
+					          </span>
+                  </a>
+                  <a class="is-small" href="{{route('permissions.edit', $permission->id)}}">
+                    <span class="icon m-r-10">
+					            <img src="{{ asset('images/backend/edit.png') }}" alt="link to edit">
+					          </span>
+                  </a>
+                </td>
               </tr>
             @endforeach
           </tbody>

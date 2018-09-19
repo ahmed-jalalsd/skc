@@ -2,10 +2,6 @@
 
 @section('content')
 
-
-
-
-
 	<div class="flex-container">
 
 		<div class="content is-medium">

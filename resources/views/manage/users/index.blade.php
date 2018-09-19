@@ -10,8 +10,10 @@
 			</div>
 
 			<div class="column">
-				<a href="{{route('users.create')}}" class="button is-primary is-pulled-right">
-					Create New User
+				<a href="{{route('users.create')}}" class="button is-primary is-pulled-right backend-btn">
+					<span class="icon m-r-10">
+            <img src="{{ asset('images/backend/plus.svg') }}" alt="add a new post icon" style="filter: invert(1);">
+          </span> New User
 				</a>
 			</div>
 		</div>
@@ -28,7 +30,7 @@
 							<th>Email</th>
 							<th>Role</th>
 							<th>Date Created</th>
-							<th>Actions</th>
+							<th style="text-align:center;">Actions</th>
 						</tr>
 					</thead>
 
@@ -42,9 +44,17 @@
 								<td>{{$role->display_name}}</td>
 								@endforeach
 								<td>{{$user->created_at->toFormattedDateString()}}</td>
-								<td class="has-text-right">
-									<a href="{{route('users.show', $user->id)}}" class="button is-outlined m-r-5 ">View</a>
-									<a href="{{route('users.edit', $user->id)}}" class="button is-outlined">Edit</a>
+								<td class="action-content">
+									<a href="{{route('users.show', $user->id)}}" class="m-r-5 ">
+										<span class="icon m-r-10">
+					            <img src="{{ asset('images/backend/details.png') }}" alt="link to show">
+					          </span>
+									</a>
+									<a href="{{route('users.edit', $user->id)}}" class="">
+										<span class="icon m-r-10">
+					            <img src="{{ asset('images/backend/edit.png') }}" alt="link to edit">
+					          </span>
+									</a>
 								</td>
 							</tr>
 						@endforeach
