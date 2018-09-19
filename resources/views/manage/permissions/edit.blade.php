@@ -38,7 +38,7 @@
         </p>
       </div>
 
-      <button class="button is-primary">Save Changes</button>
+      <button class="button is-primary backend-btn">Save Changes</button>
     </form>
   </div>
 @endsection

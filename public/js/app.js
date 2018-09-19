@@ -42114,6 +42114,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -42148,16 +42149,11 @@ var render = function() {
           }
         },
         [
-          _c(
-            "a",
-            { staticClass: "button is-primary" },
-            [
-              _c("b-icon", { attrs: { icon: "upload" } }),
-              _vm._v(" "),
-              _c("span", [_vm._v("Click to upload")])
-            ],
-            1
-          )
+          _c("a", { staticClass: "button is-primary backend-btn" }, [
+            _c("i", { staticClass: "fas fa-upload m-r-10" }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Click to upload")])
+          ])
         ]
       ),
       _vm._v(" "),

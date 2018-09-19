@@ -88,7 +88,7 @@
             </div>
           </div>
 
-          <button class="button is-success">Create Permission</button>
+          <button class="button is-primary backend-btn">Create Permission</button>
         </form>
       </div>
     </div>

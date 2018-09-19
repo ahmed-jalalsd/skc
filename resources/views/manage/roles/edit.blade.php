@@ -61,7 +61,7 @@
             </article>
           </div> <!-- end of .box -->
 
-          <button class="button is-primary">Save Changes to Role</button>
+          <button class="button is-primary backend-btn">Save Changes to Role</button>
         </div>
       </div>
     </form>

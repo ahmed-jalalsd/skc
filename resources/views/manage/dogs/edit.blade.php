@@ -258,7 +258,7 @@
 			<div class="columns">
         <div class="column">
           <hr  class="m-t-0" style="background-color: #ccc; height: 1px; ">
-          <button class="button is-primary is-pulled-right" style="width: 250px;">Update a Dog</button>
+          <button class="button is-primary is-pulled-right backend-btn" style="width: 250px;">Update a Dog</button>
         </div>
   		</div>
 

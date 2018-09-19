@@ -86,7 +86,7 @@
             <div class="publish-buttons-widget widget-area">
 
               <div class="primary-action-button">
-                <button class="button is-primary is-fullwidth">Update</button>
+                <button class="button is-primary is-fullwidth backend-btn">Update</button>
               </div>
             </div>
 

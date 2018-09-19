@@ -97,7 +97,7 @@
 
 				<div class="column">
 			  		<hr style="background-color: #ccc; height: 1px; ">
-			  		<button class="button is-primary is-pulled-right" style="width: 250px;">Edit User</button>
+			  		<button class="button is-primary is-pulled-right backend-btn" style="width: 250px;">Edit User</button>
 				</div>
 			</div>
 		</form>

@@ -7,7 +7,7 @@ html {
 			display: none;
 			position: absolute;
 			left: 0;
-			top: 102%;
+			top: 100%;
 			z-index: 1000;
 			background-color: white;
 			min-width: 200px;
@@ -56,4 +56,30 @@ html {
 	&:focus:not(:active) {
 		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
 	}
+}
+
+.input.is-primary,
+.taginput .is-primary.taginput-container.is-focusable,
+.textarea.is-primary,
+.select.is-primary select,
+.block .border[data-v-5c309fe1],
+.block .border[data-v-216efce6] {
+	border-color: $skc-calypso;
+}
+
+.select.is-primary:not(:hover)::after,
+.navbar-link::after {
+    border-color: $skc-calypso;
+}
+
+.b-checkbox.checkbox input[type=checkbox]:checked + .check {
+    background-color: $skc-calypso;
+    border-color: $skc-calypso;
+	}
+
+.b-radio.radio input[type=radio] + .check:before {
+	background: $skc-calypso;
+}
+.b-radio.radio input[type=radio]:checked + .check {
+	border-color: $skc-calypso;
 }

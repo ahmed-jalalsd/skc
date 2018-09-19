@@ -74,7 +74,7 @@
                 <button class="button is-info is-outlined is-fullwidth">Save Draft</button>
               </div> -->
               <div class="primary-action-button">
-                <button class="button is-primary is-fullwidth">Update</button>
+                <button class="button is-primary is-fullwidth backend-btn">Update</button>
               </div>
             </div>
           </div>
