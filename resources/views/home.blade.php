@@ -207,6 +207,8 @@
 
                 <div class="about">
 
+                  <hr class="is-hidden-mobile ">
+
                     <h1 class="title">about us</h1>
 
                     <div class="columns about__box">
@@ -243,6 +245,8 @@
                       </div>
 
                     </div>
+
+                    <hr class="is-hidden-mobile long-line">
                 </div>
 
                 <figure class="welcome__left-paw image is-hidden-mobile">
@@ -287,7 +291,7 @@
 
 
       <div class="events__btn has-text-centered">
-        <a href="" class="button is-meduim skc-btn">More</a>
+        <a href="{{ URL::route('event.index') }}" class="button is-meduim skc-btn">More</a>
       </div>
 
     </section>

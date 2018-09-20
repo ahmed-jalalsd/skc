@@ -17,9 +17,11 @@
 
 // Home Page
 Route::get('/', 'HomeController@index')->name('home');
+Route::resource('/event', 'EventsPageController');
+
+
 
 Auth::routes();
-
 Route::prefix('manage')->group(function(){
 	Route::get('/', 'ManageController@index');
 	Route::get('/dashboard', 'ManageController@dashboard')->name('manage.dashboard');

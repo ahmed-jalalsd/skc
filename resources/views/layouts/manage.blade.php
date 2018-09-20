@@ -14,7 +14,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        @include('_partials.nav.main')
+        @include('_partials.nav.main-manage')
         @include('_partials.nav.manage')
 
         <div class="management-area" id="app">

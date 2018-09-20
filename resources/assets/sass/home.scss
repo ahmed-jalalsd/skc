@@ -64,6 +64,19 @@
             }
           }
         }
+        hr {
+          transform: rotate(90deg);
+          margin: 0;
+          width: 130px;
+          position: absolute;
+          left: 45%;
+          top: -52px;
+          background-color: #2b7386;
+        }
+        hr.long-line {
+          width: 200px;
+              left: 35.7%;
+        }
       }
     }
 
@@ -368,7 +381,6 @@
 @include tablet {
   .home {
     .welcome {
-      margin-top: 10rem;
       &__image{
         .try-text {
           position: absolute;
@@ -413,7 +425,11 @@
               }
             }
           }
+          hr.long-line {
+            display: none;
+          }
         }
+
       }
       &__bkg-top {
         margin-top: -7.8%;
@@ -482,6 +498,12 @@
     &__box {
       max-width: 1104px;
       margin: 0 auto;
+
+      .post{
+        &__content {
+              height: 330px;
+        }
+      }
     }
   }
 
@@ -548,6 +570,9 @@
               }
             }
           }
+        }
+        hr.long-line {
+          display: block;
         }
       }
       &__bkg-top {

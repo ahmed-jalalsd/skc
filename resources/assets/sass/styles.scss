@@ -6,6 +6,9 @@ html {
     p {
       font-family: $skc-font-family;
     }
+    .menu {
+      min-height: 100px;
+    }
 
     .navbar {
       position: fixed;
@@ -208,7 +211,7 @@ html {
         justify-content: flex-end;
       }
       a.forget-password {
-        
+
       }
     }
 

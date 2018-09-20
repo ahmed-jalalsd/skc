@@ -29508,6 +29508,10 @@ html body p {
   font-family: "Cormorant Garamond", serif;
 }
 
+html body .menu {
+  min-height: 100px;
+}
+
 html body .navbar {
   position: fixed;
   top: 0;
@@ -29968,6 +29972,22 @@ html body .bkg-pattern {
   display: none;
 }
 
+.home .welcome__bkg .about hr {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  margin: 0;
+  width: 130px;
+  position: absolute;
+  left: 45%;
+  top: -52px;
+  background-color: #2b7386;
+}
+
+.home .welcome__bkg .about hr.long-line {
+  width: 200px;
+  left: 35.7%;
+}
+
 .home .welcome__right-paw {
   position: absolute;
   right: 2px;
@@ -30292,10 +30312,6 @@ html body .bkg-pattern {
 }
 
 @media screen and (min-width: 769px), print {
-  .home .welcome {
-    margin-top: 10rem;
-  }
-
   .home .welcome__image .try-text {
     position: absolute;
     top: 0;
@@ -30345,6 +30361,10 @@ html body .bkg-pattern {
     height: 360px;
     margin-bottom: 1rem;
     display: block;
+  }
+
+  .home .welcome__bkg .about hr.long-line {
+    display: none;
   }
 
   .home .welcome__bkg-top {
@@ -30399,6 +30419,10 @@ html body .bkg-pattern {
   .news__box {
     max-width: 1104px;
     margin: 0 auto;
+  }
+
+  .news__box .post__content {
+    height: 330px;
   }
 }
 
@@ -30464,6 +30488,10 @@ html body .bkg-pattern {
   .home .welcome__bkg .about__box--right .text {
     width: 50%;
     margin: 0 auto;
+  }
+
+  .home .welcome__bkg hr.long-line {
+    display: block;
   }
 
   .home .welcome__bkg-top {
