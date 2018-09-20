@@ -198,7 +198,11 @@
               <div class="welcome__bkg">
 
                 <figure class="welcome__right-paw image">
-                    <img src="{{asset('images/pages/paws-left.png')}}">
+                    <img src="{{asset('images/pages/paws1.png')}}">
+                </figure>
+
+                <figure class="welcome__right-paw--bottom image is-hidden-mobile">
+                    <img src="{{asset('images/pages/paws2.png')}}">
                 </figure>
 
                 <div class="about">
@@ -242,7 +246,11 @@
                 </div>
 
                 <figure class="welcome__left-paw image is-hidden-mobile">
-                  <img src="{{asset('images/pages/paws-left.png')}}">
+                  <!-- <img src="{{asset('images/pages/paws3.png')}}"> -->
+                </figure>
+
+                <figure class="welcome__left-paw--bottom image is-hidden-mobile">
+                  <img src="{{asset('images/pages/paws3.png')}}">
                 </figure>
 
               </div>
@@ -311,7 +319,12 @@
                   <span class="tag is-rounded">{{date('d-m-Y', strtotime($fbPost['created_time']))}}</span>
                 </div>
 
-                <h2 class="title post__content--title">{{ $fbPost['name']}}</h2>
+                <h2 class="title post__content--title">
+                  {{ isset( $fbPost['name']) ? str_limit( $fbPost['name'], 21) : 'Default' }}
+                  <!-- {{ $fbPost['name']}} -->
+                </h2>
+
+                <hr class="post__line">
 
                 <div class="post__content--body">
                   <p>
@@ -328,7 +341,10 @@
           </div>
           @endforeach
           <figure class="news__right-paw image">
-              <img src="{{asset('images/pages/paws-left.png')}}">
+              <img src="{{asset('images/pages/paws1.png')}}">
+          </figure>
+          <figure class="news__right-paw--bottom image">
+              <img src="{{asset('images/pages/paws2.png')}}">
           </figure>
         </div>
 

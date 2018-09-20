@@ -29970,14 +29970,35 @@ html body .bkg-pattern {
 
 .home .welcome__right-paw {
   position: absolute;
-  right: 0;
+  right: 2px;
+  top: 18%;
+  -webkit-filter: opacity(0.2);
+          filter: opacity(0.2);
+}
+
+.home .welcome__right-paw--bottom {
+  position: absolute;
+  right: -12px;
+  top: 88%;
+  -webkit-filter: opacity(0.2);
+          filter: opacity(0.2);
+  z-index: 1;
 }
 
 .home .welcome__left-paw {
   position: absolute;
   left: 10%;
-  top: 50%;
+  top: 40%;
   z-index: -10;
+}
+
+.home .welcome__left-paw--bottom {
+  position: absolute;
+  left: 10%;
+  top: 80%;
+  z-index: -10;
+  -webkit-filter: opacity(0.2);
+          filter: opacity(0.2);
 }
 
 .home .welcome__bkg-top {
@@ -30046,6 +30067,8 @@ html body .bkg-pattern {
 .events .wrapper {
   margin: 2em auto;
   max-width: 970px;
+  position: relative;
+  z-index: 26;
 }
 
 .events .wrapper .masonry {
@@ -30216,10 +30239,17 @@ html body .bkg-pattern {
 
 .news__box .post__content h2 {
   font-size: 1.5rem;
+  text-align: -webkit-left;
   letter-spacing: 1px;
-  text-align: justify;
   margin: 2% 4%;
   font-family: "Cormorant Garamond", serif;
+}
+
+.news__box .post__content hr {
+  width: 30%;
+  border: 0;
+  border-bottom: 1px solid #E6E9EC;
+  margin: 1rem auto;
 }
 
 .news__box .post__content--body {
@@ -30228,7 +30258,7 @@ html body .bkg-pattern {
 
 .news__box .post__content--body p {
   margin: 2% 4%;
-  text-align: justify;
+  text-align: -webkit-left;
   padding-bottom: 1%;
   line-height: 1.25rem;
   letter-spacing: 1px;
@@ -30242,8 +30272,19 @@ html body .bkg-pattern {
 .news__right-paw {
   position: absolute;
   right: 0;
-  bottom: -20%;
+  bottom: 45%;
   z-index: 8;
+  -webkit-filter: opacity(0.2);
+          filter: opacity(0.2);
+}
+
+.news__right-paw--bottom {
+  position: absolute;
+  right: 0;
+  top: 59%;
+  z-index: 2;
+  -webkit-filter: opacity(0.2);
+          filter: opacity(0.2);
 }
 
 .title {
