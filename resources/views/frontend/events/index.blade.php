@@ -18,7 +18,7 @@
                   <figcaption>
                     <h4>{{$postEvent->title}}</h4>
                   </figcaption>
-                  <a href=""></a>
+                  <a href="{{ route('event.show', $postEvent->id) }}"></a>
               </figure>
               @endforeach
             </div>

@@ -282,7 +282,7 @@
                   <figcaption>
                     <h4>{{$event->title}}</h4>
           			  </figcaption>
-                  <a href=""></a>
+                  <a href="{{ route('event.show', $event->id) }}"></a>
           	  </figure>
           @endforeach
         </div>

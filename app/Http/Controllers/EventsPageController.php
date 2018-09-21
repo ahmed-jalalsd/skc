@@ -24,7 +24,7 @@ class EventsPageController extends Controller
            ->groupBy('year', 'month')
            ->orderByRaw('min(created_at) desc')
            ->get()->toArray();
-        
+
         return view('frontend.events.index')->withEvents($events)->withArchives($archives);
     }
 
@@ -57,7 +57,14 @@ class EventsPageController extends Controller
      */
     public function show($id)
     {
-        //
+      $event = Event::findOrFail($id);
+      $images= json_decode($event->images);
+      $archives = Event::selectRaw('year(created_at)year, monthname(created_at) month, count(*) publish')
+        ->groupBy('year', 'month')
+        ->orderByRaw('min(created_at) desc')
+        ->get()->toArray();
+      // dd($event);
+      return view('frontend.events.show')->withEvent($event)->withImages($images)->withArchives($archives);
     }
 
     /**
