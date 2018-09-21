@@ -30616,8 +30616,35 @@ html body .single-event__raised article .application-form {
   margin: 2rem 0;
 }
 
+html body .single-event .second-box {
+  margin-top: 4rem;
+}
+
 html body .single-event .side-bar {
   margin-top: -1.4rem;
   margin-left: 2rem;
+}
+
+html body .section.blog h1 {
+  text-align: center;
+}
+
+html body .section.blog .news {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+html body .section.blog .news__box {
+  padding: 0;
+  margin: 0;
+}
+
+html body .section.blog .news__box .post {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+html body .section.blog .news__box .post .tags .tag {
+  font-size: 0.9rem;
 }
 

@@ -1,0 +1,26 @@
+html{
+  body{
+    .section.blog{
+      h1 {
+        text-align: center;
+      }
+      .news {
+        margin-top: 0;
+        margin-bottom: 0;
+        &__box {
+          padding: 0;
+          margin: 0;
+          .post{
+            margin-top: 0;
+            margin-bottom: 2rem;
+            .tags {
+              .tag {
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

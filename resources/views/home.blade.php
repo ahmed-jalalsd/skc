@@ -340,8 +340,6 @@
 
             </div>
 
-
-
           </div>
           @endforeach
           <figure class="news__right-paw image">

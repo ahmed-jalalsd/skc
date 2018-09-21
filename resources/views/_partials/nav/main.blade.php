@@ -52,7 +52,7 @@
 
         <span class="is-hidden-mobile">|</span>
         <li>
-          <a href="#" class="">Blog</a>
+          <a href="{{ URL::route('blog.index') }}" class="{{Nav::isRoute('blog.index')}}">Blog</a>
         </li>
 
         @guest

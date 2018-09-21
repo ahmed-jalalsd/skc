@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Event;
+use App\Post;
+use App\User;
 
-class EventsPageController extends Controller
+class BlogPageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +15,18 @@ class EventsPageController extends Controller
      */
     public function index()
     {
-        // getting the events grouping by time,
-        $events = Event::latest()->filter(request()->only(['year']))
+
+        $posts = Post::latest()->filter(request()->only(['year']))
                   ->get()->groupBy(function($item){
                     return $item->created_at->format('Y');
                   });
+                // dd($posts);
+         $archives = Post::selectRaw('year(created_at)year, monthname(created_at) month, count(*) publish')
+                     ->groupBy('year', 'month')
+                     ->orderByRaw('min(created_at) desc')
+                     ->get()->toArray();
 
-         $archives = Event::selectRaw('year(created_at)year, monthname(created_at) month, count(*) publish')
-           ->groupBy('year', 'month')
-           ->orderByRaw('min(created_at) desc')
-           ->get()->toArray();
-
-        return view('frontend.events.index')->withEvents($events)->withArchives($archives);
+         return view('frontend.blog.index', compact('posts', 'archives'));
     }
 
     /**
@@ -57,14 +58,14 @@ class EventsPageController extends Controller
      */
     public function show($id)
     {
-      $post = Event::findOrFail($id);
-      $images= json_decode($event->images);
-      $archives = Event::selectRaw('year(created_at)year, monthname(created_at) month, count(*) publish')
+      $post = Post::findOrFail($id);
+      // $images= json_decode($event->images);
+      $archives = Post::selectRaw('year(created_at)year, monthname(created_at) month, count(*) publish')
         ->groupBy('year', 'month')
         ->orderByRaw('min(created_at) desc')
         ->get()->toArray();
-      // dd($event);
-      return view('frontend.events.show')->withEvent($event)->withImages($images)->withArchives($archives);
+      // dd($post);
+      return view('frontend.blog.show')->withPost($post)->withArchives($archives);
     }
 
     /**
@@ -87,7 +88,7 @@ class EventsPageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
 
     /**

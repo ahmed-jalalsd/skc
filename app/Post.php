@@ -23,4 +23,13 @@ class Post extends Model
   public function users(){
     return $this->belongsTo(User::class, 'user_id');
   }
+
+  public function scopeFilter($query, $filters)
+  {
+    if ( isset($filters['year']) ) {
+     $year = $filters['year'];
+     $query->whereYear('created_at', $year);
+   }
+  }
+  
 }
