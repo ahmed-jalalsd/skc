@@ -30561,3 +30561,20 @@ html body .bkg-pattern {
   }
 }
 
+html body .section .events {
+  margin-top: 0;
+}
+
+html body .section .events .wrapper {
+  margin-top: 0;
+}
+
+html body .section .events .side-bar {
+  margin-top: 1.6rem;
+}
+
+html body .section .events .side-bar h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+

@@ -14,8 +14,18 @@ class EventsPageController extends Controller
      */
     public function index()
     {
-        $events = Event::orderBy('id', 'desc')->get();
-        return view('frontend.events.index')->withEvents($events);
+        // getting the events grouping by time,
+        $events = Event::latest()->filter(request()->only(['year']))
+                  ->get()->groupBy(function($item){
+                    return $item->created_at->format('Y');
+                  });
+
+         $archives = Event::selectRaw('year(created_at)year, monthname(created_at) month, count(*) publish')
+           ->groupBy('year', 'month')
+           ->orderByRaw('min(created_at) desc')
+           ->get()->toArray();
+        
+        return view('frontend.events.index')->withEvents($events)->withArchives($archives);
     }
 
     /**
