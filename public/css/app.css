@@ -29257,6 +29257,12 @@ html .has-dropdown.is-open .navbar-dropdown {
   text-transform: uppercase;
 }
 
+.is-raised {
+  border-radius: 6px;
+  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1), 0 6px 30px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1), 0 6px 30px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
 html .has-dropdown .navbar-dropdown {
   background-color: #1f2427;
 }
@@ -30589,35 +30595,25 @@ html body .single-event__title {
   margin-bottom: 5.5rem !important;
 }
 
-html body .single-event__raised {
-  border-radius: 6px;
-  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-}
-
-html body .single-event__raised article {
+html body .single-event__content article {
   width: 80%;
   margin: 0 auto;
 }
 
-html body .single-event__raised article header {
+html body .single-event__content article header {
   margin-top: -42px;
   -webkit-box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-html body .single-event__raised article .breedcrumbs h6 {
+html body .single-event__content article .breedcrumbs h6 {
   color: #2b7386;
   margin: 1rem 0;
 }
 
-html body .single-event__raised article .application-form {
+html body .single-event__content article .application-form {
   text-align: center;
   margin: 2rem 0;
-}
-
-html body .single-event .second-box {
-  margin-top: 4rem;
 }
 
 html body .single-event .side-bar {
@@ -30646,5 +30642,45 @@ html body .section.blog .news__box .post {
 
 html body .section.blog .news__box .post .tags .tag {
   font-size: 0.9rem;
+}
+
+html body .single-post .second-box {
+  margin-top: 4rem;
+}
+
+html body .single-post .second-box .comments {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+html body .single-post .second-box .comments__title {
+  margin-bottom: 1rem;
+}
+
+html body .single-post .second-box .comments__content .box {
+  background-color: #E2ECF6;
+  border-radius: 0;
+}
+
+html body .single-post .third-box {
+  margin-top: 4rem;
+  background-color: #1f2427;
+  color: white;
+}
+
+html body .single-post .third-box .comments-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+html body .single-post .third-box .comments-form__title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+html body .single-post .third-box .comments-form form label {
+  color: #E2ECF6;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
 }
 

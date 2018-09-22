@@ -4,6 +4,7 @@ html{
       h1 {
         text-align: center;
       }
+      // for all blog page
       .news {
         margin-top: 0;
         margin-bottom: 0;
@@ -17,6 +18,45 @@ html{
               .tag {
                 font-size: 0.9rem;
               }
+            }
+          }
+        }
+      }
+    }
+
+    .single-post {
+      .second-box {
+        margin-top: 4rem;
+        .comments {
+          width: 80%;
+          margin: 1rem auto;
+          &__title {
+            margin-bottom: 1rem;
+          }
+          &__content {
+            .box{
+              background-color: $skc-link_water;
+              border-radius: 0;
+            }
+          }
+        }
+      }
+      .third-box{
+        margin-top: 4rem;
+        background-color: $skc-black;
+        color: $white;
+        .comments-form {
+          width: 80%;
+          margin: 0 auto;
+          &__title {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+          }
+          form {
+            label {
+              color: $skc-link_water;
+              font-family: $skc-font-family;
+              font-size: 1.3rem;
             }
           }
         }

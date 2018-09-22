@@ -9,7 +9,7 @@
 
     <div class="columns">
 
-      <div class="single-event__raised column is-8 is-offset-1">
+      <div class="single-event__content is-raised column is-8 is-offset-1">
 
         <article class="article">
           <header>

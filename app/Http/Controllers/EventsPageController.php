@@ -57,7 +57,7 @@ class EventsPageController extends Controller
      */
     public function show($id)
     {
-      $post = Event::findOrFail($id);
+      $event = Event::findOrFail($id);
       $images= json_decode($event->images);
       $archives = Event::selectRaw('year(created_at)year, monthname(created_at) month, count(*) publish')
         ->groupBy('year', 'month')
