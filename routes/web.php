@@ -20,7 +20,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/event', 'EventsPageController');
 Route::resource('/blog', 'BlogPageController');
 
-
+Route::post('/comment/store', 'CommentsController@store')->name('comment.add');
+Route::post('/reply/store', 'CommentsController@replyStore')->name('reply.add');
 
 Auth::routes();
 Route::prefix('manage')->group(function(){

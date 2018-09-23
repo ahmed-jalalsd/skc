@@ -1,5 +1,9 @@
 @extends('layouts.app')
-
+<style>
+    .display-replay .display-replay {
+        margin-left: 40px
+    }
+</style>
 @section('content')
 
 <section class="section single-event single-post">
@@ -27,22 +31,6 @@
             <h2 class="title">{{$post->title}}</h2>
             <p>{{$post->content}}</p>
           </div>
-
-          <!-- @isset($images)
-            <div class="columns m-t-10 is-multiline is-centered">
-              @foreach ($images as $image)
-              <div class="column is-4-desktop is-half-tablet">
-    						<div class="card">
-                  	<div class="card-image">
-                      <figure class="image is-3by2">
-                          <img src="{!! '/images/events/'.$image !!}" alt="">
-                      </figure>
-                    </div>
-                </div>
-              </div>
-              @endforeach
-            </div>
-          @endisset -->
 
           <footer>
             <p>written by <span></span></p>
@@ -78,17 +66,12 @@
 
               <div class="media-content">
 
-                <div class="content">
-                  <h3>name</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                  </p>
-                </div>
+                @include('_partials.comments.comment', ['comments' => $post->comments, 'post_id' => $post->id])
 
               </div>
+
             </article>
           </div>
-
         </div>
       </article>
 
@@ -104,40 +87,22 @@
             <h2>Comments</h2>
           </div>
 
-          <form action="{{route('events.store')}}" method="POST" enctype="multipart/form-data">
+
+          <form action="{{ route('comment.add') }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
-
-            <div class="field">
-              <label class="label">Name</label>
-              <div class="control">
-                <input class="input" type="text" placeholder="Text input">
-              </div>
-            </div>
-
-          <div class="field">
-            <label class="label">Email</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-              <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-exclamation-triangle"></i>
-              </span>
-            </div>
-          </div>
 
           <div class="field">
             <label class="label">your comment</label>
             <div class="control">
-              <textarea class="textarea" placeholder="Textarea"></textarea>
+              <textarea class="textarea" name="comment_body" ></textarea>
+              <input type="hidden" name="post_id" value="{{ $post->id }}" />
             </div>
           </div>
 
 
-          <div class="field is-grouped">
+          <div class="field is-grouped is-algined-right">
             <div class="control">
-              <button class="button is-primary is-fullwidth skc-btn">Submit</button>
+              <button class="button is-fullwidth skc-btn">Submit</button>
             </div>
           </div>
 
@@ -152,5 +117,4 @@
   </div><!-- end of .container -->
 
 </section>
-
 @endsection

@@ -24,6 +24,12 @@ class Post extends Model
     return $this->belongsTo(User::class, 'user_id');
   }
 
+  public function comments()
+  {
+    return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+  }
+
+
   public function scopeFilter($query, $filters)
   {
     if ( isset($filters['year']) ) {
@@ -31,5 +37,5 @@ class Post extends Model
      $query->whereYear('created_at', $year);
    }
   }
-  
+
 }

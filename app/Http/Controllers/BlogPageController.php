@@ -64,8 +64,7 @@ class BlogPageController extends Controller
         ->groupBy('year', 'month')
         ->orderByRaw('min(created_at) desc')
         ->get()->toArray();
-      // dd($post);
-      return view('frontend.blog.show')->withPost($post)->withArchives($archives);
+      return view('frontend.blog.show', compact('post', 'archives'));
     }
 
     /**

@@ -29255,12 +29255,20 @@ html .has-dropdown.is-open .navbar-dropdown {
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
+  line-height: 1px;
 }
 
 .is-raised {
   border-radius: 6px;
   -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1), 0 6px 30px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1), 0 6px 30px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.is-algined-right {
+  -webkit-box-pack: end !important;
+      -ms-flex-pack: end !important;
+          justify-content: flex-end !important;
+  margin: 1.5rem 0;
 }
 
 html .has-dropdown .navbar-dropdown {
@@ -30660,9 +30668,14 @@ html body .single-post .second-box .comments__title {
 html body .single-post .second-box .comments__content .box {
   background-color: #E2ECF6;
   border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 html body .single-post .third-box {
+  background-image: url("/images/pages/paws.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   margin-top: 4rem;
   background-color: #1f2427;
   color: white;

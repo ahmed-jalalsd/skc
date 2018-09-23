@@ -37,11 +37,16 @@ html{
             .box{
               background-color: $skc-link_water;
               border-radius: 0;
+              box-shadow: none;
             }
           }
         }
       }
       .third-box{
+        background-image: url('/images/pages/paws.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+
         margin-top: 4rem;
         background-color: $skc-black;
         color: $white;
