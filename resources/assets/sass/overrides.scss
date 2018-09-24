@@ -83,3 +83,18 @@ html {
 .b-radio.radio input[type=radio]:checked + .check {
 	border-color: $skc-calypso;
 }
+
+
+.single-gallery {
+	.events {
+		.wrapper {
+			.masonry {
+				&__img {
+			    object-fit: fill;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+}

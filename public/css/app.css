@@ -28859,6 +28859,12 @@ html .has-dropdown.is-open .navbar-dropdown {
   border-color: #2b7386;
 }
 
+.single-gallery .events .wrapper .masonry__img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  opacity: 1;
+}
+
 .m-t-5 {
   margin-top: 5px;
 }
@@ -30614,11 +30620,6 @@ html body .single-event__content article header {
           box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-html body .single-event__content article .breedcrumbs h6 {
-  color: #2b7386;
-  margin: 1rem 0;
-}
-
 html body .single-event__content article .application-form {
   text-align: center;
   margin: 2rem 0;
@@ -30627,6 +30628,12 @@ html body .single-event__content article .application-form {
 html body .single-event .side-bar {
   margin-top: -1.4rem;
   margin-left: 2rem;
+}
+
+html body .breedcrumbs h6 {
+  color: #2b7386;
+  margin: 1rem 0;
+  font-size: 1.1rem;
 }
 
 html body .section.blog h1 {

@@ -65,7 +65,15 @@ class GalleryPageController extends Controller
      */
     public function show($id)
     {
-        //
+      $gallery = Gallery::findOrFail($id);
+
+      $archives = Gallery::selectRaw('year(created_at)year, monthname(created_at) month, count(*) publish')
+        ->groupBy('year', 'month')
+        ->orderByRaw('min(created_at) desc')
+        ->get()->toArray();
+      // dd($gallery->photos);
+
+      return view('frontend.gallery.show')->withGallery($gallery)->withArchives($archives);
     }
 
     /**

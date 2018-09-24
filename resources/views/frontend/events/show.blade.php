@@ -55,7 +55,7 @@
       </div>
 
       <div class="column is-2 side-bar">
-        @include('_partials.nav.archive-side')
+        @include('_partials.nav.archive-side', ['url1' => 'event'])
       </div>
 
     </div>
