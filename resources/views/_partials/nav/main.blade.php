@@ -43,16 +43,16 @@
         </li>
         <span class="is-hidden-mobile">|</span>
         <li>
-          <a href="" class="">Gallery</a>
+          <a href="{{ URL::route('gallery.index') }}" class="{{Nav::isResource('gallery')}}">Gallery</a>
         </li>
         <span class="is-hidden-mobile">|</span>
         <li>
-          <a href="{{ URL::route('event.index') }}" class="{{Nav::isRoute('event.index')}}">Events</a>
+          <a href="{{ URL::route('event.index') }}" class="{{Nav::isResource('event')}}">Events</a>
         </li>
 
         <span class="is-hidden-mobile">|</span>
         <li>
-          <a href="{{ URL::route('blog.index') }}" class="{{Nav::isRoute('blog.index')}}">Blog</a>
+          <a href="{{ URL::route('blog.index') }}" class="{{Nav::isResource('blog')}}">Blog</a>
         </li>
 
         @guest

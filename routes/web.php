@@ -19,6 +19,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/event', 'EventsPageController');
 Route::resource('/blog', 'BlogPageController');
+Route::resource('/gallery', 'GalleryPageController');
 
 Route::resource('comment', 'CommentsController',['only'=>['store']]);
 

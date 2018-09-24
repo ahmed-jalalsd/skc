@@ -49,7 +49,7 @@
         </div>
 
         <div class="column is-2 side-bar">
-          @include('_partials.nav.archive-side')
+          @include('_partials.nav.archive-side', ['url1' => 'blog'])
         </div>
 
       </div> <!-- End of .news__box.columns.is-multiline -->

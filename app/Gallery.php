@@ -19,4 +19,12 @@ class Gallery extends Model
   public function photos(){
     return $this->hasMany(Photo::class);
   }
+
+  public function scopeFilter($query, $filters)
+  {
+    if ( isset($filters['year']) ) {
+     $year = $filters['year'];
+     $query->whereYear('created_at', $year);
+   }
+  }
 }

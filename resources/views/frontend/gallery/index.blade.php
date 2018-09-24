@@ -4,21 +4,21 @@
 
 <section class="section">
   <div class="container events">
-    <h1 class="title">Events</h1>
+    <h1 class="title">Gallery</h1>
 
     <div class="columns">
 
       <div class="wrapper column is-10">
-        @foreach ($events as $date=>$postEvents)
+        @foreach ($galleries as $date=>$postGalleries)
           <h3>{{$date}}</h3>
           <div class="masonry">
-            @foreach ($postEvents as $postEvent)
+            @foreach ($postGalleries as $gallery)
               <figure class="masonry__brick">
-                <img src="{{ '/images/events/'.$postEvent->featured_image }}" class="masonry__img" alt="Skc logo">
+                <img src="{{ '/images/gallery/'.$gallery->cover_image }}" class="masonry__img" alt="Skc logo">
                   <figcaption>
-                    <h4>{{$postEvent->title}}</h4>
+                    <h4>{{$gallery->title}}</h4>
                   </figcaption>
-                  <a href="{{ route('event.show', $postEvent->id) }}"></a>
+                  <a href="{{ route('gallery.show', $gallery->id) }}"></a>
               </figure>
               @endforeach
             </div>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="column is-2 side-bar">
-        @include('_partials.nav.archive-side', ['url1' => 'event'])
+        @include('_partials.nav.archive-side', ['url1' => 'gallery'])
       </div>
 
     </div>
