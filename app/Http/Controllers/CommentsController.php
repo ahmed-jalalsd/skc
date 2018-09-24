@@ -16,12 +16,22 @@ class CommentsController extends Controller
    */
   public function store(Request $request)
   {
-      $comment = new Comment;
-      $comment->body = $request->get('comment_body');
-      $comment->user()->associate($request->user());
-      $post = Post::find($request->get('post_id'));
-      $post->comments()->save($comment);
+    //
+  }
 
+  public function addPostComment(Request $request, Post $post)
+  {
+      $this->validate($request,[
+        'body' => 'required'
+      ]);
+
+      // $comment = new Comment;
+      // $comment->body = $request->body;
+      // $comment->user_id = auth()->user()->id;
+
+      // $post->comments()->save($comment);
+
+      $post->addComment($request->body);
       return back();
   }
 
@@ -32,16 +42,20 @@ class CommentsController extends Controller
    * @return \Illuminate\Http\Response
    */
 
-  public function replyStore(Request $request)
+  public function addReplyComment(Request $request, Comment $comment)
     {
-      $reply = new Comment();
-      $reply->body = $request->get('comment_body');
-      $reply->user()->associate($request->user());
-      $reply->parent_id = $request->get('comment_id');
-      $post = Post::find($request->get('post_id'));
+      $this->validate($request,[
+        'body' => 'required'
+      ]);
 
-      $post->comments()->save($reply);
+      // $reply = new Comment;
+      // $reply->body = $request->body;
+      // $reply->user_id = auth()->user()->id;
+      //
+      // $comment->comments()->save($reply);
 
+      $comment->addComment($request->body);
+      
       return back();
     }
 }

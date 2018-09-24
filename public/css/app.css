@@ -30670,6 +30670,11 @@ html body .single-post .second-box .comments__content .box {
   border-radius: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
+  margin-top: 1.5rem;
+}
+
+html body .single-post .second-box .comments__content .reply-box {
+  margin-left: 40px;
 }
 
 html body .single-post .third-box {

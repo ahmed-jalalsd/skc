@@ -9,7 +9,7 @@ use App\User;
 
 class Post extends Model
 {
-  use Notifiable;
+  use Notifiable, CommentableTrait;
 
   /**
    * The attributes that are mass assignable.
@@ -21,14 +21,8 @@ class Post extends Model
   ];
 
   public function users(){
-    return $this->belongsTo(User::class, 'user_id');
+    return $this->belongsTo(User::class, 'author_id');
   }
-
-  public function comments()
-  {
-    return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
-  }
-
 
   public function scopeFilter($query, $filters)
   {
