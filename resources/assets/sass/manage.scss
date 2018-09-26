@@ -127,7 +127,8 @@ html {
 
 	@include desktop {
 		left: 0;
-		overflow-y: hidden;
+		// overflow-y: hidden;
+		overflow-y: auto;
 	}
 }
 

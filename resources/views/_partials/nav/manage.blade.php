@@ -59,6 +59,10 @@
       <ul class="menu-list">
 
         <li>
+        	<a href="{{route('groups.index')}}" class="{{Nav::isResource('groups')}}">Manage Groups and Breeds</a>
+        </li>
+
+        <li>
         	<a href="{{route('users.index')}}" class="{{Nav::isResource('users')}}">Manage Members</a>
         </li>
 

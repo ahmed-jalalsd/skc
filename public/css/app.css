@@ -29375,7 +29375,7 @@ html .management-area .side-card .card .card-footer .card-footer-item a span.ico
 @media screen and (min-width: 1024px) {
   #admin-side-menu {
     left: 0;
-    overflow-y: hidden;
+    overflow-y: auto;
   }
 }
 

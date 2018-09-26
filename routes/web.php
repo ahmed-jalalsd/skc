@@ -37,6 +37,8 @@ Route::prefix('manage')->group(function(){
 	Route::resource('/events', 'EventsController');
 	Route::resource('/galleries', 'GalleriesController');
 	Route::resource('/dogs', 'DogsController');
+	Route::resource('/groups', 'GroupsController');
+	Route::resource('/breeds', 'BreedsController');
 });
 
 // Route::get('/home', 'HomeController@index')->name('home');
