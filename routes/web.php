@@ -39,8 +39,9 @@ Route::prefix('manage')->group(function(){
 	Route::resource('/dogs', 'DogsController');
 	Route::resource('/groups', 'GroupsController');
 	Route::resource('/breeds', 'BreedsController');
-	Route::resource('/entries', 'ShowEntriesController');
+	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event');
+	Route::get('/entries/application', 'ShowEntriesController@showApplications')->name('entries.application');
 });
 
 // Route::get('/home', 'HomeController@index')->name('home');

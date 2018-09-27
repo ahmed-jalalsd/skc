@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Dog;
 use App\ShowEntry;
+use Auth;
 use Session;
 
 class ShowEntriesController extends Controller
@@ -36,13 +37,17 @@ class ShowEntriesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function showApplications()
     {
-        //
+        $userId = Auth::id();
+        $application = ShowEntry::where('id', $userId)->first();
+        dd($application);
+        return view('manage.entries.show');
     }
 
     /**
@@ -69,15 +74,15 @@ class ShowEntriesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for creating a new resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function create()
     {
         //
     }
+
 
     /**
      * Show the form for editing the specified resource.

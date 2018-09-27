@@ -49,6 +49,9 @@
           <li>
             <a href="{{route('entries.index')}}" class="{{Nav::isResource('entries', 2)}}">All Events</a>
           </li>
+          <li>
+            <a href="{{route('entries.application')}}" class="{{Nav::hasSegment('application')}}">All Application</a>
+          </li>
         </ul>
         <p class="menu-label">
           Personal Area
