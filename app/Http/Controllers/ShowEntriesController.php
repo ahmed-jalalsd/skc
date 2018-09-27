@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Dog;
+use App\ShowEntry;
+use Session;
 
 class ShowEntriesController extends Controller
 {
@@ -25,8 +28,11 @@ class ShowEntriesController extends Controller
      */
     public function applyToEvent(Request $request, Event $event)
     {
-        // dd($event);
-        return view('manage.entries.create')->withEvents($events);
+        // To find the user's dogs
+        $userId = $request->user()->id;
+        $dogs = Dog::where('id', $userId)->first();
+        // dd($dogs);
+        return view('manage.entries.create')->withEvent($event)->withDogs($dogs);
     }
 
     /**
@@ -47,7 +53,19 @@ class ShowEntriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $this->validate($request,[
+            'event_id' => 'required',
+            'dog_id' => 'required',
+        ]);
+
+        $showEntry = new ShowEntry();
+        $showEntry->dog_id = $request->dog_id;
+        $showEntry->event_id = $request->event_id;
+        $showEntry->save();
+
+        Session::flash('success', 'Successfully applied to the event ');
+        return redirect()->route('entries.index');
     }
 
     /**

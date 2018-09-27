@@ -17,72 +17,26 @@
 
           <div class="column is-three-quarters-desktop is-three-quarters-tablet">
 
-            <b-field  type="is-primary">
-              <b-input type="text" name="title" value="{{$event->title}}" size="is-large" v-model="title" disabled>
-              </b-input>
+            <b-field  type="is-primary" label="Event">
+              <b-input type="text" name="event_name"  size="is-large" v-model="event_name" readonly style= "opacity: 0.5 !important;
+              cursor: not-allowed;"></b-input>
             </b-field>
 
-
-            <b-field class="m-t-40" type="is-primary">
-              <b-input type="textarea"
-                  placeholder="Write a short description..."  name="excerpt">
-              </b-input>
+            <b-field label="Choose the dog" name="dog_id">
+                <b-select placeholder="Select the Dog" name="dog_id" required >
+                  @foreach ($dogs as $dog)
+                    <option value="{{$dogs->id}}">{{$dogs->dog_name}} | {{$dogs->breeds->breed}}</option>
+                  @endforeach
+                </b-select>
             </b-field>
 
-            <b-field class="m-t-40"  type="is-primary">
-              <b-input type="textarea"
-                  placeholder="Compose your masterpiece..." rows="20" name="content">
-              </b-input>
-            </b-field>
+            <input type="hidden" name="event_id" value="{{$event->id}}">
+
+            <div class="primary-action-button">
+              <button class="button is-primary  backend-btn">Apply</button>
+            </div>
 
           </div><!-- End of .column is-three-quarters-desktop -->
-
-          <div class="column is-one-quarter-desktop is-narrow-tablet">
-            <div class="card card-widget">
-              <div class="author-widget widget-area">
-                <div class="selected-author">
-                  <img src="https://placehold.it/50x50"/>
-                  <div class="author">
-                    <h4>{{Auth::user()->name}}</h4>
-                    <p class="subtitle">
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="post-status-widget widget-area">
-
-                <div>
-
-                    <upload></upload>
-
-
-                  <div class="status-details">
-                    <div class="field">
-                      <p><small>Choose if the event with application form</small></p>
-                      <div class="control">
-                        <div class="select is-primary">
-                          <select name="cta" required>
-                            <option>Select dropdown</option>
-                            <option value="1">With Applcation Form</option>
-                            <option value="2">Without Applcation Form</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="publish-buttons-widget widget-area">
-                <div class="primary-action-button">
-                  <button class="button is-primary is-fullwidth backend-btn">Publish</button>
-                </div>
-              </div>
-            </div>
-          </div> <!-- end of .column.is-one-quarter -->
 
       </div><!-- End of .columns -->
 
@@ -97,18 +51,9 @@
     var app = new Vue({
       el: '#app',
       data: {
-        title: '',
-        slug: '',
+        event_name: '{{$event->title}}',
         api_token: '{{Auth::user()->api_token}}',
       },
-      methods: {
-        updateSlug: function(val) {
-          this.slug = val;
-        },
-        slugCopied: function(type, msg, val) {
-          notifications.toast(msg, {type: `is-${type}`});
-        }
-      }
     });
   </script>
 
