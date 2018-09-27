@@ -21,7 +21,7 @@ class EventsController extends Controller
 
      public function __construct()
      {
-         $this->middleware('role:superadministrator|administrator');
+         $this->middleware('role:superadministrator|administrator|member');
      }
 
     public function index()

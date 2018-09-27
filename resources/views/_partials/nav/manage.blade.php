@@ -41,14 +41,27 @@
       @endrole
 
       @role('member')
-      <p class="menu-label">
-        Personal Area
-      </p>
-      <ul class="menu-list">
-        <li>
-          <a href="{{route('dogs.index')}}" class="{{Nav::isResource('dogs', 2)}}">Manage My Dogs</a>
-        </li>
-      </ul>
+
+        <p class="menu-label">
+          Content Area
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a href="{{route('events.index')}}" class="{{Nav::isResource('events', 2)}}">All Events</a>
+          </li>
+        </ul>
+        <p class="menu-label">
+          Personal Area
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a href="{{route('dogs.index')}}" class="{{Nav::isResource('dogs', 2)}}">Manage My Dogs</a>
+          </li>
+          <li>
+            <a href="{{route('dogs.index')}}" class="">Manage My Profile</a>
+          </li>
+        </ul>
+
       @endrole
 
     @role('superadministrator|administrator')
