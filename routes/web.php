@@ -40,6 +40,7 @@ Route::prefix('manage')->group(function(){
 	Route::resource('/groups', 'GroupsController');
 	Route::resource('/breeds', 'BreedsController');
 	Route::resource('/entries', 'ShowEntriesController');
+	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event');
 });
 
 // Route::get('/home', 'HomeController@index')->name('home');

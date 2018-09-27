@@ -47,7 +47,7 @@
         </p>
         <ul class="menu-list">
           <li>
-            <a href="{{route('entries.index ')}}" class="{{Nav::isResource('entries', 2)}}">All Events</a>
+            <a href="{{route('entries.index')}}" class="{{Nav::isResource('entries', 2)}}">All Events</a>
           </li>
         </ul>
         <p class="menu-label">

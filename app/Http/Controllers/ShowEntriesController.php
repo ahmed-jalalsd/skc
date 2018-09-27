@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class ShowEntriesController extends Controller
 {
@@ -13,7 +14,19 @@ class ShowEntriesController extends Controller
      */
     public function index()
     {
-        //
+      $events = Event::orderBy('id', 'asc')->with('users')->paginate(10);
+      return view('manage.entries.index')->withEvents($events);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function applyToEvent(Request $request, Event $event)
+    {
+        // dd($event);
+        return view('manage.entries.create')->withEvents($events);
     }
 
     /**
