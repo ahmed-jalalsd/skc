@@ -40,8 +40,9 @@ Route::prefix('manage')->group(function(){
 	Route::resource('/groups', 'GroupsController');
 	Route::resource('/breeds', 'BreedsController');
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
-	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the 
+	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the
 	Route::get('/show/application', 'ShowEntriesController@showApplications')->name('entries.application'); // found in nav.manage.blade.php the all applicaion link
+	Route::get('/show/all/application', 'ShowEntriesController@showAllApplications')->name('entries.all.application'); // found in nav.manage.blade.php the manage all applicaion link
 });
 
 // Route::get('/home', 'HomeController@index')->name('home');

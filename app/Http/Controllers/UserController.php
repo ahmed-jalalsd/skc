@@ -166,8 +166,6 @@ class UserController extends Controller
         $user->syncRoles(explode(',', $request->roles));
         return redirect()->route('users.show', $id);
 
-
-
         // if () {
         //     return redirect()->route('users.show', $id);
         // }else {

@@ -34,7 +34,10 @@
       </p>
       <ul class="menu-list">
         <li>
-          <a href="{{route('dogs.index')}}" class="{{Nav::isResource('dogs', 2)}}">Manage All Dogs</a>
+          <a href="{{route('dogs.index')}}" class="{{Nav::isResource('dogs', 2)}}">All Dogs</a>
+        </li>
+        <li>
+          <a href="{{route('entries.all.application')}}" class="{{Nav::isRoute('entries.all.application')}}"> All Applications</a>
         </li>
       </ul>
 

@@ -49,6 +49,7 @@ class ShowEntriesController extends Controller
         $userId = Auth::id();
         // $application = ShowEntry::where('id', $userId)->first();
         $applications = DB::table('show_entries')
+        ->where('user_id', $userId)
         ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
         ->join('events', 'show_entries.event_id', '=', 'events.id')
         ->select('dogs.dog_name', 'events.title')
@@ -59,6 +60,28 @@ class ShowEntriesController extends Controller
         // }
         return view('manage.entries.show')->withApplications($applications);
     }
+
+      /**
+       * Display the the all applications mad by users.
+       *
+       * @param  int  $id
+       * @return \Illuminate\Http\Response
+       */
+
+      public function showAllApplications()
+      {
+          // $application = ShowEntry::where('id', $userId)->first();
+          $applications = DB::table('show_entries')
+          ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
+          ->join('events', 'show_entries.event_id', '=', 'events.id')
+          ->select('dogs.dog_name', 'events.title')
+          ->get();
+          dd($applications);
+          // foreach ($applications as $application) {
+          //   dd($application->title);
+          // }
+          return view('manage.entries.show')->withApplications($applications);
+      }
 
     /**
      * Store a newly created resource in storage.
