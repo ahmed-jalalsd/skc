@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Dog;
 use App\ShowEntry;
+
 use Auth;
 use Session;
+use DB;
 
 class ShowEntriesController extends Controller
 {
@@ -31,7 +33,8 @@ class ShowEntriesController extends Controller
     {
         // To find the user's dogs
         $userId = $request->user()->id;
-        $dogs = Dog::where('id', $userId)->first();
+        $dogs = Dog::where('id', $userId)->get();
+        // $dogs = DB::table('dogs')->where('id', '=', $userId)->get();
         // dd($dogs);
         return view('manage.entries.create')->withEvent($event)->withDogs($dogs);
     }
@@ -45,9 +48,18 @@ class ShowEntriesController extends Controller
     public function showApplications()
     {
         $userId = Auth::id();
-        $application = ShowEntry::where('id', $userId)->first();
-        dd($application);
-        return view('manage.entries.show');
+        // $application = ShowEntry::where('id', $userId)->first();
+        $applications = DB::table('show_entries')
+        ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
+        ->join('events', 'show_entries.event_id', '=', 'events.id')
+        ->select('dogs.dog_name', 'events.title')
+        ->get();
+        // dd($applications);
+        // foreach ($applications as $application) {
+        //   dd($application->title);
+        // }
+
+        return view('manage.entries.show')->withApplications($applications);
     }
 
     /**

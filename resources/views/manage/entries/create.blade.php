@@ -25,7 +25,7 @@
             <b-field label="Choose the dog" name="dog_id">
                 <b-select placeholder="Select the Dog" name="dog_id" required >
                   @foreach ($dogs as $dog)
-                    <option value="{{$dogs->id}}">{{$dogs->dog_name}} | {{$dogs->breeds->breed}}</option>
+                    <option value="{{$dog->id}}">{{$dog->dog_name}} | {{$dog->breeds->breed}}</option>
                   @endforeach
                 </b-select>
             </b-field>
