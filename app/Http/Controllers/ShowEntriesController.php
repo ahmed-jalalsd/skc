@@ -33,14 +33,13 @@ class ShowEntriesController extends Controller
     {
         // To find the user's dogs
         $userId = $request->user()->id;
-        $dogs = Dog::where('id', $userId)->get();
-        // $dogs = DB::table('dogs')->where('id', '=', $userId)->get();
+        $dogs = Dog::where('user_id', $userId)->get();
         // dd($dogs);
         return view('manage.entries.create')->withEvent($event)->withDogs($dogs);
     }
 
     /**
-     * Display the specified resource.
+     * Display the the user's applications.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -58,7 +57,6 @@ class ShowEntriesController extends Controller
         // foreach ($applications as $application) {
         //   dd($application->title);
         // }
-
         return view('manage.entries.show')->withApplications($applications);
     }
 
@@ -82,7 +80,7 @@ class ShowEntriesController extends Controller
         $showEntry->save();
 
         Session::flash('success', 'Successfully applied to the event ');
-        return redirect()->route('entries.index');
+        return redirect()->route('manage.entries.show');
     }
 
     /**

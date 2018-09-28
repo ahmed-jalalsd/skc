@@ -15,18 +15,38 @@
 
           <div class="column is-three-quarters-desktop is-three-quarters-tablet">
 
-            @foreach ($applications as $application)
-            <div class="field">
-    					<label for="name" class="label">Dog name</label>
-    					<pre>{{$application->dog_name}}</pre>
-    				</div>
-
-    				<div class="field">
-    					<label for="event" class="label">Event Name</label>
-    					<pre>{{$application->title}}</pre>
-    				</div>
-            @endforeach
-
+            @if($applications)
+              @foreach ($applications as $application)
+                <div class="box">
+                  <article class="media">
+                    <div class="media-left">
+                      <figure class="image is-64x64">
+                        <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>{{$application->title}}</strong> <small>@Date</small> <small>31m</small>
+                          <br>
+                          {{$application->dog_name}}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              @endforeach
+            @else
+              <div class="box">
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>You did not applied to any event yet</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            @endif
           </div><!-- End of .column is-three-quarters-desktop -->
 
       </div><!-- End of .columns -->
