@@ -47,14 +47,15 @@ class ShowEntriesController extends Controller
     public function showApplications()
     {
         $userId = Auth::id();
-        // $application = ShowEntry::where('id', $userId)->first();
+        $application = ShowEntry::where('id', $userId)->first();
+        // dd($application);
         $applications = DB::table('show_entries')
         ->where('user_id', $userId)
         ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
         ->join('events', 'show_entries.event_id', '=', 'events.id')
         ->select('dogs.dog_name', 'events.title')
         ->get();
-        // dd($applications);
+        dd($applications);
         // foreach ($applications as $application) {
         //   dd($application->title);
         // }
@@ -76,7 +77,7 @@ class ShowEntriesController extends Controller
           ->join('events', 'show_entries.event_id', '=', 'events.id')
           ->select('dogs.dog_name', 'events.title')
           ->get();
-          dd($applications);
+          // dd($applications);
           // foreach ($applications as $application) {
           //   dd($application->title);
           // }

@@ -15,10 +15,12 @@ class CreateShowEntriesTable extends Migration
     {
         Schema::create('show_entries', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->integer('dog_id')->unsigned();
             $table->integer('event_id')->unsigned();
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('dog_id')->references('id')->on('dogs')->onDelete('cascade');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
