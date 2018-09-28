@@ -47,19 +47,30 @@ class ShowEntriesController extends Controller
     public function showApplications()
     {
         $userId = Auth::id();
-        $application = ShowEntry::where('id', $userId)->first();
-        // dd($application);
+
+        // $dogs = ShowEntry::join('dogs', function($q) use ($userId)
+        // {
+        //     $q->on('show_entries.dog_id', '=', 'dogs.id')
+        //       ->where('show_entries.user_id', '=', "$userId");
+        // })
+        //   ->get(['dogs.dog_name']);
+        //
+        // $events = ShowEntry::join('events', function($q) use ($userId)
+        // {
+        //     $q->on('show_entries.event_id', '=', 'events.id')
+        //       ->where('show_entries.user_id', '=', "$userId");
+        // })
+        //   ->get(['events.title']);
+        // dd($events);
+
         $applications = DB::table('show_entries')
-        ->where('user_id', $userId)
-        ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
-        ->join('events', 'show_entries.event_id', '=', 'events.id')
-        ->select('dogs.dog_name', 'events.title')
-        ->get();
-        dd($applications);
-        // foreach ($applications as $application) {
-        //   dd($application->title);
-        // }
-        return view('manage.entries.show')->withApplications($applications);
+        ->join('dogs', 'dogs.id', '=', 'show_entries.dog_id')
+                      ->join('events', 'events.id', '=', 'show_entries.event_id')
+                      ->where('show_entries.user_id', '=', $userId)
+                      ->select('dogs.dog_name', 'events.title')
+                      ->get();
+                      // dd($applications);
+        return view('manage.entries.show', compact('applications'));
     }
 
       /**
@@ -71,12 +82,13 @@ class ShowEntriesController extends Controller
 
       public function showAllApplications()
       {
-          // $application = ShowEntry::where('id', $userId)->first();
           $applications = DB::table('show_entries')
           ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
           ->join('events', 'show_entries.event_id', '=', 'events.id')
-          ->select('dogs.dog_name', 'events.title')
+          ->join('users', 'show_entries.user_id', '=', 'users.id')
+          ->select('dogs.dog_name', 'events.title', 'users.name', 'users.email')
           ->get();
+          dd($applications);
           // dd($applications);
           // foreach ($applications as $application) {
           //   dd($application->title);
@@ -98,13 +110,16 @@ class ShowEntriesController extends Controller
             'dog_id' => 'required',
         ]);
 
+        $userId = $request->user()->id;
+
         $showEntry = new ShowEntry();
+        $showEntry->user_id = $userId;
         $showEntry->dog_id = $request->dog_id;
         $showEntry->event_id = $request->event_id;
         $showEntry->save();
 
         Session::flash('success', 'Successfully applied to the event ');
-        return redirect()->route('manage.entries.show');
+        return redirect()->view('manage.entries.show');
     }
 
     /**
