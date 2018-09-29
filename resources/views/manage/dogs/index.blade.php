@@ -85,7 +85,6 @@
         </div>
       @endforeach
       </div>
-
 			{{$dogs->links()}}
   </div>
 @endsection
