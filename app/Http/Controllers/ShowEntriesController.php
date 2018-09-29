@@ -13,6 +13,12 @@ use DB;
 
 class ShowEntriesController extends Controller
 {
+
+    public function __construct()
+    {
+      $this->middleware('role:superadministrator|administrator|member');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -86,14 +92,14 @@ class ShowEntriesController extends Controller
           ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
           ->join('events', 'show_entries.event_id', '=', 'events.id')
           ->join('users', 'show_entries.user_id', '=', 'users.id')
-          ->select('dogs.dog_name', 'events.title', 'users.name', 'users.email')
-          ->get();
-          dd($applications);
+          ->select('dogs.dog_name', 'events.title', 'users.name', 'users.email', 'users.phone_number')
+          ->paginate(2);
+          // dd($applications);
           // dd($applications);
           // foreach ($applications as $application) {
           //   dd($application->title);
           // }
-          return view('manage.entries.show')->withApplications($applications);
+          return view('manage.entries.allApplicants')->withApplications($applications);
       }
 
     /**
