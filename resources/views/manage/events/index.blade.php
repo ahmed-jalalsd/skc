@@ -29,6 +29,7 @@
 							<th>Title</th>
 							<th>Excerpt</th>
 							<th>Author</th>
+							<th>With Application</th>
 							<th>Date Created</th>
 							<th style="text-align:center;">Actions</th>
 						</tr>
@@ -40,7 +41,8 @@
 								<th>{{$event->id}}</th>
 								<td>{{$event->title}}</td>
 								<td>{{substr($event->excerpt,0,30) }} {{ strlen($event->excerpt) > 30 ? "..." : "" }}</td>
-                <td>{{Auth::user()->name}}</td>
+                <td>{{$event->users->name}}</td>
+								<td>{{ $event->flag_application ? 'No' : 'Yes' }}</td>
 								<td>{{$event->created_at->toFormattedDateString()}}</td>
 								<td class="action-content">
                   <a href="{{ route('events.show', $event->id) }}" class="m-r-5">

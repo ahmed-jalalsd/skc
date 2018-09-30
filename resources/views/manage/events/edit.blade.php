@@ -17,12 +17,12 @@
         <div class="column is-three-quarters-desktop is-three-quarters-tablet">
 
           <b-field  type="is-primary">
-            <b-input type="text" name="title" value="{{$event->title}}" size="is-large" v-model="title">
+            <b-input type="text" name="title" size="is-large" v-model="title">
             </b-input>
           </b-field>
 
-          <slug-widget url="{{url('/')}}" subdirectory="events" :title="title" @copied="slugCopied" @slug-changed="updateSlug"></slug-widget>
-          <input type="hidden" v-model="slug" name="slug"  value="{{$event->slug}}"/>
+          <slug-widget url="{{url('/')}}" subdirectory="events" :title="title" @copied="slugCopied" @slug-changed="updateSlug" v-model="slug"></slug-widget>
+          <input type="hidden" v-model="slug" name="slug" />
 
           <div class="block m-t-40">
             <multi-drag-drop></multi-drag-drop>
@@ -70,9 +70,9 @@
                     <div class="control">
                       <div class="select is-primary">
                         <select name="cta" required>
-                          <option value="{{$event->cta}}"></option>
+                          <option value="{{$event->flag_application}}">{{ $event->flag_application ? 'Without Applcation Form' : 'With Applcation Form' }}</option>
                           <option value="1">With Applcation Form</option>
-                          <option value="2">Without Applcation Form</option>
+                          <option value="0">Without Applcation Form</option>
                         </select>
                       </div>
                     </div>
@@ -105,8 +105,8 @@
     var app = new Vue({
       el: '#app',
       data: {
-        title: '',
-        slug: '',
+        title: '{{$event->title}}',
+        slug: '{{$event->slug}}',
         api_token: '{{Auth::user()->api_token}}',
       },
       methods: {

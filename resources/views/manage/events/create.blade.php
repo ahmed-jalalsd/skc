@@ -72,7 +72,7 @@
                           <select name="cta" required>
                             <option>Select dropdown</option>
                             <option value="1">With Applcation Form</option>
-                            <option value="2">Without Applcation Form</option>
+                            <option value="0">Without Applcation Form</option>
                           </select>
                         </div>
                       </div>
