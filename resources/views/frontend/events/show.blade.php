@@ -46,7 +46,76 @@
           <!--  With Applcation Form -->
           @if($event->flag_application == 1 && Auth::user())
             <div class="application-form">
-              <a href="#" class="button skc-btn">apply</a>
+              <a class="button skc-btn js-modal-trigger">apply</a>
+
+              <div class="apply-modal modal">
+
+                <div class="modal-background"></div>
+
+                <div class="modal-content">
+                  <form method="POST" action="{{route('entries.store')}}">
+                    {{ csrf_field() }}
+                      <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label for="event_name" class="label">Event</label>
+                        </div>
+                        <div class="field-body">
+                          <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                              <input class="input" id="event_name" type="text" name="event_name" value="{{ $event->title }}" readonly style= "opacity: 0.5 !important;
+                                  cursor: not-allowed;" autofocus>
+                                <span class="icon is-small is-left">
+                                  <i class="fas fa-calendar-alt"></i>
+                                </span>
+                            </p>
+                            @if ($errors->has('event_name'))
+                              <p class="help is-danger">
+                                {{ $errors->first('event_name') }}
+                              </p>
+                            @endif
+                          </div>
+                        </div>
+                      </div>
+
+                    <div class="field is-horizontal">
+                      <div class="field-label">
+                        <label for="dog_id" class="label">Choose the dog</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icons-left">
+                            <div class="select is-fullwidth">
+                              <select name="dog_id" required >
+                                @foreach ($dogs as $dog)
+                                  <option value="{{$dog->id}}">{{$dog->dog_name}} | {{$dog->breeds->breed}}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                              <img src="https://png.icons8.com/ios/24/000000/dog.png">
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="event_id" value="{{$event->id}}">
+
+                    <div class="field is-horizontal">
+                        <div class="field-body">
+                            <div class="field is-grouped custom-align">
+                                <div class="control">
+                                  <button class="button is-primary">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  </form>
+                </div>
+                  <button class="modal-close is-large" aria-label="close"></button>
+              </div>
+
             </div>
           @elseif($event->flag_application == 1 && Auth::guest())
             <div class="application-form">
@@ -211,8 +280,7 @@
               </div>
             </div>
           @else
-          <div class="application-form">
-          </div>
+          <div class="application-form"></div>
           @endif
         </article>
 
@@ -248,5 +316,6 @@
       $(".modal").removeClass("is-active");
     });
   </script>
+
 
 @endsection

@@ -48,6 +48,18 @@ html {
         margin-top: -1.4rem;
         margin-left: 2rem;
       }
+      .apply-modal {
+        .modal-content {
+          .label {
+            text-align: left;
+            color: #E2ECF6;
+            font-size: 1.18rem;
+          }
+          .button.is-primary {
+            background-color: $skc-black;
+          }
+        }
+      }
     }
     .breedcrumbs {
       h6 {

@@ -34,9 +34,15 @@
 								<td>{{$event->title}}</td>
 								<td>{{$event->created_at->toFormattedDateString()}}</td>
 								<td class="action-content">
-									<a href="{{route('apply.event', $event->id)}}" title="Submit your dog to the event" class="button is-primary backend-btn">
-                    apply
-									</a>
+									@if($event->flag_application == 1)
+										<a href="{{route('apply.event', $event->id)}}" title="Submit your dog to the event" class="button is-primary backend-btn">
+	                    apply
+										</a>
+									@else
+										<a href="{{route('apply.event', $event->id)}}" disabled title="Submit your dog to the event" class="button is-primary backend-btn">
+											apply
+										</a>
+									@endif
 								</td>
 							</tr>
 						@endforeach

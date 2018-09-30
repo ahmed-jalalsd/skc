@@ -30632,6 +30632,16 @@ html body .single-event .side-bar {
   margin-left: 2rem;
 }
 
+html body .single-event .apply-modal .modal-content .label {
+  text-align: left;
+  color: #E2ECF6;
+  font-size: 1.18rem;
+}
+
+html body .single-event .apply-modal .modal-content .button.is-primary {
+  background-color: #1f2427;
+}
+
 html body .breedcrumbs h6 {
   color: #2b7386;
   margin: 1rem 0;

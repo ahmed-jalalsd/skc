@@ -12393,7 +12393,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('multi-drag-drop', __webpa
 // import registrationModal from './components/registrationModal';
 // Vue.component( 'registration-modal', registrationModal );
 
-
 // var app = new Vue({
 //       el: '#app',
 //       data: {

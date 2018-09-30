@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Dog;
+use Auth;
 
 class EventsPageController extends Controller
 {
@@ -63,8 +65,14 @@ class EventsPageController extends Controller
         ->groupBy('year', 'month')
         ->orderByRaw('min(created_at) desc')
         ->get()->toArray();
-      // dd($event);
-      return view('frontend.events.show')->withEvent($event)->withImages($images)->withArchives($archives);
+      if (Auth::user()) {
+        $userId = auth()->user()->id;
+        $dogs = Dog::where('user_id', $userId)->get();
+        return view('frontend.events.show')->withEvent($event)->withImages($images)->withArchives($archives)->withDogs($dogs);
+      }else {
+        return view('frontend.events.show')->withEvent($event)->withImages($images)->withArchives($archives);
+      }
+
     }
 
     /**
