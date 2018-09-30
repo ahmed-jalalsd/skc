@@ -42,7 +42,7 @@
 								<td>{{$event->title}}</td>
 								<td>{{substr($event->excerpt,0,30) }} {{ strlen($event->excerpt) > 30 ? "..." : "" }}</td>
                 <td>{{$event->users->name}}</td>
-								<td>{{ $event->flag_application ? 'No' : 'Yes' }}</td>
+								<td>{{ $event->flag_application ? 'Yes' : 'No' }}</td>
 								<td>{{$event->created_at->toFormattedDateString()}}</td>
 								<td class="action-content">
                   <a href="{{ route('events.show', $event->id) }}" class="m-r-5">

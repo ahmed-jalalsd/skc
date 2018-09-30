@@ -70,7 +70,7 @@
                     <div class="control">
                       <div class="select is-primary">
                         <select name="cta" required>
-                          <option value="{{$event->flag_application}}">{{ $event->flag_application ? 'Without Applcation Form' : 'With Applcation Form' }}</option>
+                          <option value="{{$event->flag_application}}">{{ $event->flag_application ? 'With Applcation Form' : 'Without Applcation Form' }}</option>
                           <option value="1">With Applcation Form</option>
                           <option value="0">Without Applcation Form</option>
                         </select>
