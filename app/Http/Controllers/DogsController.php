@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Input;
+
 use App\User;
 use App\Dog;
 use App\Breed;
 use App\Group;
 use DB;
-use session;
+use Session;
 use File;
 use Image;
 use Storage;
@@ -108,6 +109,7 @@ class DogsController extends Controller
 
       $dog->dog_images = json_encode($data);
       $dog->save();
+      Session::flash('success', 'The dog was successfully added');
 
       return redirect()->route('dogs.index');
       // dd($user);
@@ -205,6 +207,7 @@ class DogsController extends Controller
 
         $dog->dog_images = json_encode($data);
         $dog->save();
+        Session::flash('update', 'The dog details was successfully updated');
 
         return redirect()->route('dogs.index');
     }
@@ -220,6 +223,7 @@ class DogsController extends Controller
       $dog = Dog::findOrFail($id);
       Storage::delete($dog->dog_images);
       $dog->delete();
+      Session::flash('danger', 'The dog was successfully deleted');
 
       return redirect()->route('dogs.index');
     }

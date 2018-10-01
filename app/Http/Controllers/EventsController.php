@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+
 use App\Event;
 use DB;
-use session;
+use Session;
 use File;
 use Image;
 use Storage;
@@ -101,7 +102,7 @@ class EventsController extends Controller
         }
         $event->images = json_encode($data);
         $event->save();
-
+        Session::flash('success', 'The' . $event->title . 'Event was successfully created');
         return redirect()->route('events.show', $event->id);
 
     }
@@ -204,9 +205,9 @@ class EventsController extends Controller
       }
 
       $event->images = json_encode($data);
+      $event->save();
 
-        $event->save();
-
+      Session::flash('update', 'The' . $event->title . 'event was successfully updated');
       return redirect()->route('events.show', $event->id);
     }
 
@@ -223,7 +224,7 @@ class EventsController extends Controller
       Storage::delete($event->images);
       Storage::delete($event->featured_image);
 
-
+      Session::flash('danger', 'The' . $event->title  . 'event was successfully deleted');
       $event->delete();
 
       return redirect()->route('events.index');

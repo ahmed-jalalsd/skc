@@ -60,11 +60,11 @@
                   <div class="column is-one-half">
                     <form  action="{{ route('galleries.destroy', $gallery->id) }}" method="POST" enctype="multipart/form-data">
                       <input name="_method" type="hidden" value="DELETE">
-                      <a type="submit">
-                        <span class="icon m-r-10">
+                      <button class="button" style="border:none;">
+                        <span class="icon m-r-10" style="width:250%">
     					            <img src="{{ asset('images/backend/delete.png') }}" alt="link to edit">
     					          </span>
-                      </a>
+                      </button>
                       <input type="hidden" name="_token" value="{{Session::token()}}">
                     </form>
                   </div>

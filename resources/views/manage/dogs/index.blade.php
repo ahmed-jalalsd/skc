@@ -64,11 +64,11 @@
                      <div class="column is-one-half">
                        <form  action="{{ route('dogs.destroy', $dog->id) }}" method="POST" enctype="multipart/form-data">
                          <input name="_method" type="hidden" value="DELETE">
-                         <a type="submit" class=" m-t-5">
-                           <span class="icon m-r-10">
+                         <button class="button" style="border:none;width: 100%;padding: 0;">
+                           <span class="icon">
                              <img src="{{ asset('images/backend/delete.png') }}" alt="link to edit">
                            </span>
-                         </a>
+                         </button>
                          <input type="hidden" name="_token" value="{{Session::token()}}">
                        </form>
                    </div>

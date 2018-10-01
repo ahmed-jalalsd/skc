@@ -1,21 +1,5 @@
-{{--
-This makes a great "partial" to add to your template layout file. It will self manage your
-notifications so you do not need to worry about displaying them. Simply just add notifications
-using LaraFlash (Laravel Package) in your controllers, and they will display intelligently
-and elegantly into your views.
+<!-- See comments on this GitHub Gist page for more details and links or explanation. https://gist.github.com/jacurtis/9fa687e8f7512bb197decce7ffc30091 -->
 
-Simply use an @include statement in your main template/layout file to this partial so that 
-this partial is included with every view. The rest can be set once and forgotten.
-
-Requirements:
-1. Lodash
-2. Vue.js
-3. Buefy
-4. LaraFlash
-5. Laravel/Blade (obviously)
-
-See comments on this GitHub Gist page for more details and links or explanation. https://gist.github.com/jacurtis/9fa687e8f7512bb197decce7ffc30091
---}}
 
 <div id="toast-notifications" style="display:none;"></div>
 

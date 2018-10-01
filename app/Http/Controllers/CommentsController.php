@@ -55,7 +55,7 @@ class CommentsController extends Controller
       // $comment->comments()->save($reply);
 
       $comment->addComment($request->body);
-      
+
       return back();
     }
 }

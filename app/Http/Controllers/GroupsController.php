@@ -70,6 +70,7 @@ class GroupsController extends Controller
       $breed->varieties = json_encode($varietiesArray);
       $breed->save();
 
+      Session::flash('success', 'The' . $breed->breed . 'Breed was successfully added');
       return redirect()->route('groups.index');
     }
 
@@ -139,6 +140,7 @@ class GroupsController extends Controller
       $breed->varieties = json_encode($varietiesArray);
       $breed->save();
 
+      Session::flash('update', 'The' . $breed->breed . 'details were successfully updated');
       return redirect()->route('groups.index');
     }
 

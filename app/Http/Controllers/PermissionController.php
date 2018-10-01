@@ -53,15 +53,15 @@ class PermissionController extends Controller
             Session::flash('success', 'Permission has been successfully added');
             return redirect()->route('permissions.index');
         } elseif ($request->permission_type == 'crud') {
-            
+
             $this->validateWith([
                 'resource' => 'required|min:3|max:100|alpha'
                 ]);
 
             $crud = explode(',', $request->crud_selected);
-            
+
             if (count($crud) > 0) {
-                
+
                 foreach ($crud as $x) {
                     $slug = strtolower($x) . '-' . strtolower($request->resource);
                     $display_name = ucwords($x . " " . $request->resource);
@@ -122,7 +122,7 @@ class PermissionController extends Controller
         $permission->display_name = $request->display_name;
         $permission->description = $request->description;
         $permission->save();
-        Session::flash('success', 'Updated the '. $permission->display_name . ' permission.');
+        Session::flash('update', 'Updated the '. $permission->display_name . ' permission.');
         return redirect()->route('permissions.show', $id);
     }
 

@@ -134,6 +134,7 @@ class ShowEntriesController extends Controller
 
         if ($showEntry->save())
        {
+           Session::flash('success', 'Your application was successfully recived, please check your email');
            Mail::to($userEmail)->send(new ApplicationConfirmationEmail($userName, $eventName));
            return redirect()->back()->with('alert','You have successfully applied for our Newsletter');
        }else{

@@ -31,7 +31,7 @@
           <a href="{{route('logout')}}" class="is-hidden-mobile" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
           </a>
-           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+           <form id="logout-form-frontend" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
           </form>
         @endguest

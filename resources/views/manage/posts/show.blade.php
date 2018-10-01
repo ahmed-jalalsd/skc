@@ -38,24 +38,26 @@
       				</a>
             </p>
 
+						<form class="card-footer-item" action="{{ route('posts.destroy', $post->id) }}" method="POST" enctype="multipart/form-data">
+							{{ csrf_field() }}
+							{{method_field('DELETE')}}
+							<button class="button" style="border:none;">
+								<span class="icon m-r-10" style="width:50%">
+									<img src="{{ asset('images/backend/delete.png') }}" alt="link to delete">
+								</span>
+							</button>
+            </form>
 
-							<!-- <form class="card-footer-item" action="{{ route('posts.destroy', $post->id) }}" method="POST" enctype="multipart/form-data">
-								{{ csrf_field() }}
-								<a  class="button is-danger is-pulled-right">
-	      					<i class="fa fa-user-plus delete is-small m-r-10"></i>
-	      					Delete Post
-	      				</a>
-              </form> -->
-
-							<form class="card-footer-item"  action="{{ route('posts.destroy', $post->id) }}" method="POST" enctype="multipart/form-data">
-                <input name="_method" type="hidden" value="DELETE">
-                <a type="submit" class="">
-									<span class="icon m-r-10">
-										<img src="{{ asset('images/backend/delete.png') }}" alt="link to delete">
-									</span>
-								</a>
-                <input type="hidden" name="_token" value="{{Session::token()}}">
-              </form>
+						<!-- <form class="card-footer-item"  action="{{ route('posts.destroy', $post->id) }}" method="POST" enctype="multipart/form-data">
+							{{method_field('DELETE')}}
+				        {{csrf_field()}}
+              <a type="submit" class="form-submit">
+								<span class="icon m-r-10">
+									<img src="{{ asset('images/backend/delete.png') }}" alt="link to delete">
+								</span>
+							</a>
+              <input type="hidden" name="_token" value="{{Session::token()}}">
+            </form> -->
 
           </footer>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Breed;
 
 class BreedsController extends Controller
@@ -21,9 +22,6 @@ class BreedsController extends Controller
     public function index()
     {
         $breeds = Breed::orderBy('id', 'asc')->paginate(10);
-        // foreach ($breeds as $breed) {
-        //    dd($breed->varieties);
-        // }
         return view('manage.breeds.index')->withBreeds($breeds);
     }
 

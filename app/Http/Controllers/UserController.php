@@ -87,9 +87,10 @@ class UserController extends Controller
         $user->save();
 
         if ($request->roles) {
-            $user->syncRoles(explode(',', $request->roles));
-          }
+          $user->syncRoles(explode(',', $request->roles));
+        }
 
+        Session::flash('success', 'The user was successfully saved');
         return redirect()->route('users.show', $user->id);
 
         // if ($user->save()) {
@@ -164,6 +165,7 @@ class UserController extends Controller
         $user->save();
 
         $user->syncRoles(explode(',', $request->roles));
+        Session::flash('update', 'The user was successfully updated');
         return redirect()->route('users.show', $id);
 
         // if () {

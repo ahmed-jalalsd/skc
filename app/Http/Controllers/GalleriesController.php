@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+
 use App\Gallery;
 use App\Photo;
 use DB;
-use session;
+use Session;
 use File;
 use Image;
 use Storage;
@@ -90,10 +91,11 @@ class GalleriesController extends Controller
       }
 
       if($uploadcount == $file_count){
+        Session::flash('success', " The $gallery->title Gallery was successfully created ");
         return redirect()->route('galleries.index', $gallery);
       }
       else{
-          return view('manage.dashboard')->with('danger', 'Uploaded fail');
+        return view('manage.dashboard');
       }
 
     }
@@ -185,6 +187,7 @@ class GalleriesController extends Controller
         }
 
         if($uploadcount == $file_count){
+          Session::flash('update', 'The' . $gallery->title . 'was successfully updated');
           return redirect()->route('galleries.index', $gallery);
         }else {
           return redirect()->route('manage.dashboard');
@@ -205,7 +208,7 @@ class GalleriesController extends Controller
       Storage::delete($gallery->images);
       Storage::delete($gallery->featured_image);
       $gallery->delete();
-
+      Session::flash('danger', 'The' . $gallery->title . 'was successfully updated');
       return redirect()->route('galleries.index');
     }
 

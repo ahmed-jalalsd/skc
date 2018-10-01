@@ -18,12 +18,12 @@
         @include('_partials.nav.manage')
 
         <div class="management-area" id="app">
+            @include('_partials.notifications.messages')
             @yield('content')
         </div>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
-        @include('_partials.notifications.toast')
         @yield('scripts')
     </body>
 </html>

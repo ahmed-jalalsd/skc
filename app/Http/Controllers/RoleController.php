@@ -52,12 +52,12 @@ class RoleController extends Controller
         $role->display_name = $request->display_name;
         $role->name = $request->name;
         $role->description = $request->description;
-        $role->save();  
+        $role->save();
 
         if ($request->permissions) {
-            $role->syncPermissions(explode(',', $request->permissions));    
+            $role->syncPermissions(explode(',', $request->permissions));
         }
-        
+
         Session::flash('success', 'Successfully created the ' . $role->display_name . ' role in the database');
         return redirect()->route('roles.show', $role->id);
     }
@@ -106,13 +106,13 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
         $role->display_name = $request->display_name;
         $role->description = $request->description;
-        $role->save();  
+        $role->save();
 
         if ($request->permissions) {
-            $role->syncPermissions(explode(',', $request->permissions));    
+            $role->syncPermissions(explode(',', $request->permissions));
         }
-        
-        Session::flash('success', 'Successfully update the ' . $role->display_name . ' role in the database');
+
+        Session::flash('update', 'Successfully update the ' . $role->display_name . ' role in the database');
         return redirect()->route('roles.show', $id);
     }
 

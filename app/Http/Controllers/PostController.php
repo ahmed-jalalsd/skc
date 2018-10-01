@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+
 use App\Post;
 use App\User;
 use DB;
-use session;
+use Session;
 use File;
 use Image;
 use Storage;
@@ -55,7 +56,7 @@ class PostController extends Controller
       // dd($request->all()) ;
       // dd($request->hasFile('main_image'));
        $this->validate($request, [
-           "title" => "required | max:255 ",
+           "title" => "required|max:80",
            "slug" => "required|max:80",
            'excerpt' => 'sometimes|max:255',
            'content' => 'required',
@@ -88,6 +89,7 @@ class PostController extends Controller
       }
 
       $post->save();
+      Session::flash('success', 'The blog post was successfully saved');
       return redirect()->route('posts.show', $post->id);
     }
 
@@ -100,7 +102,7 @@ class PostController extends Controller
     public function show($id)
     {
       $post = Post::findOrFail($id);
-        return view('manage.posts.show')->withPost($post);
+      return view('manage.posts.show')->withPost($post);
     }
 
     /**
@@ -168,6 +170,7 @@ class PostController extends Controller
      }
 
      $post->save();
+     Session::flash('update', 'The blog post was successfully updated');
      return redirect()->route('posts.show', $post->id);
     }
 
@@ -186,7 +189,7 @@ class PostController extends Controller
 
 
         $post->delete();
-
+        Session::flash('danger', 'The blog post was successfully deleted');
         return redirect()->route('posts.index');
     }
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use LaraFlash;
 use App\Event;
 
 class HomeController extends Controller
@@ -15,9 +14,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        LaraFlash::add()->content('Hello World')->priority(6)->type('info');
-        LaraFlash::success('Yay');
-        LaraFlash::danger('Oops');
         $events = Event::orderBy('id', 'desc')->with('users')->limit(6)->get();
 
         // create fb developer user
