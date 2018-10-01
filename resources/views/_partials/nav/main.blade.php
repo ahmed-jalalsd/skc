@@ -27,6 +27,13 @@
         @guest
           <a href="{{route('login')}}" class="navbar-item is-tab">Login</a>
           <a href="{{route('register')}}" class="navbar-item is-tab">Register</a>
+        @else
+          <a href="{{route('logout')}}" class="is-hidden-mobile" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Logout
+          </a>
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+          </form>
         @endguest
       </div>
 

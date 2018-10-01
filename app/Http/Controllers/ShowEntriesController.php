@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Mail\ApplicationConfirmationEmail;
 use App\Event;
 use App\Dog;
 use App\ShowEntry;
 
+
 use Auth;
 use Session;
 use DB;
+use Mail;
 
 class ShowEntriesController extends Controller
 {
@@ -117,15 +121,40 @@ class ShowEntriesController extends Controller
         ]);
 
         $userId = $request->user()->id;
+        $userEmail = $request->user()->email;
+        $userName = $request->user()->name;
+        $eventName = $request->event_name;
 
         $showEntry = new ShowEntry();
         $showEntry->user_id = $userId;
         $showEntry->dog_id = $request->dog_id;
         $showEntry->event_id = $request->event_id;
-        $showEntry->save();
 
-        Session::flash('success', 'Successfully applied to the event ');
-        return redirect()->view('manage.entries.show');
+        // $showEntry->save();
+
+        if ($showEntry->save())
+       {
+           Mail::to($userEmail)->send(new ApplicationConfirmationEmail($userName, $eventName));
+           return redirect()->back()->with('alert','You have successfully applied for our Newsletter');
+       }else{
+           return redirect()->back()->withErrors($validator);
+       }
+
+
+        // if ($showEntry->save())
+        // {
+        //     Mail::send('email.eventEntryEmail', ['email' => $userEmail, 'event' => $eventName], function ($message)
+        //     {
+        //         $message->from('ahmedjalalsd@gmail.com', 'Goodness Kayode');
+        //         $message->to('gtkbrain@yahoo.com');
+        //     });
+        //     return redirect()->back()->with('alert','You have successfully applied for our Newsletter');
+        // }else{
+        //     return redirect()->back()->withErrors($validator);
+        // }
+        //
+        // Session::flash('success', 'Successfully applied to the event ');
+        // return redirect()->view('manage.entries.show');
     }
 
     /**
