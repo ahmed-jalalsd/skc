@@ -29,8 +29,10 @@
 							<th>Title</th>
 							<th>Excerpt</th>
 							<th>Author</th>
-							<th>With Application</th>
-							<th>Date Created</th>
+							<th>Application</th>
+							<th>Start Date</th>
+							<th>End Date</th>
+							<!-- <th>Date Created</th> -->
 							<th style="text-align:center;">Actions</th>
 						</tr>
 					</thead>
@@ -40,10 +42,12 @@
 							<tr>
 								<th>{{$event->id}}</th>
 								<td>{{$event->title}}</td>
-								<td>{{substr($event->excerpt,0,30) }} {{ strlen($event->excerpt) > 30 ? "..." : "" }}</td>
+								<td>{{substr($event->excerpt,0,20) }} {{ strlen($event->excerpt) > 20 ? "..." : "" }}</td>
                 <td>{{$event->users->name}}</td>
-								<td>{{ $event->flag_application ? 'Yes' : 'No' }}</td>
-								<td>{{$event->created_at->toFormattedDateString()}}</td>
+								<td>{{$event->flag_application ? 'Yes' : 'No' }}</td>
+								<td>{{$event->start_date}}</td>
+								<td>{{$event->end_date}}</td>
+								<!-- <td>{{$event->created_at->toFormattedDateString()}}</td> -->
 								<td class="action-content">
                   <a href="{{ route('events.show', $event->id) }}" class="m-r-5">
 										<span class="icon m-r-10 ">

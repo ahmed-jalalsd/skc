@@ -61,10 +61,24 @@
 
                 <div>
 
-                    <upload></upload>
-
+                  <upload></upload>
 
                   <div class="status-details">
+
+                    <div class="field">
+                      <label for="start_date" class="label">Start Date</label>
+                      <p class="control is-expanded ">
+                        <input id="datepickerStart" class="input" type="date" name="start_date">
+                      </p>
+                    </div>
+
+                    <div class="field">
+                      <label for="end_date" class="label">End Date</label>
+                      <p class="control is-expanded">
+                        <input id="datepickerEnd" class="input" type="date" name="end_date">
+                      </p>
+                    </div>
+
                     <div class="field">
                       <p><small>Choose if the event with application form</small></p>
                       <div class="control">

@@ -43,13 +43,15 @@
 
           <div class="card-content">
             <dl class="level">
-              <dt class="level-left">Created at:</dt>
-              <dd class="level-right"><time datetime="2016-1-1">{{ date('M j, Y H:i', strtotime($event->created_at))}}</time></dd>
+              <dt class="level-left">Start Date:</dt>
+              <!-- <dd class="level-right"><time datetime="2016-1-1">{{ date('M j, Y H:i', strtotime($event->created_at))}}</time></dd> -->
+							<dd class="level-right">{{$event->start_date}}</dd>
             </dl>
 
             <dl class="level">
-              <dt class="level-left">Last Update :</dt>
-              <dd class="level-right"><time datetime="2016-1-1">{{ date('M j, Y H:i', strtotime($event->update_at))}}</time></dd>
+              <dt class="level-left">End Date :</dt>
+              <!-- <dd class="level-right"><time datetime="2016-1-1">{{ date('M j, Y H:i', strtotime($event->update_at))}}</time></dd> -->
+							<dd class="level-right">{{$event->end_date}}</dd>
             </dl>
 
 
