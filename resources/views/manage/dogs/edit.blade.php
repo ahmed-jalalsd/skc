@@ -26,7 +26,7 @@
             <div class="field-body">
 
               <div class="field">
-                <label for="age" class="label">Age</label>
+                <label for="age" class="label">Class</label>
                   <div class="select is-fullwidth">
                     <select name="age">
                       <option value="{{$dog->age}}">{{$dog->age}}</option>

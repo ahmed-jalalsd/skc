@@ -32,13 +32,15 @@ Route::prefix('manage')->group(function(){
 	Route::get('/dashboard', 'ManageController@dashboard')->name('manage.dashboard');
 	Route::resource('/users', 'UserController');
 	Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
-  	Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
+  Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
 	Route::resource('/posts', 'PostController');
 	Route::resource('/events', 'EventsController');
 	Route::resource('/galleries', 'GalleriesController');
 	Route::resource('/dogs', 'DogsController');
 	Route::resource('/groups', 'GroupsController');
 	Route::resource('/breeds', 'BreedsController');
+	Route::resource('/results', 'ResultsController');
+
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the
 	Route::get('/show/application', 'ShowEntriesController@showApplications')->name('entries.application'); // found in nav.manage.blade.php the all applicaion link
