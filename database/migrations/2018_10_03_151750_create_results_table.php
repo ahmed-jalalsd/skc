@@ -15,6 +15,17 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('order');
+            $table->double('classification');
+
+            $table->integer('user_id')->unsigned();
+            $table->integer('dog_id')->unsigned();
+            $table->integer('event_id')->unsigned();
+
+            $table->foreign('dog_id')->references('id')->on('dogs');
+            $table->foreign('event_id')->references('id')->on('events');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
