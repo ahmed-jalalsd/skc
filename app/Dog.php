@@ -24,6 +24,11 @@ class Dog extends Model
     return $this->belongsTo(User::class, 'user_id')->withDefault();
   }
 
+  public function results()
+  {
+    return $this->belongsTo(Result::class);
+  }
+
   public function breeds()
   {
     return $this->belongsTo(Breed::class, 'breed_id')->withDefault();

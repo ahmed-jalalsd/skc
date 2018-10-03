@@ -14,6 +14,10 @@ class Event extends Model
     return $this->belongsTo(User::class, 'user_id')->withDefault();
   }
 
+  public function results(){
+    return $this->belongsTo(Result::class);
+  }
+
   public function scopeFilter($query, $filters)
   {
     if ( isset($filters['year']) ) {
