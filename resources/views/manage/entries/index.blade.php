@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 
 @section('content')
-
+<!-- to show the upcoming events to the user so he/she can apply -->
 	<div class="flex-container">
 
 		<div class="columns m-t-10">
@@ -22,7 +22,8 @@
 						<tr>
 							<th>Id</th>
 							<th>Title</th>
-							<th>Date</th>
+							<th>Start Date</th>
+							<th>End Date</th>
 							<th style="text-align:center;">Actions</th>
 						</tr>
 					</thead>
@@ -32,7 +33,8 @@
 							<tr>
 								<th>{{$event->id}}</th>
 								<td>{{$event->title}}</td>
-								<td>{{$event->created_at->toFormattedDateString()}}</td>
+								<td>{{$event->start_date}}</td>
+								<td>{{$event->end_date}}</td>
 								<td class="action-content">
 									@if($event->flag_application == 1)
 										<a href="{{route('apply.event', $event->id)}}" title="Submit your dog to the event" class="button is-primary backend-btn">
