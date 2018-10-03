@@ -22,13 +22,25 @@
               cursor: not-allowed;"></b-input>
             </b-field>
 
-            <b-field label="Choose the dog" name="dog_id">
-                <b-select placeholder="Select the Dog" name="dog_id" required >
-                  @foreach ($dogs as $dog)
-                    <option value="{{$dog->id}}">{{$dog->dog_name}} | {{$dog->breeds->breed}}</option>
-                  @endforeach
-                </b-select>
-            </b-field>
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <b-field label="Choose the dog" name="dog_id">
+                    <b-select placeholder="Select the Dog" name="dog_id" required >
+                      @foreach ($dogs as $dog)
+                        <option value="{{$dog->id}}">{{$dog->dog_name}} | {{$dog->breeds->breed}}</option>
+                      @endforeach
+                    </b-select>
+                </b-field>
+
+                <b-field label="Choose the class" name="dog_class">
+                    <b-select placeholder="Select the class" name="dog_class" required >
+                      @foreach ($dogs as $dog)
+                        <option value="{{$dog->age}}">{{$dog->age}}</option>
+                      @endforeach
+                    </b-select>
+                </b-field>
+              </div>
+            </div>
 
             <input type="hidden" name="event_id" value="{{$event->id}}">
 
