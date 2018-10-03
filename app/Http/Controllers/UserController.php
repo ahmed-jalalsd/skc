@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Role;
 use DB;
-use session;
+use Session;
 use Hash;
 use Input;
 
