@@ -57,6 +57,8 @@ class EventsController extends Controller
             'excerpt' => 'sometimes|max:255',
             'content' => 'required',
             'cta' => 'required|integer',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
             'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
@@ -68,6 +70,8 @@ class EventsController extends Controller
         $event->content = $request->content;
         $event->excerpt = $request->excerpt;
         $event->flag_application = $request->cta;
+        $event->start_date = $request->start_date;
+        $event->end_date = $request->end_date;
 
         // if($request->hasFile('images')) {
         //   $images = Input::file('images');
@@ -149,6 +153,8 @@ class EventsController extends Controller
           'excerpt' => 'sometimes|max:255',
           'content' => 'required',
           'cta' => 'required|integer',
+          'start_date' => 'required|date',
+          'end_date' => 'required|date',
           'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
           'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
       ]);
@@ -160,6 +166,8 @@ class EventsController extends Controller
       $event->content = $request->content;
       $event->excerpt = $request->excerpt;
       $event->flag_application = $request->cta;
+      $event->start_date = $request->start_date;
+      $event->end_date = $request->end_date;
 
       // if($request->hasFile('images')) {
       //   $images = Input::file('images');
