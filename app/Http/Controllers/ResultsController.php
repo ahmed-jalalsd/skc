@@ -4,8 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Event;
+use App\Dog;
+
+use Auth;
+use Session;
+use DB;
+
 class ResultsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('role:judge');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,9 @@ class ResultsController extends Controller
      */
     public function index()
     {
-        //
+      $events = Event::orderBy('id', 'asc')->where('flag_application', 1)->paginate(2);
+      // dd($events);
+      return view('manage.results.index')->withEvents($events);
     }
 
     /**

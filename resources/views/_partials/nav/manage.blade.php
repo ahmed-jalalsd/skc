@@ -104,6 +104,18 @@
 
       </ul>
     @endrole
+
+    @role('judge')
+      <p class="menu-label">
+        Administration
+      </p>
+
+      <ul class="menu-list">
+        <li>
+          <a href="{{route('results.index')}}" class="{{Nav::isResource('results')}}">All Events</a>
+        </li>
+      </ul>
+    @endrole
   </aside>
 </div>
 </div>

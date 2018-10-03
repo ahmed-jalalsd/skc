@@ -8,7 +8,7 @@ class ManageController extends Controller
 
 		public function __construct()
     {
-			$this->middleware('role:superadministrator|administrator|member');
+			$this->middleware('role:superadministrator|administrator|member|judge');
     }
 
 		public function index()
