@@ -20,16 +20,20 @@
                 <div class="box">
                   <article class="media">
                     <div class="media-left">
-                      <figure class="image is-64x64">
-                        <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                      <figure class="image is-128x128">
+                        <?php $images= json_decode($application->dog_images); ?>
+                          <img src="{!! '/images/dogs/'.$images[3] !!}" alt="">
+                        <!-- <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"> -->
                       </figure>
                     </div>
                     <div class="media-content">
                       <div class="content">
                         <p>
-                          <strong>{{$application->title}}</strong> <small>@Date</small> <small>31m</small>
+                          <strong>Event: {{$application->title}}</strong> <small>{{$application->start_date}}</small>
                           <br>
-                          {{$application->dog_name}}
+                          Dog: {{$application->dog_name}}
+                          <br>
+                          Class: {{$application->age}}
                         </p>
                       </div>
                     </div>

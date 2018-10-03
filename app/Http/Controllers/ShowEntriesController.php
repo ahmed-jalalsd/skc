@@ -24,7 +24,7 @@ class ShowEntriesController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display all upcoming events to the members so they can apply.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +35,7 @@ class ShowEntriesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form so members can apply to a specific event (route name apply.event).
      *
      * @return \Illuminate\Http\Response
      */
@@ -77,7 +77,7 @@ class ShowEntriesController extends Controller
         ->join('dogs', 'dogs.id', '=', 'show_entries.dog_id')
                       ->join('events', 'events.id', '=', 'show_entries.event_id')
                       ->where('show_entries.user_id', '=', $userId)
-                      ->select('dogs.dog_name', 'events.title')
+                      ->select('dogs.dog_name', 'dogs.age','dog_images', 'events.title', 'events.start_date')
                       ->get();
                       // dd($applications);
         return view('manage.entries.show', compact('applications'));
