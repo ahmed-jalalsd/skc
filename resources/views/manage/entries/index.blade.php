@@ -29,22 +29,16 @@
 					</thead>
 
 					<tbody>
-						@foreach ($events as $event)
+						@foreach ($upcomingEvents as $event)
 							<tr>
 								<th>{{$event->id}}</th>
 								<td>{{$event->title}}</td>
 								<td>{{$event->start_date}}</td>
 								<td>{{$event->end_date}}</td>
 								<td class="action-content">
-									@if($event->flag_application == 1)
-										<a href="{{route('apply.event', $event->id)}}" title="Submit your dog to the event" class="button is-primary backend-btn">
-	                    apply
-										</a>
-									@else
-										<a href="{{route('apply.event', $event->id)}}" disabled title="Submit your dog to the event" class="button is-primary backend-btn">
-											apply
-										</a>
-									@endif
+									<a href="{{route('apply.event', $event->id)}}" title="Submit your dog to the event" class="button is-primary backend-btn">
+                    apply
+									</a>
 								</td>
 							</tr>
 						@endforeach
@@ -53,7 +47,7 @@
 			</div>
 		</div> {{-- end of card --}}
 
-		{{$events->links()}}
+		{{$upcomingEvents->links()}}
 
 	</div> {{-- end of flex container --}}
 

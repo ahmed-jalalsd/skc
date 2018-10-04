@@ -22,7 +22,7 @@
                     <div class="media-left">
                       <figure class="image is-128x128">
                         <?php $images= json_decode($application->dog_images); ?>
-                          <img src="{!! '/images/dogs/'.$images[3] !!}" alt="">
+                          <img src="{!! '/images/dogs/'.$images[0] !!}" alt="">
                         <!-- <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"> -->
                       </figure>
                     </div>

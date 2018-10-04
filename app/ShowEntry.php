@@ -9,4 +9,10 @@ class ShowEntry extends Model
   public function results(){
     return $this->belongsTo(Result::class);
   }
+
+  public function events()
+  {
+      return $this->hasMany(Event::class);
+  }
+
 }

@@ -30,8 +30,8 @@ class ShowEntriesController extends Controller
      */
     public function index()
     {
-      $events = Event::orderBy('id', 'asc')->with('users')->paginate(10);
-      return view('manage.entries.index')->withEvents($events);
+      $upcomingEvents = Event::orderBy('id', 'asc')->with('users')->where('flag_application', '1')->paginate(10);
+      return view('manage.entries.index')->withUpcomingEvents($upcomingEvents);
     }
 
     /**
@@ -57,7 +57,6 @@ class ShowEntriesController extends Controller
     public function showApplications()
     {
         $userId = Auth::id();
-
         // $dogs = ShowEntry::join('dogs', function($q) use ($userId)
         // {
         //     $q->on('show_entries.dog_id', '=', 'dogs.id')
