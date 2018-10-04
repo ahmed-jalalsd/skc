@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Event;
 use App\Dog;
+use App\ShowEntry;
 
 use Auth;
 use Session;
@@ -25,8 +26,13 @@ class ResultsController extends Controller
      */
     public function showAllEvents()
     {
-      $events = Event::orderBy('id', 'asc')->where('flag_application', 1)->paginate(2);
-      return view('manage.results.all')->withEvents($events);
+      // $events = Event::orderBy('id', 'asc')->where('flag_application', 1)->paginate(2);
+      $currentEvents = ShowEntry::orderBy('id', 'asc')->paginate(2);
+      // foreach ($events as $value) {
+      //   dd($value->events->title);
+      // }
+      // dd($events);
+      return view('manage.results.all')->withCurrentEvents($currentEvents);
     }
 
     /**
@@ -34,9 +40,10 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, ShowEntry $showEntry)
     {
-      $events = Event::orderBy('id', 'asc')->where('flag_application', 1)->paginate(2);
+      $currentShow = ShowEntry::orderBy('id', 'asc')->where('id', $showEntry)->paginate(2);
+      dd($currentShow);
       return view('manage.results.index')->withEvents($events);
     }
 

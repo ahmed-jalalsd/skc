@@ -42,6 +42,7 @@ Route::prefix('manage')->group(function(){
 
 	Route::resource('/results', 'ResultsController');
 	Route::get('/results/all/events', 'ResultsController@showAllEvents')->name('results.all'); // to show all current events for the judge, found in nav.manage.blade.php
+	Route::get('/results/{showEntry}', 'ResultsController@index')->name('results.index'); // to show all application regarding an event for the judge
 
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the

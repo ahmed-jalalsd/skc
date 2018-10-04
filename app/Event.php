@@ -16,7 +16,7 @@ class Event extends Model
 
   public function showEntries()
   {
-      return $this->belongsTo(ShowEntry::class);
+      return $this->hasMany(ShowEntry::class);
   }
 
   public function scopeFilter($query, $filters)
