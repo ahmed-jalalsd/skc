@@ -21,8 +21,11 @@
                   <article class="media">
                     <div class="media-left">
                       <figure class="image is-128x128">
+                        @if($event->featured_image)
                           <img src="{!! '/images/events/'.$event->featured_image !!}" alt="">
-                        <!-- <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"> -->
+                        @else
+                          <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                        @endif
                       </figure>
                     </div>
                     <div class="media-content">
@@ -36,6 +39,18 @@
                         </p>
                       </div>
                     </div>
+
+                    <nav class="level is-mobile">
+                      <div class="level-left">
+                        <a href="{{route('results.create')}}" class="level-item" aria-label="reply">
+                          <span class="icon is-medium">
+                            <i class="fas fa-reply" aria-hidden="true"></i>
+                          </span>
+                          Judging area
+                        </a>
+                      </div>
+                  </nav>
+
                   </article>
                 </div>
               @endforeach

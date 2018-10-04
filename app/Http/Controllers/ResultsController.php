@@ -26,7 +26,6 @@ class ResultsController extends Controller
     public function index()
     {
       $events = Event::orderBy('id', 'asc')->where('flag_application', 1)->paginate(2);
-      // dd($events);
       return view('manage.results.index')->withEvents($events);
     }
 
