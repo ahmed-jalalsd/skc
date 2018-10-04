@@ -36,7 +36,7 @@ class ResultsController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     *  To display all application regarding an event for the judge
      *
      * @return \Illuminate\Http\Response
      */
@@ -45,22 +45,25 @@ class ResultsController extends Controller
       // dd($showEntry);
       $dogsInShow = ShowEntry::orderBy('id', 'asc')->where('event_id', '=', $showEntryId)->get();
       // foreach ($dogsInShow as $value) {
-      //   dd($value->dogs->dog_name);
+      //   dd($value->event_id);
       // }
+      $event = Event::where('id', $showEntryId)->first();
+      // dd($event);
       // dd($dogsInShow);
-      return view('manage.results.index', compact('dogsInShow'));
+      return view('manage.results.index', compact('dogsInShow', 'event'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for create a form of the dog information so the judge can rate the dog
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($dogInShowId)
     {
         //show a list of the participate dogs
-        dd('hi');
-        return view('manage.results.create');
+        $dogInfo = ShowEntry::findOrFail($dogInShowId);
+        // dd($dogInfo->dogs->dog_name);
+        return view('manage.results.create', compact('dogInfo'));
     }
 
     /**
