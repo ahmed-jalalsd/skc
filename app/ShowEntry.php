@@ -15,4 +15,9 @@ class ShowEntry extends Model
       return $this->belongsTo(Event::class, 'event_id');
   }
 
+  public function dogs()
+  {
+    return $this->belongsTo(Dog::class, 'dog_id');
+  }
+
 }

@@ -42,7 +42,7 @@
 
                     <nav class="level is-mobile">
                       <div class="level-left">
-                        <a href="" class="level-item" aria-label="reply">
+                        <a href="{{route('results.index', $currentEvent->event_id)}}" class="level-item" aria-label="reply">
                           <span class="icon is-medium">
                             <i class="fas fa-reply" aria-hidden="true"></i>
                           </span>

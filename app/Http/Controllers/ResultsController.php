@@ -40,11 +40,15 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, ShowEntry $showEntry)
+    public function index($showEntryId)
     {
-      $currentShow = ShowEntry::orderBy('id', 'asc')->where('id', $showEntry)->paginate(2);
-      dd($currentShow);
-      return view('manage.results.index')->withEvents($events);
+      // dd($showEntry);
+      $dogsInShow = ShowEntry::orderBy('id', 'asc')->where('event_id', '=', $showEntryId)->get();
+      // foreach ($dogsInShow as $value) {
+      //   dd($value->dogs->dog_name);
+      // }
+      // dd($dogsInShow);
+      return view('manage.results.index', compact('dogsInShow'));
     }
 
     /**
