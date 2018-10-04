@@ -13,13 +13,8 @@ class Result extends Model
       'order', 'classification'
   ];
 
-  public function events()
+  public function showsEntries()
   {
-    return $this->hasMany(Event::class);
-  }
-
-  public function dogs()
-  {
-    return $this->hasMany(Dog::class);
+    return $this->hasMany(ShowEntry::class);
   }
 }
