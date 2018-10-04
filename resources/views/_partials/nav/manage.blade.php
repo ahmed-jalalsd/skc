@@ -112,7 +112,7 @@
 
       <ul class="menu-list">
         <li>
-          <a href="{{route('results.index')}}" class="{{Nav::isResource('results')}}">All Events</a>
+          <a href="{{route('results.all')}}" class="{{Nav::isResource('results')}}">All Events</a>
         </li>
       </ul>
     @endrole

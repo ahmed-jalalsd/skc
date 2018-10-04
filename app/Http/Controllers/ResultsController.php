@@ -18,6 +18,17 @@ class ResultsController extends Controller
     {
         $this->middleware('role:judge');
     }
+
+    /**
+     * Display a list of all the current event
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllEvents()
+    {
+      $events = Event::orderBy('id', 'asc')->where('flag_application', 1)->paginate(2);
+      return view('manage.results.all')->withEvents($events);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +47,9 @@ class ResultsController extends Controller
      */
     public function create()
     {
-        //
+        //show a list of the participate dogs
+        dd('hi');
+        return view('manage.results.create');
     }
 
     /**

@@ -15,6 +15,6 @@ class Result extends Model
 
   public function showsEntries()
   {
-    return $this->hasMany(ShowEntry::class);
+    return $this->hasMany(ShowEntry::class, 'show_entries');
   }
 }

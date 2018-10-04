@@ -39,7 +39,9 @@ Route::prefix('manage')->group(function(){
 	Route::resource('/dogs', 'DogsController');
 	Route::resource('/groups', 'GroupsController');
 	Route::resource('/breeds', 'BreedsController');
+
 	Route::resource('/results', 'ResultsController');
+	Route::get('/results/all/events', 'ResultsController@showAllEvents')->name('results.all'); // to show all current events for the judge, found in nav.manage.blade.php
 
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the
