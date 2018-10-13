@@ -52,8 +52,8 @@
 					<div class="field-body">
 
 						<div class="field">
-							<label class="label">Age</label>
-							<pre>{{$dog->age}}</pre>
+							<label class="label">Class</label>
+							<pre>{{$dog->classes->class}}</pre>
 						</div>
 
 						<div class="field">

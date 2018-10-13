@@ -31,7 +31,7 @@ class Dog extends Model
 
   public function classes()
   {
-    return $this->belongsTo(Class::class, 'class_id')->withDefault();
+    return $this->belongsTo(DogClass::class, 'class_id')->withDefault();
   }
 
   public function showEntries()

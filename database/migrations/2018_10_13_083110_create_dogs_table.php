@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResultsTable extends Migration
+class CreateDogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class CreateResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('dogs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('order');
-            $table->double('classification');
-
-            $table->integer('show_entries_id')->unsigned();
-            $table->foreign('show_entries_id')->references('id')->on('show_entries');
-
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ class CreateResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('dogs');
     }
 }
