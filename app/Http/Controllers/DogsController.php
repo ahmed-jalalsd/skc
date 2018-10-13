@@ -37,7 +37,6 @@ class DogsController extends Controller
         if($user->hasRole('member')) {
           // $dogs = User::find('user_id')->dogs;
           $dogs = $user->dogs()->where('user_id', $user->id)->paginate(10);
-          dd($dogs->classes());
         }else {
           $dogs = Dog::orderBy('id', 'desc')->with('users','breeds')->paginate(10);
         }

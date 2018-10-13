@@ -14,7 +14,7 @@ class AddEndDateToEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            //
+            $table->date('end_date');
         });
     }
 
@@ -26,7 +26,7 @@ class AddEndDateToEventsTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            //
+            $table->date('end_date');
         });
     }
 }

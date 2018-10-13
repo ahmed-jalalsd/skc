@@ -41,7 +41,7 @@ class CreateDogsTable extends Migration
 
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('breed_id')->references('id')->on('breeds')->onDelete('set NULL');
+            $table->foreign('breed_id')->references('id')->on('breeds');
             $table->foreign('class_id')->references('id')->on('classes');
         });
 
