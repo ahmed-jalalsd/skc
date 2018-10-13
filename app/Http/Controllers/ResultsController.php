@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Dog;
 use App\ShowEntry;
+use App\Classes;
 
 use Auth;
 use Session;
@@ -43,14 +44,16 @@ class ResultsController extends Controller
     public function index($showEntryId)
     {
       // dd($showEntry);
+      $classes = Classes::orderBy('id', 'asc')->get();
       $dogsInShow = ShowEntry::orderBy('id', 'asc')->where('event_id', '=', $showEntryId)->get();
       // foreach ($dogsInShow as $value) {
-      //   dd($value->event_id);
+      //   dd($value->dogs->classes->class);
       // }
+      $dogInShow = $showEntryId;
       $event = Event::where('id', $showEntryId)->first();
       // dd($event);
       // dd($dogsInShow);
-      return view('manage.results.index', compact('dogsInShow', 'event'));
+      return view('manage.results.index', compact('dogsInShow', 'event', 'classes', 'dogInShow'));
     }
 
     /**
