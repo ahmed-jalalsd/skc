@@ -41,10 +41,28 @@
       <div class="columns">
 
 				<div class="column">
+
         </div>
-        
+
+        <div class="column">
+          <span>
+            <label for="radio-one">I</label>
+            <input type="radio" name="order" value="I" id="radio-one" class="form-radio">
+          </span>
+
+
+          <label for="radio-second">II</label>
+          <input type="radio" name="order" value="II" id="radio-second" class="form-radio">
+
+          <label for="radio-third">III</label>
+          <input type="radio" name="order" value="III" id="radio-third" class="form-radio">
+
+          <label for="radio-fourth">IV</label>
+          <input type="radio" name="order" value="IV" id="radio-fourth" class="form-radio">
+      	</div> {{-- end of column --}}
+
       </div>
 
     </form>
-
+</div>
 @endsection
