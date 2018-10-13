@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Breed;
+use App\DogClass;
 
 class Dog extends Model
 {
@@ -31,7 +32,7 @@ class Dog extends Model
 
   public function classes()
   {
-    return $this->belongsTo(DogClass::class, 'class_id')->withDefault();
+    return $this->belongsTo(Classes::class, 'class_id')->withDefault();
   }
 
   public function showEntries()

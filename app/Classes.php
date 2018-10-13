@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DogClass extends Model
+class Classes extends Model
 {
   public function dogs()
   {

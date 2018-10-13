@@ -128,6 +128,7 @@ class DogsController extends Controller
         $images= json_decode($dog->dog_images);
         // $breed = Breed::with('dogs')->where('id', $dog->breed_id)->get();
         // dd($dog->breeds->breed);
+        // dd($dog->classes->class);
         // dd($dog->breeds->groups->group_name);
         return view('manage.dogs.show')->withDog($dog)->withImages($images);
     }
