@@ -44,6 +44,7 @@ class ShowEntriesController extends Controller
         // To find the user's dogs
         $userId = $request->user()->id;
         $dogs = Dog::where('user_id', $userId)->get();
+
         // dd($dogs);
         return view('manage.entries.create')->withEvent($event)->withDogs($dogs);
     }

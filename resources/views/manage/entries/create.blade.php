@@ -28,6 +28,7 @@
                     <b-select placeholder="Select the Dog" name="dog_id" required >
                       @foreach ($dogs as $dog)
                         <option value="{{$dog->id}}">{{$dog->dog_name}} | {{$dog->breeds->breed}}</option>
+                        <input type="hidden" name="class_id" value="{{$dog->class_id}}">
                       @endforeach
                     </b-select>
                 </b-field>
@@ -43,6 +44,7 @@
             </div>
 
             <input type="hidden" name="event_id" value="{{$event->id}}">
+
 
             <div class="primary-action-button">
               <button class="button is-primary  backend-btn">Apply</button>

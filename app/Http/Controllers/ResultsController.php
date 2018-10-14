@@ -43,17 +43,30 @@ class ResultsController extends Controller
      */
     public function index($showEntryId)
     {
-      // dd($showEntry);
       $classes = Classes::orderBy('id', 'asc')->get();
-      $dogsInShow = ShowEntry::orderBy('id', 'asc')->where('event_id', '=', $showEntryId)->get();
-      // foreach ($dogsInShow as $value) {
-      //   dd($value->dogs->classes->class);
-      // }
       $dogInShow = $showEntryId;
       $event = Event::where('id', $showEntryId)->first();
       // dd($event);
       // dd($dogsInShow);
       return view('manage.results.index', compact('dogsInShow', 'event', 'classes', 'dogInShow'));
+    }
+
+    /**
+     *  To display all particpated dogs in a class regarding an event for the judge
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function participate($showId, $classId)
+    {
+      $dogsInShow = ShowEntry::orderBy('id', 'asc')->where([
+        ['event_id', '=', $showId]
+
+        ])->get();
+      foreach ($dogsInShow as $value) {
+        dd($value);
+      }
+      $event = Event::where('id', $showId)->first();
+      return view('manage.results.index', compact('dogsInShow', 'event'));
     }
 
     /**

@@ -23,7 +23,7 @@
             </p>
             <nav class="level is-mobile">
               <div class="level-left">
-                <a href="{{route('results.create', $dogInShow)}}" class="button is-primary is-pulled-right backend-btn">
+                <a href="{{route('results.participate', [$dogInShow, $class->id])}}" class="button is-primary is-pulled-right backend-btn">
                   See All dogs
                 </a>
               </div>
