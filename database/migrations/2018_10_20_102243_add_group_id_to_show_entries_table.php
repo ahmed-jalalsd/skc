@@ -14,7 +14,9 @@ class AddGroupIdToShowEntriesTable extends Migration
     public function up()
     {
         Schema::table('show_entries', function (Blueprint $table) {
-            //
+            $table->integer('group_id')->unsigned()->after('user_id');
+
+            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 
@@ -26,7 +28,10 @@ class AddGroupIdToShowEntriesTable extends Migration
     public function down()
     {
         Schema::table('show_entries', function (Blueprint $table) {
-            //
+          // 1. Drop foreign key constraints
+          $table->dropForeign(['group_id']);
+          // 2. Drop the column
+          $table->dropColumn('group_id');
         });
     }
 }
