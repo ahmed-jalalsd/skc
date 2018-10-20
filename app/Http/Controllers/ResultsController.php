@@ -60,7 +60,7 @@ class ResultsController extends Controller
      */
     public function index($eventId)
     {
-      // $dogInShow = $eventId;
+
       $event = Event::where('id', $eventId)->first();
       // Get distinct results
       // $classesInShow = DB::table('show_entries')->groupBy('class_id')->where([['event_id', '=', $eventId],
@@ -78,16 +78,18 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showClasses($eventId)
+    public function showClasses($eventId, $groupId)
     {
       // $dogInShow = $eventId;
       $event = Event::where('id', $eventId)->first();
       // Get distinct results
-      $classesInShow = DB::table('show_entries')->groupBy('class_id')->where([['event_id', '=', $eventId],
-          ])->get();
+      $classesInShow = DB::table('show_entries')->groupBy('class_id')->where([
+        ['event_id', '=', $eventId],
+        ['group_id', '=', $groupId],
+        ])->get();
       // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
       $classesInShow = ShowEntry::hydrate($classesInShow->toArray());
-
+      // dd($classesInShow);
       return view('manage.results.classes', compact('classesInShow', 'event'));
     }
 
@@ -96,11 +98,12 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function chooseSex($showId, $classId)
+    public function chooseSex($showId,$groupId, $classId)
     {
       $showId = $showId;
       $classId = $classId;
-      return view('manage.results.chooseSex', compact( 'showId', 'classId'));
+      $groupId = $groupId;
+      return view('manage.results.chooseSex', compact( 'showId', 'groupId','classId'));
     }
 
     /**
@@ -110,12 +113,14 @@ class ResultsController extends Controller
      */
     public function participate(Request $request)
     {
-      // dd($request->sex);
-      $dogsInShow = ShowEntry::orderBy('id', 'asc')->where([
-        ['event_id', '=', $request->show_id],
-        ['class_id', '=', $request->class_id],
-        ['sex', '=', $request->sex]
-        ])->get();
+      // dd($request->group_id);
+
+      $dogsInShow = ShowEntry::orderBy('id', 'asc')
+          ->where('event_id', '=', $request->show_id)
+          ->where('group_id', '=', $request->group_id)
+          ->where('class_id', '=', $request->class_id)
+          ->where('sex', '=', $request->sex)
+          ->get();
 
       // $dogsInShow = DB::table('show_entries')
       //   ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')

@@ -13,6 +13,10 @@
     <form action="{{route('results.participate')}}" method="GET">
 			{{ csrf_field() }}
 
+      <input type="hidden" name="show_id" value="{{$showId}}">
+      <input type="hidden" name="group_id" value="{{$groupId}}">
+      <input type="hidden" name="class_id" value="{{$classId}}">
+
 			<div class="columns">
 
 				<div class="column">
@@ -24,8 +28,6 @@
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
-              <input type="hidden" name="show_id" value="{{$showId}}">
-              <input type="hidden" name="class_id" value="{{$classId}}">
             </p>
           </div>
           <div class="primary-action-button">
