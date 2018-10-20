@@ -30,6 +30,7 @@
                         <option value="{{$dog->id}}">{{$dog->dog_name}} | {{$dog->breeds->breed}}</option>
                         <input type="hidden" name="class_id" value="{{$dog->class_id}}">
                         <input type="hidden" name="group_id" value="{{$dog->breeds->group_id}}">
+                        <input type="hidden" name="sex" value="{{$dog->sex}}">
                       @endforeach
                     </b-select>
                 </b-field>

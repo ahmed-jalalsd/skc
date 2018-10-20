@@ -131,6 +131,7 @@ class ShowEntriesController extends Controller
         $showEntry->dog_id = $request->dog_id;
         $showEntry->class_id = $request->class_id;
         $showEntry->event_id = $request->event_id;
+        $showEntry->sex = $request->sex;
 
         // $showEntry->save();
 

@@ -25,7 +25,7 @@
       </tr>
       <tr>
         <th>Class</th>
-        <td>{{$dogInfo->dogs->age}}</td>
+        <td>{{$dogInfo->classes->class}}</td>
       </tr>
       <tr>
         <th>Owner</th>
@@ -38,31 +38,97 @@
 		<form action="{{route('results.store')}}" method="POST">
 			{{ csrf_field() }}
 
-      <div class="columns">
+      <div class="column">
+        <h3 class="title is-admin is-4">Classification</h3>
+      </div>
 
-				<div class="column">
+      <div class="column">
+        <div class="block">
+            <b-radio v-model="radio"
+                native-value="1">
+                I
+            </b-radio>
+            <b-radio v-model="radio"
+                native-value="2">
+                II
+            </b-radio>
+            <b-radio v-model="radio"
+                native-value="3">
+                III
+            </b-radio>
+            <b-radio v-model="radio"
+                native-value="4">
+                IV
+            </b-radio>
+        </div> {{-- end of block --}}
 
-        </div>
+        <hr style="background-color: #ccc; height: 1px" class="m-t-0">
 
-        <div class="column">
-          <span>
-            <label for="radio-one">I</label>
-            <input type="radio" name="order" value="I" id="radio-one" class="form-radio">
-          </span>
+        <div class="block">
+           <div class="field">
+               <b-radio v-model="radio"
+                   native-value="excellent">
+                   Excellent
+               </b-radio>
+           </div>
+           <div class="field">
+               <b-radio v-model="radio"
+                   native-value="vgood">
+                   Ver good
+               </b-radio>
+           </div>
+           <div class="field">
+               <b-radio v-model="radio"
+                   native-value="good">
+                   Good
+               </b-radio>
+           </div>
+           <div class="field">
+               <b-radio v-model="radio"
+                   native-value="sufficient">
+                   Sufficient
+               </b-radio>
+           </div>
+           <div class="field">
+               <b-radio v-model="radio"
+                   native-value="insufficient">
+                   Insufficient
+               </b-radio>
+           </div>
+           <div class="field">
+               <b-radio v-model="radio"
+                   native-value="disqualified"
+                   type="is-warning">
+                   Disqualified
+               </b-radio>
+           </div>
+           <div class="field">
+               <b-radio v-model="radio"
+                   native-value="failed"
+                   type="is-danger">
+                   Can't be judge
+               </b-radio>
+           </div>
+         </div> {{-- end of block --}}
 
+      </div>{{-- end of column --}}
 
-          <label for="radio-second">II</label>
-          <input type="radio" name="order" value="II" id="radio-second" class="form-radio">
-
-          <label for="radio-third">III</label>
-          <input type="radio" name="order" value="III" id="radio-third" class="form-radio">
-
-          <label for="radio-fourth">IV</label>
-          <input type="radio" name="order" value="IV" id="radio-fourth" class="form-radio">
-      	</div> {{-- end of column --}}
+      <div class="column">
 
       </div>
 
     </form>
 </div>
+@endsection
+
+@section('scripts')
+  <script>
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      radio: ''
+    }
+  });
+  </script>
 @endsection

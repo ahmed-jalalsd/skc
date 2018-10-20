@@ -115,18 +115,19 @@ class ResultsController extends Controller
       //   ['class_id', '=', $request->class_id]
       //   ])->get();
 
-      $dogsInShow = DB::table('show_entries')
-        ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
-        ->select('*')
-        ->where([
-          ['show_entries.event_id', '=', $request->show_id],
-          ['show_entries.class_id', '=', $request->class_id],
-          ['dogs.sex', '=', $request->sex],
-          ])
-        ->get();
-      $dogsInShow = ShowEntry::hydrate($dogsInShow->toArray());
+      // $dogsInShow = DB::table('show_entries')
+      //   ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
+      //   ->select('*')
+      //   ->where([
+      //     ['show_entries.event_id', '=', $request->show_id],
+      //     ['show_entries.class_id', '=', $request->class_id],
+      //     ['dogs.sex', '=', $request->sex],
+      //     ])
+      //   ->get();
+      // $dogsInShow = ShowEntry::hydrate($dogsInShow->toArray());
+      
       // foreach ($dogsInShow as $value) {
-      //   dd($value->dogs());
+      //   dd($value);
       // }
       // dd($dogsInShow);
       $event = Event::where('id', $request->show_id)->first();
@@ -142,7 +143,8 @@ class ResultsController extends Controller
     {
         //show a list of the participate dogs
         $dogInfo = ShowEntry::findOrFail($dogInShowId);
-        // dd($dogInfo->dogs->dog_name);
+
+        // dd($dogInfo->classes->class);
         return view('manage.results.create', compact('dogInfo'));
     }
 
