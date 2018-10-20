@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Breed;
-use App\DogClass;
 
 class Dog extends Model
 {

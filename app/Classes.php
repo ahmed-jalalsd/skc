@@ -10,4 +10,9 @@ class Classes extends Model
   {
       return $this->hasMany(Dog::class);
   }
+
+  public function showEntries()
+  {
+      return $this->hasMany(ShowEntry::class);
+  }
 }

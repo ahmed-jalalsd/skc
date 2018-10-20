@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShowEntry extends Model
 {
+
+  protected $fillable = [
+      'user_id', 'dog_id', 'event_id', 'class_id'
+  ];
+
   public function results(){
     return $this->belongsTo(Result::class);
   }
@@ -18,6 +23,11 @@ class ShowEntry extends Model
   public function dogs()
   {
     return $this->belongsTo(Dog::class, 'dog_id');
+  }
+
+  public function classes()
+  {
+    return $this->belongsTo(Classes::class, 'class_id');
   }
 
 }

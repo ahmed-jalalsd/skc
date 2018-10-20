@@ -21,8 +21,8 @@
                   <article class="media">
                     <div class="media-left">
                       <figure class="image is-128x128">
-                        @if($currentEvent->events->featured_image)
-                          <img src="{!! '/images/events/'.$currentEvent->events->featured_image !!}" alt="">
+                        @if($currentEvent->featured_image)
+                          <img src="{!! '/images/events/'.$currentEvent->featured_image !!}" alt="">
                         @else
                           <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
                         @endif
@@ -31,18 +31,18 @@
                     <div class="media-content">
                       <div class="content">
                         <p>
-                          <strong>Event: {{$currentEvent->events->title}}</strong>
+                          <strong>Event: {{$currentEvent->title}}</strong>
                           <br>
-                          Start Date: {{$currentEvent->events->start_date}}
+                          Start Date: {{$currentEvent->start_date}}
                           <br>
-                          End Date: {{$currentEvent->events->end_date}}
+                          End Date: {{$currentEvent->end_date}}
                         </p>
                       </div>
                     </div>
 
                     <nav class="level is-mobile">
                       <div class="level-left">
-                        <a href="{{route('results.index', $currentEvent->event_id)}}" class="level-item" aria-label="reply">
+                        <a href="{{route('results.index', $currentEvent->id)}}" class="level-item" aria-label="reply">
                           <span class="icon is-medium">
                             <i class="fas fa-reply" aria-hidden="true"></i>
                           </span>
@@ -54,7 +54,6 @@
                   </article>
                 </div>
               @endforeach
-              {{$currentEvents->links()}}
             @else
               <div class="box">
                 <div class="media-content">

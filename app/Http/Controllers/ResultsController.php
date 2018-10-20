@@ -28,9 +28,25 @@ class ResultsController extends Controller
     public function showAllEvents()
     {
       // $events = Event::orderBy('id', 'asc')->where('flag_application', 1)->paginate(2);
-      $currentEvents = ShowEntry::orderBy('id', 'asc')->paginate(2);
-      // foreach ($events as $value) {
-      //   dd($value->events->title);
+
+      // $currentEvents = ShowEntry::orderBy('id', 'asc')->get()->groupBy('event_id');
+      // $currentEvents = ShowEntry::orderBy('id', 'asc')->get();
+      $currentEvents = Event::orderBy('start_date', 'asc')->where('start_date', '>=', date('Y-m-d') )->get();
+      // dd($currentEvents);
+
+      // $currentEvents = DB::table('show_entries')->select('*', DB::raw('count(*) as total'))
+      //           ->groupBy('class_id')
+      //           ->get();
+      // $grouped = $currentEvents->groupBy('class_id');
+
+      // $currentEvents = DB::table('show_entries')
+      //       ->select('*')
+      //       ->groupBy('event_id')
+      //       ->get();
+
+      // dd($currentEvents);
+      // foreach ($currentEvents as $value) {
+      //   dd($value->featured_image);
       // }
       // dd($events);
       return view('manage.results.all')->withCurrentEvents($currentEvents);
@@ -41,14 +57,16 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($showEntryId)
+    public function index($eventId)
     {
-      $classes = Classes::orderBy('id', 'asc')->get();
-      $dogInShow = $showEntryId;
-      $event = Event::where('id', $showEntryId)->first();
-      // dd($event);
-      // dd($dogsInShow);
-      return view('manage.results.index', compact('dogsInShow', 'event', 'classes', 'dogInShow'));
+      // $dogInShow = $eventId;
+      $event = Event::where('id', $eventId)->first();
+      // Get distinct results
+      $classesInShow = DB::table('show_entries')->groupBy('class_id')->where([['event_id', '=', $eventId],
+          ])->get();
+      // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
+      $classesInShow = ShowEntry::hydrate($classesInShow->toArray());
+      return view('manage.results.index', compact('classesInShow', 'event'));
     }
 
     /**
@@ -59,14 +77,15 @@ class ResultsController extends Controller
     public function participate($showId, $classId)
     {
       $dogsInShow = ShowEntry::orderBy('id', 'asc')->where([
-        ['event_id', '=', $showId]
-
+        ['event_id', '=', $showId],
+        ['class_id', '=', $classId]
         ])->get();
-      foreach ($dogsInShow as $value) {
-        dd($value);
-      }
+      // foreach ($dogsInShow as $value) {
+      //   dd($value);
+      // }
+      // dd($dogsInShow);
       $event = Event::where('id', $showId)->first();
-      return view('manage.results.index', compact('dogsInShow', 'event'));
+      return view('manage.results.participate', compact('dogsInShow', 'event'));
     }
 
     /**

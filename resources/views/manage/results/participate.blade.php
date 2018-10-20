@@ -14,6 +14,7 @@
       <thead>
         <tr>
           <th>Breed</th>
+          <th>Sex</th>
           <th>Owner</th>
           <th style="text-align:center;">Actions</th>
         </tr>
@@ -22,6 +23,7 @@
         @foreach ($dogsInShow as $dogInShow)
           <tr>
             <td>{{$dogInShow->dogs->breeds->breed}}</td>
+            <td>{{$dogInShow->dogs->sex}}</td>
             <td>{{$dogInShow->dogs->owner}}</td>
             <td>
               <a href="{{route('results.create', $dogInShow->id)}}" class="button is-primary is-pulled-right backend-btn">
