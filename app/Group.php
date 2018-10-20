@@ -23,4 +23,9 @@ class Group extends Model
    {
        return $this->hasMany(Breed::class);
    }
+
+   public function showEntries()
+   {
+       return $this->hasMany(ShowEntry::class);
+   }
 }
