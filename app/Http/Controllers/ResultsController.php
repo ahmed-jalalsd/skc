@@ -53,7 +53,7 @@ class ResultsController extends Controller
     }
 
     /**
-     *  To display all application regarding an event for the judge
+     *  To display all groups in the event
      *
      * @return \Illuminate\Http\Response
      */
