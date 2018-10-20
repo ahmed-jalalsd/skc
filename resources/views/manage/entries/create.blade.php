@@ -29,6 +29,7 @@
                       @foreach ($dogs as $dog)
                         <option value="{{$dog->id}}">{{$dog->dog_name}} | {{$dog->breeds->breed}}</option>
                         <input type="hidden" name="class_id" value="{{$dog->class_id}}">
+                        <input type="hidden" name="group_id" value="{{$dog->breeds->group_id}}">
                       @endforeach
                     </b-select>
                 </b-field>

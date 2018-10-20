@@ -127,6 +127,7 @@ class ShowEntriesController extends Controller
 
         $showEntry = new ShowEntry();
         $showEntry->user_id = $userId;
+        $showEntry->group_id = $request->group_id;
         $showEntry->dog_id = $request->dog_id;
         $showEntry->class_id = $request->class_id;
         $showEntry->event_id = $request->event_id;
