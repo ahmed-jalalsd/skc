@@ -62,11 +62,32 @@ class ResultsController extends Controller
       // $dogInShow = $eventId;
       $event = Event::where('id', $eventId)->first();
       // Get distinct results
+      // $classesInShow = DB::table('show_entries')->groupBy('class_id')->where([['event_id', '=', $eventId],
+      //     ])->get();
+      $groupsInShow = DB::table('show_entries')->groupBy('group_id')->where([['event_id', '=', $eventId],
+          ])->get();
+
+      // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
+      $groupsInShow = ShowEntry::hydrate($groupsInShow->toArray());
+      return view('manage.results.index', compact('groupsInShow', 'event'));
+    }
+
+    /**
+     *  To display all classes in a specific group in the event
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index($eventId)
+    {
+      // $dogInShow = $eventId;
+      $event = Event::where('id', $eventId)->first();
+      // Get distinct results
       $classesInShow = DB::table('show_entries')->groupBy('class_id')->where([['event_id', '=', $eventId],
           ])->get();
       // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
       $classesInShow = ShowEntry::hydrate($classesInShow->toArray());
-      return view('manage.results.index', compact('classesInShow', 'event'));
+
+      return view('manage.results.classes', compact('classesInShow', 'event'));
     }
 
     /**

@@ -11,8 +11,8 @@
     <hr class="m-t-0">
 
     <div class="box">
-      @if($classesInShow)
-        @foreach ($classesInShow as $class)
+      @if($groupsInShow)
+        @foreach ($groupsInShow as $group)
           <article class="media">
 
             <div class="media-content">
@@ -20,11 +20,11 @@
               <div class="content">
 
                 <p>
-                  <strong>{{ucfirst($class->classes->class)}}</strong>
+                  <strong>{{ucfirst($group->groups->group)}} | <small> {{ucfirst($group->groups->group_name)}}</small> </strong>
                 </p>
                 <nav class="level is-mobile">
                   <div class="level-left">
-                    <a href="{{route('results.participate', [$class->event_id, $class->class_id])}}" class="level-item" aria-label="reply">
+                    <a href="{{route('results.participate', [$group->event_id, $group->class_id])}}" class="level-item" aria-label="reply">
                       <span class="icon is-medium">
                         <i class="fas fa-reply" aria-hidden="true"></i>
                       </span>
