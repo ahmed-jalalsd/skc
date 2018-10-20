@@ -109,13 +109,24 @@ class ResultsController extends Controller
      */
     public function participate(Request $request)
     {
-      // dd($request->show_id);
-      $dogsInShow = ShowEntry::orderBy('id', 'asc')->where([
-        ['event_id', '=', $request->show_id],
-        ['class_id', '=', $request->class_id]
-        ])->get();
+      // dd($request->sex);
+      // $dogsInShow = ShowEntry::orderBy('id', 'asc')->where([
+      //   ['event_id', '=', $request->show_id],
+      //   ['class_id', '=', $request->class_id]
+      //   ])->get();
+
+      $dogsInShow = DB::table('show_entries')
+        ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
+        ->select('*')
+        ->where([
+          ['show_entries.event_id', '=', $request->show_id],
+          ['show_entries.class_id', '=', $request->class_id],
+          ['dogs.sex', '=', $request->sex],
+          ])
+        ->get();
+      $dogsInShow = ShowEntry::hydrate($dogsInShow->toArray());
       // foreach ($dogsInShow as $value) {
-      //   dd($value);
+      //   dd($value->dogs());
       // }
       // dd($dogsInShow);
       $event = Event::where('id', $request->show_id)->first();
