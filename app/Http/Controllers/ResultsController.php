@@ -77,7 +77,7 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($eventId)
+    public function showClasses($eventId)
     {
       // $dogInShow = $eventId;
       $event = Event::where('id', $eventId)->first();
