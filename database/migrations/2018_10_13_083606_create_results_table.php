@@ -16,7 +16,7 @@ class CreateResultsTable extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
             $table->string('order');
-            $table->double('classification');
+            $table->double('classification'); // change to string
 
             $table->integer('show_entries_id')->unsigned();
             $table->foreign('show_entries_id')->references('id')->on('show_entries');

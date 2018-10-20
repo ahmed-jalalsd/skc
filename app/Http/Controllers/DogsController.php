@@ -10,6 +10,7 @@ use App\User;
 use App\Dog;
 use App\Breed;
 use App\Group;
+use App\Classes;
 use DB;
 use Session;
 use File;
@@ -51,7 +52,8 @@ class DogsController extends Controller
     public function create()
     {
         $breeds = Breed::all();
-        return view('manage.dogs.create')->withBreeds($breeds);
+        $classes = Classes::all();
+        return view('manage.dogs.create')->withBreeds($breeds)->withClasses($classes);
     }
 
     /**
@@ -75,8 +77,9 @@ class DogsController extends Controller
 
       $dog = new Dog;
 
-      $dog->age = $request->age;
+
       $dog->user_id = auth()->user()->id;
+      $dog->class_id = $request->class_id;
       $dog->breed_id = $request->breed; // add the breed id
       $dog->color = $request->color;
       $dog->dog_name = $request->dog_name;
@@ -143,8 +146,9 @@ class DogsController extends Controller
     {
         $dog = Dog::findOrFail($id);
         $breeds = Breed::all();
+        $classes = Classes::all();
         $images= json_decode($dog->dog_images);
-        return view('manage.dogs.edit')->withDog($dog)->withBreeds($breeds)->withImages($images);
+        return view('manage.dogs.edit')->withDog($dog)->withBreeds($breeds)->withImages($images)->withClasses($classes);
     }
 
     /**
@@ -170,9 +174,9 @@ class DogsController extends Controller
 
         $dog = Dog::findOrFail($id);
 
-        $dog->age = $request->age;
         $dog->user_id = auth()->user()->id;
-        $dog->breed = $request->breed;
+        $dog->class_id = $request->class_id;
+        $dog->breed_id = $request->breed;
         $dog->color = $request->color;
         $dog->dog_name = $request->dog_name;
         $dog->pedigree_no = $request->pedigree_no;
@@ -204,9 +208,10 @@ class DogsController extends Controller
             $data[] = $imageFilename;
             // dd($data);
           }
+          $dog->dog_images = json_encode($data);
         }
 
-        $dog->dog_images = json_encode($data);
+
         $dog->save();
         Session::flash('update', 'The dog details was successfully updated');
 

@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Result;
+
 class ShowEntry extends Model
 {
 
@@ -12,7 +14,7 @@ class ShowEntry extends Model
   ];
 
   public function results(){
-    return $this->belongsTo(Result::class);
+    return $this->hasMany(Result::class,  'show_entries_id');
   }
 
   public function events()

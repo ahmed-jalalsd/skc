@@ -73,13 +73,20 @@ class ShowEntriesController extends Controller
         //   ->get(['events.title']);
         // dd($events);
 
-        $applications = DB::table('show_entries')
-        ->join('dogs', 'dogs.id', '=', 'show_entries.dog_id')
-                      ->join('events', 'events.id', '=', 'show_entries.event_id')
-                      ->where('show_entries.user_id', '=', $userId)
-                      ->select('dogs.dog_name', 'dogs.age','dog_images', 'events.title', 'events.start_date')
-                      ->get();
-                      // dd($applications);
+        // $applications = DB::table('show_entries')
+        //               ->join('dogs', 'dogs.id', '=', 'show_entries.dog_id')
+        //               ->join('events', 'events.id', '=', 'show_entries.event_id')
+        //               ->where('show_entries.user_id', '=', $userId)
+        //               ->select('dogs.dog_name', 'dogs.age','dog_images', 'dogs.class_id','events.title', 'events.start_date')
+        //               ->get();
+
+        $applications = ShowEntry::where('user_id', '=', $userId)->get();
+
+        // $applications = ShowEntry::hydrate($applications->toArray());
+        // dd($applications);
+        // foreach ($applications as $value) {
+        //   dd($value);
+        // }
         return view('manage.entries.show', compact('applications'));
     }
 

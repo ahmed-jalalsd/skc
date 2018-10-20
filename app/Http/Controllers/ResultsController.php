@@ -8,6 +8,7 @@ use App\Event;
 use App\Dog;
 use App\ShowEntry;
 use App\Classes;
+use App\Result;
 
 use Auth;
 use Session;
@@ -128,7 +129,7 @@ class ResultsController extends Controller
       // $dogsInShow = ShowEntry::hydrate($dogsInShow->toArray());
 
       // foreach ($dogsInShow as $value) {
-      //   dd($value);
+      //   dd($value->results());
       // }
       // dd($dogsInShow);
       $event = Event::where('id', $request->show_id)->first();
@@ -157,7 +158,22 @@ class ResultsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd( $request->classification);
+        $this->validate($request, [
+            "classification" => "required",
+        ]);
+
+        $result = new Result();
+
+        $result->order = $request->order;
+        $result->classification = $request->classification;
+        $result->award = $request->award;
+        $result->show_entries_id = $request->show_entries_id;
+
+        $result->save();
+
+        Session::flash('success', 'The result was successfully added');
+        return redirect()->back();
     }
 
     /**

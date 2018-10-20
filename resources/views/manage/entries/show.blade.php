@@ -21,7 +21,7 @@
                   <article class="media">
                     <div class="media-left">
                       <figure class="image is-128x128">
-                        <?php $images= json_decode($application->dog_images); ?>
+                        <?php $images= json_decode($application->dogs->dog_images); ?>
                           <img src="{!! '/images/dogs/'.$images[0] !!}" alt="">
                         <!-- <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"> -->
                       </figure>
@@ -29,11 +29,11 @@
                     <div class="media-content">
                       <div class="content">
                         <p>
-                          <strong>Event: {{$application->title}}</strong> <small>{{$application->start_date}}</small>
+                          <strong>Event: {{$application->events->title}}</strong> <small>{{$application->events->start_date}}</small>
                           <br>
-                          Dog: {{$application->dog_name}}
+                          Dog: {{$application->dogs->dog_name}}
                           <br>
-                          Class: {{$application->age}}
+                          Class: {{$application->classes->class}}
                         </p>
                       </div>
                     </div>

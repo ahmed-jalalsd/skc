@@ -16,6 +16,10 @@
         <td>{{$dogInfo->dogs->breeds->breed}}</td>
       </tr>
       <tr>
+        <th>Dog name</th>
+        <td>{{$dogInfo->dogs->dog_name}}</td>
+      </tr>
+      <tr>
         <th>Date of birth</th>
         <td>{{$dogInfo->dogs->date_of_birth}}</td>
       </tr>
@@ -37,6 +41,8 @@
 
 		<form action="{{route('results.store')}}" method="POST">
 			{{ csrf_field() }}
+
+      <input type="hidden" name="show_entries_id" value="{{$dogInfo->id}}">
 
       <div class="columns">
 
@@ -125,15 +131,15 @@
           </div>
           <div class="block">
             <b-radio-group v-model="radio">
-              <b-radio name="puppy_award"
+              <b-radio name="award"
                   native-value="very promising">
                   Very Promising
               </b-radio>
-              <b-radio name="puppy_award"
+              <b-radio name="award"
                   native-value="promising">
                   Promising
               </b-radio>
-              <b-radio name="puppy_award"
+              <b-radio name="award"
                   native-value="unpromising">
                   Unpromising
               </b-radio>
@@ -145,11 +151,11 @@
           </div>
           <div class="block">
             <b-radio-group v-model="radio">
-              <b-radio name="junior_award"
+              <b-radio name="award"
                   native-value="jcac">
                   J.CAC
               </b-radio>
-              <b-radio name="junior_award"
+              <b-radio name="award"
                   native-value="rjcac">
                   RJ.CAC
               </b-radio>
@@ -163,23 +169,23 @@
             <div class="block">
               <b-radio-group v-model="radio">
                 <div class="field">
-                  <b-radio name="adult_award"
+                  <b-radio name="award"
                       native-value="cac">
                       CAC
                   </b-radio>
                 </div>
                 <div class="field">
-                  <b-radio name="adult_award"
+                  <b-radio name="award"
                       native-value="rcac">
                       R.CAC
                   </b-radio>
                 </div>
                 <div class="field">
-                  <b-radio name="adult_award"
+                  <b-radio name="award"
                       native-value="cacib">
                       CACIB
                   </b-radio>
-                  <b-radio name="adult_award"
+                  <b-radio name="award"
                       native-value="rcacib">
                       R.CACIB
                   </b-radio>

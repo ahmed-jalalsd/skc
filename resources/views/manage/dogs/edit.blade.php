@@ -26,18 +26,13 @@
             <div class="field-body">
 
               <div class="field">
-                <label for="age" class="label">Class</label>
+                <label for="class_id" class="label">Class</label>
                   <div class="select is-fullwidth">
-                    <select name="age">
-                      <option value="{{$dog->age}}">{{$dog->age}}</option>
-                      <option value="baby">Baby 3-6 months</option>
-                      <option value="puppy">Puppy 6-9 months</option>
-                      <option value="junior">Junior 9-18 months</option>
-                      <option value="intermediate">Intermediate 15-24 months</option>
-                      <option value="open">Open from 15 months</option>
-                      <option value="champion">Champion</option>
-                      <option value="working">Working</option>
-                      <option value="veteran">Veteran from 8 years</option>
+                    <select name="class_id">
+											<option value="{{$dog->classes->id}}">{{$dog->classes->class}}</option>
+											@foreach ($classes as $class)
+	                      <option value="{{$class->id}}">{{$class->class}}</option>
+											@endforeach
                     </select>
                   </div>
               </div>

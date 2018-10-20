@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Dog;
 use App\User;
 use App\Event;
+use App\ShowEntry;
 
 class Result extends Model
 {
@@ -15,6 +16,6 @@ class Result extends Model
 
   public function showsEntries()
   {
-    return $this->hasMany(ShowEntry::class, 'show_entries');
+    return $this->belongsTo(ShowEntry::class, 'show_entries_id');
   }
 }
