@@ -95,17 +95,30 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function participate($showId, $classId)
+    public function chooseSex($showId, $classId)
     {
+      $showId = $showId;
+      $classId = $classId;
+      return view('manage.results.chooseSex', compact( 'showId', 'classId'));
+    }
+
+    /**
+     *  To display all particpated dogs in a class regarding an event for the judge
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function participate(Request $request)
+    {
+      // dd($request->show_id);
       $dogsInShow = ShowEntry::orderBy('id', 'asc')->where([
-        ['event_id', '=', $showId],
-        ['class_id', '=', $classId]
+        ['event_id', '=', $request->show_id],
+        ['class_id', '=', $request->class_id]
         ])->get();
       // foreach ($dogsInShow as $value) {
       //   dd($value);
       // }
       // dd($dogsInShow);
-      $event = Event::where('id', $showId)->first();
+      $event = Event::where('id', $request->show_id)->first();
       return view('manage.results.participate', compact('dogsInShow', 'event'));
     }
 
