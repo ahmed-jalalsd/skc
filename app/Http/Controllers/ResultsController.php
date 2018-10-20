@@ -110,10 +110,11 @@ class ResultsController extends Controller
     public function participate(Request $request)
     {
       // dd($request->sex);
-      // $dogsInShow = ShowEntry::orderBy('id', 'asc')->where([
-      //   ['event_id', '=', $request->show_id],
-      //   ['class_id', '=', $request->class_id]
-      //   ])->get();
+      $dogsInShow = ShowEntry::orderBy('id', 'asc')->where([
+        ['event_id', '=', $request->show_id],
+        ['class_id', '=', $request->class_id],
+        ['sex', '=', $request->sex]
+        ])->get();
 
       // $dogsInShow = DB::table('show_entries')
       //   ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
@@ -125,7 +126,7 @@ class ResultsController extends Controller
       //     ])
       //   ->get();
       // $dogsInShow = ShowEntry::hydrate($dogsInShow->toArray());
-      
+
       // foreach ($dogsInShow as $value) {
       //   dd($value);
       // }
@@ -156,7 +157,7 @@ class ResultsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
