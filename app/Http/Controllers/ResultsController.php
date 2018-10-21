@@ -175,6 +175,24 @@ class ResultsController extends Controller
         return redirect()->back();
     }
 
+
+        /**
+         *  To display all classes in a specific group in the event
+         *
+         * @return \Illuminate\Http\Response
+         */
+        public function showSecondRound($eventId, $groupId)
+        {
+          $event = Event::where('id', $eventId)->first();
+          // Get distinct results
+          $firstDogs = Result::where('order' , '=', 1)->get();
+          // dd($firstDogs);
+          // foreach ($firstDogs as $value) {
+          //   dd($value->showsEntries->dogs->dog_name);
+          // }
+          return view('manage.results.classes', compact('classesInShow', 'event'));
+        }
+
     /**
      * Display the specified resource.
      *
