@@ -45,7 +45,8 @@ Route::prefix('manage')->group(function(){
 	Route::get('/results/event/groups/judge-area/{eventId}', 'ResultsController@index')->name('results.index'); // to show all application regarding an event for the judge
 	Route::get('/results/event/classes/judge-area/{eventId}/{groupId}', 'ResultsController@showClasses')->name('results.classes'); // to show all classes inside a group for event for the judge
 
-	Route::get('/results/event/second/round/judge-area/{eventId}/{groupId}', 'ResultsController@showSecondRound')->name('results.secondRound'); // to show all classes inside a group for event for the judge
+	Route::get('/results/event/second/round/sex/choose/{eventId}/{groupId}', 'ResultsController@chooseSex')->name('results.chooseSex'); // to show all classes inside a group for event for the judge
+	Route::get('/results/event/second/round/judge-area}', 'ResultsController@showSecondRound')->name('results.secondRound'); // to show all classes inside a group for event for the judge
 
 	Route::get('/results/event/participate/dogs', 'ResultsController@participate')->name('results.participate'); // to show all application regarding an event for the judge
 	Route::get('/results/create/judgement/{dogInShowId}', 'ResultsController@create')->name('results.create'); // create a form of the dog information so the judge can rate the dog
