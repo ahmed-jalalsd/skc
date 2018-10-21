@@ -165,6 +165,7 @@ class ResultsController extends Controller
 
         $result->first_round = $request->order;
         $result->classification = $request->classification;
+        $result->status_first_round = 1;
         $result->award = $request->award;
         $result->show_entries_id = $request->show_entries_id;
 
