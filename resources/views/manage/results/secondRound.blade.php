@@ -31,6 +31,9 @@
             <td>{{$firstDog->showsEntries->dogs->sex}}</td>
             <td>{{$firstDog->showsEntries->dogs->owner}}</td>
             <td>
+              <a href="{{route('results.create', $firstDog->id)}}" class="button is-primary is-pulled-right backend-btn">
+                Judge
+              </a>
             </td>
           </tr>
         @endforeach

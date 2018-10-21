@@ -163,7 +163,7 @@ class ResultsController extends Controller
 
         $result = new Result();
 
-        $result->order = $request->order;
+        $result->first_round = $request->order;
         $result->classification = $request->classification;
         $result->award = $request->award;
         $result->show_entries_id = $request->show_entries_id;
@@ -206,7 +206,7 @@ class ResultsController extends Controller
           ['show_entries.group_id', '=', $request->group_id],
           ['show_entries.class_id', '!=', 2],
           ['show_entries.sex', '=', $request->sex],
-          ['results.order', '=', 1],
+          ['results.first_round', '=', 1],
           ])
         ->get();
         // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
