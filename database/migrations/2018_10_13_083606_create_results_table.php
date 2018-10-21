@@ -15,7 +15,7 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('order');
+            $table->string('order'); // change the name to first_round
             $table->double('classification'); // change to string
 
             $table->integer('show_entries_id')->unsigned();
