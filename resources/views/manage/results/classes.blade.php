@@ -20,18 +20,34 @@
               <div class="content">
 
                 <p>
-                  <strong>{{ucfirst($class->classes->class)}}</small> </strong>
+                  <strong>{{ucfirst($class->classes->class)}} </strong>
                 </p>
-                <nav class="level is-mobile">
-                  <div class="level-left">
-                    <a href="{{route('results.chooseSex', [$class->event_id,$class->group_id, $class->class_id, $class->sex])}}" class="level-item" aria-label="reply">
-                      <span class="icon is-medium">
-                        <i class="fas fa-reply" aria-hidden="true"></i>
-                      </span>
-                      Judging area
-                    </a>
+                <form action="{{route('results.participate')}}" method="GET">
+            			{{ csrf_field() }}
+
+                  <input type="hidden" name="show_id" value="{{$class->event_id}}">
+                  <input type="hidden" name="group_id" value="{{$class->group_id}}">
+                  <input type="hidden" name="class_id" value="{{$class->class_id}}">
+
+                  <div class="block ">
+                    <div class="block">
+                      <h5 class="is-4">Choose Sex</h5>
+                    </div>
+                      <b-radio-group v-model="radio">
+                        <b-radio  name="sex"
+                            native-value="male">
+                            Male
+                        </b-radio>
+                        <b-radio  name="sex"
+                            native-value="female">
+                            Female
+                        </b-radio>
+                     </b-radio-group>
+                  </div> {{-- end of block --}}
+                  <div class="primary-action-button">
+                    <button class="button is-primary backend-btn">Judging area</button>
                   </div>
-                </nav>
+                </form>
 
               </div>
 
@@ -63,4 +79,16 @@
     </div>
 
   </div><!-- End of .flex-container -->
+@endsection
+
+@section('scripts')
+  <script>
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      radio: '',
+    }
+  });
+  </script>
 @endsection

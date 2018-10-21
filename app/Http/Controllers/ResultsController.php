@@ -98,19 +98,6 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function chooseSex($showId,$groupId, $classId)
-    {
-      $showId = $showId;
-      $classId = $classId;
-      $groupId = $groupId;
-      return view('manage.results.chooseSex', compact( 'showId', 'groupId','classId'));
-    }
-
-    /**
-     *  To display all particpated dogs in a class regarding an event for the judge
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function participate(Request $request)
     {
       // dd($request->group_id);
@@ -133,9 +120,9 @@ class ResultsController extends Controller
       //   ->get();
       // $dogsInShow = ShowEntry::hydrate($dogsInShow->toArray());
 
-      // foreach ($dogsInShow as $value) {
-      //   dd($value->results());
-      // }
+      foreach ($dogsInShow as $value) {
+        dd($value);
+      }
       // dd($dogsInShow);
       $event = Event::where('id', $request->show_id)->first();
       return view('manage.results.participate', compact('dogsInShow', 'event'));
