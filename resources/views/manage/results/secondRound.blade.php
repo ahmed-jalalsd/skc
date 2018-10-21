@@ -4,91 +4,38 @@
   <div class="flex-container">
     <div class="columns m-t-10 m-b-0">
       <div class="column">
-        <h1 class="title is-admin is-4">All Groups in {{$event->title}} Show</h1>
+        <h1 class="title is-admin is-4">All winners from the first round in <b> {{$event->title}} </b> Show</h1>
+        <h3 class=" is-admin is-4"><em>{{$group->group}}: </em> <small>{{$group->group_name}}</small> </h3>
       </div>
     </div>
 
     <hr class="m-t-0">
 
-    <div class="box">
-      @if($classesInShow)
-        @foreach ($classesInShow as $class)
-          <article class="media">
-
-            <div class="media-content">
-
-              <div class="content">
-
-                <p>
-                  <strong>{{ucfirst($class->classes->class)}} </strong>
-                </p>
-                <form action="{{route('results.participate')}}" method="GET">
-            			{{ csrf_field() }}
-
-                  <input type="hidden" name="show_id" value="{{$class->event_id}}">
-                  <input type="hidden" name="group_id" value="{{$class->group_id}}">
-                  <input type="hidden" name="class_id" value="{{$class->class_id}}">
-
-                  <div class="block ">
-                    <div class="block">
-                      <h5 class="is-4">Choose Sex</h5>
-                    </div>
-                      <b-radio-group v-model="radio">
-                        <b-radio  name="sex"
-                            native-value="male">
-                            Male
-                        </b-radio>
-                        <b-radio  name="sex"
-                            native-value="female">
-                            Female
-                        </b-radio>
-                     </b-radio-group>
-                  </div> {{-- end of block --}}
-                  <div class="primary-action-button">
-                    <button class="button is-primary backend-btn">Judging area</button>
-                  </div>
-                </form>
-
-              </div>
-
-            </div>
-
-          </article>
-       @endforeach
-
-       @else
-
-         <article class="media">
-
-           <div class="media-content">
-
-             <div class="content">
-
-               <p>
-                 <strong>Nothing to see</strong>
-               </p>
-
-             </div>
-
-           </div>
-
-         </article>
-
-       @endif
-
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Breed</th>
+          <th>Class</th>
+          <th>Dog name</th>
+          <th>Sex</th>
+          <th>Owner</th>
+          <th style="text-align:center;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($firstDogs as $firstDog)
+          <tr>
+            <td>{{$firstDog->showsEntries->dogs->breeds->breed}}</td>
+            <td>{{$firstDog->showsEntries->dogs->classes->class}}</td>
+            <td>{{$firstDog->showsEntries->dogs->dog_name}}</td>
+            <td>{{$firstDog->showsEntries->dogs->sex}}</td>
+            <td>{{$firstDog->showsEntries->dogs->owner}}</td>
+            <td>
+            </td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
 
   </div><!-- End of .flex-container -->
-@endsection
-
-@section('scripts')
-  <script>
-
-  var app = new Vue({
-    el: '#app',
-    data: {
-      radio: '',
-    }
-  });
-  </script>
 @endsection

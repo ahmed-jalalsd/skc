@@ -9,6 +9,7 @@ use App\Dog;
 use App\ShowEntry;
 use App\Classes;
 use App\Result;
+use App\Group;
 
 use Auth;
 use Session;
@@ -183,14 +184,23 @@ class ResultsController extends Controller
          */
         public function showSecondRound($eventId, $groupId)
         {
+
+          $firstDogs = DB::table('results')
+            ->join('show_entries', 'results.show_entries_id', '=', 'show_entries.id')
+            ->select('*')
+            ->where([
+              ['show_entries.event_id', '=', $eventId],
+              ['show_entries.group_id', '=', $groupId],
+              ['show_entries.class_id', '!=', 2],
+              ['results.order', '=', 1],
+              ])
+            ->get();
+            // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
+            $firstDogs = Result::hydrate($firstDogs->toArray());
+            // dd($firstDogs);
           $event = Event::where('id', $eventId)->first();
-          // Get distinct results
-          $firstDogs = Result::where('order' , '=', 1)->get();
-          // dd($firstDogs);
-          // foreach ($firstDogs as $value) {
-          //   dd($value->showsEntries->dogs->dog_name);
-          // }
-          return view('manage.results.classes', compact('classesInShow', 'event'));
+          $group = Group::findOrFail($groupId);
+          return view('manage.results.secondRound', compact('firstDogs', 'event', 'group'));
         }
 
     /**
