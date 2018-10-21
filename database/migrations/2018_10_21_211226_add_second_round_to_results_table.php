@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAwardToResultsTable extends Migration
+class AddSecondRoundToResultsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddAwardToResultsTable extends Migration
     public function up()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->string('award')->after('classification')->nullable();
+            $table->double('second_round')->after('status_first_round');;
         });
     }
 
@@ -26,7 +26,7 @@ class AddAwardToResultsTable extends Migration
     public function down()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->dropColumn('award');
+            $table->dropColumn('second_round');
         });
     }
 }

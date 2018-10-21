@@ -26,7 +26,7 @@ class AddStatusFirstRoundToResultsTable extends Migration
     public function down()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->dropColumn('award')
+            $table->dropColumn('status_first_round');
         });
     }
 }
