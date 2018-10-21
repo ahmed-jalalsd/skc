@@ -122,13 +122,11 @@ class ResultsController extends Controller
       // $dogsInShow = ShowEntry::hydrate($dogsInShow->toArray());
       // dd($dogsInShow);
 
-      // $results = ShowEntry::all();
-      // foreach ($results as $value) {
-      //   dd($value->results->order);
-      // }
-
       // foreach ($dogsInShow as $value) {
-      //   dd($value->results);
+      //   dd($value->results->isNotEmpty());
+      //   foreach ($value->results as $result) {
+      //     dd($result->status_first_round);
+      //   }
       // }
 
       $event = Event::where('id', $request->show_id)->first();
