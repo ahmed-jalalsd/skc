@@ -28,15 +28,18 @@
             <td>{{$dogInShow->dogs->sex}}</td>
             <td>{{$dogInShow->dogs->owner}}</td>
             <td>
-              @if($dogInShow->results->isNotEmpty())
-                <a class="button is-primary is-pulled-right backend-btn" disabled>
-                  Judge
-                </a>
-              @else
+                @foreach($dogInShow->results as $result)
+                  @if ($result->status_first_round)
+                  <a class="button is-primary is-pulled-right backend-btn" disabled>
+                    Judge
+                  </a>
+                  @else
+
                 <a href="{{route('results.create', $dogInShow->id)}}" class="button is-primary is-pulled-right backend-btn">
                   Judge
                 </a>
-              @endif
+                @endif
+              @endforeach
             </td>
           </tr>
         @endforeach

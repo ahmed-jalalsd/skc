@@ -123,7 +123,7 @@ class ResultsController extends Controller
       // dd($dogsInShow);
 
       // foreach ($dogsInShow as $value) {
-      //   dd($value->results->isNotEmpty());
+      //   // dd($value->results->isNotEmpty());
       //   foreach ($value->results as $result) {
       //     dd($result->status_first_round);
       //   }
