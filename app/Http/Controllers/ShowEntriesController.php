@@ -121,11 +121,15 @@ class ShowEntriesController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        // dd($request->dog_id);
+
+        // dd($dog);
         $this->validate($request,[
             'event_id' => 'required',
             'dog_id' => 'required',
         ]);
+        $dog = Dog::findOrFail($request->dog_id);
+        // dd($dog->breeds->group_id);
 
         $userId = $request->user()->id;
         $userEmail = $request->user()->email;
@@ -134,11 +138,11 @@ class ShowEntriesController extends Controller
 
         $showEntry = new ShowEntry();
         $showEntry->user_id = $userId;
-        $showEntry->group_id = $request->group_id;
+        $showEntry->group_id = $dog->breeds->group_id;
         $showEntry->dog_id = $request->dog_id;
-        $showEntry->class_id = $request->class_id;
+        $showEntry->class_id = $dog->class_id;
         $showEntry->event_id = $request->event_id;
-        $showEntry->sex = $request->sex;
+        $showEntry->sex = $dog->sex;
 
         // $showEntry->save();
 

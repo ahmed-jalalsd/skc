@@ -28,9 +28,9 @@
                     <b-select placeholder="Select the Dog" name="dog_id" required >
                       @foreach ($dogs as $dog)
                         <option value="{{$dog->id}}">{{$dog->dog_name}} | {{$dog->breeds->breed}}</option>
-                        <input type="hidden" name="class_id" value="{{$dog->class_id}}">
+                        <!-- <input type="hidden" name="class_id" value="{{$dog->class_id}}">
                         <input type="hidden" name="group_id" value="{{$dog->breeds->group_id}}">
-                        <input type="hidden" name="sex" value="{{$dog->sex}}">
+                        <input type="hidden" name="sex" value="{{$dog->sex}}"> -->
                       @endforeach
                     </b-select>
                 </b-field>
@@ -38,7 +38,7 @@
                 <b-field label="Choose the class" name="dog_class">
                     <b-select placeholder="Select the class" name="dog_class" required >
                       @foreach ($dogs as $dog)
-                        <option value="{{$dog->age}}">{{$dog->age}}</option>
+                        <option value="{{$dog->class_id}}">{{$dog->classes->class}}</option>
                       @endforeach
                     </b-select>
                 </b-field>

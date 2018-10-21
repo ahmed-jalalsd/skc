@@ -100,7 +100,7 @@ class ResultsController extends Controller
      */
     public function participate(Request $request)
     {
-      // dd($request->group_id);
+      // dd($request->sex);
 
       $dogsInShow = ShowEntry::orderBy('id', 'asc')
           ->where('event_id', '=', $request->show_id)
@@ -119,11 +119,17 @@ class ResultsController extends Controller
       //     ])
       //   ->get();
       // $dogsInShow = ShowEntry::hydrate($dogsInShow->toArray());
-
-      foreach ($dogsInShow as $value) {
-        dd($value);
-      }
       // dd($dogsInShow);
+
+      // $results = ShowEntry::all();
+      // foreach ($results as $value) {
+      //   dd($value->results->order);
+      // }
+
+      // foreach ($dogsInShow as $value) {
+      //   dd($value->results);
+      // }
+
       $event = Event::where('id', $request->show_id)->first();
       return view('manage.results.participate', compact('dogsInShow', 'event'));
     }
@@ -137,7 +143,8 @@ class ResultsController extends Controller
     {
         //show a list of the participate dogs
         $dogInfo = ShowEntry::findOrFail($dogInShowId);
-
+        // $dogInfo = ShowEntry::findOrFail($dogInShowId)->results;
+        // dd($dogInfo);
         // dd($dogInfo->classes->class);
         return view('manage.results.create', compact('dogInfo'));
     }
