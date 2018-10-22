@@ -347,7 +347,7 @@ class ResultsController extends Controller
        */
       public function showFinalRound($eventId)
       {
-        // dd($request->all());
+
         $firstDogs = DB::table('results')
           ->join('show_entries', 'results.show_entries_id', '=', 'show_entries.id')
           ->select('show_entries.id as id_show', 'show_entries.*' , 'results.*' )
@@ -360,10 +360,49 @@ class ResultsController extends Controller
           // dd($firstDogs);
           // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
           $firstDogs = Result::hydrate($firstDogs->toArray());
-          // dd($firstDogs);
           $event = Event::where('id', $eventId)->first();
 
           return view('manage.results.finalRound', compact('firstDogs', 'event', 'group'));
+        }
+
+        /**
+         * Show the form for create a form of the dog information so the judge can rate the dog
+         * also send the rsylt table id to find the record in the update method
+         *
+         * @return \Illuminate\Http\Response
+         */
+        public function createFinalRound($showEntriesId, $resultId)
+        {
+
+            $dogInfo = ShowEntry::findOrFail($showEntriesId);
+            return view('manage.results.createFinal', compact('dogInfo', 'resultId'));
+        }
+
+        /**
+         * Store a newly created resource in storage.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @return \Illuminate\Http\Response
+         */
+        public function storeFinalRound(Request $request, $id)
+        {
+
+            $this->validate($request, [
+                "classification" => "required",
+            ]);
+
+            $result = Result::findOrFail($id);
+
+            $result->final_round = $request->final_round_order;
+            $result->classification = $request->classification;
+            $result->status_final_round = 1;
+            $result->award = $request->award;
+
+
+            $result->save();
+
+            Session::flash('success', 'The result was successfully added');
+            return back();
         }
 
     /**

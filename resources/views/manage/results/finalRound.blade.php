@@ -41,7 +41,7 @@
                 </a>
               @else
                 <!--  send show_entries table id and result table id to the createSecond form method-->
-                <a href="{{route('results.createThird', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn">
+                <a href="{{route('results.createFinal', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn">
                   Judge
                 </a>
               @endif
