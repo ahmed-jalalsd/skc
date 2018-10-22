@@ -31,10 +31,16 @@
             <td>{{$firstDog->showsEntries->dogs->sex}}</td>
             <td>{{$firstDog->showsEntries->dogs->owner}}</td>
             <td>
-              <!--  send show_entries table id and result table id to the createSecond form method-->
-              <a href="{{route('results.createSecond', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn">
-                Judge
-              </a>
+              @if ($firstDog->status_second_round)
+                <a href="{{route('results.createSecond', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn" disabled>
+                  Judge
+                </a>
+              @else
+                <!--  send show_entries table id and result table id to the createSecond form method-->
+                <a href="{{route('results.createSecond', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn">
+                  Judge
+                </a>
+              @endif
             </td>
           </tr>
         @endforeach

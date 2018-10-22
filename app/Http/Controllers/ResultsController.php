@@ -216,7 +216,7 @@ class ResultsController extends Controller
         $firstDogs = Result::hydrate($firstDogs->toArray());
         // dd($firstDogs);
         // foreach ($firstDogs as $firstDog) {
-        //   dd($firstDog);
+        //   dd($firstDog->se);
         // }
       $event = Event::where('id', $request->event_id)->first();
       $group = Group::findOrFail($request->group_id);
