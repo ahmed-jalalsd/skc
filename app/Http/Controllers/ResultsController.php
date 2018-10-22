@@ -268,6 +268,32 @@ class ResultsController extends Controller
     }
 
     /**
+     *  To display winner from second round in a group
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showThirdRound(Request $request)
+    {
+      // dd($request->all());
+      $firstDogs = DB::table('results')
+        ->join('show_entries', 'results.show_entries_id', '=', 'show_entries.id')
+        ->select('show_entries.id as id_show', 'show_entries.*' , 'results.*' )
+        ->where([
+          ['show_entries.event_id', '=', $request->event_id],
+          ['show_entries.group_id', '=', $request->group_id],
+          ['show_entries.class_id', '!=', 2],
+          ['show_entries.sex', '=', $request->sex],
+          ['results.first_round', '=', 1],
+          ])
+        ->get();
+        // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
+        $firstDogs = Result::hydrate($firstDogs->toArray());
+        $event = Event::where('id', $request->event_id)->first();
+        $group = Group::findOrFail($request->group_id);
+        return view('manage.results.secondRound', compact('firstDogs', 'event', 'group'));
+      }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

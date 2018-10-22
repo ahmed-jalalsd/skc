@@ -48,10 +48,14 @@ Route::prefix('manage')->group(function(){
 	Route::get('/results/create/judgement/{dogInShowId}', 'ResultsController@create')->name('results.create'); // create a form of the dog information so the judge can rate the dog
 	Route::post('/results', 'ResultsController@store')->name('results.store');
 
+	// second Round
 	Route::get('/results/event/second/round/sex/choose/{eventId}/{groupId}', 'ResultsController@chooseSex')->name('results.chooseSex'); // to show sex of the second round
 	Route::get('/results/event/second/round/judge-area', 'ResultsController@showSecondRound')->name('results.secondRound'); // to show all the winner dogs of the first round
 	Route::get('/results/create/second/round/judgement/{showEntriesId}/{resultId}', 'ResultsController@createSecondRound')->name('results.createSecond'); // create a form of the dog information so the judge can rate the dog
 	Route::put('/results/second/round/{id}', 'ResultsController@storeSecondRound')->name('results.storeSecondRound'); //update the record
+
+	//Third Round
+	Route::get('/results/event/third/round/judge-area', 'ResultsController@showThirdRound')->name('results.thirdRound'); // to show all the winner dogs of the first round
 
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the
