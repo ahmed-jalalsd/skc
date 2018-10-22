@@ -38,7 +38,7 @@
                       Second Round
                     </a>
 
-                    <a href="{{route('results.classes', [$group->event_id, $group->group_id ])}}" class="level-item" aria-label="reply">
+                    <a href="{{route('results.thirdRound', [$group->event_id, $group->group_id ])}}" class="level-item" aria-label="reply">
                       <span class="icon is-medium">
                         <i class="fas fa-reply" aria-hidden="true"></i>
                       </span>

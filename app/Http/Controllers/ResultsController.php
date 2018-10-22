@@ -272,20 +272,20 @@ class ResultsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showThirdRound(Request $request)
+    public function showThirdRound($eventId, $groupId)
     {
       // dd($request->all());
       $firstDogs = DB::table('results')
         ->join('show_entries', 'results.show_entries_id', '=', 'show_entries.id')
         ->select('show_entries.id as id_show', 'show_entries.*' , 'results.*' )
         ->where([
-          ['show_entries.event_id', '=', $request->event_id],
-          ['show_entries.group_id', '=', $request->group_id],
+          ['show_entries.event_id', '=', $eventId],
+          ['show_entries.group_id', '=', $groupId],
           ['show_entries.class_id', '!=', 2],
-          ['show_entries.sex', '=', $request->sex],
-          ['results.first_round', '=', 1],
+          ['results.second_round', '=', 1],
           ])
         ->get();
+        dd($firstDogs);
         // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
         $firstDogs = Result::hydrate($firstDogs->toArray());
         $event = Event::where('id', $request->event_id)->first();

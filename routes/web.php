@@ -55,7 +55,7 @@ Route::prefix('manage')->group(function(){
 	Route::put('/results/second/round/{id}', 'ResultsController@storeSecondRound')->name('results.storeSecondRound'); //update the record
 
 	//Third Round
-	Route::get('/results/event/third/round/judge-area', 'ResultsController@showThirdRound')->name('results.thirdRound'); // to show all the winner dogs of the first round
+	Route::get('/results/event/third/round/judge-area/{eventId}/{groupId}', 'ResultsController@showThirdRound')->name('results.thirdRound'); // to show all the winner dogs of the first round
 
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the
