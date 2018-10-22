@@ -39,8 +39,13 @@
 
     <hr style="background-color: #ccc; height: 1px" class="m-t-0">
 
-		<form action="{{route('results.store')}}" method="POST">
+		<form action="{{route('results.storeSecondRound', $resultId)}}" method="POST"  enctype="multipart/form-data">
+      {{method_field('PUT')}}
 			{{ csrf_field() }}
+
+      <input type="hidden" name="event_id" value="{{$dogInfo->event_id}}">
+      <input type="hidden" name="group_id" value="{{$dogInfo->group_id}}">
+      <input type="hidden" name="sex" value="{{$dogInfo->sex}}">
 
       <input type="hidden" name="show_entries_id" value="{{$dogInfo->id}}">
 
@@ -52,19 +57,19 @@
             </div>
             <div class="block">
                 <b-radio-group v-model="radio">
-                  <b-radio  name="order"
+                  <b-radio  name="second_round_order"
                       native-value="1">
                       I
                   </b-radio>
-                  <b-radio  name="order"
+                  <b-radio  name="second_round_order"
                       native-value="2">
                       II
                   </b-radio>
-                  <b-radio  name="order"
+                  <b-radio  name="second_round_order"
                       native-value="3">
                       III
                   </b-radio>
-                  <b-radio  name="order"
+                  <b-radio  name="second_round_order"
                       native-value="4">
                       IV
                   </b-radio>
@@ -198,7 +203,7 @@
     </div> {{-- end of columns --}}
 
     <div class="primary-action-button">
-      <button class="button is-primary  backend-btn">Apply</button>
+      <button class="button is-primary backend-btn">Apply</button>
     </div>
 
     </form>

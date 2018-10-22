@@ -31,7 +31,8 @@
             <td>{{$firstDog->showsEntries->dogs->sex}}</td>
             <td>{{$firstDog->showsEntries->dogs->owner}}</td>
             <td>
-              <a href="{{route('results.create', $firstDog->id)}}" class="button is-primary is-pulled-right backend-btn">
+              <!--  send show_entries table id and result table id to the createSecond form method-->
+              <a href="{{route('results.createSecond', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn">
                 Judge
               </a>
             </td>

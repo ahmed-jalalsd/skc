@@ -198,10 +198,12 @@ class ResultsController extends Controller
     public function showSecondRound(Request $request)
     {
       // dd($request->all());
-      // the id is show_entries id not results
+      /***************************
+      the id is  results table id and the id_show is  show_entries table id which is show_entries_id on results table
+      **************/
       $firstDogs = DB::table('results')
         ->join('show_entries', 'results.show_entries_id', '=', 'show_entries.id')
-        ->select('*')
+        ->select('show_entries.id as id_show', 'show_entries.*' , 'results.*' )
         ->where([
           ['show_entries.event_id', '=', $request->event_id],
           ['show_entries.group_id', '=', $request->group_id],
@@ -213,9 +215,56 @@ class ResultsController extends Controller
         // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
         $firstDogs = Result::hydrate($firstDogs->toArray());
         // dd($firstDogs);
+        // foreach ($firstDogs as $firstDog) {
+        //   dd($firstDog);
+        // }
       $event = Event::where('id', $request->event_id)->first();
       $group = Group::findOrFail($request->group_id);
       return view('manage.results.secondRound', compact('firstDogs', 'event', 'group'));
+    }
+
+    /**
+     * Show the form for create a form of the dog information so the judge can rate the dog
+     * also send the rsylt table id to find the record in the update method
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createSecondRound($showEntriesId, $resultId)
+    {
+      // dd($dogInShowId);
+        $dogInfo = ShowEntry::findOrFail($showEntriesId);
+        // $dogInfo = ShowEntry::findOrFail($dogInShowId)->results;
+        // dd($dogInfo->results);
+        // dd( $dogInfo);
+        // dd($dogInfo->classes->class);
+        return view('manage.results.createSecond', compact('dogInfo', 'resultId'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeSecondRound(Request $request, $id)
+    {
+        // dd($id);
+        $this->validate($request, [
+            "classification" => "required",
+        ]);
+
+        $result = Result::findOrFail($id);
+ // dd($request->all());
+        $result->second_round = $request->second_round_order;
+        $result->classification = $request->classification;
+        $result->status_second_round = 1;
+        $result->award = $request->award;
+
+
+        $result->save();
+
+        Session::flash('success', 'The result was successfully added');
+        return back();
     }
 
     /**

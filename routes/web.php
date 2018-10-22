@@ -44,13 +44,14 @@ Route::prefix('manage')->group(function(){
 	Route::get('/results/all/events', 'ResultsController@showAllEvents')->name('results.all'); // to show all current events for the judge, found in nav.manage.blade.php
 	Route::get('/results/event/groups/judge-area/{eventId}', 'ResultsController@index')->name('results.index'); // to show all application regarding an event for the judge
 	Route::get('/results/event/classes/judge-area/{eventId}/{groupId}', 'ResultsController@showClasses')->name('results.classes'); // to show all classes inside a group for event for the judge
-
-	Route::get('/results/event/second/round/sex/choose/{eventId}/{groupId}', 'ResultsController@chooseSex')->name('results.chooseSex'); // to show all classes inside a group for event for the judge
-	Route::get('/results/event/second/round/judge-area}', 'ResultsController@showSecondRound')->name('results.secondRound'); // to show all classes inside a group for event for the judge
-
 	Route::get('/results/event/participate/dogs', 'ResultsController@participate')->name('results.participate'); // to show all application regarding an event for the judge
 	Route::get('/results/create/judgement/{dogInShowId}', 'ResultsController@create')->name('results.create'); // create a form of the dog information so the judge can rate the dog
 	Route::post('/results', 'ResultsController@store')->name('results.store');
+
+	Route::get('/results/event/second/round/sex/choose/{eventId}/{groupId}', 'ResultsController@chooseSex')->name('results.chooseSex'); // to show sex of the second round
+	Route::get('/results/event/second/round/judge-area', 'ResultsController@showSecondRound')->name('results.secondRound'); // to show all the winner dogs of the first round
+	Route::get('/results/create/second/round/judgement/{showEntriesId}/{resultId}', 'ResultsController@createSecondRound')->name('results.createSecond'); // create a form of the dog information so the judge can rate the dog
+	Route::put('/results/second/round/{id}', 'ResultsController@storeSecondRound')->name('results.storeSecondRound'); //update the record
 
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the
