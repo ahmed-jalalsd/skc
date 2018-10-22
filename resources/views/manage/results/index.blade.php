@@ -5,6 +5,12 @@
     <div class="columns m-t-10 m-b-0">
       <div class="column">
         <h1 class="title is-admin is-4">All Groups in {{$event->title}} Show</h1>
+        <a href="{{route('results.finalRound', [$event->id ])}}" class="level-item" aria-label="reply">
+          <span class="icon is-medium">
+            <i class="fas fa-reply" aria-hidden="true"></i>
+          </span>
+          Final Round
+        </a>
       </div>
     </div>
 

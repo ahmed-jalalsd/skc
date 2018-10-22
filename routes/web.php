@@ -59,6 +59,8 @@ Route::prefix('manage')->group(function(){
 	Route::get('/results/create/third/round/judgement/{showEntriesId}/{resultId}', 'ResultsController@createThirdRound')->name('results.createThird');
 	Route::put('/results/third/round/{id}', 'ResultsController@storeThirdRound')->name('results.storeThirdRound'); //update the record
 
+	Route::get('/results/event/final/round/judge-area/{eventId}', 'ResultsController@showFinalRound')->name('results.finalRound'); // to show all the winner dogs of the first round
+
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the
 	Route::post('entries/dynamic_dependent/fetch', 'ShowEntriesController@fetch')->name('dynamicdependent.fetch');
