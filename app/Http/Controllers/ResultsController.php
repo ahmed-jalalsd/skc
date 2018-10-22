@@ -298,6 +298,20 @@ class ResultsController extends Controller
 
 
       /**
+       * Show the form for create a form of the dog information so the judge can rate the dog
+       * also send the rsylt table id to find the record in the update method
+       *
+       * @return \Illuminate\Http\Response
+       */
+      public function createThirdRound($showEntriesId, $resultId)
+      {
+
+          $dogInfo = ShowEntry::findOrFail($showEntriesId);
+          return view('manage.results.createThird', compact('dogInfo', 'resultId'));
+      }
+
+
+      /**
        * Store a newly created resource in storage.
        *
        * @param  \Illuminate\Http\Request  $request
