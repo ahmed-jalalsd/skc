@@ -32,7 +32,7 @@
             <td>{{$firstDog->showsEntries->dogs->owner}}</td>
             <td>
               @if ($firstDog->status_second_round)
-                <a href="{{route('results.createSecond', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn" disabled>
+                <a  class="button is-primary is-pulled-right backend-btn" disabled>
                   Judge
                 </a>
               @else

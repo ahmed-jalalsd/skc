@@ -39,7 +39,7 @@
 
     <hr style="background-color: #ccc; height: 1px" class="m-t-0">
 
-		<form action="{{route('results.storeSecondRound', $resultId)}}" method="POST"  enctype="multipart/form-data">
+		<form action="{{route('results.storeThirdRound', $resultId)}}" method="POST"  enctype="multipart/form-data">
       {{method_field('PUT')}}
 			{{ csrf_field() }}
 

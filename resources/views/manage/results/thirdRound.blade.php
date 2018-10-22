@@ -32,12 +32,12 @@
             <td>{{$firstDog->showsEntries->dogs->owner}}</td>
             <td>
               @if ($firstDog->status_third_round)
-                <a href="{{route('results.createSecond', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn" disabled>
+                <a class="button is-primary is-pulled-right backend-btn" disabled>
                   Judge
                 </a>
               @else
                 <!--  send show_entries table id and result table id to the createSecond form method-->
-                <a href="{{route('results.createSecond', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn">
+                <a href="{{route('results.createThird', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn">
                   Judge
                 </a>
               @endif
