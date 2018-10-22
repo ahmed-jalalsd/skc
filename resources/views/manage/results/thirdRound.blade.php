@@ -4,8 +4,8 @@
   <div class="flex-container">
     <div class="columns m-t-10 m-b-0">
       <div class="column">
-        <h1 class="title is-admin is-4">All winners from the first round in <b> {{$event->title}} </b> Show</h1>
-        <h3 class=" is-admin is-4"><em>{{$group->group}}: </em> <small>{{$group->group_name}}</small> </h3>
+        <h1 class="title is-admin is-4">All winners from the second round in <b> {{$event->title}} </b> Show</h1>
+        <h3 class=" is-admin is-4">  Decide the <b> Best Of Breed </b> in <em>{{$group->group}}: </em> <small>{{$group->group_name}}</small> </h3>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
             <td>{{$firstDog->showsEntries->dogs->sex}}</td>
             <td>{{$firstDog->showsEntries->dogs->owner}}</td>
             <td>
-              @if ($firstDog->status_second_round)
+              @if ($firstDog->status_third_round)
                 <a href="{{route('results.createSecond', [$firstDog->show_entries_id, $firstDog->id])}}" class="button is-primary is-pulled-right backend-btn" disabled>
                   Judge
                 </a>

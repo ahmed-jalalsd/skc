@@ -4,7 +4,7 @@
   <div class="flex-container">
     <div class="columns m-t-10 m-b-0">
       <div class="column">
-        <h1 class="title is-admin is-4">All Groups in {{$event->title}} Show</h1>
+        <h1 class="title is-admin is-4">All the participated classes in {{$event->title}} Show from {{$group->group_name}} gruop <em>{{$group->group}}</em> </h1>
       </div>
     </div>
 

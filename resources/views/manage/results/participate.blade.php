@@ -4,7 +4,7 @@
   <div class="flex-container">
     <div class="columns m-t-10 m-b-0">
       <div class="column">
-        <h1 class="title is-admin is-4">All participants in {{$event->title}} Show</h1>
+        <h1 class="title is-admin is-4">Select the best dog in the <strong>{{$classInShow->class}}</strong> class in {{$event->title}} Show</h1>
       </div>
     </div>
 
@@ -34,7 +34,6 @@
                     Judge
                   </a>
                   @else
-
                 <a href="{{route('results.create', $dogInShow->id)}}" class="button is-primary is-pulled-right backend-btn">
                   Judge
                 </a>

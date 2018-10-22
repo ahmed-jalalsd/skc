@@ -83,6 +83,7 @@ class ResultsController extends Controller
     {
       // $dogInShow = $eventId;
       $event = Event::where('id', $eventId)->first();
+      $group = Group::where('id', $groupId)->first();
       // Get distinct results
       $classesInShow = DB::table('show_entries')->groupBy('class_id')->where([
         ['event_id', '=', $eventId],
@@ -91,7 +92,7 @@ class ResultsController extends Controller
       // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
       $classesInShow = ShowEntry::hydrate($classesInShow->toArray());
       // dd($classesInShow);
-      return view('manage.results.classes', compact('classesInShow', 'event'));
+      return view('manage.results.classes', compact('classesInShow', 'event', 'group'));
     }
 
     /**
@@ -103,6 +104,8 @@ class ResultsController extends Controller
     {
       // dd($request->sex);
 
+      $event = Event::where('id', $request->show_id)->first();
+      $classInShow = Classes::where('id', $request->class_id)->first();
       $dogsInShow = ShowEntry::orderBy('id', 'asc')
           ->where('event_id', '=', $request->show_id)
           ->where('group_id', '=', $request->group_id)
@@ -128,9 +131,7 @@ class ResultsController extends Controller
       //     dd($result->status_first_round);
       //   }
       // }
-
-      $event = Event::where('id', $request->show_id)->first();
-      return view('manage.results.participate', compact('dogsInShow', 'event'));
+      return view('manage.results.participate', compact('dogsInShow', 'event', 'classInShow'));
     }
 
     /**
@@ -220,7 +221,8 @@ class ResultsController extends Controller
         // }
       $event = Event::where('id', $request->event_id)->first();
       $group = Group::findOrFail($request->group_id);
-      return view('manage.results.secondRound', compact('firstDogs', 'event', 'group'));
+      $sex = $request->sex;
+      return view('manage.results.secondRound', compact('firstDogs', 'event', 'group', 'sex'));
     }
 
     /**
@@ -285,12 +287,41 @@ class ResultsController extends Controller
           ['results.second_round', '=', 1],
           ])
         ->get();
-        dd($firstDogs);
+        // dd($firstDogs);
         // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
         $firstDogs = Result::hydrate($firstDogs->toArray());
-        $event = Event::where('id', $request->event_id)->first();
-        $group = Group::findOrFail($request->group_id);
-        return view('manage.results.secondRound', compact('firstDogs', 'event', 'group'));
+        // dd($firstDogs);
+        $event = Event::where('id', $eventId)->first();
+        $group = Group::findOrFail($groupId);
+        return view('manage.results.thirdRound', compact('firstDogs', 'event', 'group'));
+      }
+
+
+      /**
+       * Store a newly created resource in storage.
+       *
+       * @param  \Illuminate\Http\Request  $request
+       * @return \Illuminate\Http\Response
+       */
+      public function storeThirdRound(Request $request, $id)
+      {
+          // dd($id);
+          $this->validate($request, [
+              "classification" => "required",
+          ]);
+
+          $result = Result::findOrFail($id);
+   // dd($request->all());
+          $result->second_round = $request->second_round_order;
+          $result->classification = $request->classification;
+          $result->status_second_round = 1;
+          $result->award = $request->award;
+
+
+          $result->save();
+
+          Session::flash('success', 'The result was successfully added');
+          return back();
       }
 
     /**
