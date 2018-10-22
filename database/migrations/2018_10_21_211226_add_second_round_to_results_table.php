@@ -14,7 +14,7 @@ class AddSecondRoundToResultsTable extends Migration
     public function up()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->bigInteger('second_round')->after('status_first_round');
+            $table->integer('second_round')->after('status_first_round');
         });
     }
 

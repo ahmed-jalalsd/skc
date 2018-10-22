@@ -35,7 +35,7 @@
             <td>{{$firstDog->showsEntries->dogs->sex}}</td>
             <td>{{$firstDog->showsEntries->dogs->owner}}</td>
             <td>
-              @if ($firstDog->status_third_round)
+              @if ($firstDog->status_final_round)
                 <a class="button is-primary is-pulled-right backend-btn" disabled>
                   Judge
                 </a>

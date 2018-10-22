@@ -14,7 +14,7 @@ class AddFinalRoundToResultsTable extends Migration
     public function up()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->boolean('final_round')->after('third_round');
+            $table->integer('final_round')->after('status_third_round');
         });
     }
 
