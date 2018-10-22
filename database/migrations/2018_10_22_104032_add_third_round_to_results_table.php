@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddStatusThirdRoundToResultsTable extends Migration
+class AddThirdRoundToResultsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddStatusThirdRoundToResultsTable extends Migration
     public function up()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->boolean('status_third_round')->after('status_second_round');
+            $table->boolean('third_round')->after('second_round');
         });
     }
 
@@ -26,7 +26,7 @@ class AddStatusThirdRoundToResultsTable extends Migration
     public function down()
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->dropColumn('status_third_round');
+            $table->dropColumn('third_round');
         });
     }
 }
