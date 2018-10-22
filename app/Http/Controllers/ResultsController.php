@@ -326,9 +326,9 @@ class ResultsController extends Controller
 
           $result = Result::findOrFail($id);
    // dd($request->all());
-          $result->second_round = $request->second_round_order;
+          $result->third_round = $request->third_round_order;
           $result->classification = $request->classification;
-          $result->status_second_round = 1;
+          $result->status_third_round = 1;
           $result->award = $request->award;
 
 
