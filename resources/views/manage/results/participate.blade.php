@@ -4,7 +4,7 @@
   <div class="flex-container">
     <div class="columns m-t-10 m-b-0">
       <div class="column">
-        <h1 class="title is-admin is-4">Select the best dog in the <strong>{{$classInShow->class}}</strong> class in {{$event->title}} Show</h1>
+        <h1 class="title is-admin is-4">Decide the <b> Best {{ ucfirst($sex) }} Dog in the <strong>{{ ucfirst($classInShow->class) }}</strong> </b> class in <b> {{$event->title}} </b>Show</h1>
       </div>
     </div>
 

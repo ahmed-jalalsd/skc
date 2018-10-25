@@ -112,6 +112,7 @@ class ResultsController extends Controller
           ->where('class_id', '=', $request->class_id)
           ->where('sex', '=', $request->sex)
           ->get();
+      $sex = $request->sex;
 
       // $dogsInShow = DB::table('show_entries')
       //   ->join('dogs', 'show_entries.dog_id', '=', 'dogs.id')
@@ -131,7 +132,7 @@ class ResultsController extends Controller
       //     dd($result->status_first_round);
       //   }
       // }
-      return view('manage.results.participate', compact('dogsInShow', 'event', 'classInShow'));
+      return view('manage.results.participate', compact('dogsInShow', 'event', 'classInShow', 'sex'));
     }
 
     /**
