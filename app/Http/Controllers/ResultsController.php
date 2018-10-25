@@ -69,9 +69,14 @@ class ResultsController extends Controller
       $groupsInShow = DB::table('show_entries')->groupBy('group_id')->where([['event_id', '=', $eventId],
           ])->get();
 
+      // to count the column and show the second round button
+      $countFirstRound = Result::where('first_round','=','1')->count();
+      $countSecondRound = Result::where('second_round','=','1')->count();
+      $countFinalRound = Result::where('third_round','=','1')->count();
+      // dd($countSecondRound);
       // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
       $groupsInShow = ShowEntry::hydrate($groupsInShow->toArray());
-      return view('manage.results.index', compact('groupsInShow', 'event'));
+      return view('manage.results.index', compact('groupsInShow', 'event','countFirstRound', 'countSecondRound'));
     }
 
     /**

@@ -5,6 +5,8 @@
     <div class="columns m-t-10 m-b-0">
       <div class="column">
         <h1 class="title is-admin is-4">All Groups in {{$event->title}} Show</h1>
+      </div>
+      <div class="column">
         <a href="{{route('results.finalRound', [$event->id ])}}" class="level-item" aria-label="reply">
           <span class="icon is-medium">
             <i class="fas fa-reply" aria-hidden="true"></i>
@@ -37,19 +39,27 @@
                       First Round
                     </a>
 
-                    <a href="{{route('results.chooseSex', [$group->event_id, $group->group_id ])}}" class="level-item" aria-label="reply">
-                      <span class="icon is-medium">
-                        <i class="fas fa-reply" aria-hidden="true"></i>
-                      </span>
-                      Second Round
-                    </a>
+                    @if($countFirstRound > 0)
+                      <a href="{{route('results.chooseSex', [$group->event_id, $group->group_id ])}}" class="level-item" aria-label="reply">
+                        <span class="icon is-medium">
+                          <i class="fas fa-reply" aria-hidden="true"></i>
+                        </span>
+                        Second Round
+                      </a>
+                    @else
+                      <span></span>
+                    @endif
 
+                    @if($countSecondRound > 0)
                     <a href="{{route('results.thirdRound', [$group->event_id, $group->group_id ])}}" class="level-item" aria-label="reply">
                       <span class="icon is-medium">
                         <i class="fas fa-reply" aria-hidden="true"></i>
                       </span>
                       Third Round
                     </a>
+                    @else
+                      <span></span>
+                    @endif
 
                   </div>
 
