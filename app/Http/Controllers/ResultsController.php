@@ -347,7 +347,7 @@ class ResultsController extends Controller
           $result->save();
 
           Session::flash('success', 'The result was successfully added');
-          return back();
+          return redirect()->action('ResultsController@showThirdRound', [$request->event_id,$request->group_id ]);
       }
 
 
