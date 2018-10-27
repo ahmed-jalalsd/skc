@@ -229,6 +229,7 @@ class ResultsController extends Controller
       $event = Event::where('id', $request->event_id)->first();
       $group = Group::findOrFail($request->group_id);
       $sex = $request->sex;
+
       return view('manage.results.secondRound', compact('firstDogs', 'event', 'group', 'sex'));
     }
 
@@ -257,7 +258,8 @@ class ResultsController extends Controller
      */
     public function storeSecondRound(Request $request, $id)
     {
-        // dd($id);
+        // dd($request->_token);
+        // dd($request);
         $this->validate($request, [
             "classification" => "required",
         ]);
@@ -273,7 +275,9 @@ class ResultsController extends Controller
         $result->save();
 
         Session::flash('success', 'The result was successfully added');
-        return back();
+        // return redirect()->route('results.secondRound',[$request->_token,$request->event_id, $request->group_id, $request->sex]);
+        // return redirect()->route('results.secondRound',[$request]);
+        return redirect()->action('ResultsController@chooseSex', [$request->event_id,$request->group_id ]);
     }
 
     /**

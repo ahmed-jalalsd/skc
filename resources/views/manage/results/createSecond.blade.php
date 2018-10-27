@@ -46,6 +46,7 @@
       <input type="hidden" name="event_id" value="{{$dogInfo->event_id}}">
       <input type="hidden" name="group_id" value="{{$dogInfo->group_id}}">
       <input type="hidden" name="sex" value="{{$dogInfo->sex}}">
+      <input type="hidden" name="class_id" value="{{$dogInfo->class_id}}">
 
       <input type="hidden" name="show_entries_id" value="{{$dogInfo->id}}">
 
