@@ -94,6 +94,7 @@ class ResultsController extends Controller
         ['event_id', '=', $eventId],
         ['group_id', '=', $groupId],
         ])->get();
+
       // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
       $classesInShow = ShowEntry::hydrate($classesInShow->toArray());
       // dd($classesInShow);
@@ -163,7 +164,7 @@ class ResultsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd( $request->classification);
+        // dd( $request->sex);
         $this->validate($request, [
             "classification" => "required",
         ]);
@@ -179,7 +180,7 @@ class ResultsController extends Controller
         $result->save();
 
         Session::flash('success', 'The result was successfully added');
-        return redirect()->back();
+        return redirect()->route('results.participate',[$request]);
     }
 
     /**
