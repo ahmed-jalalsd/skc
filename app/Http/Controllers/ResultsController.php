@@ -70,13 +70,18 @@ class ResultsController extends Controller
           ])->get();
 
       // to count the column and show the second round button
-      $countFirstRound = Result::where('first_round','=','1')->count();
-      $countSecondRound = Result::where('second_round','=','1')->count();
-      $countFinalRound = Result::where('third_round','=','1')->count();
-      // dd($countSecondRound);
+      $firstRound = Result::where('first_round','=','1')->get();
+      $countFirstRound = $firstRound->count();
+      $secondRound = Result::where('second_round','=','1')->get();
+      $countSecondRound = $secondRound->count();
+      $thirdRound = Result::where('third_round','=','1')->get();
+      $countFinalRound = $thirdRound->count();
+
+      $finalRound = Result::where('final_round','=','1')->get();
+      // dd($firstRound);
       // *** To access relationship with  Query Builder method (convert Query Builder to elQuent) *** //
       $groupsInShow = ShowEntry::hydrate($groupsInShow->toArray());
-      return view('manage.results.index', compact('groupsInShow', 'event','countFirstRound', 'countSecondRound'));
+      return view('manage.results.index', compact('groupsInShow', 'event','countFirstRound', 'countSecondRound','firstRound', 'secondRound','thirdRound','finalRound'));
     }
 
     /**
