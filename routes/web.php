@@ -65,6 +65,7 @@ Route::prefix('manage')->group(function(){
 	Route::put('/results/final/round/{id}', 'ResultsController@storeFinalRound')->name('results.storeFinalRound'); //update the record
 
 	Route::get('/results/all/show', 'ManageController@showAll')->name('results.showAll'); //update the record
+	Route::get('/results/all/show/best/{eventId}', 'ManageController@showBestAll')->name('results.showBestAll'); //update the record
 
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the

@@ -34,17 +34,8 @@
       							<h4 class="subtitle">End Date: {{$currentEvent->end_date}}</h4>
                     <nav class="columns is-mobile">
                       <div class="column is-one-half">
-            						 <a  class="m-r-10 m-t-5">
-                           <span class="icon m-r-10">
-                             <img src="{{ asset('images/backend/details.png') }}" alt="link to show">
-                           </span>
-                         </a>
-                       </div>
-                       <div class="column is-one-half">
-            						 <a  class="m-r-10 m-t-5">
-                           <span class="icon m-r-10">
-                             <img src="{{ asset('images/backend/edit.png') }}" alt="link to edit">
-                           </span>
+            						 <a href="{{route('results.showBestAll', $currentEvent->id)}}" class="m-r-10 m-t-5">
+                           see results
                          </a>
                        </div>
                      </nav>

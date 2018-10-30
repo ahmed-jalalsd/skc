@@ -33,7 +33,10 @@ class ResultsController extends Controller
 
       // $currentEvents = ShowEntry::orderBy('id', 'asc')->get()->groupBy('event_id');
       // $currentEvents = ShowEntry::orderBy('id', 'asc')->get();
-      $currentEvents = Event::orderBy('start_date', 'asc')->where('start_date', '>=', date('Y-m-d') )->get();
+      $currentEvents = Event::orderBy('start_date', 'asc')
+      ->where('start_date', '>=', date('Y-m-d') )
+      ->where('flag_application', '=', 1 )
+      ->get();
       // dd($currentEvents);
 
       // $currentEvents = DB::table('show_entries')->select('*', DB::raw('count(*) as total'))
