@@ -64,6 +64,8 @@ Route::prefix('manage')->group(function(){
 	Route::get('/results/create/final/round/judgement/{showEntriesId}/{resultId}', 'ResultsController@createFinalRound')->name('results.createFinal');
 	Route::put('/results/final/round/{id}', 'ResultsController@storeFinalRound')->name('results.storeFinalRound'); //update the record
 
+	Route::get('/results/all/show', 'ManageController@showAll')->name('results.showAll'); //update the record
+
 	Route::resource('/entries', 'ShowEntriesController', ['except' => 'show']);
 	Route::get('/entries/add/{event}', 'ShowEntriesController@applyToEvent')->name('apply.event'); //found in manage.entries.index.blade.php the apply button in the
 	Route::post('entries/dynamic_dependent/fetch', 'ShowEntriesController@fetch')->name('dynamicdependent.fetch');

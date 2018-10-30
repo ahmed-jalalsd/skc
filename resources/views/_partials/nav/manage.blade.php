@@ -1,13 +1,13 @@
 <div class="side-menu" id="admin-side-menu">
   <aside class="menu m-t-30 m-l-10">
-    <p class="menu-label">
+    <!-- <p class="menu-label">
       General
     </p>
     <ul class="menu-list">
       <li>
       	<a href="{{route('manage.dashboard')}}"  class="{{Nav::isRoute('manage.dashboard')}}">Dashboard</a>
       </li>
-    </ul>
+    </ul> -->
 
     @role('superadministrator|administrator')
     <p class="menu-label">
@@ -30,7 +30,7 @@
 
 
       <p class="menu-label">
-        Personal Area
+        General Area
       </p>
       <ul class="menu-list">
         <li>
@@ -38,6 +38,9 @@
         </li>
         <li>
           <a href="{{route('entries.all.application')}}" class="{{Nav::isRoute('entries.all.application')}}"> All Applications</a>
+        </li>
+        <li>
+          <a href="{{route('results.showAll')}}" class="{{Nav::isRoute('results.showAll')}}"> All Results</a>
         </li>
       </ul>
 
