@@ -308,7 +308,7 @@
       <div class="news__bk">
 
         <div class="news__box columns is-multiline ">
-
+          @if($fbPosts)
           @foreach ($fbPosts as $fbPost)
 
             <div class="paper post column is-4">
@@ -342,6 +342,7 @@
 
           </div>
           @endforeach
+          @endif
           <figure class="news__right-paw image">
               <img src="{{asset('images/pages/paws1.png')}}">
           </figure>
