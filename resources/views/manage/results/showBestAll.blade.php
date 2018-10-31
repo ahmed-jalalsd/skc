@@ -96,6 +96,29 @@
               </article>
             </div>
           </div>
+        @elseif($winner->showsEntries->dogs->sex == 'male' &&  $winner->showsEntries->dogs->classes->class == 'baby' or  $winner->showsEntries->dogs->classes->class == 'puppy')
+          <div class="column is-two-fifths baby-show" style="display:none;">
+            <div class="box">
+              <article class="media">
+                <div class="media-content">
+                  <div class="content">
+                    <h4 class="subtitle">The Best Female Puppy/Baby in <b> {{ ucfirst($winner->showsEntries->dogs->breeds->groups->group_name) }} </b> group </h4>
+                    <h4 class="subtitle">Dog name: {{$winner->showsEntries->dogs->dog_name}}</h4>
+                    <h4 class="subtitle"><b>Breed:</b> {{ ucfirst($winner->showsEntries->dogs->breeds->breed) }}</h4>
+                    <h4 class="subtitle"><b>Owner:</b> {{ ucfirst($winner->showsEntries->dogs->users->name) }}</h4>
+                    <p>
+                      <b>Award:</b> @if($winner->award)
+                       {{ ucfirst($winner->award) }}
+                    @else
+                       None
+                    @endif
+                  </p>
+
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
         @elseif($winner->showsEntries->dogs->sex == 'female' &&  $winner->showsEntries->dogs->classes->class == 'junior')
           <div class="column is-two-fifths junior-show" style="display:none;">
             <div class="box">
