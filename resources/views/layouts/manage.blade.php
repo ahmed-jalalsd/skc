@@ -9,6 +9,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>SKC - Management</title>
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js?c9qvqp08rwbxin5ukgwubtrb7f68kl0ebw7yn57y2138bnaw"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
