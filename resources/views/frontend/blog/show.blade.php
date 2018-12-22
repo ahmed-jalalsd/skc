@@ -41,7 +41,7 @@
       </div> <!-- end of single raise div -->
 
       <div class="column is-2 side-bar">
-        @include('_partials.nav.archive-side', ['url1' => 'blog
+        @include('_partials.nav.archive-side', ['url1' => 'blog'])
       </div> <!-- end of side bar -->
 
     </div> <!-- end of first columns -->
