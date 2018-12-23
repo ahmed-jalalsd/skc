@@ -1,7 +1,11 @@
 /node_modules
 /public/hot
 /public/storage
-/public/images
+/public/images/blog
+/public/images/dogs
+/public/images/events
+/public/images/gallery
+/public/images/pages
 /storage/*.key
 /vendor
 /.idea
