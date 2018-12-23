@@ -1,122 +1,408 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Sudanese Kennel Club</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
-<!--===============================================================================================-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
-<!--===============================================================================================-->
-  <link href="{{ asset('css/util.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-<!--===============================================================================================-->
-</head>
-<body>
+@section('content')
+    <section class="home">
 
-	<div class="bg-img1 size1 flex-w flex-c-m p-t-55 p-b-55 p-l-15 p-r-15" style="background-image: url('images/bg01.jpg'); ">
-		<div class="wsize1 bor1 bg1 p-t-175 p-b-45 p-l-15 p-r-15 respon1 " style="padding-top:0;">
-			<div class="wrappic1 logo">
-        <!-- Sudanes Kennel Club -->
-				<img src="{{asset('images/skc-logo.png')}}" alt="LOGO" style="width:140px;">
-			</div>
+        <div class="container">
 
-			<p class="txt-center m1-txt1 p-t-33 p-b-68">
-				Our website is under construction <br>
-				Coming soon
-			</p>
+          <div class="welcome"> <!-- Start of welcome div -->
 
-			<!-- <div class="wsize2 flex-w flex-c hsize1 cd100">
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 days">15</span>
-					<span class="s1-txt1">Days</span>
-				</div>
+              <div class="welcome__image">
 
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 hours">17</span>
-					<span class="s1-txt1">Hours</span>
-				</div>
-
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 minutes">50</span>
-					<span class="s1-txt1">Minutes</span>
-				</div>
-
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 seconds">39</span>
-					<span class="s1-txt1">Seconds</span>
-				</div>
-			</div> -->
-
-			<!-- <form class="flex-w flex-c-m contact100-form validate-form p-t-55">
-				<div class="wrap-input100 validate-input where1" data-validate = "Email is required: ex@abc.xyz">
-					<input class="s1-txt2 placeholder0 input100" type="text" name="email" placeholder="Your Email">
-					<span class="focus-input100"></span>
-				</div>
+                <div class="try-image">
+                    <img src="{{asset('images/pages/only-dog.png')}}" alt="">
+                </div>
 
 
-				<button class="flex-c-m s1-txt3 size3 how-btn trans-04 where1">
-					Get Notified
-				</button>
+                <div class="try-text">
 
-			</form>
-
-			<p class="s1-txt4 txt-center p-t-10">
-				I promise to <span class="bor2">never</span> spam
-			</p> -->
-
-		</div>
-	</div>
+                  <h2 class="title">Welcome</h2>
+                  <p class="subitle">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
 
 
+                  <a class="button js-modal-trigger skc-btn">Register</a>
+
+                  <div class="modal">
+
+                    <div class="modal-background"></div>
+
+                    <div class="modal-content">
+
+                      <form class="register-form" method="POST" action="{{ route('register') }}">
+
+                          {{ csrf_field() }}
+
+                          <div class="field is-horizontal">
+
+                              <div class="field-label">
+                                  <label class="label">Name</label>
+                              </div>
+
+                              <div class="field-body">
+                                  <div class="field">
+                                      <p class="control has-icons-left has-icons-right">
+                                          <input class="input" id="name" type="name" name="name" value="{{ old('name') }}"
+                                                 required autofocus>
+                                                 <span class="icon is-small is-left">
+                                                   <i class="fal fa-user-alt"></i>
+                                                </span>
+                                      </p>
+
+                                      @if ($errors->has('name'))
+                                          <p class="help is-danger">
+                                              {{ $errors->first('name') }}
+                                          </p>
+                                      @endif
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                              <div class="field-label">
+                                  <label class="label">E-mail </label>
+                              </div>
+
+                              <div class="field-body">
+                                  <div class="field">
+                                      <p class="control  has-icons-left has-icons-right">
+                                          <input class="input" id="email" type="email" name="email"
+                                                 value="{{ old('email') }}" required autofocus>
+
+                                          <span class="icon is-small is-left">
+                                            <i class="fas fa-envelope"></i>
+                                         </span>
+
+                                      </p>
+
+                                      @if ($errors->has('email'))
+                                          <p class="help is-danger">
+                                              {{ $errors->first('email') }}
+                                          </p>
+                                      @endif
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                              <div class="field-label">
+                                  <label class="label">Password</label>
+                              </div>
+
+                              <div class="field-body">
+                                  <div class="field">
+                                      <p class="control  has-icons-left has-icons-right">
+                                          <input class="input" id="password" type="password" name="password" required>
+                                          <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                         </span>
+                                      </p>
+
+                                      @if ($errors->has('password'))
+                                          <p class="help is-danger">
+                                              {{ $errors->first('password') }}
+                                          </p>
+                                      @endif
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                              <div class="field-label">
+                                  <label class="label">Confirm Password</label>
+                              </div>
+
+                              <div class="field-body">
+                                  <div class="field">
+                                      <p class="control has-icons-left has-icons-right">
+                                          <input class="input" id="password-confirm" type="password"
+                                                 name="password_confirmation" required>
+
+                                                 <span class="icon is-small is-left">
+                                                   <i class="fas fa-lock"></i>
+                                                </span>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                            <div class="field-label">
+                              <label class="label">Phone Number</label>
+                            </div>
+                            <div class="field-body">
+                              <div class="field is-expanded">
+                                <div class="field has-addons">
+                                  <p class="control">
+                                    <a class="button is-static">
+                                      +249
+                                    </a>
+                                  </p>
+                                  <p class="control is-expanded">
+                                    <input class="input" type="tel" placeholder="Your phone number" name="phone_number">
+                                  </p>
+                                </div>
+                                <p class="help">Do not enter the first zero</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                              <div class="field-label">
+                                  <label class="label">Address</label>
+                              </div>
+
+                              <div class="field-body">
+                                  <div class="field">
+                                      <p class="control has-icons-left has-icons-right">
+                                          <input class="input" id="address" type="text"
+                                          name="address">
+                                                 <span class="icon is-small is-left">
+                                                   <i class="fas fa-lock"></i>
+                                                </span>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="field is-horizontal">
+                              <div class="field-label"></div>
+
+                              <div class="field-body">
+                                  <div class="field is-grouped custom-align">
+                                      <div class="control">
+                                          <button type="submit" class="button is-primary">Register</button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+
+                    </div>
+                    <button class="modal-close is-large" aria-label="close"></button>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="welcome__bkg-top">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                   viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
+                     <polygon class="st0" points="0,110.1 1700,110.1 1700,9.1 0,78.1 "/>
+                </svg>
+              </div>
+
+              <div class="welcome__bkg">
+
+                <figure class="welcome__right-paw image">
+                    <img src="{{asset('images/pages/paws1.png')}}">
+                </figure>
+
+                <figure class="welcome__right-paw--bottom image is-hidden-mobile">
+                    <img src="{{asset('images/pages/paws2.png')}}">
+                </figure>
+
+                <div class="about">
+
+                  <hr class="is-hidden-mobile ">
+
+                    <h1 class="title">about us</h1>
+
+                    <div class="columns about__box">
+
+                      <div class="column about__box--left">
+                        <div class="text">
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          </p>
+                        </div>
+                        <div class="image"></div>
+                      </div>
+
+                      <div class="column about__box--right">
+                        <div class="image"></div>
+                        <div class="text">
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          </p>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <hr class="is-hidden-mobile long-line">
+                </div>
+
+                <figure class="welcome__left-paw image is-hidden-mobile">
+                  <!-- <img src="{{asset('images/pages/paws3.png')}}"> -->
+                </figure>
+
+                <figure class="welcome__left-paw--bottom image is-hidden-mobile">
+                  <img src="{{asset('images/pages/paws3.png')}}">
+                </figure>
+
+              </div>
+
+              <div class="welcome__bkg-bottom">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                 viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
+                <polygon class="st0" points="1700,1.1 0,1.1 0,102.1 1700,33.1 "/>
+              </div>
+
+            </div> <!-- </div>  End of welcome div  -->
+
+          </div> <!-- End of container div -->
+
+    </section>
+
+    <section class="events">
+      <h1 class="title">Events</h1>
+
+      <div class="wrapper">
+        <div class="masonry">
+            @foreach ($events as $event)
+              <figure class="masonry__brick">
+                <img src="{{ 'images/events/'.$event->featured_image }}" class="masonry__img" alt="Skc logo">
+                  <figcaption>
+                    <h4>{{$event->title}}</h4>
+          			  </figcaption>
+                  <a href="{{ route('event.show', $event->id) }}"></a>
+          	  </figure>
+          @endforeach
+        </div>
+      </div>
 
 
 
-<!--===============================================================================================-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!--===============================================================================================-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" integrity="sha256-xJOZHfpxLR/uhh1BwYFS5fhmOAdIRQaiOul5F/b7v3s=" crossorigin="anonymous" />
-<!--===============================================================================================-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.23/moment-timezone.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.23/moment-timezone-with-data.min.js"></script>
-  <script src="{{ asset('js/countdowntime.js') }}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/countdown/2.6.0/countdown.js"></script>
-	<script>
-		$('.cd100').countdown100({
-			/*Set Endtime here*/
-			/*Endtime must be > current time*/
-			endtimeYear: 0,
-			endtimeMonth: 0,
-			endtimeDate: 15,
-			endtimeHours: 18,
-			endtimeMinutes: 0,
-			endtimeSeconds: 0,
-			timeZone: ""
-			// ex:  timeZone: "America/New_York"
-			//go to " http://momentjs.com/timezone/ " to get timezone
-		});
-	</script>
-<!--===============================================================================================-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-  <script src="{{ asset('js/main.js') }}"></script>
+      <div class="events__btn has-text-centered">
+        <a href="{{ URL::route('event.index') }}" class="button is-meduim skc-btn">More</a>
+      </div>
 
-</body>
-</html>
+    </section>
+
+    <section class="news">
+
+      <div class="news__bkg-up">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
+             <polygon class="st0" points="0,110.1 1700,110.1 1700,9.1 0,78.1 "/>
+        </svg>
+      </div>
+
+      <div class="news__bk">
+
+        <div class="news__box columns is-multiline ">
+          <!-- @if($fbPosts) -->
+          <!-- @foreach ($fbPosts as $fbPost) -->
+
+            <!-- <div class="paper post column is-4">
+
+              <figure class="image post__poster">
+                <img src="{{ $fbPost['full_picture']}}" alt="Placeholder image">
+              </figure>
+
+              <div class="post__content">
+
+                <div class="tags has-addons">
+                  <span class="tag is-rounded">{{date('d-m-Y', strtotime($fbPost['created_time']))}}</span>
+                </div>
+
+                <h2 class="title post__content--title">
+                  {{ isset( $fbPost['name']) ? str_limit( $fbPost['name'], 21) : 'Default' }} -->
+                  <!-- {{ $fbPost['name']}} -->
+                <!-- </h2>
+
+                <hr class="post__line">
+
+                <div class="post__content--body">
+                  <p>
+                    {{ isset($fbPost['description']) ? str_limit($fbPost['description'], 80) : 'Default' }}
+                  </p>
+                </div>
+
+                <a href="{{ $fbPost['permalink_url']}}" class=" skc-btn" target="_blank">Read More</a>
+
+            </div>
+
+          </div> -->
+          <!-- @endforeach
+          @endif -->
+          <figure class="news__right-paw image">
+              <img src="{{asset('images/pages/paws1.png')}}">
+          </figure>
+          <figure class="news__right-paw--bottom image">
+              <img src="{{asset('images/pages/paws2.png')}}">
+          </figure>
+        </div>
+
+      </div>
+
+      <div class="news__bkg-bottom">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 1700 110" style="enable-background:new 0 0 1700 110; fill:#E4EDF7;" xml:space="preserve">
+        <polygon class="st0" points="1700,1.1 0,1.1 0,102.1 1700,33.1 "/>
+      </div>
+
+    </section>
+
+@endsection
+
+@section('scripts')
+
+  <script>
+  const app = new Vue({
+    el: '#app',
+    });
+  </script>
+
+  <script>
+  const menu = new Vue({
+    el: '.menu',
+    data:{
+      isActive: false,
+      open: false,
+      current: false
+    },
+    computed:{
+      compClass: function () {
+        return {
+          open: this.open,
+          isActive: this.isActive
+        }
+      }
+    }
+  });
+  </script>
+
+  <script type="text/javascript">
+
+    $(".js-modal-trigger").click(function() {
+      var targetModal = $(this).next('div');
+      $(targetModal).addClass("is-active");
+    });
+
+    $(".modal-background").click(function() {
+      $(".modal").removeClass("is-active");
+    });
+
+    $(".modal-close").click(function() {
+      $(".modal").removeClass("is-active");
+    });
+  </script>
+@endsection

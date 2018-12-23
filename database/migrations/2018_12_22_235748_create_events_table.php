@@ -23,6 +23,8 @@ class CreateEventsTable extends Migration
             $table->string('featured_image')->nullable();
             $table->string('images')->nullable();
             $table->integer('flag_application');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
 
             $table->foreign('user_id')
