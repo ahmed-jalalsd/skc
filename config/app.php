@@ -106,6 +106,7 @@ return [
 
     'key' => env('base64:kLPVqmUfJsRx8Yfru07wNrOqhUQYI8E1UYoSKc2VnRM='),
 
+    
     'cipher' => 'AES-256-CBC',
 
     /*
