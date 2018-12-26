@@ -38,7 +38,7 @@ class HomeController extends Controller
         // ->fetch();
         // // dd($fbData);
         // // dd($fbData['data']);
-        // $fbPosts = $fbData['data'];
+        $fbPosts = null;
         return view('/home', compact('events', 'fbPosts'));
     }
 }
